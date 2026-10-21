@@ -281,3 +281,31 @@ body.studio-final .dexter-title::after{background:linear-gradient(90deg,transpar
 @media(max-width:760px){
   .hero.solar-window::before{left:16px !important;right:16px !important}
 }
+
+/* V6 – astronaut and sun above the solar frame */
+/* The original hero frame has paint layers at z=9 (::after) and z=16
+   (::before). Keep both intact and continuous, but show the sun and
+   astronaut IN FRONT of them, including when the comparison clip moves. */
+.hero.comparison-ready .hero-new{
+  position:absolute;
+  z-index:17 !important;
+  /* Keep the image and its alpha edges visible across the upper light rim. */
+  overflow:visible;
+}
+.hero.comparison-ready .hero-new .white-halo.sun-stage{
+  z-index:11 !important;
+  isolation:isolate;
+}
+.hero.comparison-ready .hero-new .character-wrap{
+  z-index:12 !important;
+}
+/* The comparison interaction remains the frontmost layer of the hero. */
+.hero.comparison-ready .comparison-overlay{
+  z-index:18 !important;
+}
+.hero.comparison-ready .compare-labels{
+  z-index:19 !important;
+}
+.hero.comparison-ready .compare-handle{
+  z-index:20 !important;
+}
