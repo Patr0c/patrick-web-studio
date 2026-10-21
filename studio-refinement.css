@@ -373,3 +373,25 @@ body.studio-final .dexter-title::after{background:linear-gradient(90deg,transpar
 .project-preview:hover,.orbit-window:hover {
   box-shadow:0 0 8px rgba(36,238,29,.92),0 0 26px rgba(25,230,30,.34) !important;
 }
+
+/* V9 — motion-locked galaxy dust and visible project stills */
+/* The celestial dust belongs to the turning spiral itself.
+   The sparse full-viewport field floats above it but stays completely static. */
+.space-background .galaxy-position { z-index:1; }
+.space-background .galaxy-rotator { isolation:isolate; }
+.space-background .galaxy-rotator > .round-galaxy { position:relative; z-index:0; }
+.space-background .galaxy-rotator > .galaxy-dust {
+  z-index:2; opacity:.86; pointer-events:none;
+  mix-blend-mode:screen;
+}
+.space-background .static-starfield {
+  z-index:3; pointer-events:none; opacity:.84;
+}
+/* Project cards show their actual recording poster at rest.
+   Only the recording playback requires a hover. */
+.project-preview video {
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  background-color:#090d13 !important;
+}
