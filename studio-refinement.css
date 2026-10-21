@@ -333,3 +333,61 @@ body.studio-final .dexter-title::after{background:linear-gradient(90deg,transpar
   box-shadow:0 0 24px rgba(57,255,20,.30) !important;
   opacity:.31 !important;
 }
+
+/* V8 — focused laser-green lettering and accents */
+/* REWORK is the outline span; the b element is only its final dot.
+   Use a saturated beam-green edge and tight glow, with no white wash. */
+.hero .dexter-title > .outline {
+  color:transparent !important;
+  -webkit-text-fill-color:transparent !important;
+  -webkit-text-stroke:1.45px #23d92a !important;
+  text-shadow:
+    0 0 1px rgba(202,255,188,.40),
+    0 0 4px rgba(30,244,32,.77),
+    0 0 9px rgba(13,184,20,.48) !important;
+  filter:none !important;
+}
+/* DIGITAL is solid white: remove the broad green reflection. */
+.hero .dexter-title > span:not(.outline) {
+  color:#f7fff5 !important;
+  -webkit-text-fill-color:#f7fff5 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:0 0 2px rgba(255,255,255,.16) !important;
+  filter:none !important;
+}
+.hero .dexter-title > b {
+  color:#18e524 !important;
+  text-shadow:0 0 5px rgba(24,229,36,.60),0 0 9px rgba(9,159,25,.38) !important;
+}
+/* Keep the green circle, but stop it illuminating DIGITAL like a floodlight. */
+.hero h1::before {
+  opacity:.35 !important;
+  box-shadow:0 0 12px rgba(25,229,15,.39),0 0 30px rgba(18,166,35,.19) !important;
+}
+.hero .red-blob{
+  opacity:.23 !important;
+  box-shadow:0 0 24px rgba(25,229,15,.35) !important;
+}
+/* Stronger cores for smaller accents; existing shadow radii retained. */
+.logo span,.links a:last-child span,.section-number,.service-orbit,
+.category-note,.hero-signature i,summary b,.scroll-note span,.text-link span {
+  color:#25ed26 !important;
+  text-shadow:0 0 6px rgba(22,225,31,.77) !important;
+}
+.eyebrow span,.service-orbit::after,.nav-note i,.links a:first-child::after{
+  background:#25f128 !important;
+  box-shadow:0 0 14px rgba(25,235,35,.88) !important;
+}
+.hero-action {
+  box-shadow:0 0 17px rgba(36,240,30,.78),0 0 36px rgba(22,213,34,.33) !important;
+}
+.hero-action:hover{
+  box-shadow:0 0 17px rgba(36,240,30,.94),0 0 36px rgba(22,213,34,.41) !important;
+}
+.compare-handle{
+  box-shadow:0 0 3px #f0ffed,0 0 16px rgba(25,238,24,.88),0 0 35px rgba(25,238,24,.42) !important;
+}
+.category.is-open .category-trigger,.category-trigger:hover,
+.project-preview:hover,.orbit-window:hover {
+  box-shadow:0 0 8px rgba(36,238,29,.92),0 0 26px rgba(25,230,30,.34) !important;
+}
