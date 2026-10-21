@@ -260,27 +260,9 @@ body.studio-final .dexter-title::after{background:linear-gradient(90deg,transpar
   /* Consistent luminance around the full frame, including behind the sun. */
   background:linear-gradient(180deg,#ffcf81 0%,#ffad44 100%) !important;
 }
-/* The top edge is a separate continuous highlight, over the sun compositing
-   layer; inset only by corner radius so the curved ends remain natural. */
-.hero.solar-window::before {
-  content:"" !important;
-  position:absolute !important;
-  z-index:16 !important;
-  top:0 !important;
-  left:19px !important;
-  right:19px !important;
-  height:2px !important;
-  background:#ffe1a2 !important;
-  border-radius:2px !important;
-  box-shadow:0 0 3px #fff5d8,0 0 9px #ffbf56,0 0 17px #ff991c99 !important;
-  pointer-events:none !important;
-  opacity:1 !important;
-  transform:none !important;
-  clip-path:none !important;
-}
-@media(max-width:760px){
-  .hero.solar-window::before{left:16px !important;right:16px !important}
-}
+/* Single upper frame layer: no duplicate highlight pseudo-element. */
+.hero.solar-window::before { content:none !important; display:none !important; }
+
 
 /* V6 – astronaut and sun above the solar frame */
 /* The original hero frame has paint layers at z=9 (::after) and z=16
