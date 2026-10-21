@@ -395,3 +395,27 @@ body.studio-final .dexter-title::after{background:linear-gradient(90deg,transpar
   opacity:1 !important;
   background-color:#090d13 !important;
 }
+
+/* V10 — visible synchronized spiral-core stars */
+/* Previously .galaxy-position{opacity:.6} faded its entire subtree.
+   Give the artwork its old brightness, but keep pinpoints independent. */
+.space-background .galaxy-position{
+  opacity:1 !important;
+}
+.space-background .galaxy-rotator > .round-galaxy{
+  opacity:.60 !important;
+}
+.space-background .galaxy-rotator > .galaxy-dust{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:5 !important;
+  opacity:1 !important;
+  mix-blend-mode:screen !important;
+  pointer-events:none !important;
+  /* Central sparkle stays uncovered and the outer ring feathers out. */
+  mask-image:radial-gradient(circle,#000 0 55%,#000e 64%,transparent 73%) !important;
+  -webkit-mask-image:radial-gradient(circle,#000 0 55%,#000e 64%,transparent 73%) !important;
+}
+@media(max-width:760px){
+  .space-background .galaxy-rotator > .round-galaxy{opacity:.55 !important}
+}
