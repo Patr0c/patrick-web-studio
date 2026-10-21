@@ -77,24 +77,49 @@
     if (!size) return;
     const ctx = prepare(dust,size,size);
     const centered = size/2, rand = random(19042026);
-    const countDust = Math.round(Math.min(2400, Math.max(900, size * 2.05)));
+    // Paint ONCE: the canvas itself rotates with the galaxy.
+    // A high-contrast fine star film, concentrated near the spiral core.
+    // Parent galaxy opacity is handled on the image, not on this canvas.
+    const countDust = Math.round(Math.min(2850, Math.max(1200, size * 2.35)));
     for (let i=0; i<countDust; i++) {
-      // A light granular star film follows the visible circular galaxy.
       const angle = rand()*Math.PI*2;
-      const distance = Math.sqrt(rand()) * size * .485;
+      const distance = Math.pow(rand(), .72) * size * .45;
+      const x = centered + Math.cos(angle)*distance;
+      const y = centered + Math.sin(angle)*distance;
+      star(ctx, x, y, .33 + rand()*.66, .36 + rand()*.58, i % 79 === 0);
+    }
+
+    // Clearly legible luminous pinpoints across the actual galaxy centre.
+    // The glows are short-ranged and never stretch with the CSS animation.
+    for (let i=0; i<135; i++) {
+      const angle = rand()*Math.PI*2;
+      const distance = Math.pow(rand(), .82)*size*.36;
+      const x = centered + Math.cos(angle)*distance;
+      const y = centered + Math.sin(angle)*distance;
+      star(ctx, x, y, .85 + rand()*.65, .75 + rand()*.23, true);
+    }
+
+    // Distinct, delicate 4-point light flares, distributed across the core.
+    // Not a starburst wallpaper: these are sparse, stable, small glints.
+    for (let i=0; i<35; i++) {
+      const angle = rand()*Math.PI*2;
+      const distance = (i<5 ? rand()*.10 : Math.pow(rand(),.86)*.34)*size;
       const x = centered+Math.cos(angle)*distance;
       const y = centered+Math.sin(angle)*distance;
-      star(ctx, x, y, .17 + rand() * .59, .18 + rand() * .62, i % 73 === 0);
-      // Very rare crisp four-point starlight, painted once, not animated.
-      if (i % 137 === 0) {
-        const arm = 2.4 + rand() * 3.0;
-        ctx.strokeStyle = 'rgba(225,245,255,.48)';
-        ctx.lineWidth = .48;
-        ctx.beginPath();
-        ctx.moveTo(x-arm,y); ctx.lineTo(x+arm,y);
-        ctx.moveTo(x,y-arm); ctx.lineTo(x,y+arm);
-        ctx.stroke();
-      }
+      const arm = Math.min(8.5, 3.7+rand()*4.6);
+      const glow = ctx.createRadialGradient(x,y,0,x,y,arm*1.8);
+      glow.addColorStop(0,'rgba(246,252,255,.70)');
+      glow.addColorStop(.22,'rgba(189,226,255,.30)');
+      glow.addColorStop(1,'rgba(162,203,255,0)');
+      ctx.fillStyle=glow;
+      ctx.beginPath();ctx.arc(x,y,arm*1.8,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle='rgba(236,249,255,.75)';
+      ctx.lineWidth=.7;
+      ctx.beginPath();
+      ctx.moveTo(x-arm,y);ctx.lineTo(x+arm,y);
+      ctx.moveTo(x,y-arm);ctx.lineTo(x,y+arm);
+      ctx.stroke();
+      star(ctx,x,y,1.15+rand()*.6,.94);
     }
   }
   let queued = false;
