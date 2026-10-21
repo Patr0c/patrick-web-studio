@@ -133,3 +133,289 @@ body.studio-final .dexter-title::after { background:linear-gradient(90deg,transp
   .hero h1::before { box-shadow:0 0 15px #a4ff5c90,0 0 38px #87ff4752 !important; }
   .hero-action { box-shadow:0 0 14px #a4ff5c6d !important; }
 }
+
+/* Lightweight static frames instead of hidden animated fire canvases. */
+.corona-canvas,.corona-source,.cosmic-points{display:none!important}
+.solar-window::after{animation:none!important;opacity:.84!important}
+.galaxy-dust,.galaxy-rotator::after{mix-blend-mode:normal}
+html.studio-tab-hidden .galaxy-rotator,html.studio-tab-hidden .concept-orbit,html.studio-tab-hidden .wheel-panel{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.galaxy-rotator,.solar-window::after{animation:none!important}}
+
+
+/* Laser-green reference: saturated green beam, pale near-white core. */
+:root{
+ --neon-green:#39ff14; --neon-green-soft:rgba(57,255,20,.2);
+ --blue:#39ff14; --accent:#39ff14; --contrast:#39ff14;
+}
+.dexter-title .outline{
+ -webkit-text-stroke:1.4px #8eff86 !important;
+ text-shadow:0 0 3px #daffda,0 0 12px #4aff2f,0 0 28px #14ec22,0 0 50px #16b91e !important;
+}
+.dexter-title b{color:#39ff14!important;text-shadow:0 0 18px #39ff14aa!important}
+.dexter-rule{
+ background:linear-gradient(90deg,transparent,#0fbf17 16%,#c6ffbd 45%,#39ff14 72%,transparent)!important;
+ box-shadow:0 0 12px #39ff14,0 0 25px #13cc27b3!important;
+}
+body.studio-final .dexter-title::after{background:linear-gradient(90deg,transparent,#39ff1499,transparent)!important}
+@keyframes dexterType {
+ 0%,7%{opacity:0;transform:translateY(35px);filter:blur(6px)}
+ 17%,70%{opacity:1;transform:translateY(0);filter:blur(0)}
+ 72%{transform:translateX(-7px);text-shadow:10px 0 #39ff14}
+ 74%{transform:translateX(5px);text-shadow:-7px 0 #39ff14}
+ 77%,100%{opacity:1;transform:translateX(0);text-shadow:none}
+}
+.hero h1::before{background:radial-gradient(circle,#dfffce,#39ff14 53%,#137b15)!important;box-shadow:0 0 20px #39ff14c0,0 0 62px #20e628a0!important}
+.red-blob{background:#39ff14!important;box-shadow:0 0 42px #39ff1480!important}
+.logo span,.links a:last-child span,.section-number,.service-orbit,.category-note,.hero-signature i,summary b,
+.scroll-note span,.hero-action span,.text-link span {color:#39ff14!important}
+.eyebrow span,.service-orbit::after,.nav-note i,.links a:first-child::after{background:#39ff14!important;box-shadow:0 0 14px #39ff14a0!important}
+.hero-action{background:linear-gradient(130deg,#bbffb1,#39ff14)!important;border-color:#b9ffb5!important;box-shadow:0 0 17px #39ff1480,0 0 36px #22e72b4b!important;color:#07200b!important}
+.hero-action span{color:#073909!important}
+.hero-action:hover{background:#b7ffa7!important;box-shadow:0 0 30px #39ff14bb!important}
+.compare-labels>span,.font-suggestion-link{border-color:#39ff1480!important;background:#07190fda!important}
+.font-suggestion-link{color:#caffc7!important}
+.compare-handle{border-color:#d2ffca!important;background:radial-gradient(circle,#163f1b,#07120af2 72%)!important;box-shadow:0 0 3px #e8ffe0,0 0 16px #39ff14aa,0 0 35px #39ff1455!important}
+.compare-handle>span,.compare-handle small{color:#d9ffd3!important}
+.section-head h2 em,.services-intro h2 em,.footer h2 em{color:#6fff64!important;text-shadow:0 0 21px #39ff1470}
+.category.is-open .category-trigger,.category-trigger:hover,.project-preview:hover,.orbit-window:hover{border-color:#39ff1499!important;box-shadow:0 0 8px #39ff1480,0 0 26px #39ff144a!important}
+
+/* Two matching vertical anchors determine the entire divider; never overshoot frame. */
+.hero.comparison-ready{--slider-margin:26px}
+.hero.comparison-ready .comparison-overlay{inset:0!important;overflow:hidden!important;filter:none!important;z-index:11}
+.hero.comparison-ready .comparison-fire{
+ display:block!important;top:0!important;height:100%!important;width:40px!important;
+ left:clamp(var(--slider-margin),var(--reveal),calc(100% - var(--slider-margin)))!important;
+ transform:translateX(-50%);filter:drop-shadow(0 0 5px #ffa83b);
+ opacity:1!important;overflow:visible;pointer-events:none;
+}
+.hero.comparison-ready .fire-bloom{stroke:#ff8a20!important;stroke-width:14!important;opacity:.45!important}
+.hero.comparison-ready .fire-edge{stroke:#ffba55!important;stroke-width:5!important;opacity:1!important}
+.hero.comparison-ready .fire-core{stroke:#fff9db!important;stroke-width:2!important;opacity:1!important}
+.hero.comparison-ready .compare-handle{
+ left:clamp(var(--slider-margin),var(--reveal),calc(100% - var(--slider-margin)))!important;
+ top:50%!important;transform:translate(-50%,-50%)!important;width:52px;height:52px;
+ display:grid!important;place-items:center;z-index:15
+}
+.hero.comparison-ready .comparison-overlay::before,
+.hero.comparison-ready .comparison-overlay::after{
+ content:"";position:absolute;left:clamp(var(--slider-margin),var(--reveal),calc(100% - var(--slider-margin)));
+ transform:translateX(-50%);width:9px;height:9px;border-radius:50%;
+ background:#fff9dc;border:1px solid #ffb945;
+ box-shadow:0 0 9px 3px #ffa432,0 0 19px 6px #ff8b1a8a;z-index:13
+}
+.hero.comparison-ready .comparison-overlay::before{top:0}
+.hero.comparison-ready .comparison-overlay::after{bottom:0}
+@media(max-width:760px){.hero.comparison-ready{--slider-margin:23px}.hero.comparison-ready .compare-handle{width:46px;height:46px}}
+
+
+/* V4 – Seamless comparison beam.
+   The invisible slider anchor is a single CSS coordinate for the top and bottom
+   of one uninterrupted line. No marker dots, no displaced SVG and no overshoot. */
+.hero.comparison-ready .comparison-overlay {
+  position:absolute !important;
+  inset:0 !important;
+  overflow:hidden !important;
+  border-radius:inherit !important;
+  pointer-events:none !important;
+  filter:none !important;
+  z-index:11 !important;
+}
+.hero.comparison-ready .comparison-fire {
+  display:none !important;
+}
+.hero.comparison-ready .comparison-overlay::before {
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:clamp(var(--slider-margin),var(--reveal),calc(100% - var(--slider-margin))) !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:3px !important;
+  height:auto !important;
+  transform:translateX(-50%) !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:linear-gradient(90deg,#ffa52e 0%,#fffbe9 50%,#ff9a25 100%) !important;
+  box-shadow:0 0 4px 1px #ffe1a5c9,0 0 12px 3px #ffae44a0,0 0 25px 6px #ff882c64 !important;
+  pointer-events:none !important;
+  z-index:13 !important;
+}
+.hero.comparison-ready .comparison-overlay::after {
+  content:none !important;
+  display:none !important;
+}
+
+/* V5 – seamless upper solar frame.
+   The original solar CSS intentionally clipped the hero's border at the sun:
+   .hero:after { clip-path:polygon(... 41% ... 59% ...) }
+   Remove that notch at every breakpoint. Keep the slider beam independent. */
+.hero.solar-window {
+  border-top-color:#ffca73 !important;
+}
+.hero.solar-window::after {
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+  animation:none !important;
+  opacity:1 !important;
+  /* Consistent luminance around the full frame, including behind the sun. */
+  background:linear-gradient(180deg,#ffcf81 0%,#ffad44 100%) !important;
+}
+/* Single upper frame layer: no duplicate highlight pseudo-element. */
+.hero.solar-window::before { content:none !important; display:none !important; }
+
+
+/* V6 – astronaut and sun above the solar frame */
+/* The original hero frame has paint layers at z=9 (::after) and z=16
+   (::before). Keep both intact and continuous, but show the sun and
+   astronaut IN FRONT of them, including when the comparison clip moves. */
+.hero.comparison-ready .hero-new{
+  position:absolute;
+  z-index:17 !important;
+  /* Keep the image and its alpha edges visible across the upper light rim. */
+  overflow:visible;
+}
+.hero.comparison-ready .hero-new .white-halo.sun-stage{
+  z-index:11 !important;
+  isolation:isolate;
+}
+.hero.comparison-ready .hero-new .character-wrap{
+  z-index:12 !important;
+}
+/* The comparison interaction remains the frontmost layer of the hero. */
+.hero.comparison-ready .comparison-overlay{
+  z-index:18 !important;
+}
+.hero.comparison-ready .compare-labels{
+  z-index:19 !important;
+}
+.hero.comparison-ready .compare-handle{
+  z-index:20 !important;
+}
+
+/* V7 — restrained neon typography glow */
+/* The laser-green hue stays the same. Reduce the oversized light bloom
+   rather than dimming text readability or modifying the solar frame. */
+.hero .dexter-title .outline {
+  -webkit-text-stroke:1.25px #adffa6 !important;
+  text-shadow:
+    0 0 2px rgba(210,255,206,.55),
+    0 0 7px rgba(57,255,20,.40),
+    0 0 16px rgba(20,220,32,.18) !important;
+}
+.hero .dexter-title b {
+  text-shadow:0 0 7px rgba(57,255,20,.40) !important;
+}
+.hero h1::before {
+  box-shadow:
+    0 0 12px rgba(57,255,20,.48),
+    0 0 30px rgba(18,196,35,.26) !important;
+  opacity:.64 !important;
+}
+.hero .red-blob {
+  box-shadow:0 0 24px rgba(57,255,20,.30) !important;
+  opacity:.31 !important;
+}
+
+/* V8 — focused laser-green lettering and accents */
+/* REWORK is the outline span; the b element is only its final dot.
+   Use a saturated beam-green edge and tight glow, with no white wash. */
+.hero .dexter-title > .outline {
+  color:transparent !important;
+  -webkit-text-fill-color:transparent !important;
+  -webkit-text-stroke:1.45px #23d92a !important;
+  text-shadow:
+    0 0 1px rgba(202,255,188,.40),
+    0 0 4px rgba(30,244,32,.77),
+    0 0 9px rgba(13,184,20,.48) !important;
+  filter:none !important;
+}
+/* DIGITAL is solid white: remove the broad green reflection. */
+.hero .dexter-title > span:not(.outline) {
+  color:#f7fff5 !important;
+  -webkit-text-fill-color:#f7fff5 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:0 0 2px rgba(255,255,255,.16) !important;
+  filter:none !important;
+}
+.hero .dexter-title > b {
+  color:#18e524 !important;
+  text-shadow:0 0 5px rgba(24,229,36,.60),0 0 9px rgba(9,159,25,.38) !important;
+}
+/* Keep the green circle, but stop it illuminating DIGITAL like a floodlight. */
+.hero h1::before {
+  opacity:.35 !important;
+  box-shadow:0 0 12px rgba(25,229,15,.39),0 0 30px rgba(18,166,35,.19) !important;
+}
+.hero .red-blob{
+  opacity:.23 !important;
+  box-shadow:0 0 24px rgba(25,229,15,.35) !important;
+}
+/* Stronger cores for smaller accents; existing shadow radii retained. */
+.logo span,.links a:last-child span,.section-number,.service-orbit,
+.category-note,.hero-signature i,summary b,.scroll-note span,.text-link span {
+  color:#25ed26 !important;
+  text-shadow:0 0 6px rgba(22,225,31,.77) !important;
+}
+.eyebrow span,.service-orbit::after,.nav-note i,.links a:first-child::after{
+  background:#25f128 !important;
+  box-shadow:0 0 14px rgba(25,235,35,.88) !important;
+}
+.hero-action {
+  box-shadow:0 0 17px rgba(36,240,30,.78),0 0 36px rgba(22,213,34,.33) !important;
+}
+.hero-action:hover{
+  box-shadow:0 0 17px rgba(36,240,30,.94),0 0 36px rgba(22,213,34,.41) !important;
+}
+.compare-handle{
+  box-shadow:0 0 3px #f0ffed,0 0 16px rgba(25,238,24,.88),0 0 35px rgba(25,238,24,.42) !important;
+}
+.category.is-open .category-trigger,.category-trigger:hover,
+.project-preview:hover,.orbit-window:hover {
+  box-shadow:0 0 8px rgba(36,238,29,.92),0 0 26px rgba(25,230,30,.34) !important;
+}
+
+/* V9 — motion-locked galaxy dust and visible project stills */
+/* The celestial dust belongs to the turning spiral itself.
+   The sparse full-viewport field floats above it but stays completely static. */
+.space-background .galaxy-position { z-index:1; }
+.space-background .galaxy-rotator { isolation:isolate; }
+.space-background .galaxy-rotator > .round-galaxy { position:relative; z-index:0; }
+.space-background .galaxy-rotator > .galaxy-dust {
+  z-index:2; opacity:.86; pointer-events:none;
+  mix-blend-mode:screen;
+}
+.space-background .static-starfield {
+  z-index:3; pointer-events:none; opacity:.84;
+}
+/* Project cards show their actual recording poster at rest.
+   Only the recording playback requires a hover. */
+.project-preview video {
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  background-color:#090d13 !important;
+}
+
+/* V10 — visible synchronized spiral-core stars */
+/* Previously .galaxy-position{opacity:.6} faded its entire subtree.
+   Give the artwork its old brightness, but keep pinpoints independent. */
+.space-background .galaxy-position{
+  opacity:1 !important;
+}
+.space-background .galaxy-rotator > .round-galaxy{
+  opacity:.60 !important;
+}
+.space-background .galaxy-rotator > .galaxy-dust{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:5 !important;
+  opacity:1 !important;
+  mix-blend-mode:screen !important;
+  pointer-events:none !important;
+  /* Central sparkle stays uncovered and the outer ring feathers out. */
+  mask-image:radial-gradient(circle,#000 0 55%,#000e 64%,transparent 73%) !important;
+  -webkit-mask-image:radial-gradient(circle,#000 0 55%,#000e 64%,transparent 73%) !important;
+}
+@media(max-width:760px){
+  .space-background .galaxy-rotator > .round-galaxy{opacity:.55 !important}
+}
