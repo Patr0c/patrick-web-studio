@@ -27,7 +27,7 @@
   if (reduced) rotating.style.animation = 'none';
 
   function prepare(canvas, width, height) {
-    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const dpr = Math.min(devicePixelRatio || 1, 1.25, Math.sqrt(2200000 / Math.max(1, width * height)));
     canvas.width = Math.max(1, Math.round(width * dpr));
     canvas.height = Math.max(1, Math.round(height * dpr));
     const context = canvas.getContext('2d', {alpha:true});
@@ -64,7 +64,7 @@
     if (!size) return;
     const ctx = prepare(dust,size,size);
     const centered = size/2, rand = random(19042026);
-    const countDust = Math.round(Math.min(1900,Math.max(550,size*1.7)));
+    const countDust = Math.round(Math.min(950,Math.max(350,size*.95)));
     for (let i=0; i<countDust; i++) {
       // A light granular star film follows the visible circular galaxy.
       const angle = rand()*Math.PI*2;
@@ -82,3 +82,5 @@
   }, {passive:true});
   render();
 })();
+
+(()=>{const update=()=>document.documentElement.classList.toggle('studio-tab-hidden',document.hidden);document.addEventListener('visibilitychange',update,{passive:true});update();})();
