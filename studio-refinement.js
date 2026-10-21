@@ -17,7 +17,7 @@
   const fixed = document.createElement('canvas');
   fixed.className = 'static-starfield';
   fixed.setAttribute('aria-hidden', 'true');
-  space.prepend(fixed);
+  space.append(fixed); // fixed sky and outer-halo pinpoints stay above the spiral, never rotate
 
   const random = (seed) => () => {
     seed = (Math.imul(1664525, seed) + 1013904223) >>> 0;
@@ -53,7 +53,7 @@
     const width = innerWidth, height = innerHeight;
     const fixedCtx = prepare(fixed,width,height);
     const rng = random(20261021);
-    const count = Math.min(2200, Math.ceil(width * height / 740));
+    const count = Math.min(2450, Math.ceil(width * height / 680));
     for (let i=0; i<count; i++) {
       const x = rng()*width, y = rng()*height;
       const radius = .25 + rng()*.75;
@@ -63,10 +63,10 @@
     const bounds = galaxy.getBoundingClientRect();
     // Extra stationary pinpoints just outside the turning spiral.
     // Same seed on every redraw: no twinkling, flicker or animation cost.
-    const orbitCount = Math.min(480, Math.max(160, Math.round(width * height / 4000)));
+    const orbitCount = Math.min(650, Math.max(220, Math.round(width * height / 2900)));
     for (let i=0; i<orbitCount; i++) {
       const angle = rng() * Math.PI * 2;
-      const r = bounds.width * (.43 + Math.pow(rng(), .82) * .30);
+      const r = bounds.width * (.46 + Math.pow(rng(), .83) * .28);
       const x = bounds.left + bounds.width / 2 + Math.cos(angle) * r;
       const y = bounds.top + bounds.height / 2 + Math.sin(angle) * r;
       if (x >= 0 && x <= width && y >= 0 && y <= height) {
@@ -77,14 +77,24 @@
     if (!size) return;
     const ctx = prepare(dust,size,size);
     const centered = size/2, rand = random(19042026);
-    const countDust = Math.round(Math.min(1650, Math.max(620, size * 1.48)));
+    const countDust = Math.round(Math.min(2400, Math.max(900, size * 2.05)));
     for (let i=0; i<countDust; i++) {
       // A light granular star film follows the visible circular galaxy.
       const angle = rand()*Math.PI*2;
       const distance = Math.sqrt(rand()) * size * .485;
       const x = centered+Math.cos(angle)*distance;
       const y = centered+Math.sin(angle)*distance;
-      star(ctx, x, y, .17 + rand() * .60, .18 + rand() * .64, i % 66 === 0);
+      star(ctx, x, y, .17 + rand() * .59, .18 + rand() * .62, i % 73 === 0);
+      // Very rare crisp four-point starlight, painted once, not animated.
+      if (i % 137 === 0) {
+        const arm = 2.4 + rand() * 3.0;
+        ctx.strokeStyle = 'rgba(225,245,255,.48)';
+        ctx.lineWidth = .48;
+        ctx.beginPath();
+        ctx.moveTo(x-arm,y); ctx.lineTo(x+arm,y);
+        ctx.moveTo(x,y-arm); ctx.lineTo(x,y+arm);
+        ctx.stroke();
+      }
     }
   }
   let queued = false;
