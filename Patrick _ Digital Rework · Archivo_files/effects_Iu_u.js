@@ -1,7 +1,22 @@
 // Project recordings play only while their preview is hovered.
 (()=>{
  const previews=[...document.querySelectorAll('.project-preview')];
- const states=previews.map(preview=>({preview,video:preview.querySelector('video'),visible:false,timer:0}));
+ const states=previews.map(preview=>({preview,video:preview.querySelector('video'),visible:false,timer:0,stillRequested:false}));
+ // Every video card gets its own still frame *before* the visitor hovers.
+ // A generated poster is the preferred instant preview; seeking the real
+ // recording is a fallback when the browser has not fetched its poster.
+ function prepareStill(s){
+  if(s.stillRequested || !s.video)return;
+  s.stillRequested=true;
+  const video=s.video;
+  video.addEventListener('loadedmetadata',()=>{
+   if(video.paused && video.duration>.12){
+    try { video.currentTime=.08; } catch {}
+   }
+  },{once:true});
+  video.preload='auto';
+  video.load();
+ }
  function stop(s){
   s.video.pause();s.preview.classList.remove('is-playing');
   if(s.timer)return;
@@ -14,10 +29,11 @@
  }
  const watcher=new IntersectionObserver(entries=>entries.forEach(entry=>{
   const s=states.find(s=>s.preview===entry.target);s.visible=entry.isIntersecting;
-  if(s.visible&&s.preview.matches(':hover'))play(s);else stop(s);
- }),{threshold:.05});
+  if(s.visible){prepareStill(s);if(s.preview.matches(':hover'))play(s);}
+  else stop(s);
+ }),{threshold:.01,rootMargin:'450px 0px'});
  for(const s of states){
-  s.video.muted=true;s.video.autoplay=false;s.video.removeAttribute('autoplay');s.video.pause();
+  s.video.muted=true;s.video.autoplay=false;s.video.removeAttribute('autoplay');s.video.preload='none';s.video.pause();
   s.preview.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')play(s);});
   s.preview.addEventListener('pointerleave',()=>stop(s));
   watcher.observe(s.preview);
