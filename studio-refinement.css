@@ -206,3 +206,41 @@ body.studio-final .dexter-title::after{background:linear-gradient(90deg,transpar
 .hero.comparison-ready .comparison-overlay::before{top:0}
 .hero.comparison-ready .comparison-overlay::after{bottom:0}
 @media(max-width:760px){.hero.comparison-ready{--slider-margin:23px}.hero.comparison-ready .compare-handle{width:46px;height:46px}}
+
+
+/* V4 – Seamless comparison beam.
+   The invisible slider anchor is a single CSS coordinate for the top and bottom
+   of one uninterrupted line. No marker dots, no displaced SVG and no overshoot. */
+.hero.comparison-ready .comparison-overlay {
+  position:absolute !important;
+  inset:0 !important;
+  overflow:hidden !important;
+  border-radius:inherit !important;
+  pointer-events:none !important;
+  filter:none !important;
+  z-index:11 !important;
+}
+.hero.comparison-ready .comparison-fire {
+  display:none !important;
+}
+.hero.comparison-ready .comparison-overlay::before {
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:clamp(var(--slider-margin),var(--reveal),calc(100% - var(--slider-margin))) !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:3px !important;
+  height:auto !important;
+  transform:translateX(-50%) !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:linear-gradient(90deg,#ffa52e 0%,#fffbe9 50%,#ff9a25 100%) !important;
+  box-shadow:0 0 4px 1px #ffe1a5c9,0 0 12px 3px #ffae44a0,0 0 25px 6px #ff882c64 !important;
+  pointer-events:none !important;
+  z-index:13 !important;
+}
+.hero.comparison-ready .comparison-overlay::after {
+  content:none !important;
+  display:none !important;
+}
