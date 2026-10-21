@@ -133,3 +133,10 @@ body.studio-final .dexter-title::after { background:linear-gradient(90deg,transp
   .hero h1::before { box-shadow:0 0 15px #a4ff5c90,0 0 38px #87ff4752 !important; }
   .hero-action { box-shadow:0 0 14px #a4ff5c6d !important; }
 }
+
+/* Lightweight static frames instead of hidden animated fire canvases. */
+.corona-canvas,.corona-source,.cosmic-points{display:none!important}
+.solar-window::after{animation:none!important;opacity:.84!important}
+.galaxy-dust,.galaxy-rotator::after{mix-blend-mode:normal}
+html.studio-tab-hidden .galaxy-rotator,html.studio-tab-hidden .concept-orbit,html.studio-tab-hidden .wheel-panel{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.galaxy-rotator,.solar-window::after{animation:none!important}}
