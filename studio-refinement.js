@@ -53,25 +53,38 @@
     const width = innerWidth, height = innerHeight;
     const fixedCtx = prepare(fixed,width,height);
     const rng = random(20261021);
-    const count = Math.min(1150, Math.ceil(width * height / 1350));
+    const count = Math.min(2200, Math.ceil(width * height / 740));
     for (let i=0; i<count; i++) {
       const x = rng()*width, y = rng()*height;
       const radius = .25 + rng()*.75;
       const bright = .18 + rng()*.64;
-      star(fixedCtx,x,y,radius,bright,i%31===0);
+      star(fixedCtx,x,y,radius,bright,i%39===0);
     }
-    const size = galaxy.getBoundingClientRect().width;
+    const bounds = galaxy.getBoundingClientRect();
+    // Extra stationary pinpoints just outside the turning spiral.
+    // Same seed on every redraw: no twinkling, flicker or animation cost.
+    const orbitCount = Math.min(480, Math.max(160, Math.round(width * height / 4000)));
+    for (let i=0; i<orbitCount; i++) {
+      const angle = rng() * Math.PI * 2;
+      const r = bounds.width * (.43 + Math.pow(rng(), .82) * .30);
+      const x = bounds.left + bounds.width / 2 + Math.cos(angle) * r;
+      const y = bounds.top + bounds.height / 2 + Math.sin(angle) * r;
+      if (x >= 0 && x <= width && y >= 0 && y <= height) {
+        star(fixedCtx, x, y, .20 + rng() * .62, .24 + rng() * .53, i % 71 === 0);
+      }
+    }
+    const size = bounds.width;
     if (!size) return;
     const ctx = prepare(dust,size,size);
     const centered = size/2, rand = random(19042026);
-    const countDust = Math.round(Math.min(950,Math.max(350,size*.95)));
+    const countDust = Math.round(Math.min(1650, Math.max(620, size * 1.48)));
     for (let i=0; i<countDust; i++) {
       // A light granular star film follows the visible circular galaxy.
       const angle = rand()*Math.PI*2;
-      const distance = Math.sqrt(rand())*size*.68;
+      const distance = Math.sqrt(rand()) * size * .485;
       const x = centered+Math.cos(angle)*distance;
       const y = centered+Math.sin(angle)*distance;
-      star(ctx,x,y,.21+rand()*.66,.16+rand()*.58,i%58===0);
+      star(ctx, x, y, .17 + rand() * .60, .18 + rand() * .64, i % 66 === 0);
     }
   }
   let queued = false;
