@@ -309,3 +309,27 @@ body.studio-final .dexter-title::after{background:linear-gradient(90deg,transpar
 .hero.comparison-ready .compare-handle{
   z-index:20 !important;
 }
+
+/* V7 — restrained neon typography glow */
+/* The laser-green hue stays the same. Reduce the oversized light bloom
+   rather than dimming text readability or modifying the solar frame. */
+.hero .dexter-title .outline {
+  -webkit-text-stroke:1.25px #adffa6 !important;
+  text-shadow:
+    0 0 2px rgba(210,255,206,.55),
+    0 0 7px rgba(57,255,20,.40),
+    0 0 16px rgba(20,220,32,.18) !important;
+}
+.hero .dexter-title b {
+  text-shadow:0 0 7px rgba(57,255,20,.40) !important;
+}
+.hero h1::before {
+  box-shadow:
+    0 0 12px rgba(57,255,20,.48),
+    0 0 30px rgba(18,196,35,.26) !important;
+  opacity:.64 !important;
+}
+.hero .red-blob {
+  box-shadow:0 0 24px rgba(57,255,20,.30) !important;
+  opacity:.31 !important;
+}
