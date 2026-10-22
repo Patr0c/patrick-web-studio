@@ -179,3 +179,11 @@ Keine Maskierung, Bildbearbeitung, Farbänderung oder Abdunklung.
 Der zuvor geprüfte Upload Galaxy(1).png enthielt einen grünen Hintergrund und
 wurde nicht eingebunden. Zusätzliche feste Randsterne, Rotationsschichten,
 Sonne/Korona sowie alle übrigen Seitenelemente und Skripte bleiben unverändert.
+Ressourcenprüfung und git diff --check erfolgreich; beide CI-Läufe und
+Cloudflare-Preview erfolgreich. Chromium-Desktop und 390-px-CSS-Viewport
+zeigen assets/images/Galaxy-2.png mit 1280×1001 Pixeln, opacity=1 und
+mask-image=none. Keine horizontale Überbreite (1348/1348 und 375/375).
+Galaxie und feste Sterne behalten ihre getrennten Rotationszustände.
+Originalbytegleichheit geprüft; Styles, Skripte und Sonnenmedien sind
+gegenüber f0583af unverändert. Vorschaubild aktualisiert. Firefox weiterhin
+nicht verfügbar; unveränderte übrige Interaktionen zuvor vollständig geprüft.
