@@ -154,7 +154,7 @@ details>p { font-size:12px; line-height:1.85; color:#a6a0b2; padding:0 25px 24px
   .footer-main>div { margin:0; width:calc(100% - 80px); }
   .back-top { width:52px; height:52px; font-size:24px; }
   .fine { flex-wrap:wrap; margin-top:35px; }
-  .fine span:first-child { width:100%; }
+  .fine>span:first-child { width:100%; }
 }
 @media (prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto; }
