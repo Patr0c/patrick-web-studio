@@ -33,7 +33,8 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
 - `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
   zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
-- `docs/space-preview.jpg` und `docs/sun-preview.jpg`: geprüfte aktuelle Ansichten.
+- `docs/icons-preview.jpg` und `docs/laser-preview.jpg`: geprüfte aktuelle Icon-/Neonansichten.
+- `docs/space-preview.jpg` und `docs/sun-preview.jpg`: vorherige Space-Erweiterung und unveränderte Sonne.
 - `docs/preview.jpg`: vorheriger Stand vor der Space-Icon-Erweiterung.
 
 ## Entwicklungs-Vorschau

@@ -274,3 +274,16 @@ Die Hintergrundumschaltung der Kreislinks erfolgt ohne Opacity-Übergang,
 damit kein kurzer dunkler Icon-auf-dunklem-Grund-Zwischenzustand entsteht.
 Kleine Raketen erhalten einen engeren Glow; Browserleisten-Symbole sind für
 Lesbarkeit 12 px groß und weiß statt punktartig grün.
+Abschlussprüfung in Chromium: Alle neun Konzeptdialoge nach der Raketen-
+Ergänzung erneut geöffnet/geschlossen und Handyansicht je Kategorie geprüft.
+Nav-Punkt und Service-Orbit-Punkt melden content=none. Footer-Hover meldet
+sofort opacity=1 für die Hintergrundfläche, dunkle SVG-Kontur und z-index 1.
+Neonwörter haben den dunklen Kern rgb(6,55,12) mit enger #19E50F-Kontur.
+In der Handyprüfung wurde die zu breite Footer-Rakete erkannt: Eine alte Regel
+für .fine span:first-child griff auch auf das Icon im Link. Sie gilt jetzt
+ausschließlich für das direkte Beschriftungskind. Danach ohne Überlauf:
+Desktop 1348/1348, 390er-Rahmen 375/375, 320er-Rahmen 305/305 CSS-Pixel.
+Sonne, Galaxie, Sterne und bestehende Videologik sind gegenüber b5279cd
+bytegenau unverändert. Lokale Ressourcen- und Syntaxprüfungen erfolgreich.
+Cloudflare-Vorschau mit der neuen CSS-Fassung im Browser verifiziert.
+Firefox bleibt in dieser Umgebung ungetestet.
