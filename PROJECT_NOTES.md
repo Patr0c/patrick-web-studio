@@ -464,3 +464,20 @@ Mobile Pultgrafik passt in die Breite; neue Monitorrahmen/Einsetzflächen an
 neues Bild angepasst. Original-Sonne, Galaxie, Korona, sämtliche Skripte und
 alle Abschnitte nach dem Hero bleiben unverändert.
 Bildherkunft/Prompt: integrierte Bildgenerierung, docs/workstation-flat-prompt.md.
+
+Prüfung im veröffentlichten Chromium-Preview 6206515: komplette seitliche
+Konturen visuell sichtbar, etwa 46 px Abstand zu beiden Viewportkanten bei
+1348 px Clientbreite. Beide HTML-Bereiche transform=none, innerhalb der
+planen Glasflächen; keine abgeschnittenen Textbereiche. DIGITAL-Schriftgröße
+71.28 px (vorher etwa 62 px), Animation weiterhin dexterType. Screenshots:
+docs/workstation-flat-preview.jpg und docs/workstation-flat-mobile-preview.jpg.
+Responsive nach abgeschlossenem Resize: Rahmen 320/390/768/1440 entsprechen
+305/375/753/1425 Clientbreite, jeweils gleich scrollWidth. Beide Displayboxen
+jeweils clientHeight=scrollHeight. Mobile Pultgrafik innerhalb der sichtbaren
+Breite, gerade Monitorrahmen visuell geprüft. Regler Ende=100, Pos1=0,
+echter Drag=60, danach zurück auf vollständige neue Szene. Sonnenkorona
+readyState=4, paused=false, duration=33.5. Alle neun Konzeptdialoge und drei
+Hoveraufnahmen wurden auf Basis fff4282 geprüft; deren Dateien, sämtliche
+Skripte und das komplette HTML ab der Missionssektion sind bytegleich.
+30 lokale Referenzen/26 IDs und diff --check erfolgreich. Firefox in dieser
+Umgebung weiterhin nicht verfügbar. Ausschließlich Preview-Branch aktualisiert.
