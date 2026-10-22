@@ -188,3 +188,16 @@ Gehäuseenden vollständig enthalten; kleine transparente Ränder im Bild plus
 ohne die Station an den Seiten abzuschneiden. HTML-Kopie, Farben und Animation
 bleiben erhalten. Mobile verwendet die neuen geraden Monitorrahmen; Pultbreite
 passt vollständig in den Viewport.
+
+## Sonnenkante, Mittelstütze und aktive Nebenanzeigen
+Eigene orange Leuchtstreifen entfallen. Weiße Hardware-Lichtakzente, warme
+Reflexe ausschließlich knapp an der äußeren Silhouette. Stabile Mittelstütze
+mit vollständig sichtbarer Bodenplatte. Sichtbar getrennte Hauptmonitore mit
+optisch etwa 10 cm Abstand; physischer Maßstab im Rasterbild ist angenähert.
+Asset workstation-pedestal.webp, 1774x887 RGBA, verlustfrei. Hauptkopie bleibt
+live und gerade, Einsetzflächen an die neue Monitorhöhe angepasst.
+Die sieben kleinen Pultdisplays zeigen grüne technische SVG-Grafiken und
+unbekannte eigene Vektorzeichen. Referenz: Patricks Retro-Sci-Fi-Screenshot
+und Screensavers Planet /retro-sci-fi-522/. Keine fremde Software/Assets
+übernommen. Wellenformen, Schaltpläne, Gitterkugel und schnelle Terminalzeilen;
+CSS-Animation, nur sichtbar und im aktiven Tab. Kein Canvas-Repaint-Loop.

@@ -481,3 +481,22 @@ Hoveraufnahmen wurden auf Basis fff4282 geprüft; deren Dateien, sämtliche
 Skripte und das komplette HTML ab der Missionssektion sind bytegleich.
 30 lokale Referenzen/26 IDs und diff --check erfolgreich. Firefox in dieser
 Umgebung weiterhin nicht verfügbar. Ausschließlich Preview-Branch aktualisiert.
+
+## Sonnenrandlicht, Standfuß, Abstand und Retro-Nebenmonitore
+Basis 25e0b53, separater Branch feat/terminal-light-20261022. Eigene Hardware-
+Lichtleisten weiß, orange nur als knappes Sonnenlicht an der Außensilhouette.
+Neue Mittelstütze mit breiter Bodenplatte; zwei plane Hauptmonitore sichtbar
+getrennt (optisch ungefähr 10 cm, kein realer physischer Maßstab ableitbar).
+Neues Asset workstation-pedestal.webp: 1774x887 RGBA, verlustfrei pixelgleich
+zur PNG, 1134900 Bytes, keine Hochskalierung. Prompt im zugehörigen Dokument.
+Einsetzflächen und mobile Rahmencrops an die neue Monitorhöhe angepasst.
+Sieben kleine Displayflächen anhand der Glas-Eckpunkte in einem SVG kartiert.
+Eigene grüne Vektorgrafiken: Schaltkreise, Wellen, Balken, Punkte, Gitterkugel;
+eigene unbekannte Zeichen als SVG-Pfade, schnell scrollend, ohne Font-Abhängigkeit.
+Inspiration aus Patricks korrektem Screenshot grafik(20261022-194222).png und
+https://www.screensaversplanet.com/de/screensavers/retro-sci-fi-522/.
+Kein Screensaver installiert und keine fremden Programm-/Bildassets kopiert.
+Geometrie einmalig in terminal.js erstellt; Animationen per CSS, keine Timer/
+Frame-Schleife. Offscreen, Hintergrundtab, Reduced Motion und saveData pausieren.
+Beide großen Displays behalten die vorhandene HTML-Kopie/Animation. Sonne,
+Korona, Galaxie, bestehende Skripte und Abschnitte nach dem Hero unverändert.

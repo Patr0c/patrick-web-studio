@@ -28,3 +28,8 @@ obsolete variants without Patrick's request. Preserve the latest development wor
 
 - Current terminal has two flat coplanar main screens. Keep both outer console
   edges fully visible with small side gaps; no skew on the live screen content.
+
+- Terminal hardware lighting is white; orange only as fine exterior solar rim
+  reflections. Keep the center pedestal/base and the open monitor gap.
+- Other desk screens carry original green vector diagnostics and fast unknown
+  glyph streams. Pause them offscreen/hidden/reduced motion/saveData.

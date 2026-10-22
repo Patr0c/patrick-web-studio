@@ -19,6 +19,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `assets/css/fonts.css`: nur Archivo, Manrope, DM Mono; OFL-Lizenzen beigelegt.
 - `assets/css/studio.css`: aktuelles Layout, responsive Regeln und Effekte.
 - `assets/css/workstation.css`: bildschirmfüllender Einstieg aus Operator-Perspektive.
+- `assets/js/terminal.js`: eigene skalierbare Retro-Diagnostik und animierte Glyphen auf sieben Pultdisplays.
 - `assets/js/comparison.js`: Alt/Neu-Regler mit Tastatur und Pointer Capture.
 - `assets/js/media.js`: Hovervideos, Reset und sichtbarkeitsabhängige Sonne.
 - `assets/js/space.js`: feste Sterne und gemeinsam rotierende Galaxie/Sternenfilm.
@@ -34,7 +35,8 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
 - `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
   zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
-- `docs/workstation-flat-preview.jpg` und `docs/workstation-flat-mobile-preview.jpg`: aktuelles gerades Terminal mit sichtbaren Seitenkanten.
+- `docs/workstation-pedestal-preview.jpg` und `docs/workstation-pedestal-mobile-preview.jpg`: aktuelle Beleuchtung, Stütze und aktive Nebenanzeigen.
+- `docs/workstation-flat-preview.jpg` und `docs/workstation-flat-mobile-preview.jpg`: vorheriges gerades Terminal mit sichtbaren Seitenkanten.
 - `docs/workstation-operator-preview.jpg` und `docs/workstation-operator-mobile-preview.jpg`: vorheriger bildschirmfüllender Einstieg mit drei Monitoren.
 - `docs/control-center-preview.jpg` und `docs/control-center-mobile-preview.jpg`: vorherige Kontrollzentrale mit Boden.
 - `docs/mission-hover-preview.jpg`, `docs/nova-live-preview.jpg` und
@@ -47,7 +49,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktuell: https://feat-flat-terminal-20261022.patrick-web-studio.pages.dev/
+Aktuell: https://feat-terminal-light-20261022.patrick-web-studio.pages.dev/
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;
