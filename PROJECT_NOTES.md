@@ -1,0 +1,67 @@
+# Projektstand — 22. Oktober 2026
+
+## Ausgangspunkt und Arbeitsweise
+Repository: https://github.com/Patr0c/patrick-web-studio
+Produktiv: https://patrick-web-studio.pages.dev
+Bestehender PR: https://github.com/Patr0c/patrick-web-studio/pull/1
+Ausgangsbranch: `perf/animation-loading-20261022`, Commit `c20dfc3`.
+Alle 18 zusätzlichen Entwicklungscommits sind Vorfahren des neuen Branches
+`chore/design-system-cleanup-20261022`. `main` bleibt unverändert.
+
+## Umgesetzt
+- Browser-Export-Verzeichnis in klare assets/css, assets/js, assets/images,
+  assets/video und assets/fonts aufgeteilt; drei redundante Konzeptbilder entfernt.
+- Aktive Styles konsolidiert, 461 überholte Deklarationen sowie nicht mehr
+  verwendete Feuer-, SVG-, Canvas- und Fontauswahl-Regeln entfernt.
+- Gewählte Display-Schrift Archivo beibehalten; Manrope/DM Mono für Text/Labels.
+  Nur diese drei Schriftfamilien lokal einschließlich OFL-Lizenzen bereitgestellt.
+  Die vorherige lokale 24-Familien-Datei verwies auf fehlende Fontdateien.
+- Beide Schriftvergleichslinks, Fontparameter-Logik und Testressourcen entfernt.
+  Normale Textauswahl bleibt erhalten.
+- Echte Projektstandbilder lokal aus den vorhandenen Videos bei 0.1 s extrahiert.
+  Vorher referenzierte Bilder waren trotz früherer Commits nicht eingecheckt.
+- Video-Downloads beginnen erst beim Hover, statt bereits nahe dem Sichtbereich;
+  Pause beim Verlassen/Unsichtbarwerden und Reset nach 10 s erhalten.
+- 18 doppelt gerenderte Kategorieoptionen auf 9 eindeutige Vorschläge korrigiert.
+  Räder pausieren zusätzlich außerhalb des Sichtbereichs und im versteckten Tab.
+- Veralteten Posterworkflow ersetzt: CI prüft Dateien und JavaScript, schreibt
+  nicht mehr automatisch in den alten Entwicklungsbranch.
+- Galaxie aus Patricks Upload übernommen, Kern zentriert, quadratischer gemeinsamer
+  Rotationscontainer mit Randmaske; feine Sternenebene synchron, Randsterne fest.
+- DIGITAL ohne flächigen Lichtfleck, REWORK mit enger grüner Laserkontur;
+  Laserfarben verbindlich dokumentiert, Orange für Sonne und Rahmen erhalten.
+- Vergleich ohne veraltetes verstecktes Flammen-SVG; ein CSS-Lichtstrahl über die
+  ganze Höhe, mittiger Start, Pointer- und Tastaturbedienung erhalten.
+
+## Medien und Provenienz
+| Asset | Verwendung |
+| --- | --- |
+| assets/images/galaxy.png | Patricks 2Galaxie.png, unverändert, RGBA 1280×1001 |
+| assets/images/astronaut.webp | bestehendes explorer-hero, unverändert |
+| assets/video/sun-desktop.mp4 | bestehende Sonnenfassung, 512×512, 60 fps |
+| assets/video/sun-mobile.mp4 | bestehende mobile Sonnenfassung, 384×384, 60 fps |
+| assets/images/sun-poster.jpg | echter Frame der Sonnenaufnahme |
+| previews/hrservice.jpg, villa.jpg, wagner.jpg | echte Frames der Projektaufnahmen |
+| concepts/hotel.webp, restaurant.webp, driving.webp | bestehende Konzeptbilder |
+
+Galaxie.png und 2Galaxie.png sind bytegenau identisch:
+SHA-256 e20e283c53c12e16c9cf066f1212e26897fc6d782303f68083748ea3e8189436.
+Die Grafik hat 287982 völlig transparente Pixel und weiche Alphakanalübergänge.
+Ihr helles Zentrum liegt rechts der Bildmitte; CSS positioniert es bei der
+Drehachse. Die äußeren Ausschnittkanten werden per kreisförmiger Maske überblendet.
+NASA/ESA- und weitere ursprüngliche Bildnachweise bleiben auf der Website.
+
+## Projektlinks (unverändert)
+- https://www.hrservice-fm.de/
+- https://villa-schwalbe.vercel.app/
+- https://gasthof-wagner-demo.vercel.app/
+
+## Prüfung / noch offen
+Lokale Ressourcen, interne Sprungziele und JavaScript-Syntax geprüft.
+Tatsächliche Desktop-/Handydarstellung, Interaktionen und Cloudflare-Vorschau
+werden nach Bereitstellung ergänzt. Die angekündigte PNG liegt jetzt vor.
+Die lokale Playwright-Installation hat keine Browserbinärdateien; der Download
+lieferte leere Archive. Deshalb wird der verfügbare Cloud-Browser zur visuellen
+Prüfung verwendet. Firefox-Prüfung ist in dieser Umgebung bisher nicht möglich.
+Kontaktmöglichkeit/Impressum sind im Bestand unvollständig und wurden im Rahmen
+dieses Designauftrags nicht mit erfundenen Angaben ergänzt.
