@@ -9,7 +9,7 @@ obsolete variants without Patrick's request. Preserve the latest development wor
   REWORK keeps its dark saturated green outline. Solar frames/sun stay warm orange.
 - Chosen display typeface: Archivo. Body: Manrope. Labels: DM Mono.
   No font picker, font preview query parameters, or selection prevention on text.
-- Keep sun, seated close-up workstation without chair, 50/50 draggable comparison, all three project recordings,
+- Keep sun, seated close-up workstation without chair, draggable comparison (50/50 on double-click), all three project recordings,
   category wheels, and nine concepts. No animated flames on windows.
 - Galaxy artwork and fine star film share one rotating parent. Background stars
   stay fixed. Never stretch star canvases or add continuous JS repaint loops.
@@ -23,4 +23,5 @@ obsolete variants without Patrick's request. Preserve the latest development wor
   State browser/network testing limitations honestly in PROJECT_NOTES.md.
 
 - First scene is full width: live animated DIGITAL REWORK in the left monitor,
-  hero copy in the right monitor. Preserve the sections below the scene.
+  hero copy in the right monitor. Open on the complete new scene; keep the
+  comparison available. Preserve the sections below the scene.

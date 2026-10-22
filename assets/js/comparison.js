@@ -5,7 +5,7 @@
   const fresh = hero?.querySelector('.hero-new');
   const handle = hero?.querySelector('.compare-handle');
   if (!hero || !old || !fresh || !handle) return;
-  let position = 50, pending = 0, drag = null;
+  let position = hero.classList.contains('immersive-hero') ? 0 : 50, pending = 0, drag = null;
   // Measure only on load/resize: a full-width hero without scrollbar overflow.
   const fitScene = () => hero.style.setProperty('--scene-width', `${document.documentElement.clientWidth}px`);
   fitScene();

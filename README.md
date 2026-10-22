@@ -45,7 +45,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktuell: https://feat-workstation-immersive-20261022.patrick-web-studio.pages.dev/
+Aktuell: https://feat-workstation-immersive-2.patrick-web-studio.pages.dev/
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;

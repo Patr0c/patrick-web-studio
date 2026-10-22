@@ -421,7 +421,8 @@ Leere Seitenmonitore tragen echte HTML-Inhalte: links DIGITAL REWORK mit
 unveränderter dexterType/dexterCut/dexterRule-Animation, rechts bisherige Kopie.
 Animationslinie in linken Monitor verschoben, keine CSS-/JS-Neuzeichnung der
 Konsole. Mobile Rahmen sind CSS-Ausschnitte derselben Bitmap, Inhalte bleiben
-skalierbare Schrift und bedienbare Links. Vergleichsregler bleibt 50/50.
+skalierbare Schrift und bedienbare Links. Die Szene öffnet vollständig im neuen Design; der Vergleichsregler bleibt
+verfügbar, Doppelklick setzt wie bisher auf 50/50.
 Nur beim Laden/Resize wird die tatsächliche Clientbreite für den Hero gelesen,
 kein kontinuierlicher Resize-/Paint-Loop. Originale Sonnen-/Koronafilme,
 Galaxie, Projekte, Kategorien und deren Steuerungen unverändert.
