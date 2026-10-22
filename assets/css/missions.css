@@ -95,7 +95,7 @@ html.studio-tab-hidden .mission-illustration [class*="move-"] { animation-play-s
 
 /* Small filled rockets replace directional arrows. The porthole stays cut out. */
 .rocket-mark { display:inline-grid !important; place-items:center; position:relative; z-index:1; width:17px; height:17px; margin:0 !important; padding:0 !important; line-height:1 !important; font-size:0 !important; color:var(--neon-green) !important; vertical-align:middle; flex:0 0 auto; text-shadow:none !important; }
-.rocket-mark>svg { width:100%; height:100%; display:block; overflow:visible; transform:rotate(45deg); fill:currentColor; stroke:none; filter:drop-shadow(0 0 2px #19e50f66); }
+.rocket-mark>svg { width:100%; height:100%; display:block; overflow:visible; transform:rotate(45deg); fill:currentColor; stroke:none; filter:drop-shadow(0 0 .65px #19e50f99); }
 .rocket-port { fill:var(--rocket-port,#041208); }
 .rocket-flame { fill:#ff9d30; opacity:0; transform-box:view-box; transform-origin:16px 27px; animation:none; }
 .rocket-flame .flame-core { fill:#ffdf91; }
@@ -109,14 +109,15 @@ a:hover .rocket-flame,a:focus-visible .rocket-flame,button:hover .rocket-flame,b
 .scroll-note .rocket-mark>svg { transform:rotate(180deg); }
 .mission-link .rocket-mark { width:15px; height:15px; }
 .mission-link:hover .rocket-mark,.text-link:hover .rocket-mark { transform:none; }
-.chrome .rocket-mark { width:9px; height:9px; }
+.chrome .rocket-mark { width:12px; height:12px; color:#e4e8e5 !important; }
+.chrome .rocket-mark>svg { filter:none; }
 .view-project .rocket-mark,.video-play-hint .rocket-mark,.wheel-toolbar .rocket-mark,.window-bar .rocket-mark,.orbit-label .rocket-mark,.fine .rocket-mark { width:11px; height:11px; }
 .service-orbit .rocket-mark { width:26px; height:26px; }
 .service-orbit .rocket-mark>svg { transform:rotate(45deg); }
 
 /* The hover paint and the icon occupy separate planes, with fixed centering. */
 .project-meta>a,.back-top { position:relative; isolation:isolate; padding:0; display:grid; place-items:center; line-height:1; color:#edf4ee !important; background:transparent !important; border-color:#19e50f55; }
-.project-meta>a::before,.back-top::before { content:""; position:absolute; inset:0; z-index:0; border-radius:inherit; background:var(--neon-green); opacity:0; transition:opacity .2s; pointer-events:none; }
+.project-meta>a::before,.back-top::before { content:""; position:absolute; inset:0; z-index:0; border-radius:inherit; background:var(--neon-green); opacity:0; transition:none; pointer-events:none; }
 .project-meta>a>*,.back-top>* { position:relative; z-index:1; }
 .project-meta>a:is(:hover,:focus-visible)::before,.back-top:is(:hover,:focus-visible)::before { opacity:1; }
 .project-meta>a:is(:hover,:focus-visible),.back-top:is(:hover,:focus-visible) { color:var(--laser-ink) !important; --rocket-port:var(--neon-green); }

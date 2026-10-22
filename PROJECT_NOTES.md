@@ -265,3 +265,12 @@ beendet den Hover-Schub. Manuelles Start/Stop und 4.5-s-Reset bleiben bedienbar.
 Einheitliches #19E50F für grüne Akzente, dunkle Kerne und enge Leuchtkonturen
 für Work/Universum/Version/rework. Nav- und Service-Orbit-Punkte sowie der
 flächige Hero-Fleck entfernt. Sonne und ihr 36-s-Ablauf bleiben unverändert.
+Browserzwischenprüfung: Hero-Akzente melden rgb(25,229,15). Alle drei
+Projekt-Raketen haben in ihrem Kreis eine gemessene Zentrumabweichung von
+(0,0); Footer-SVG ebenfalls (0,0). Hover-Fläche z-index 0, Symbol z-index 1,
+Hover-Symbol rgb(4,27,8) auf grün. Getriebe: vor Hover hidden/false,
+auf Pointerenter visible/true und Schub aktiv, danach wieder hidden/false.
+Die Hintergrundumschaltung der Kreislinks erfolgt ohne Opacity-Übergang,
+damit kein kurzer dunkler Icon-auf-dunklem-Grund-Zwischenzustand entsteht.
+Kleine Raketen erhalten einen engeren Glow; Browserleisten-Symbole sind für
+Lesbarkeit 12 px groß und weiß statt punktartig grün.
