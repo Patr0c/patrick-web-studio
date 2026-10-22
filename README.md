@@ -22,6 +22,9 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `assets/js/media.js`: Hovervideos, Reset und sichtbarkeitsabhängige Sonne.
 - `assets/js/space.js`: feste Sterne und gemeinsam rotierende Galaxie/Sternenfilm.
 - `assets/js/categories.js`: drei Kategorien mit insgesamt neun Vorschlägen.
+- `assets/css/missions.css` und `assets/js/missions.js`: eigene animierte Space-Icons,
+  sichtbarkeitsabhängige Bewegung und bedienbarer Kreativantrieb.
+- `scripts/retime_corona.py`: Offline-Aufbereitung des 14-s-Koronafilms aus Git.
 - `assets/images/`: Astronaut, originale transparente Galaxie, Sonnenstandbild.
 - `assets/video/`: drei Aufnahmen, zwei unveränderte Sonnenfassungen und
   zwei kleine Korona-Overlays mit 60 fps.
@@ -30,9 +33,12 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
 - `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
   zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
-- `docs/preview.jpg`: geprüfte Designansicht.
+- `docs/space-preview.jpg` und `docs/sun-preview.jpg`: geprüfte aktuelle Ansichten.
+- `docs/preview.jpg`: vorheriger Stand vor der Space-Icon-Erweiterung.
 
 ## Entwicklungs-Vorschau
+
+Aktuell: https://feat-space-motion-20261022.patrick-web-studio.pages.dev/
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;

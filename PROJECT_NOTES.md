@@ -213,3 +213,19 @@ Frames im Mittel 0.223 von 255 pro Farb-/Alphakanal (Codecabweichung).
 Ressourcenprüfung (28 lokale Ressourcen, 23 IDs), JS-Syntax und git diff --check
 erfolgreich. Keine Änderungen an Galaxie, festem Sternenhintergrund oder
 ursprünglichen Sonnenvideos.
+Browserprüfung in Chromium abgeschlossen: Drei Mission-Illustrationen sichtbar,
+Lauf/Antrieb/Umlaufbahn animation-play-state=running im Viewport. Außerhalb
+des Viewports wird is-inview entfernt. Start-/Stop-Schalter sowie automatisches
+Zurücksetzen wurden geprüft; Status und aria-pressed stimmen überein.
+Der Film meldet duration=14, readyState=4, spielt im Header und pausiert beim
+Scrollen zum Missionsteil. Transparenz und linke Flare visuell kontrolliert.
+Desktop ohne horizontalen Überlauf (1348/1348 CSS-Pixel). Mobile CSS-Viewport-
+Rahmen 390/320 px: 375/375 bzw. 305/305; auch jede Missionskarte hat
+scrollWidth=clientWidth. Alle neun Konzeptdialoge erneut geöffnet/geschlossen,
+Handyansicht pro Kategorie umgeschaltet. Service-Accordion mit allen vier
+SVG-Symbolen und jeweils nur einem offenen Eintrag geprüft.
+Reduced Motion wird durch CSS und bestehenden Video-Controller respektiert;
+eine tatsächliche Betriebssystem-Umschaltung wurde nicht automatisiert.
+Firefox bleibt in dieser Umgebung ungetestet. Screenshot: docs/space-preview.jpg.
+Entwicklungs-Preview: https://feat-space-motion-20261022.patrick-web-studio.pages.dev/
+main bleibt unverändert.
