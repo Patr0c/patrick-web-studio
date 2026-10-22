@@ -15,7 +15,7 @@ alten Designs, Raster, blauen Leisten oder bewegten Fensterflammen ohne Auftrag.
 | Einsatz | Wert / Regel |
 | --- | --- |
 | Hintergrund | #02040A, tiefschwarz mit leichtem Blauton |
-| Lasergrün | #19E50F bzw. #23D92A |
+| Lasergrün | Einheitlich #19E50F für alle grünen Akzente |
 | Scharfer Lichtkern | #39FF14 |
 | Dunkle Grünabstufung | #0E8F19 |
 | DIGITAL | #F7FFF5, klarer Kern, kein milchiger Lichtteppich |
@@ -107,3 +107,18 @@ vorwärts und rückwärts durchlaufen. Je 2 s Ruhe am Anfang/Ende und 2 s am
 Höhepunkt verhindern ein hektisches Pendeln. Derselbe Ring an den Endpunkten
 vermeidet einen sichtbaren Schleifensprung. Die linke überlappende Flare wird sanft ausgeblendet
 und ihre Kante gefiedert. Originalsonne, Größe und Position bleiben erhalten.
+
+## Icon- und Neonkorrekturen nach den zehn Screenshots
+Neue Vorlage: Mike Hill, Space Icons, Dribbble 4298961. Runde weiße Konturen,
+Space-Motive und eng begrenzte Lichtakzente; eigene SVG-Umsetzung für Planet,
+Rakete, Teleskop, Satellit und UFO. Kleine gefüllte Raketen ersetzen die
+Richtungspfeile im Portfolio. Flammen erscheinen erst bei Hover oder Fokus.
+Runde Bedienelemente haben ein separates Hintergrund-Pseudoelement unter
+dem zentrierten Symbol; beim grünen Hover wechselt das Symbol kontrastreich
+auf sehr dunkles Grün. Kein gleichfarbig übermaltes Icon.
+Antriebsflammen starten bei Hover auf die Getriebekarte; Klick/Tastatur bleiben
+als zusätzliche steuerbare Aktivierung erhalten. Kein Flammenlauf im Ruhezustand.
+Grüne Beschriftungen verwenden #19E50F. Große Akzentwörter haben einen dunklen
+Kern, eine enge grüne Kontur und kleine lichtgebundene Schatten statt hellgrüner
+Vollfüllung oder breitem Glow. DIGITAL bleibt weiß. Navigationspunkt unter
+Arbeiten, einzelner Punkt am Service-Orbit und grüner Fleck im Hero entfallen.

@@ -1,6 +1,6 @@
 /* Original space illustrations: shared silhouette, precise strokes, small light cores. */
 .space-symbols { position:absolute; width:0; height:0; overflow:hidden; }
-.space-icon { width:28px; height:28px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex:none; }
+.space-icon { width:28px; height:28px; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; flex:none; }
 .mission-section { position:relative; margin:38px 0 44px; padding:34px 34px 28px; background:linear-gradient(125deg,#07110de8,#03070de8); border:1px solid #b9dfc527; border-radius:24px; }
 .mission-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:25px; }
 .mission-heading h2 { font:600 clamp(22px,2.3vw,34px)/1.15 Archivo,sans-serif; letter-spacing:-.04em; margin:8px 0 0; }
@@ -13,11 +13,11 @@
 .mission-card:hover,.mission-card:focus-within { border-color:#39ff1466; background:linear-gradient(150deg,#172c1d99,#02060cca); transform:translateY(-3px); }
 .mission-card .mission-index { position:absolute; top:22px; right:22px; color:#879c8b; font-size:9px; }
 .mission-illustration { width:128px; height:130px; color:#dbe8df; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; overflow:visible; margin-bottom:15px; }
-.mission-illustration .accent { stroke:#23d92a; }
+.mission-illustration .accent { stroke:var(--neon-green); }
 .mission-illustration .warm { stroke:#ffb34d; }
 .mission-illustration .solid { fill:#0e2218; }
 .mission-illustration .visor { fill:#ffb34d24; stroke:#ffb34d; }
-.mission-illustration .muted { stroke:#557563; }
+.mission-illustration .muted { stroke:#6c7470; }
 .mission-card h3 { font:600 24px/1.15 Archivo,sans-serif; letter-spacing:-.035em; margin:0 0 11px; }
 .mission-card p { font:13px/1.7 Manrope,sans-serif; color:#aebdb4; margin:0 0 20px; max-width:30ch; }
 .mission-link { margin-top:auto; display:inline-flex; gap:18px; align-items:center; font:10px 'DM Mono',monospace; letter-spacing:.05em; text-transform:uppercase; color:#d4e7d8; padding:8px 0; }
@@ -64,3 +64,73 @@ html.studio-tab-hidden .mission-illustration [class*="move-"] { animation-play-s
 @media (max-width:650px) { .mission-section { padding:25px 17px 17px; margin:25px 0; } .mission-heading { align-items:start; } .mission-live { display:none; } .mission-grid { grid-template-columns:1fr; } .mission-card { padding:22px 18px 22px 130px; min-height:180px; } .mission-illustration { position:absolute; top:30px; left:15px; width:100px; height:115px; margin:0; } .mission-card .mission-index { position:static; margin-bottom:10px; } .mission-card h3 { font-size:22px; } .mission-card p { margin-bottom:12px; font-size:12px; } .mission-link { font-size:9px; } .services-list summary .mono { min-width:40px; gap:8px; } .service-space-icon { width:24px; height:24px; margin:0; } }
 @media (max-width:380px) { .mission-card { padding-left:108px; } .mission-illustration { left:9px; width:84px; } .mission-section { padding-inline:12px; } .mission-card h3 { font-size:19px; } }
 @media (prefers-reduced-motion:reduce) { .mission-illustration [class*="move-"] { animation:none !important; } .mission-card,.mission-link span,.space-backtop .space-icon { transition:none; } .mission-card:hover,.mission-card:focus-within { transform:none; } }
+
+/* One laser palette; dark tube interiors with a narrow, saturated light edge. */
+:root { --laser-ink:#041b08; --laser-glow:rgba(25,229,15,.38); }
+.icon-accent { stroke:var(--icon-accent,var(--neon-green)); }
+.reference-icon { stroke:#eff4f0; stroke-width:2; }
+.reference-icon .icon-accent { stroke:var(--neon-green); filter:drop-shadow(0 0 2px var(--laser-glow)); }
+.mission-engine .mission-illustration { stroke-width:2.6; }
+.mission-illustration .move-exhaust { visibility:hidden; animation-play-state:paused !important; }
+.mission-engine.is-powered .move-exhaust { visibility:visible; animation-play-state:running !important; stroke:#ffb34d; }
+.mission-engine.is-powered .move-crank { animation-duration:1.2s; }
+.mission-engine.is-powered .move-piston { animation-duration:.65s; }
+.mission-engine.is-powered .move-exhaust { animation-duration:.6s; }
+.mission-card .engine-trigger { color:var(--neon-green); border-color:#19e50f70; background:#071b0b; }
+.mission-engine.is-powered .engine-status { color:var(--neon-green); }
+.mission-live::before { content:none; }
+.mission-heading .mono { color:var(--neon-green); }
+.service-space-icon { color:#edf3ef; }
+.services-list details[open] .service-space-icon { color:var(--neon-green); }
+.logo span,.hero-copy .chapter,.hero-signature,.scroll-note,.hero-work-link>.mono,.contact-note { color:var(--neon-green) !important; text-shadow:0 0 3px #0e8f1980 !important; }
+.hero-copy .chapter,.scroll-note,.compare-labels>span,.section-number { color:var(--neon-green) !important; border-color:#19e50f70 !important; background:#041208d9 !important; box-shadow:inset 0 0 3px #19e50f12; }
+.compare-labels i { color:#bbc2bc; }
+.hero .dexter-title>.outline { -webkit-text-stroke:1.45px var(--neon-green) !important; }
+.hero-action { color:#e5f0e7 !important; background:#08210d !important; border-color:var(--neon-green) !important; box-shadow:0 0 5px #19e50f38 !important; }
+.hero-action:hover { background:#0c3412 !important; box-shadow:0 0 8px #19e50f66 !important; }
+.hero-action span { color:var(--neon-green) !important; }
+.service-orbit { border-color:#19e50f50; box-shadow:0 0 3px #19e50f2b,inset 0 0 3px #19e50f20; }
+.service-orbit i { border-color:#19e50f40; }
+.service-orbit::after,.links a:first-child::after { content:none !important; }
+
+/* Small filled rockets replace directional arrows. The porthole stays cut out. */
+.rocket-mark { display:inline-grid !important; place-items:center; position:relative; z-index:1; width:17px; height:17px; margin:0 !important; padding:0 !important; line-height:1 !important; font-size:0 !important; color:var(--neon-green) !important; vertical-align:middle; flex:0 0 auto; text-shadow:none !important; }
+.rocket-mark>svg { width:100%; height:100%; display:block; overflow:visible; transform:rotate(45deg); fill:currentColor; stroke:none; filter:drop-shadow(0 0 2px #19e50f66); }
+.rocket-port { fill:var(--rocket-port,#041208); }
+.rocket-flame { fill:#ff9d30; opacity:0; transform-box:view-box; transform-origin:16px 27px; animation:none; }
+.rocket-flame .flame-core { fill:#ffdf91; }
+a:hover .rocket-flame,a:focus-visible .rocket-flame,button:hover .rocket-flame,button:focus-visible .rocket-flame,.service-orbit:hover .rocket-flame { opacity:1; animation:rocketBurn .5s ease-in-out infinite alternate; }
+.links .rocket-mark { width:13px; height:13px; }
+.links a:last-child { display:inline-flex; align-items:center; gap:5px; }
+.text-link .rocket-mark { width:20px; height:20px; }
+.hero-action .rocket-mark { width:16px; height:16px; }
+.hero-signature .rocket-mark { margin-left:13px !important; width:13px; height:13px; }
+.scroll-note { display:inline-flex; align-items:center; gap:13px; }
+.scroll-note .rocket-mark>svg { transform:rotate(180deg); }
+.mission-link .rocket-mark { width:15px; height:15px; }
+.mission-link:hover .rocket-mark,.text-link:hover .rocket-mark { transform:none; }
+.chrome .rocket-mark { width:9px; height:9px; }
+.view-project .rocket-mark,.video-play-hint .rocket-mark,.wheel-toolbar .rocket-mark,.window-bar .rocket-mark,.orbit-label .rocket-mark,.fine .rocket-mark { width:11px; height:11px; }
+.service-orbit .rocket-mark { width:26px; height:26px; }
+.service-orbit .rocket-mark>svg { transform:rotate(45deg); }
+
+/* The hover paint and the icon occupy separate planes, with fixed centering. */
+.project-meta>a,.back-top { position:relative; isolation:isolate; padding:0; display:grid; place-items:center; line-height:1; color:#edf4ee !important; background:transparent !important; border-color:#19e50f55; }
+.project-meta>a::before,.back-top::before { content:""; position:absolute; inset:0; z-index:0; border-radius:inherit; background:var(--neon-green); opacity:0; transition:opacity .2s; pointer-events:none; }
+.project-meta>a>*,.back-top>* { position:relative; z-index:1; }
+.project-meta>a:is(:hover,:focus-visible)::before,.back-top:is(:hover,:focus-visible)::before { opacity:1; }
+.project-meta>a:is(:hover,:focus-visible),.back-top:is(:hover,:focus-visible) { color:var(--laser-ink) !important; --rocket-port:var(--neon-green); }
+.project-meta>a .rocket-mark { width:18px; height:18px; color:inherit !important; }
+.project-meta>a:is(:hover,:focus-visible) .rocket-mark { color:var(--laser-ink) !important; }
+.project-meta>a .rocket-mark>svg { filter:none; }
+.back-top .space-icon { width:33px; height:33px; transform:none !important; color:inherit !important; }
+.back-top .outline-flame { opacity:0; }
+.back-top:is(:hover,:focus-visible) .outline-flame { opacity:1; }
+.back-top .icon-accent { stroke:currentColor; }
+@keyframes rocketBurn { from { transform:scaleY(.55); } to { transform:scaleY(1.05); } }
+html.studio-tab-hidden .rocket-flame { animation-play-state:paused !important; }
+@media (prefers-reduced-motion:reduce) { .rocket-flame { animation:none !important; } .project-meta>a::before,.back-top::before { transition:none; } .mission-engine.is-powered .move-exhaust { animation:none !important; } }
+
+.back-top:is(:hover,:focus-visible) { --icon-accent:var(--laser-ink); }
+.compare-handle { border-color:var(--neon-green) !important; }
+.compare-handle>span { color:#e4f5e8 !important; }

@@ -246,3 +246,22 @@ Chromium-Vorschau lädt die neue Fassung: duration=36, readyState=4,
 spielt im sichtbaren Header; Aufbau und Beginn des Rückzugs visuell geprüft.
 Vorschaubild aktualisiert. Die vorherige Responsive-Prüfung gilt weiter,
 da ausschließlich die Filmdateien und deren Offline-Zeitkurve geändert wurden.
+
+## Screenshot-Korrekturen: Raketen, Hover-Kontrast und Neonröhren
+Alle zehn Uploads geprüft. Bild 1: Footer-Rakete, Bild 2: Projekt-Rundlink,
+3/4: Kontakt und Arbeiten-Pfeile, 5/6: Hero-Beschriftungen, 7: Navigationspunkt,
+8: Universum-Überschrift, 9: Leistungen/Orbit, 10: Footer-Überschrift.
+Neuere Icon-Vorlage https://dribbble.com/shots/4298961-Space-Icons (Mike Hill)
+im Browser visuell geprüft. Eigene runde SVG-Konturen; erste Missionsgrafik
+durch Teleskop, Globus durch Ringplanet ersetzt. Services verwenden Planet,
+Satellit, Rakete und UFO. Mechanischer Kreativantrieb bleibt als eigenes Motiv.
+Alle Hauptseiten-Richtungspfeile und Vorschlagsrad-Pfeile sind nun kleine
+gefüllte SVG-Raketen mit Porthole und Hoverflamme. Die funktionalen Alt/Neu-
+Chevrons bleiben erhalten. Die eigenständigen Musterwebsites behalten ihre
+eigenen Pfeile und Farbwelten. Kreislinks: separate Hoverfläche z-index 0,
+zentriertes Icon z-index 1, dunkles Symbol auf grünem Hintergrund.
+Getriebeflammen im Ruhezustand unsichtbar; Pointerenter aktiviert, Pointerleave
+beendet den Hover-Schub. Manuelles Start/Stop und 4.5-s-Reset bleiben bedienbar.
+Einheitliches #19E50F für grüne Akzente, dunkle Kerne und enge Leuchtkonturen
+für Work/Universum/Version/rework. Nav- und Service-Orbit-Punkte sowie der
+flächige Hero-Fleck entfernt. Sonne und ihr 36-s-Ablauf bleiben unverändert.

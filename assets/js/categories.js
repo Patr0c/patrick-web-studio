@@ -28,7 +28,7 @@ for(const article of document.querySelectorAll('.category')){
  orbit.replaceChildren();
  concepts[key].forEach((c,i)=>{
   const node=document.createElement('div');node.className='orbit-node';node.style.setProperty('--node-angle',`${i*120-90}deg`);
-  node.innerHTML=`<button class="orbit-window" type="button" data-concept="${c.id}" aria-label="${categoryNames[key]}: ${escape(c.name)} Vorschau öffnen"><span class="orbit-chrome"><i></i><i></i><i></i></span>${miniature(c,key)}<span class="orbit-label">${escape(c.name)} <b>↗</b></span></button>`;
+  node.innerHTML=`<button class="orbit-window" type="button" data-concept="${c.id}" aria-label="${categoryNames[key]}: ${escape(c.name)} Vorschau öffnen"><span class="orbit-chrome"><i></i><i></i><i></i></span>${miniature(c,key)}<span class="orbit-label">${escape(c.name)} <b><span aria-hidden="true" class="rocket-mark"><svg viewBox="0 0 32 32"><g class="rocket-flame"><path d="M12 27q1 7 4 12 3-5 4-12z"/><path class="flame-core" d="M14 27l2 7 2-7z"/></g><path class="rocket-body" d="M16 2C10 6 8 14 10 23h12C24 14 22 6 16 2zM10 15 4 25l8-3m10-7 6 10-8-3M12 23v4h8v-4z"/><circle class="rocket-port" cx="16" cy="12" r="3"/></svg></span></b></span></button>`;
   orbit.appendChild(node);
  });
  trigger.addEventListener('click',()=>{
