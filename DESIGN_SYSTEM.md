@@ -101,12 +101,14 @@ Zurück-nach-oben-Link verwenden dieselbe Strichsprache. Bewegung nur sichtbar
 und im aktiven Tab; Reduced Motion zeigt ruhende Illustrationen.
 Antrieb starten ist eine optionale 4.5-s-Interaktion mit bedienbarem Stop und
 Statusrückmeldung. Kein neuer Canvas oder dauernder JavaScript-Frame-Loop.
-Die Sonnenkorona läuft ruhig über 36 s bei 60 fps. Aufbau und Rückzug dauern
-je 15 s mit exakt derselben weichen Bewegungskurve; die Aufnahme wird dafür
-vorwärts und rückwärts durchlaufen. Je 2 s Ruhe am Anfang/Ende und 2 s am
-Höhepunkt verhindern ein hektisches Pendeln. Derselbe Ring an den Endpunkten
-vermeidet einen sichtbaren Schleifensprung. Die linke überlappende Flare wird sanft ausgeblendet
-und ihre Kante gefiedert. Originalsonne, Größe und Position bleiben erhalten.
+Die Sonnenkorona läuft über 33.5 s bei 60 fps: 2 s Ruhe, 15 s Aufbau,
+2 s Höhepunkt, 12.5 s Rückzug, 2 s Ruhe. Der Rückzug ist um 20 % schneller
+als die vorherigen 15 s. Jeder der vier aufgenommenen Ausbrüche wird auf
+seinen eigenen Höhepunkt zeitlich abgebildet; alle Richtungen verwenden
+dieselbe weiche Kurve für Bewegung und Helligkeit. Kein neuer Ausbruch während
+des Rückzugs. Winkel werden weich überblendet, Überlagerungen links, rechts
+und unten gefiedert. Ruhige, übereinstimmende Endpunkte vermeiden den Sprung.
+Ursprüngliche Sonne, Größe und Position bleiben erhalten.
 
 ## Icon- und Neonkorrekturen nach den zehn Screenshots
 Neue Vorlage: Mike Hill, Space Icons, Dribbble 4298961. Runde weiße Konturen,

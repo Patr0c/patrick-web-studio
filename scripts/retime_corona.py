@@ -7,15 +7,27 @@ from pathlib import Path
 import subprocess as sp
 import tempfile
 import numpy as np
-from scipy.ndimage import gaussian_filter
+from scipy.ndimage import gaussian_filter, gaussian_filter1d
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-FPS, DURATION, SIZE = 60, 36, 512
+FPS, SIZE = 60, 512
+REST, BUILD, PEAK, RETREAT = 2, 15, 2, 15 / 1.2
+DURATION = 2 * REST + BUILD + PEAK + RETREAT
 
 def smooth(x):
     x = np.clip(x, 0, 1)
     return x*x*(3-2*x)
+
+def phase(time):
+    """Common gentle motion; withdrawal runs at 120% of its former speed."""
+    if time < REST:
+        return 0.0
+    if time < REST + BUILD:
+        return float(smooth((time - REST) / BUILD))
+    if time < REST + BUILD + PEAK:
+        return 1.0
+    return float(1 - smooth((time - REST - BUILD - PEAK) / RETREAT))
 
 with tempfile.TemporaryDirectory() as directory:
     original = Path(directory)/'original.webm'
@@ -27,12 +39,32 @@ with tempfile.TemporaryDirectory() as directory:
     ring = 1-smooth((radius-185)/13)
     base = np.median(frames[::12].astype(np.float32),axis=0)
     base[:,:,3] *= ring
-    # The left-hand reconstruction overlap made two stacked lobes and a hard seam.
-    # Feather the outer overlap into one plume; do not touch the solar surface.
+    # Each reconstructed flare peaks at a different source time. A single global
+    # reverse playback made the east/south plumes grow again during withdrawal.
+    # Find each direction's peak, then apply one shared phase to all directions.
+    angle = np.arctan2(yy-255.5, xx-255.5)
+    centers = [-np.pi/2, 0, np.pi/2, np.pi]
+    weights = np.stack([np.maximum(np.cos(angle-c), 0)**8 for c in centers])
+    weights /= weights.sum(axis=0)
+    peak_frames = []
+    for name, center in zip(('north', 'east', 'south', 'west'), centers):
+        delta = np.angle(np.exp(1j*(angle-center)))
+        sector = (radius > 200) & (np.abs(delta) < np.pi/4)
+        energy = (frames[:,:,:,3][:,sector].astype(np.float32) *
+                  np.max(frames[:,:,:,:3][:,sector], axis=-1) / 255).sum(axis=1)
+        k = int(np.argmax(gaussian_filter1d(energy, 3)))
+        peak_frames.append(k)
+        print(f'{name}: recorded peak {k/FPS:.3f}s', flush=True)
+    peak_map = np.sum(weights * np.array(peak_frames)[:,None,None], axis=0)
+    # Extend the successful left overlap feather to the right and lower rim.
+    # Keep the already approved northern plume and the solar surface untouched.
     left = 1-smooth((xx-92)/40)
+    right = smooth((xx-380)/40)
     lower = smooth((yy-268)/40)
+    bottom = smooth((yy-380)/40)
     outer = smooth((radius-184)/15)
-    overlap = 1 - .96*left*lower*outer
+    overlap = (1 - .96*np.maximum(left,right)*lower*outer) * \
+              (1 - .96*bottom*smooth((xx-268)/40)*outer)
     feathered = np.empty_like(frames)
     for i,frame in enumerate(frames):
         f=frame.astype(np.float32)
@@ -53,15 +85,15 @@ with tempfile.TemporaryDirectory() as directory:
     for size,name,crf in [(512,'sun-corona.webm','29'),(384,'sun-corona-mobile.webm','30')]:
         command=['ffmpeg','-v','error','-y','-f','rawvideo','-pix_fmt','rgba','-s','512x512','-r',str(FPS),'-i','-','-vf',f'scale={size}:{size}:flags=lanczos','-c:v','libvpx-vp9','-pix_fmt','yuva420p','-b:v','0','-crf',crf,'-deadline','good','-cpu-used','5','-row-mt','1','-threads','2','-auto-alt-ref','0',str(ROOT/'assets/video'/name)]
         outputs.append(sp.Popen(command,stdin=sp.PIPE))
-    for n in range(FPS*DURATION):
-        # Exactly mirrored motion: 2s rest, 15s build, 2s peak, 15s retreat, 2s rest.
-        # Both source motion and brightness follow the same curve in each direction.
-        progress=n/(FPS*DURATION-1)
-        half_time=(1-abs(2*progress-1))*(DURATION/2)
-        envelope=float(smooth((half_time-2)/15))
-        source=envelope*(len(frames)-1)
-        k=int(source);fraction=source-k
-        f=feathered[k].astype(np.float32)*(1-fraction)+feathered[min(k+1,len(frames)-1)].astype(np.float32)*fraction
+    for n in range(round(FPS*DURATION)):
+        # Direction-aware source sampling avoids replaying any local eruption
+        # out of phase. The angular blend has no visible quadrant boundaries.
+        envelope = phase(n/FPS)
+        source = envelope * peak_map
+        k = source.astype(np.int32)
+        fraction = (source-k)[:,:,None]
+        f = (feathered[k,yy,xx].astype(np.float32)*(1-fraction) +
+             feathered[np.minimum(k+1,len(frames)-1),yy,xx].astype(np.float32)*fraction)
         a=f[:,:,3:4]/255
         outa=base_alpha*(1-envelope)+a*envelope
         rgb=(base_rgb*(1-envelope)+f[:,:,:3]*a*envelope)/np.maximum(outa,.001)
@@ -71,4 +103,4 @@ with tempfile.TemporaryDirectory() as directory:
     for process in outputs:
         process.stdin.close()
         if process.wait():raise SystemExit('Corona encoding failed')
-print('Encoded 36s / 60fps alpha loops: equal 15s build and retreat, with mirrored motion and resting endpoints.')
+print(f'Encoded {DURATION}s / {FPS}fps alpha loops: all directions share {BUILD}s build and {RETREAT}s retreat; resting endpoints.', flush=True)

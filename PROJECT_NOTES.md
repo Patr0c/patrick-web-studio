@@ -329,3 +329,27 @@ JavaScript ändert nicht mehr textContent und bewahrt so das Icon beim Schalten.
 Alle kleinen Raketen zünden auf Karten-Hover oder Fokus innerhalb der Kachel.
 Die mittlere bleibt zusätzlich während eines manuellen Schubs aktiv.
 Keine orange/gelben Markierungsrahmen ins Design übernommen.
+
+## Feuernovas rundum vereinheitlicht; Rückzug 20 Prozent schneller
+Auftrag während der Hover-Korrektur ergänzt. Die originale Koronaaufnahme hat
+unterschiedliche lokale Höhepunkte: Norden 4.917 s, Osten 3.600 s, Süden 2.350 s,
+Westen 1.100 s. Der bisherige globale Vor-/Rücklauf ließ deshalb einzelne
+Ausbrüche während des Rückzugs erneut anwachsen. Die Offline-Pipeline bestimmt
+jeden lokalen Höhepunkt und bildet ihn auf dieselbe Smoothstep-Phase ab.
+Winkelabhängige Quellenzeiten werden nahtlos überblendet; die linke
+Überlappungsfederung wird auf rechten und unteren Rand erweitert.
+Neuer Ablauf: 2+15+2+12.5+2=33.5 Sekunden bei 60 fps. 15/12.5=1.2, also
+20 Prozent schnellere Rückzugsbewegung. Keine globale Beschleunigung des
+Aufbaus. 101 korrespondierende Aufbau-/Rückzugsphasen stimmen numerisch überein.
+Beide VP9-Dateien haben echte Alpha-Transparenz (alpha_mode=1), 2010 Frames,
+512x512 bzw. 384x384. Decodierte Endpunktabweichung bei 256 px: 0.00145/255
+im Mittel. Kontaktbogen bei 0/7/13/18/22/28/33.48 s visuell geprüft, siehe
+docs/nova-timing-preview.jpg. Sonne und Galaxie selbst sowie ihre Größen,
+Positionen und vorhandenen Mediencontroller werden nicht geändert.
+Hover-Prüfung in Chromium: Jede der drei Kacheln aktiviert ihre kleine Flamme
+bereits bei Zeiger auf dem Textbereich (opacity=1, animation=rocketBurn).
+Nach Verlassen alle drei opacity=0. Mittlere Rakete nach Start und nach dem
+4.5-s-Reset weiterhin als SVG vorhanden, aria-label/aria-pressed korrekt.
+Knopf ist transparent und ohne Rahmen; Screenshot docs/mission-hover-preview.jpg.
+390er-Rahmen 375/375 ohne Überlauf; mittlerer Iconknopf auf 320er-Rahmen
+per Klick/Touchfunktion bedient, Größe 32 px, SVG bleibt erhalten.
