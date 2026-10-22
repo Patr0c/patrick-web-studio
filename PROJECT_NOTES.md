@@ -521,5 +521,45 @@ Originale Diagnostik bleibt unter maskiertem Telemetrielicht sichtbar. Mobile
 zeigt vollständiges Gerät plus lesbare rechte Displaykopie unterhalb.
 
 Quellen außerhalb der Terminal-Integration sowie HTML ab Missionssektion
-unverändert. Die Veröffentlichungs- und Browserprüfung wird nach Deployment
-mit tatsächlichen Ergebnissen ergänzt. main wird nicht aktualisiert.
+unverändert. Browser- und Veröffentlichungsprüfung siehe unten. main wird nicht aktualisiert.
+
+
+Browserprüfung im Cloudflare-Preview a1d842e, Chromium: 1348×936 Clientviewport,
+alle vier Originalbilder geladen, Stage x=68..1280 / y=276..882; ganze Konsole
+und Fuß vollständig sichtbar. Beide Hauptdisplays clientHeight=scrollHeight,
+Inhalt ohne Abschneiden. 11 Diagnosebereiche und 61 Bedienelementpfade vorhanden.
+Matrix: 155 laufende Spalten, CSS matrixFall, Masken ohne rechteckige Ersatzflächen.
+Sonne readyState=4/46.033333 s, Korona readyState=4/33.5 s, beide laufend.
+
+Responsive-Harness tests/responsive.html im echten Chromium bedient:
+320/390/768/1440 px Rahmen entsprechen 305/375/753/1425 px Clientbreite,
+jedes Mal scrollWidth identisch, keine seitliche Seitenscrollleiste. Gleiche
+Koordinaten auf allen vier Ebenen. Stage auf Telefon 285×142.5 beziehungsweise
+355×177.5, jeweils ganze Kontur/Standfuß sichtbar. Beide Hauptdisplayboxen
+clientHeight=scrollHeight in allen Größen. 390er Lesekopie x=24..351, y=465.5..674.2;
+CTA 44 px hoch, unterhalb des Geräts, keine Überlagerung. Telefone verwenden
+weiter dasselbe Originalgerät und bekommen zusätzlich die lesbare rechte Kopie.
+
+Echte Interaktionen: Vergleich Ende=100 und Matrix is-paused; Pos1=0 und
+Animation setzt fort, Drag auf 60%, Doppelklick=50%, zurück auf 0%. Beim Sprung
+zu Kategorien pausieren Gerät, Sonne und Korona offscreen; Rückkehr setzt fort.
+Alle neun Konzeptdialoge geöffnet, korrekte Titel, Motivbilder vollständig geladen.
+Alle drei Projektaufnahmen einzeln per echtem Hover getestet: readyState=4,
+laufende Zeit; Wechsel pausiert vorherige Aufnahme, Verlassen pausiert alle.
+Keine Websitefehler beobachtet; Browser-Erweiterung meldet eigene Metadatenfehler.
+
+Vier PNGs direkt gegen das Archiv byte-/SHA-gleich geprüft; unveränderte Sonne
+und HTML ab Missionssektion separat verglichen. Import reproduzierbar, Alpha-
+Schutzmaske ohne Display-/Schalterüberschneidung; Maskenobergrenze y=423..631.
+GitHub static-site und Cloudflare Pages erfolgreich. Ressourcenprüfung nun auch
+für dynamische Masken/JSON samt Originaldatei-Hashes und Koordinatenvertrag.
+Letzte Verfeinerung: gemeinsame statt elf separate SVG-Glasmasken; lesbare
+Telefonkopie auch dann verfügbar, wenn der Geometrie-Fetch fehlschlägt.
+Screenshots: docs/workstation-ora-preview.jpg und workstation-ora-mobile-preview.jpg.
+
+Testgrenzen: Firefox und echte Smartphone-Hardware sind hier nicht verfügbar.
+Hintergrundtab, Reduced Motion und Save-Data haben explizite Ereignis-/CSS-
+Guards; die Browsersteuerung stellt keine Umschaltung dieser Präferenzen bereit,
+daher nicht als separate Laufzeittests ausgegeben. Telefonprüfungen sind reale
+Chromium-Iframe-Viewports, keine physische Mobilgeräteprüfung. Keine Aussage
+über Langzeit-FPS auf fremder Hardware. Ausschließlich separater Preview-Branch.

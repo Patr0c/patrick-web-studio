@@ -19,7 +19,10 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `assets/css/fonts.css`: nur Archivo, Manrope, DM Mono; OFL-Lizenzen beigelegt.
 - `assets/css/studio.css`: aktuelles Layout, responsive Regeln und Effekte.
 - `assets/css/workstation.css`: bildschirmfüllender Einstieg aus Operator-Perspektive.
-- `assets/js/terminal.js`: eigene skalierbare Retro-Diagnostik und animierte Glyphen auf sieben Pultdisplays.
+- `assets/js/terminal.js`: elf Alpha-maskierte Retro-Displays und vertikale Matrix in Original-Cutouts.
+- `assets/workstation/`: vier unveränderte ORA-PNGs, echte Masken und native Geometrie.
+- `scripts/import_workstation_ora.py`: reproduzierbarer Import aus Patricks ORA; kein Runtime-Build.
+- `docs/workstation-ora.md`: Quellmaße, Alpha-Auswertung, Lichtmasken und Bedienregionen.
 - `assets/js/comparison.js`: Alt/Neu-Regler mit Tastatur und Pointer Capture.
 - `assets/js/media.js`: Hovervideos, Reset und sichtbarkeitsabhängige Sonne.
 - `assets/js/space.js`: feste Sterne und gemeinsam rotierende Galaxie/Sternenfilm.
@@ -35,7 +38,8 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
 - `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
   zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
-- `docs/workstation-pedestal-preview.jpg` und `docs/workstation-pedestal-mobile-preview.jpg`: aktuelle Beleuchtung, Stütze und aktive Nebenanzeigen.
+- `docs/workstation-ora-preview.jpg` und `docs/workstation-ora-mobile-preview.jpg`: aktuelle Original-GIMP-Workstation auf Desktop/Telefon.
+- `docs/workstation-pedestal-preview.jpg` und `docs/workstation-pedestal-mobile-preview.jpg`: vorherige Beleuchtung, Stütze und Nebenanzeigen.
 - `docs/workstation-flat-preview.jpg` und `docs/workstation-flat-mobile-preview.jpg`: vorheriges gerades Terminal mit sichtbaren Seitenkanten.
 - `docs/workstation-operator-preview.jpg` und `docs/workstation-operator-mobile-preview.jpg`: vorheriger bildschirmfüllender Einstieg mit drei Monitoren.
 - `docs/control-center-preview.jpg` und `docs/control-center-mobile-preview.jpg`: vorherige Kontrollzentrale mit Boden.
@@ -49,7 +53,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktuell: https://feat-terminal-light-20261022.patrick-web-studio.pages.dev/
+Aktuell: https://feat-ora-layers-20261023.patrick-web-studio.pages.dev/
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;

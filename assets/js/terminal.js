@@ -4,6 +4,21 @@
   const stage = document.querySelector('.workstation-stage');
   const hero = document.querySelector('.immersive-hero');
   if (!stage || !hero) return;
+  // Same right-monitor content at a readable phone size; never crop/disassemble
+  // the original terminal to enlarge its physical bezels.
+  const phone = matchMedia('(max-width:650px)');
+  const readingCopy = document.querySelector('.workstation-mobile-copy');
+  const right = stage.querySelector('.screen-right');
+  const updateReading = () => {
+    readingCopy.hidden = !phone.matches;
+    right.setAttribute('aria-hidden', String(phone.matches));
+    stage.querySelectorAll('.workstation-screen a').forEach(link => {
+      if (phone.matches) link.setAttribute('tabindex','-1');
+      else link.removeAttribute('tabindex');
+    });
+  };
+  phone.addEventListener('change',updateReading);
+  updateReading();
   const ns = 'http://www.w3.org/2000/svg';
   let geometry;
   try {
@@ -56,6 +71,7 @@
     matrix += `<g class="matrix-column" style="--flow:${3+random(60)/10}s;--phase:-${random(90)/10}s">${column}</g>`;
   }
   let content = `<g class="matrix-light" mask="url(#terminal-matrix-mask)" data-matrix-direction="down">${matrix}</g>`;
+  let auxiliaryContent = '';
   panels.forEach((points,index) => {
     const p = points.map(x => x.join(',')).join(' ');
     defs += `<clipPath id="aux-glass-${index}"><polygon points="${p}"/></clipPath><clipPath id="aux-code-${index}"><rect x="5" y="8" width="112" height="128"/></clipPath><clipPath id="aux-plot-${index}"><rect x="126" y="8" width="188" height="128"/></clipPath>`;
@@ -85,8 +101,9 @@
     graph += '<g class="aux-packets" fill="currentColor">';
     for(let i=0;i<11;i++) graph += `<circle cx="${133+i*16}" cy="132" r="2.5" opacity="${.3+random(70)/100}"/>`;
     graph += '</g>';
-    content += `<g class="aux-screen-light" mask="url(#terminal-aux-mask)" data-aux-screen="${geometry.auxiliary[index].id}"><g clip-path="url(#aux-glass-${index})"><g transform="matrix(${matrix})"><path class="aux-ink aux-faint" d="M119 4v136M3 4h314v136H3z"/><g clip-path="url(#aux-code-${index})"><g class="aux-code" style="--flow:${1.25+index*.14}s;animation-delay:-${index*.27}s">${code}</g></g>${graph}<path class="aux-scan aux-ink aux-faint" d="M4 130h310"/></g></g></g>`;
+    auxiliaryContent += `<g class="aux-screen-light" data-aux-screen="${geometry.auxiliary[index].id}"><g clip-path="url(#aux-glass-${index})"><g transform="matrix(${matrix})"><path class="aux-ink aux-faint" d="M119 4v136M3 4h314v136H3z"/><g clip-path="url(#aux-code-${index})"><g class="aux-code" style="--flow:${1.25+index*.14}s;animation-delay:-${index*.27}s">${code}</g></g>${graph}<path class="aux-scan aux-ink aux-faint" d="M4 130h310"/></g></g></g>`;
   });
+  content += `<g mask="url(#terminal-aux-mask)">${auxiliaryContent}</g>`;
   // Pixel-span paths are individually addressable, not fake buttons. No handlers
   // or keyboard stops until Patrick chooses interactions for these controls.
   const controls = geometry.controls.map(region => `<path data-control-id="control-${String(region.id).padStart(2,'0')}" data-source-box="${region.box.join(' ')}" d="${region.path}" fill="transparent"/>`).join('');
@@ -103,19 +120,5 @@
   window.addEventListener('pagehide',() => svg.classList.add('is-paused'));
   window.addEventListener('pageshow',update);
   navigator.connection?.addEventListener('change',update);
-  // Same right-monitor content at a readable phone size; never crop/disassemble
-  // the original terminal to enlarge its physical bezels.
-  const phone = matchMedia('(max-width:650px)');
-  const readingCopy = document.querySelector('.workstation-mobile-copy');
-  const right = stage.querySelector('.screen-right');
-  const updateReading = () => {
-    readingCopy.hidden = !phone.matches;
-    right.setAttribute('aria-hidden', String(phone.matches));
-    stage.querySelectorAll('.workstation-screen a').forEach(link => {
-      if (phone.matches) link.setAttribute('tabindex','-1');
-      else link.removeAttribute('tabindex');
-    });
-  };
-  phone.addEventListener('change',updateReading);
-  updateReading();
+
 })();
