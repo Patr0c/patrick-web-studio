@@ -201,3 +201,55 @@ unbekannte eigene Vektorzeichen. Referenz: Patricks Retro-Sci-Fi-Screenshot
 und Screensavers Planet /retro-sci-fi-522/. Keine fremde Software/Assets
 übernommen. Wellenformen, Schaltpläne, Gitterkugel und schnelle Terminalzeilen;
 CSS-Animation, nur sichtbar und im aktiven Tab. Kein Canvas-Repaint-Loop.
+
+
+## Hero-Komposition nach Patricks Skizze vom 22.10.2026
+
+Die weiße Fläche in der 1610×853-Skizze ist keine neue Hintergrundfarbe:
+die dunkle Weltraumwelt mit Sternen und Galaxie bleibt über das ganze Fenster
+erhalten. Das Verhältnis der Motivgruppen ist verbindlich:
+
+- Navigation ausschließlich oben links, visuell etwa x=0–660 / y=0–154.
+  Auf kleineren Geräten bleibt die bisherige responsive Navigation.
+- Sonne und vorhandene Korona unverändert als echte Medien oben mittig:
+  Referenz ca. x=670–940 / y=36–304. Sonnenlicht bleibt Amber/Orange.
+- Workstation nimmt die untere, fast volle Fensterbreite ein. Ihre
+  äußeren Gehäusekanten bleiben sichtbar, mit nur wenig seitlicher Luft;
+  keine eigene Bildverzerrung und keine zusätzliche künstliche Neuzeichnung.
+  Auf der 1610×853-Desktopansicht beginnt die Monitorreihe bei y≈350.
+- Linkes Display: DIGITAL/REWORK, fein begrenztes Lasergrün; rechtes Display:
+  Zeit für einen neuen Auftritt mit Beschreibungs- und Interaktionsbereich.
+  Beide sind echte HTML-Texte und werden in den Glasflächen verankert.
+  Zwischen den beiden Hauptdisplays bleibt die Mitteltelemetrie sichtbar.
+- Boden, Taster, Zentralhalterung und untere Linklabels behalten ihre
+  räumliche Tiefe. Kein weißer ausgeschnittener Hintergrund.
+- Desktop-Proportionen über wenige gekoppelte CSS-Werte;
+  Tablet/Mobil verwenden weiterhin die bestehenden spezialisierten
+  Ansichten, sodass Schrift nicht gestaucht oder abgeschnitten wird.
+- Die geänderte Komposition liegt isoliert im Branch
+  feat/sketch-layout-20261022 und darf erst nach Freigabe nach main.
+
+
+## Verbindliche Workstation-Vorlage aus GIMP (22.10.2026)
+
+Patrick hat selbst die Datei **Graphit-Titan-Doppelmonitorstation mit grüner Telemetrie.png**
+als Original hochgeladen (1774 × 887 px, RGBA mit Transparenz). Diese konkrete
+unveränderte PNG ist ab sofort der visuelle Master für die Konsole und auch
+seine lokale GIMP-Arbeitsdatei. Nicht die danach mittels KI neu erzeugten
+Rekonstruktionen verwenden. Diese haben unerwünschte rot-gelbe Kantenartefakte,
+veränderte Schalter sowie verfälschte Formen erzeugt.
+
+Bis die originalen PNG-Bytes in das GitHub-Repository übertragen wurden, darf
+die aktive Bildreferenz im Code nicht auf eine fehlende Datei umgeschaltet werden.
+Ab einem solchen Upload die Original-PNG möglichst unter
+`assets/images/workstation-original.png` unverändert speichern und
+`workstation-art` sowie die zwei `monitor-frame`-Bildquellen gemeinsam
+auf denselben Dateipfad aktualisieren. Die vorhandenen `aux-displays`- und
+Monitor-Overlays anschließend anhand des **exakten** Pixelrasters der Original-PNG
+kalibrieren. Keine KI-Regeneration, keine geometrische Retusche, keine
+zusätzlichen Stäbe/Spangen, und bis auf ausdrückliche Freigabe keine
+Veränderung am Original.
+
+Geplante nächste Phase: Patrick markiert die exakten Pixelbereiche der beiden
+Monitore und der einzelnen Tasten/Schalter in GIMP. Daraus werden eigenständige
+interaktive Ebenen entwickelt, ausgerichtet an derselben Bilddatei.

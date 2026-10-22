@@ -108,3 +108,142 @@
   .aux-displays { inset:auto 0 0; height:auto; aspect-ratio:2; clip-path:inset(46% 0 0); }
 }
 @media(prefers-reduced-motion:reduce) { .aux-displays * { animation:none !important; } }
+
+
+/* Sketch composition — 1610 x 853 reference, 22 Oct 2026 */
+/*
+ * The sketch is a COMPOSITION guide, not a white page background.
+ * Top: compact left-aligned navigation and the unobstructed real sun.
+ * Bottom: the existing realistic terminal as the main focal point.
+ * Keep both HTML panels mapped to the original native monitor glass.
+ * No independent stretching, skewing or repositioning of panel content.
+ */
+@media (min-width:1001px) {
+  .immersive-hero.hero {
+    --sketch-terminal-width:min(calc(100vw + 140px),200svh,2100px);
+    height:100svh;
+    min-height:640px;
+  }
+  .immersive-hero .workstation-stage {
+    width:var(--sketch-terminal-width);
+    /* Screen top is ~41% viewport height, but never touches the sun
+       on short laptop displays. Original image aspect ratio remains 2:1.
+       Corresponding coefficients = 43.75% of width for 12.5%-screen inset. */
+    bottom:calc(100svh - max(340px,41svh) - min(calc(43.75vw + 61.25px),87.5svh,918.75px));
+    left:50%;
+    transform:translateX(-50%);
+    aspect-ratio:2;
+  }
+  .immersive-hero .control-floor {
+    inset:38% 0 0;
+  }
+  .immersive-hero .hero-bottom {
+    bottom:clamp(44px,6svh,64px);
+    left:clamp(14px,1.3vw,28px);
+    right:clamp(14px,1.3vw,28px);
+  }
+  .immersive-hero .compare-labels {
+    left:clamp(14px,1.3vw,28px);
+    right:clamp(14px,1.3vw,28px);
+  }
+}
+/*
+ * The compact navigation belongs to the top LEFT of the reference.
+ * Do not cover the sun or stretch the nav across the right half.
+ * Tablet/mobile retain their accessible existing navigation layout.
+ */
+@media (min-width:1440px) {
+  .page-shell > .nav {
+    left:calc((100% - var(--scene-width,100vw))/2);
+    right:auto;
+    top:0;
+    width:min(660px,calc(50vw - 140px));
+    height:clamp(116px,18svh,154px);
+    padding:0 clamp(26px,2.1vw,38px);
+    gap:clamp(16px,1.55vw,26px);
+    justify-content:flex-start;
+    border-radius:0;
+    background:linear-gradient(90deg,rgba(2,4,10,.95),rgba(2,4,10,.91) 84%,rgba(2,4,10,.15));
+  }
+  .page-shell > .nav .logo {
+    font-size:clamp(28px,2.45vw,42px);
+    white-space:nowrap;
+    flex:none;
+  }
+  .page-shell > .nav .links {
+    display:flex;
+    flex:1;
+    justify-content:space-between;
+    align-items:center;
+    margin-left:0;
+    min-width:0;
+    gap:clamp(10px,1vw,20px) !important;
+    font-size:clamp(10px,.92vw,15px) !important;
+  }
+  .page-shell > .nav .links a { white-space:nowrap; }
+}
+/* Prefer a taller control deck when the browser is tall and narrow:
+   bound the image by both viewport dimensions to protect side housings. */
+@media (min-width:1001px) and (max-height:670px) {
+  .immersive-hero.hero { min-height:670px; }
+  .immersive-hero .workstation-stage {
+    bottom:calc(100svh - max(340px,41svh) - min(calc(43.75vw + 61.25px),87.5svh,918.75px));
+  }
+}
+
+
+/* Sketch screen geometry: balanced left / centre / right proportions */
+/* Desktop reference at 1610px: left panel x≈110–660, centre gap to x≈960,
+   right panel x≈960–1515, all aligned to the console artwork. */
+@media (min-width:1001px) {
+  .workstation-stage .workstation-screen {
+    top:13%;
+    height:20%;
+    padding:0 .45%;
+  }
+  .workstation-stage .screen-left {
+    left:9.25%;
+    width:32.5%;
+    right:auto;
+    transform:none;
+  }
+  .workstation-stage .screen-right {
+    right:8.5%;
+    width:32.5%;
+    left:auto;
+    transform:none;
+  }
+  .workstation-stage .eyebrow {
+    font-size:clamp(6px,.55cqw,9px);
+    margin-bottom:.4cqw;
+    letter-spacing:.09em;
+  }
+  .workstation-stage .hero-title-group h1.dexter-title {
+    font-size:clamp(39px,3.45cqw,68px);
+    line-height:.93;
+  }
+  .workstation-stage .text-link {
+    font-size:clamp(7px,.57cqw,10px);
+    margin-top:.3cqw;
+    padding:3px 0;
+  }
+  .workstation-stage .hero-copy .chapter {
+    font-size:clamp(6px,.52cqw,9px);
+    padding:2px 5px;
+  }
+  .workstation-stage .hero-copy h2 {
+    font-size:clamp(21px,1.98cqw,36px);
+    line-height:1.04;
+    margin:.3cqw 0 .35cqw;
+  }
+  .workstation-stage .hero-copy p {
+    font-size:clamp(10px,.75cqw,13px);
+    line-height:1.37;
+  }
+  .workstation-stage .hero-action {
+    font-size:clamp(8px,.58cqw,10px);
+    min-height:26px;
+    padding:4px 8px;
+    margin-top:.4cqw;
+  }
+}
