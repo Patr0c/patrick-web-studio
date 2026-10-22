@@ -205,7 +205,7 @@ body { display:flow-root; }
 .image-credit a:hover { color:#fff; }
 .space-background { background-size:auto 300%; background-position:center top; }
 .galaxy-position { position:absolute; left:50%; top:51%; width:min(84vw,1060px); aspect-ratio:1; transform:translate(-50%,-50%); pointer-events:none; opacity:.6; }
-.round-galaxy { display:block; width:100%; height:100%; object-fit:contain; filter:saturate(1.15); will-change:transform; }
+.round-galaxy { display:block; width:100%; height:100%; object-fit:contain; will-change:transform; }
 @keyframes galaxyTurn{to{transform:rotate(360deg)}}
 .category-section { padding-top:78px; padding-bottom:80px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#05070e18,#0c0b181c); }
 .category-section .section-head>p { max-width:265px; }
@@ -418,7 +418,6 @@ body { display:flow-root; }
   .concept-demo-scroll { scroll-behavior:auto; }
   .concept-demo { transition:none; }
 }
-.round-galaxy { mask-image:radial-gradient(circle at 50% 50%,#000 38%,#000e 49%,#0006 61%,transparent 71%); -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 38%,#000e 49%,#0006 61%,transparent 71%); }
 @media (min-width:761px) {
   .nav { gap:3%; }
   .links { gap:20px; font-size:9px; }
@@ -711,7 +710,7 @@ body { overflow-x:clip; }
 .galaxy-position { isolation:isolate; }
 .round-galaxy { animation:none !important; }
 .galaxy-dust { position:absolute; inset:0; width:100%; height:100%; display:block; opacity:.78; pointer-events:none; border-radius:50%; -webkit-mask-image:radial-gradient(circle, #000 0 52%, #000b 63%, transparent 72%); mask-image:radial-gradient(circle, #000 0 52%, #000b 63%, transparent 72%); }
-.galaxy-rotator::after { content:""; position:absolute; inset:10%; pointer-events:none; border-radius:50%; background:radial-gradient(circle,transparent 15%,rgba(115,147,190,.055) 42%,rgba(151,181,213,.09) 59%,transparent 72%); }
+.galaxy-rotator::after { content:none; position:absolute; inset:10%; pointer-events:none; border-radius:50%; background:radial-gradient(circle,transparent 15%,rgba(115,147,190,.055) 42%,rgba(151,181,213,.09) 59%,transparent 72%); }
 .solar-window { box-shadow:0 0 3px #ffe1a080,0 0 19px #ffaf395a,0 0 38px #ff8a182a,inset 0 0 12px #ffb32115; }
 .comparison-overlay { filter:drop-shadow(0 0 9px rgba(255,178,72,.38)); }
 a:focus-visible { outline:2px solid var(--neon-green) !important; outline-offset:5px; }
@@ -846,16 +845,13 @@ summary b { color:#25ed26 !important; text-shadow:0 0 6px rgba(22,225,31,.77) !i
 .space-background .static-starfield { z-index:3; pointer-events:none; opacity:.84; }
 .project-preview video { display:block !important; visibility:visible !important; opacity:1 !important; background-color:#090d13 !important; }
 .space-background .galaxy-position { opacity:1 !important; }
-.space-background .galaxy-rotator > .round-galaxy { opacity:.60 !important; }
-.space-background .galaxy-rotator > .galaxy-dust { position:absolute !important; inset:0 !important; z-index:5 !important; opacity:1 !important; mix-blend-mode:screen !important; pointer-events:none !important; mask-image:radial-gradient(circle,#000 0 55%,#000e 64%,transparent 73%) !important; -webkit-mask-image:radial-gradient(circle,#000 0 55%,#000e 64%,transparent 73%) !important; }
-@media (max-width:760px) {
-  .space-background .galaxy-rotator > .round-galaxy { opacity:.55 !important; }
-}
+.space-background .galaxy-rotator > .galaxy-dust { position:absolute !important; inset:0 !important; z-index:5 !important; opacity:.20 !important; mix-blend-mode:screen !important; pointer-events:none !important; mask-image:radial-gradient(circle,#000 0 55%,#000e 64%,transparent 73%) !important; -webkit-mask-image:radial-gradient(circle,#000 0 55%,#000e 64%,transparent 73%) !important; }
+
 :root { --studio-body:"Manrope",Arial,sans-serif; --studio-display:"Archivo",Arial,sans-serif; --neon-green:#19e50f; --neon-green-soft:rgba(25,229,15,.2); --accent:#19e50f; --contrast:#19e50f; --blue:#19e50f; --red:#ffae3c; }
 .space-background { background:#02040a; overflow:hidden; }
 .space-background .galaxy-position { opacity:1; }
 .galaxy-rotator { position:relative; width:100%; height:100%; animation:galaxyTurn 300s linear infinite; will-change:transform; }
-.space-background .galaxy-rotator > .round-galaxy { position:absolute; left:50%; top:50%; width:112%; height:auto; max-width:none; transform:translate(-59%,-50%); opacity:.60; animation:none; will-change:auto; mask-image:none; -webkit-mask-image:none; object-fit:contain; }
+.space-background .galaxy-rotator > .round-galaxy { position:absolute; left:50%; top:50%; width:112%; height:auto; max-width:none; transform:translate(-59%,-50%); opacity:1; animation:none; will-change:auto; mask-image:none; -webkit-mask-image:none; object-fit:contain; }
 .hero.solar-window { border-top-color:#ffca73; }
 .hero.solar-window::after { clip-path:none; -webkit-clip-path:none; animation:none; opacity:1; background:linear-gradient(180deg,#ffcf81 0%,#ffad44 100%); }
 .hero h1::before { content:none; }
@@ -869,7 +865,6 @@ html.studio-tab-hidden .hero-new * { animation-play-state:paused !important; }
 .category.orbit-offscreen .orbit-window { animation-play-state:paused; }
 .hero.reveal-paused .solar-aura { animation-play-state:paused; }
 @media (max-width:760px) {
-  .space-background .galaxy-rotator > .round-galaxy { opacity:.55; }
   .galaxy-rotator { animation-duration:360s; }
 }
 @media (prefers-reduced-motion:reduce) {
@@ -879,7 +874,6 @@ html.studio-tab-hidden .hero-new * { animation-play-state:paused !important; }
 .hero-action:hover { background:#39ff14 !important; }
 .hero.comparison-ready .comparison-overlay::before { left:var(--reveal) !important; }
 .hero .dexter-title > .outline { text-shadow:none !important; filter:drop-shadow(0 0 1px #39ff14c4) drop-shadow(0 0 4px #0e8f197a) !important; }
-.galaxy-rotator { mask-image:radial-gradient(circle closest-side,#000 0 56%,#000b 72%,transparent 86%); -webkit-mask-image:radial-gradient(circle closest-side,#000 0 56%,#000b 72%,transparent 86%); }
 @media (max-width:760px) {
   .hero.comparison-ready .hero-new { overflow:hidden; }
   .hero-title-group { z-index:13; }

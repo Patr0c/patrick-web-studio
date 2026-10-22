@@ -47,8 +47,13 @@ abgeschafft. Schriften lokal mit Lizenzen bereitstellen.
 
 Die neue transparente Galaxie stammt aus Patricks Upload `2Galaxie.png`.
 `Galaxie.png` ist bytegenau identisch. Originalgröße 1280 × 1001, RGBA.
-Original unverändert unter assets/images/galaxy.png; CSS positioniert den Kern
-und blendet äußere Schnittkanten weich aus. Keine rechteckige Bildfläche.
+Original unverändert unter assets/images/2Galaxie.png; CSS positioniert nur den
+Kern auf der Drehachse und erhält die natürlichen Bildproportionen. Keine
+zusätzliche kreisförmige Maske auf Bild oder Rotationscontainer, keine CSS-
+Abdunklung oder Farbfilter: Die eigene Transparenz und die außenliegenden
+Sterne der PNG müssen sichtbar bleiben. Der zusätzliche Sternenfilm ist mit
+20 % Deckkraft zurückgenommen, damit die von Patrick bearbeiteten Sterne
+bestimmend bleiben. Die festen Hintergrundsterne bleiben unverändert.
 Sternenfilm nicht als eigenes Bild unabhängig animieren. Sterne sehr fein,
 weißlich, scharf, mit sparsamen kleinen vierstrahligen Glints.
 

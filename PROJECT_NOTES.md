@@ -36,7 +36,7 @@ Alle 18 zusätzlichen Entwicklungscommits sind Vorfahren des neuen Branches
 ## Medien und Provenienz
 | Asset | Verwendung |
 | --- | --- |
-| assets/images/galaxy.png | Patricks 2Galaxie.png, unverändert, RGBA 1280×1001 |
+| assets/images/2Galaxie.png | Patricks 2Galaxie.png, unverändert, RGBA 1280×1001 |
 | assets/images/astronaut.webp | bestehendes explorer-hero, unverändert |
 | assets/video/sun-desktop.mp4 | bestehende Sonnenfassung, 512×512, 60 fps |
 | assets/video/sun-mobile.mp4 | bestehende mobile Sonnenfassung, 384×384, 60 fps |
@@ -124,3 +124,15 @@ sind gegenüber dem Stand vor dem Sonnenwunsch unverändert.
 Die zusätzliche Korona benötigt WebM/VP9-Wiedergabe; andernfalls bleibt das
 transparente Standbild sichtbar. Firefox konnte in dieser Umgebung nicht direkt
 getestet werden. Das gilt weiterhin als Testgrenze, nicht als bestätigter Fehler.
+
+## Korrektur: hochgeladene Galaxie sichtbar erhalten
+Nach Patricks Rückmeldung wurde die Darstellung der PNG geprüft. Die eingebundene
+Datei war bytegenau identisch mit beiden Uploads; eine nachträgliche kreisförmige
+CSS-Maske sowie Deckkraft 0.60/0.55 hatten jedoch Außenbereiche und Sterne
+verdeckt. Diese Eingriffe sind entfernt, ebenso der Sättigungsfilter und der
+zusätzliche helle Schleier. Das Original heißt jetzt ausdrücklich 2Galaxie.png
+(gleiche SHA-256 wie oben). Keine neue Bildbearbeitung, keine neue Grafik.
+Die PNG verwendet ihre eigene Transparenz bei Deckkraft 1. Der separate
+synchron rotierende Sternenfilm bleibt mit 20 % Deckkraft dezent erhalten;
+feste Sterne, Sonne und übriger Seiteninhalt bleiben unverändert.
+Browserprüfung der neuen Darstellung folgt.
