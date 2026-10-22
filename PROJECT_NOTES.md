@@ -427,3 +427,27 @@ Nur beim Laden/Resize wird die tatsächliche Clientbreite für den Hero gelesen,
 kein kontinuierlicher Resize-/Paint-Loop. Originale Sonnen-/Koronafilme,
 Galaxie, Projekte, Kategorien und deren Steuerungen unverändert.
 Prompt und Herkunft: docs/workstation-operator-prompt.md.
+
+Browserprüfung am Preview d19d46c in Chromium: Einstieg direkt 0% Alt,
+Herohöhe 936 px bei 936 px sichtbarem Browserinhalt; 1348/1348 Client-/Scrollbreite.
+Desktop visuell geprüft: kein Stuhl, Nahperspektive, echte Inhalte vollständig
+innerhalb linker/rechter Glasfläche. CSS-Titelanimation weiterhin dexterType,
+7.6-s-Zyklus unverändert; Linie auf linken Monitor begrenzt. Screenshots:
+docs/workstation-operator-preview.jpg und docs/workstation-operator-mobile-preview.jpg.
+Mobile 320er-Rahmen: 305/305, rechte Kopie/CTA ohne Überlappung oder Abschneiden;
+390er-Rahmen: 375/375, beide Monitorrahmen untereinander visuell geprüft.
+768er-Rahmen: 753/753, nebeneinander, alle Inhalte passen in die Displays.
+Alle neun Konzepte im echten Browser geöffnet: Dialoge offen, jeweilige Titel
+korrekt, Motivbilder vollständig geladen. Sonnenkorona außerhalb des Headers
+pausiert; Quelldauer 33.5 s unverändert. Drei ursprüngliche Projektaufnahmen,
+Galaxie und alle Steuerdateien außer comparison.js unverändert.
+Statische Prüfung: 30 lokale Ressourcen, 26 eindeutige IDs; JS-Syntax und
+diff --check erfolgreich. Firefox ist in dieser Umgebung weiterhin nicht verfügbar.
+
+Abschließende Interaktionen: echter Drag ergibt 60%, Doppelklick 50%, Ende
+100% mit vollständig geklippter neuer Szene, Pos1 zurück auf 0%. 1440er-Rahmen:
+1425/1425, Hero 844 px bei 844 px Viewporthöhe. Alle drei Projektvideos separat
+per echtem Hover abgespielt (readyState=4, laufende Zeit); vorherige Aufnahme
+pausiert beim Wechsel, nach Verlassen alle pausiert. Kein Websitefehler in der
+Prüfung beobachtet; Browser-Erweiterung protokolliert eigene Metadatenfehler.
+Keine Produktionsänderung; nur separater Cloudflare-Preview-Branch.
