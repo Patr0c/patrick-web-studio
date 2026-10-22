@@ -45,15 +45,18 @@ abgeschafft. Schriften lokal mit Lizenzen bereitstellen.
 6. Vergleichsinhalte; Sonne und Astronaut vor dem Rahmen.
 7. Ein senkrechter Vergleichsstrahl; Labels und bedienbarer Regler darüber.
 
-Die neue transparente Galaxie stammt aus Patricks Upload `2Galaxie.png`.
-`Galaxie.png` ist bytegenau identisch. Originalgröße 1280 × 1001, RGBA.
-Original unverändert unter assets/images/2Galaxie.png; CSS positioniert nur den
+Die aktuelle transparente Galaxie stammt aus Patricks neuem Upload `Galaxy.png`.
+Sie ersetzt die zuvor am Bildrand beschnittene 2Galaxie.png. Originalgröße
+1280 × 1001, RGBA; alle vier äußeren Pixelreihen sind transparent.
+Original unverändert unter assets/images/Galaxy.png; CSS positioniert nur den
 Kern auf der Drehachse und erhält die natürlichen Bildproportionen. Keine
 zusätzliche kreisförmige Maske auf Bild oder Rotationscontainer, keine CSS-
 Abdunklung oder Farbfilter: Die eigene Transparenz und die außenliegenden
 Sterne der PNG müssen sichtbar bleiben. Der zusätzliche Sternenfilm ist mit
 20 % Deckkraft zurückgenommen, damit die von Patrick bearbeiteten Sterne
-bestimmend bleiben. Die festen Hintergrundsterne bleiben unverändert.
+bestimmend bleiben. Am lockeren Außenbereich ergänzen 16–42 feine feste Sterne
+mit engem weißlichem Leuchten den vorhandenen Hintergrund. Sie werden einmal
+gezeichnet, drehen sich nicht mit und haben keine Blinkanimation.
 Sternenfilm nicht als eigenes Bild unabhängig animieren. Sterne sehr fein,
 weißlich, scharf, mit sparsamen kleinen vierstrahligen Glints.
 

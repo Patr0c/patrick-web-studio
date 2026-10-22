@@ -36,7 +36,7 @@ Alle 18 zusätzlichen Entwicklungscommits sind Vorfahren des neuen Branches
 ## Medien und Provenienz
 | Asset | Verwendung |
 | --- | --- |
-| assets/images/2Galaxie.png | Patricks 2Galaxie.png, unverändert, RGBA 1280×1001 |
+| assets/images/Galaxy.png | Patricks neuer Galaxy.png-Upload, unverändert, RGBA 1280×1001 |
 | assets/images/astronaut.webp | bestehendes explorer-hero, unverändert |
 | assets/video/sun-desktop.mp4 | bestehende Sonnenfassung, 512×512, 60 fps |
 | assets/video/sun-mobile.mp4 | bestehende mobile Sonnenfassung, 384×384, 60 fps |
@@ -44,7 +44,7 @@ Alle 18 zusätzlichen Entwicklungscommits sind Vorfahren des neuen Branches
 | previews/hrservice.jpg, villa.jpg, wagner.jpg | echte Frames der Projektaufnahmen |
 | concepts/hotel.webp, restaurant.webp, driving.webp | bestehende Konzeptbilder |
 
-Galaxie.png und 2Galaxie.png sind bytegenau identisch:
+Historischer Upload: Galaxie.png und 2Galaxie.png waren bytegenau identisch:
 SHA-256 e20e283c53c12e16c9cf066f1212e26897fc6d782303f68083748ea3e8189436.
 Die Grafik hat 287982 völlig transparente Pixel und weiche Alphakanalübergänge.
 Ihr helles Zentrum liegt rechts der Bildmitte; CSS positioniert es bei der
@@ -141,3 +141,18 @@ assets/images/2Galaxie.png mit 1280×1001 Pixeln, opacity=1, filter=none und
 mask-image=none auf Bild sowie Rotationscontainer. Die äußeren Sternenbereiche
 sind in der Vorschau sichtbar. Das Original wird auch unter der direkten
 Asset-URL ausgeliefert. Sonne, Medien und sonstige Interaktionen sind unverändert.
+
+## Neue Galaxy.png und feine feste Randsterne
+Patricks neuer Upload Galaxy.png ersetzt die alte 2Galaxie.png bytegenau, ohne
+Bildbearbeitung. SHA-256: 5c1c47b7c6c293d25e990b860fca470e1e04883b2bba662ff0819639800a4450.
+1280×1001 RGBA, sichtbarer Alphabereich (63,102)–(1135,965); alle vier
+äußersten Pixelreihen sind vollständig transparent. Der helle Kern liegt
+bei (650,518) und sitzt per CSS-Versatz 50.78125 % / 51.74825 % auf der
+Drehachse. Unverzerrte Breite weiterhin 112 % des Rotationscontainers.
+Keine Maske, Abdunklung oder Farbfilter auf dem Original.
+16–42 zusätzliche feine feste Lichtpunkte verbinden den lockeren Außenbereich
+mit dem bestehenden Sternenhintergrund. Enger Halo, Radius 0.40–0.75 CSS-Pixel,
+separater Zufallsstartwert; bisherige Sterne bleiben an ihren bisherigen Positionen.
+Sie werden nur initial und bei Größenänderungen im bestehenden festen Canvas
+gezeichnet und drehen sich nicht mit. Keine zusätzliche Animationsschleife.
+Sonne, Korona, Seiteninhalt und übrige Interaktionen sind unverändert.

@@ -73,6 +73,19 @@
         star(fixedCtx, x, y, .20 + rng() * .62, .24 + rng() * .53, i % 71 === 0);
       }
     }
+    // A few fine glowing stars bridge the PNG's sparse edge and the fixed sky.
+    // Separate seed preserves every existing star; no animation or extra canvas.
+    const edgeRng = random(20261022);
+    const edgeCount = Math.min(42, Math.max(16, Math.round(width * height / 30000)));
+    for (let i=0; i<edgeCount; i++) {
+      const angle = (i + edgeRng() * .6) / edgeCount * Math.PI * 2;
+      const radius = bounds.width * (.42 + edgeRng() * .18);
+      const x = bounds.left + bounds.width / 2 + Math.cos(angle) * radius;
+      const y = bounds.top + bounds.height / 2 + Math.sin(angle) * radius * .84;
+      if (x >= 0 && x <= width && y >= 0 && y <= height) {
+        star(fixedCtx, x, y, .40 + edgeRng() * .35, .55 + edgeRng() * .30, true);
+      }
+    }
     const size = bounds.width;
     if (!size) return;
     const ctx = prepare(dust,size,size);

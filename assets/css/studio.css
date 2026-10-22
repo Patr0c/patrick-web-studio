@@ -851,7 +851,7 @@ summary b { color:#25ed26 !important; text-shadow:0 0 6px rgba(22,225,31,.77) !i
 .space-background { background:#02040a; overflow:hidden; }
 .space-background .galaxy-position { opacity:1; }
 .galaxy-rotator { position:relative; width:100%; height:100%; animation:galaxyTurn 300s linear infinite; will-change:transform; }
-.space-background .galaxy-rotator > .round-galaxy { position:absolute; left:50%; top:50%; width:112%; height:auto; max-width:none; transform:translate(-59%,-50%); opacity:1; animation:none; will-change:auto; mask-image:none; -webkit-mask-image:none; object-fit:contain; }
+.space-background .galaxy-rotator > .round-galaxy { position:absolute; left:50%; top:50%; width:112%; height:auto; max-width:none; transform:translate(-50.78125%,-51.74825%); opacity:1; animation:none; will-change:auto; mask-image:none; -webkit-mask-image:none; object-fit:contain; }
 .hero.solar-window { border-top-color:#ffca73; }
 .hero.solar-window::after { clip-path:none; -webkit-clip-path:none; animation:none; opacity:1; background:linear-gradient(180deg,#ffcf81 0%,#ffad44 100%); }
 .hero h1::before { content:none; }
