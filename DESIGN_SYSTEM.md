@@ -4,7 +4,7 @@ Verbindliche Entscheidungen von Patrick, Stand 22. Oktober 2026.
 
 ## Identität
 Immersives, hochwertiges Science-Fiction-Portfolio: dunkler Weltraum, Galaxie,
-Sonne, Astronaut, präzise Laserakzente, räumliche Tiefe und kinetische Typografie.
+Sonne, Kontrollzentrale, präzise Laserakzente, räumliche Tiefe und kinetische Typografie.
 Vorbild für die ursprüngliche Komposition: Dribbble „Star Wars Web Page“,
 https://dribbble.com/shots/10031350-Star-Wars-Web-Page.
 Die aktuelle kreative Arbeit fortführen. Effekte qualitativ und technisch
@@ -42,7 +42,7 @@ abgeschafft. Schriften lokal mit Lizenzen bereitstellen.
    **einem** Rotationscontainer (300 s Desktop, 360 s mobil).
 4. Zusätzliche feste Sterne über dem Hintergrund, unabhängig von der Rotation.
 5. Seitenfenster mit statischem orangefarbenem Rand.
-6. Vergleichsinhalte; Sonne und Astronaut vor dem Rahmen.
+6. Vergleichsinhalte; Sonne und Kontrollzentrale vor dem Rahmen.
 7. Ein senkrechter Vergleichsstrahl; Labels und bedienbarer Regler darüber.
 
 Die aktuelle transparente Galaxie stammt aus Patricks verfeinertem Upload `Galaxy(2).png`.
@@ -145,3 +145,15 @@ der Kachel aktiviert denselben Zustand. Der mittlere textliche Startknopf ist
 durch eine kleine gefüllte Rakete gleicher Größe ersetzt; sie bleibt als Button
 per Tastatur und Touch steuerbar und hat ein dynamisches aria-label.
 Die orange/gelben Screenshot-Kästen sind Markierungen, keine sichtbaren Rahmen.
+
+## Kontrollzentrale als neues Hero-Motiv
+Auf Patricks ausdrücklichen Wunsch ersetzt eine realistische freigestellte
+Kontrollzentrale den Astronauten. Asset: assets/images/control-center.webp,
+1024x1536 Pixel, gleiche Originalauflösung wie der Astronaut, mit echtem Alpha.
+Helles präzises Aluminium, Graphit, Glas, klar getrennte Radar-/Telemetrieanzeigen
+und gezielte grüne Instrumentenakzente. Moderne menschliche Technik, hell und
+gut lesbar; keine außerirdischen Formen, rostigen Strukturen oder Unterbelichtung.
+Keine Personen. Das WebP wird verlustfrei in nativer Größe eingebunden.
+Kein Hue-Rotate auf diesem Asset: Grün bleibt #19E50F, Amber bleibt warm.
+Nur Motivgröße und Position werden auf die breitere Silhouette abgestimmt.
+Sonne, 33.5-s-Korona, Galaxie, Vergleichsregler und Texte bleiben bestehen.

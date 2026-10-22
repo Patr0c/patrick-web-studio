@@ -369,3 +369,20 @@ mit currentSrc sun-corona-mobile.webm. Hauptansicht bei 14.39 s mit
 sichtbarem rechten, linken und oberen Ausbruch geprüft und dokumentiert:
 docs/nova-live-preview.jpg. Zurückziehen und Ruhephase im decodierten
 Kontaktbogen kontrolliert. Ursprüngliche Sonnenvideos sind unverändert.
+
+## Astronaut durch hochauflösende Kontrollzentrale ersetzt
+Basis 89b40a0, neuer Preview-Branch feat/control-center-20261022.
+Neue fotorealistische Kontrollzentrale mit eingebauter Bildgenerierung erstellt:
+1024x1536 RGBA, gleiche Pixelauflösung wie das bisherige Astronautenasset.
+Freigestellte moderne Hardware mit Radar, Telemetrie, hellem Aluminium,
+Graphit und dezenten warmen Reflexen;
+keine Person und kein eigener Hintergrund. Alpha geprüft: rund 37 Prozent
+vollständig transparent, Außenkanten maximal Alpha 1/255. WebP in Originalgröße
+verlustfrei exportiert (1708164 Bytes); keine Hochskalierung. Die verfeinerte
+Fassung hat klar getrennte Anzeigen und präzisere Bedienelemente. Ausgabe
+des Bildwerkzeugs bleibt trotz größerem Auflösungswunsch 1024x1536; keine
+Behauptung von nativer 2K-/4K-Auflösung. PNG und WebP pixelgenau verglichen.
+Das neue Asset nutzt die bestehende Vordergrund-/Eingangsanimation. Nur der
+Bildpfad und motivspezifische Größenregeln ändern sich; der bisherige Farbfilter
+mit Hue-Rotate ist für das neue Motiv deaktiviert. Sonne und Koronafilme,
+Galaxie und Steuerlogik werden nicht geändert. Prompt: docs/control-center-prompt.md.

@@ -898,3 +898,16 @@ html.studio-tab-hidden .hero-new * { animation-play-state:paused !important; }
 .solar-corona-video { opacity:0; transition:opacity .6s ease; }
 .solar-corona-video.is-ready { opacity:1; }
 @media(prefers-reduced-motion:reduce) { .solar-corona-video { display:none; } }
+
+/* Foreground control center replaces the astronaut; the sun and copy retain their layout. */
+.character-wrap.control-center-wrap { width:420px; height:630px; bottom:22px; }
+.hero-character.control-center-image { filter:drop-shadow(0 12px 22px #0009); }
+@media (min-width:1550px) {
+  .character-wrap.control-center-wrap { width:450px; height:675px; bottom:30px; }
+}
+@media (max-width:1100px) {
+  .character-wrap.control-center-wrap { width:330px; height:495px; bottom:35px; }
+}
+@media (max-width:760px) {
+  .character-wrap.control-center-wrap { width:220px; height:330px; top:43px; bottom:auto; left:64%; }
+}

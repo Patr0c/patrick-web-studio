@@ -24,8 +24,8 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `assets/js/categories.js`: drei Kategorien mit insgesamt neun Vorschlägen.
 - `assets/css/missions.css` und `assets/js/missions.js`: eigene animierte Space-Icons,
   sichtbarkeitsabhängige Bewegung und bedienbarer Kreativantrieb.
-- `scripts/retime_corona.py`: Offline-Aufbereitung des 14-s-Koronafilms aus Git.
-- `assets/images/`: Astronaut, originale transparente Galaxie, Sonnenstandbild.
+- `scripts/retime_corona.py`: Offline-Aufbereitung des ursprünglichen Koronafilms zu einer 33.5-s-Schleife.
+- `assets/images/`: Kontrollzentrale, originale transparente Galaxie, Sonnenstandbild.
 - `assets/video/`: drei Aufnahmen, zwei unveränderte Sonnenfassungen und
   zwei kleine Korona-Overlays mit 60 fps.
 - `concepts/`: je ein Bild pro Branche, von Kacheln und Vorschauen gemeinsam genutzt.
