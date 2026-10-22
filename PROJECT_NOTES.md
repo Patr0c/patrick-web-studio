@@ -300,3 +300,22 @@ Rakete am Wiedergabehinweis; großer runder Footerlink; Konzeptstudie 2026;
 Rakete am verbleibenden Back-to-top-Text. Projekt-Vorschaulinks bleiben und
 Ressourcenprüfung erwartet deshalb einen Link pro Projekt statt zwei.
 Sonne, Galaxie, Astronaut, Slider und Medienlogik sind unverändert.
+
+Abschlussprüfung: Cloudflare Pages und static-site-Check für 85f13b9 erfolgreich.
+Vorschau: https://feat-space-icon-cleanup-2026.patrick-web-studio.pages.dev/
+Chromium zeigt alle markierten DOM-Selektoren mit Anzahl 0 und keinen Text
+Konzeptstudie 2026. Gemeinsame Symbole bei Mission/Services visuell geprüft.
+Antrieb vor Hover hidden/false, auf Hover visible/true, danach hidden/false;
+auf 320-px-Prüfrahmen auch manuell schaltbar. Mobile Darstellung visuell geprüft;
+Desktop 1348/1348, 390er-Rahmen 375/375, 320er-Rahmen 305/305 ohne Überlauf.
+Alle neun Dialogtitel mit ihren Buttons abgeglichen, alle neun korrekt. Für
+die stabile automatische Zuordnungsprüfung wurden die Vorschlagsräder per
+vorhandenem Pause-Button angehalten. Hotel-Handyansicht meldet is-mobile.
+Textlicher Back-to-top-Link navigiert zu #top. Slider: Home=0, Rechts=2,
+Doppelklick=50; Anzeige nach dem nächsten gerenderten Frame abgelesen.
+Sonnenfilme spielen im sichtbaren Hero, Korona meldet weiterhin 36 Sekunden.
+Alle Bild-/Videoassets sowie media.js, space.js und comparison.js sind gegen
+c2b55f3 unverändert. Ressourcenprüfung (28 Dateien/26 IDs), categories.js-
+Syntax und diff --check erfolgreich. Firefox weiterhin nicht verfügbar.
+Screenshots: docs/icons-cleanup-preview.jpg (Hover-Flamme),
+docs/projects-cleanup-preview.jpg und docs/footer-cleanup-preview.jpg.

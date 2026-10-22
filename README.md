@@ -33,13 +33,15 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
 - `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
   zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
-- `docs/icons-preview.jpg` und `docs/laser-preview.jpg`: geprüfte aktuelle Icon-/Neonansichten.
+- `docs/icons-cleanup-preview.jpg`, `docs/projects-cleanup-preview.jpg` und
+  `docs/footer-cleanup-preview.jpg`: aktuelle, geprüfte Icon- und Bereinigungsansichten.
+- `docs/icons-preview.jpg` und `docs/laser-preview.jpg`: vorherige Icon-/Neonkorrektur.
 - `docs/space-preview.jpg` und `docs/sun-preview.jpg`: vorherige Space-Erweiterung und unveränderte Sonne.
 - `docs/preview.jpg`: vorheriger Stand vor der Space-Icon-Erweiterung.
 
 ## Entwicklungs-Vorschau
 
-Aktuell: https://feat-space-motion-20261022.patrick-web-studio.pages.dev/
+Aktuell: https://feat-space-icon-cleanup-2026.patrick-web-studio.pages.dev/
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;
