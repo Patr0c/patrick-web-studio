@@ -228,3 +228,28 @@ erhalten. Das Verhältnis der Motivgruppen ist verbindlich:
   Ansichten, sodass Schrift nicht gestaucht oder abgeschnitten wird.
 - Die geänderte Komposition liegt isoliert im Branch
   feat/sketch-layout-20261022 und darf erst nach Freigabe nach main.
+
+
+## Verbindliche Workstation-Vorlage aus GIMP (22.10.2026)
+
+Patrick hat selbst die Datei **Graphit-Titan-Doppelmonitorstation mit grüner Telemetrie.png**
+als Original hochgeladen (1774 × 887 px, RGBA mit Transparenz). Diese konkrete
+unveränderte PNG ist ab sofort der visuelle Master für die Konsole und auch
+seine lokale GIMP-Arbeitsdatei. Nicht die danach mittels KI neu erzeugten
+Rekonstruktionen verwenden. Diese haben unerwünschte rot-gelbe Kantenartefakte,
+veränderte Schalter sowie verfälschte Formen erzeugt.
+
+Bis die originalen PNG-Bytes in das GitHub-Repository übertragen wurden, darf
+die aktive Bildreferenz im Code nicht auf eine fehlende Datei umgeschaltet werden.
+Ab einem solchen Upload die Original-PNG möglichst unter
+`assets/images/workstation-original.png` unverändert speichern und
+`workstation-art` sowie die zwei `monitor-frame`-Bildquellen gemeinsam
+auf denselben Dateipfad aktualisieren. Die vorhandenen `aux-displays`- und
+Monitor-Overlays anschließend anhand des **exakten** Pixelrasters der Original-PNG
+kalibrieren. Keine KI-Regeneration, keine geometrische Retusche, keine
+zusätzlichen Stäbe/Spangen, und bis auf ausdrückliche Freigabe keine
+Veränderung am Original.
+
+Geplante nächste Phase: Patrick markiert die exakten Pixelbereiche der beiden
+Monitore und der einzelnen Tasten/Schalter in GIMP. Daraus werden eigenständige
+interaktive Ebenen entwickelt, ausgerichtet an derselben Bilddatei.
