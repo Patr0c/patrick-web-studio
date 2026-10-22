@@ -147,13 +147,14 @@ per Tastatur und Touch steuerbar und hat ein dynamisches aria-label.
 Die orange/gelben Screenshot-Kästen sind Markierungen, keine sichtbaren Rahmen.
 
 ## Kontrollzentrale als neues Hero-Motiv
-Auf Patricks ausdrücklichen Wunsch ersetzt eine realistische freigestellte
-Kontrollzentrale den Astronauten. Asset: assets/images/control-center.webp,
-1024x1536 Pixel, gleiche Originalauflösung wie der Astronaut, mit echtem Alpha.
-Helles präzises Aluminium, Graphit, Glas, klar getrennte Radar-/Telemetrieanzeigen
-und gezielte grüne Instrumentenakzente. Moderne menschliche Technik, hell und
-gut lesbar; keine außerirdischen Formen, rostigen Strukturen oder Unterbelichtung.
-Keine Personen. Das WebP wird verlustfrei in nativer Größe eingebunden.
-Kein Hue-Rotate auf diesem Asset: Grün bleibt #19E50F, Amber bleibt warm.
-Nur Motivgröße und Position werden auf die breitere Silhouette abgestimmt.
-Sonne, 33.5-s-Korona, Galaxie, Vergleichsregler und Texte bleiben bestehen.
+Auf Patricks Wunsch ersetzt eine realistische freigestellte Kontrollzentrale
+den Astronauten. Asset: assets/images/control-center.webp, 1254x1254 Pixel
+(rund 1.57 MP wie das ursprüngliche Astronautenasset), Alpha, verlustfreies WebP.
+Kompakte flache Monitorreihe, weich gerundete glänzende Graphitgehäuse,
+hellere Einsätze, Titan und dunkles Glas. Präzise grüne Radar-/Telemetrieanzeigen.
+TRON-Legacy-Light-Cycle als Material-/Lichtreferenz: glatte Reflexionsflächen,
+präzise Lichtlinien, klare Kontraste. Sonne erzeugt warme orange-goldene
+Reflexe an oberen und seitlichen Rändern. Kein hoher Mast oder Antennen.
+Keine Personen, rauen Oberflächen, rostigen oder außerirdischen Strukturen.
+Kein Hue-Rotate auf dem Asset. Nur Motivgröße/Position an die kompakte Form
+angepasst; Sonne, 33.5-s-Korona, Galaxie, Vergleichsregler und Texte erhalten.

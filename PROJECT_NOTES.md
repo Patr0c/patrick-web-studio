@@ -370,19 +370,19 @@ sichtbarem rechten, linken und oberen Ausbruch geprüft und dokumentiert:
 docs/nova-live-preview.jpg. Zurückziehen und Ruhephase im decodierten
 Kontaktbogen kontrolliert. Ursprüngliche Sonnenvideos sind unverändert.
 
-## Astronaut durch hochauflösende Kontrollzentrale ersetzt
-Basis 89b40a0, neuer Preview-Branch feat/control-center-20261022.
-Neue fotorealistische Kontrollzentrale mit eingebauter Bildgenerierung erstellt:
-1024x1536 RGBA, gleiche Pixelauflösung wie das bisherige Astronautenasset.
-Freigestellte moderne Hardware mit Radar, Telemetrie, hellem Aluminium,
-Graphit und dezenten warmen Reflexen;
-keine Person und kein eigener Hintergrund. Alpha geprüft: rund 37 Prozent
-vollständig transparent, Außenkanten maximal Alpha 1/255. WebP in Originalgröße
-verlustfrei exportiert (1708164 Bytes); keine Hochskalierung. Die verfeinerte
-Fassung hat klar getrennte Anzeigen und präzisere Bedienelemente. Ausgabe
-des Bildwerkzeugs bleibt trotz größerem Auflösungswunsch 1024x1536; keine
-Behauptung von nativer 2K-/4K-Auflösung. PNG und WebP pixelgenau verglichen.
-Das neue Asset nutzt die bestehende Vordergrund-/Eingangsanimation. Nur der
-Bildpfad und motivspezifische Größenregeln ändern sich; der bisherige Farbfilter
-mit Hue-Rotate ist für das neue Motiv deaktiviert. Sonne und Koronafilme,
-Galaxie und Steuerlogik werden nicht geändert. Prompt: docs/control-center-prompt.md.
+## Astronaut durch moderne kompakte Kontrollzentrale ersetzt
+Basis 89b40a0, Preview-Branch feat/control-center-20261022.
+Finale Fassung nach Patricks Präzisierungen: niedrige gerundete Konsole, drei
+breite Monitore, klar getrennte Bedienelemente, glänzendes Graphit, hellere
+Einlagen und präzise grüne Telemetrie. Keine hohe spitze/raue Maststruktur.
+Warme orange Kanten und Reflexe verbinden das Objekt optisch mit der Sonne.
+TRON-Referenz VVzm8yyHCHE identifiziert; Player blieb bei readyState=0 auch
+nach Qualitätsreduktion. Deshalb Standbild-Suchergebnisse der Szene ergänzend
+für Glanzflächen, Lichtlinien und Reflexe herangezogen, keine Filmassets kopiert.
+Bildgenerierung als eigenes Asset; tatsächliche Ausgabe 1254x1254 RGBA,
+rund 1.57 MP. Keine künstliche Hochskalierung, verlustfreies WebP (1317204 Bytes)
+ist pixelgleich mit der PNG. Die frühere hohe Variante wird im HTML ersetzt.
+Das Motiv nutzt die bestehende Ankunftsanimation. Sonnen-/Koronafilme,
+Galaxie und Steuerlogik bleiben unverändert. Kein Hue-Rotate für das neue Bild.
+Quadratische motivspezifische CSS-Box, mobil 220x220, erhält freie Textflächen.
+Finaler Prompt und Bildherkunft: docs/control-center-prompt.md.
