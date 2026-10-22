@@ -396,3 +396,16 @@ Generierung (1367856 Bytes), nicht hochskaliert. Hinter Station und Texten,
 innerhalb der neuen Vergleichshälfte. Weicher Kontaktschatten unter der Basis.
 Mobile Projektion beginnt passend zum dort höher angeordneten Stationsfuß.
 Boden wird im Hero geklippt, bleibt statisch und fängt keine Eingaben ab.
+
+Finale Browserprüfung in Chromium am Preview fa27899: Boden vollständig geladen
+mit 1774x887; Desktop visuell geerdete Station, lesbare Texte und warme Reflexe.
+390er-Ansicht ebenfalls visuell geprüft. Viewportrahmen 320/390/768/1440:
+interne Breiten 305/375/753/1425 jeweils gleich scrollWidth, kein horizontaler
+Überlauf. Station bleibt auf 320 vollständig innerhalb des Hero (192.5 px breit).
+Regler mit Ende/Pos1 sowie echtem Drag geprüft: 100/0/75, neue Hälfte und Boden
+korrekt gemeinsam geklippt; danach auf neue Ansicht zurückgesetzt.
+Korona weiterhin duration=33.5, readyState=4, paused=false. Alle neun Konzepte
+und drei Hoveraufnahmen wurden im vorherigen Stand geprüft; deren Quellen und
+sämtliche Skripte unverändert gegenüber 89b40a0. Ressourcenprüfung (29 lokale
+Referenzen, 26 IDs) und diff --check erfolgreich. Firefox nicht verfügbar.
+Beweisbilder: docs/control-center-preview.jpg, docs/control-center-mobile-preview.jpg.
