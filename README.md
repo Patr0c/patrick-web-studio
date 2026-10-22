@@ -33,6 +33,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
 - `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
   zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
+- `docs/control-center-preview.jpg` und `docs/control-center-mobile-preview.jpg`: aktuelle Kontrollzentrale mit Boden.
 - `docs/mission-hover-preview.jpg`, `docs/nova-live-preview.jpg` und
   `docs/nova-timing-preview.jpg`: Kachel-Hover, Sonne in der Website und aktueller Nova-Ablauf.
 - `docs/icons-cleanup-preview.jpg`, `docs/projects-cleanup-preview.jpg` und
@@ -43,7 +44,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktuell: https://feat-mission-hover-20261022.patrick-web-studio.pages.dev/
+Aktuell: https://feat-control-center-20261022.patrick-web-studio.pages.dev/
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;

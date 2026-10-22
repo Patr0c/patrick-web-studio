@@ -384,5 +384,15 @@ rund 1.57 MP. Keine künstliche Hochskalierung, verlustfreies WebP (1317204 Byte
 ist pixelgleich mit der PNG. Die frühere hohe Variante wird im HTML ersetzt.
 Das Motiv nutzt die bestehende Ankunftsanimation. Sonnen-/Koronafilme,
 Galaxie und Steuerlogik bleiben unverändert. Kein Hue-Rotate für das neue Bild.
-Quadratische motivspezifische CSS-Box, mobil 220x220, erhält freie Textflächen.
+Quadratische motivspezifische CSS-Box, mobil maximal 220x220, auf 320er-Rahmen auf 70% begrenzt, erhält freie Textflächen.
 Finaler Prompt und Bildherkunft: docs/control-center-prompt.md.
+
+## Boden unter der Station
+Nachtrag auf Patricks Wunsch: eigener hochauflösender Boden ab etwa der Mitte
+im Desktop-Hero. Glatte Graphit-/Titanpaneele mit perspektivischen Fugen,
+feinen grünen Lichtlinien und warmen Sonnenreflexen. Separates Bildasset
+control-floor.webp, native 1774x887 RGBA, verlustfrei und pixelgleich zur
+Generierung (1367856 Bytes), nicht hochskaliert. Hinter Station und Texten,
+innerhalb der neuen Vergleichshälfte. Weicher Kontaktschatten unter der Basis.
+Mobile Projektion beginnt passend zum dort höher angeordneten Stationsfuß.
+Boden wird im Hero geklippt, bleibt statisch und fängt keine Eingaben ab.

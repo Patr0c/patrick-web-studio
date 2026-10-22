@@ -158,3 +158,9 @@ Reflexe an oberen und seitlichen Rändern. Kein hoher Mast oder Antennen.
 Keine Personen, rauen Oberflächen, rostigen oder außerirdischen Strukturen.
 Kein Hue-Rotate auf dem Asset. Nur Motivgröße/Position an die kompakte Form
 angepasst; Sonne, 33.5-s-Korona, Galaxie, Vergleichsregler und Texte erhalten.
+
+Der Kontrollzentrale liegt ein hochauflösender Boden aus glattem Graphit und
+Titan unter. Perspektivische Paneele, sehr feine grüne Fugen und warme Reflexe
+führen den Materiallook fort. Desktop-Horizont ungefähr auf Bildschirmmitte;
+mobil an den Stationsfuß angepasst. Nur innerhalb des Hero und der neuen
+Vergleichshälfte, hinter Kopie und Station. Kontaktschatten erdet die Basis.
