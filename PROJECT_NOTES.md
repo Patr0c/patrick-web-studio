@@ -36,7 +36,7 @@ Alle 18 zusätzlichen Entwicklungscommits sind Vorfahren des neuen Branches
 ## Medien und Provenienz
 | Asset | Verwendung |
 | --- | --- |
-| assets/images/Galaxy.png | Patricks neuer Galaxy.png-Upload, unverändert, RGBA 1280×1001 |
+| assets/images/Galaxy-2.png | Patricks verfeinerter Galaxy(2).png-Upload, unverändert, RGBA 1280×1001 |
 | assets/images/astronaut.webp | bestehendes explorer-hero, unverändert |
 | assets/video/sun-desktop.mp4 | bestehende Sonnenfassung, 512×512, 60 fps |
 | assets/video/sun-mobile.mp4 | bestehende mobile Sonnenfassung, 384×384, 60 fps |
@@ -167,3 +167,15 @@ Ressourcenprüfung (26 Referenzen), JavaScript-Syntax, CSS-Parser und git diff
 Unveränderte Interaktionen wurden in der vorherigen Fassung vollständig geprüft;
 für diese reine Hintergrundänderung wurden die betroffenen Darstellungen und
 der Vergleichsregler erneut kontrolliert. Firefox bleibt ungetestet.
+
+## Verfeinerter transparenter Upload Galaxy(2).png
+Galaxy(2).png unverändert als assets/images/Galaxy-2.png übernommen.
+SHA-256: 93538183b211e1d56026a6d54a30ffd3619fc4b3efdb5d680fadee594a5a9994.
+1280×1001 RGBA, Alphabereich (32,2)–(1160,999), 780024 vollständig
+transparente Pixel; alle vier äußersten Pixelreihen transparent.
+Der helle Kern bleibt bei (650,518); CSS-Größe und Ausrichtung unverändert.
+Die feineren Außensterne des Uploads werden vollständig übernommen.
+Keine Maskierung, Bildbearbeitung, Farbänderung oder Abdunklung.
+Der zuvor geprüfte Upload Galaxy(1).png enthielt einen grünen Hintergrund und
+wurde nicht eingebunden. Zusätzliche feste Randsterne, Rotationsschichten,
+Sonne/Korona sowie alle übrigen Seitenelemente und Skripte bleiben unverändert.

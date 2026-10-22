@@ -45,10 +45,10 @@ abgeschafft. Schriften lokal mit Lizenzen bereitstellen.
 6. Vergleichsinhalte; Sonne und Astronaut vor dem Rahmen.
 7. Ein senkrechter Vergleichsstrahl; Labels und bedienbarer Regler darüber.
 
-Die aktuelle transparente Galaxie stammt aus Patricks neuem Upload `Galaxy.png`.
+Die aktuelle transparente Galaxie stammt aus Patricks verfeinertem Upload `Galaxy(2).png`.
 Sie ersetzt die zuvor am Bildrand beschnittene 2Galaxie.png. Originalgröße
 1280 × 1001, RGBA; alle vier äußeren Pixelreihen sind transparent.
-Original unverändert unter assets/images/Galaxy.png; CSS positioniert nur den
+Original unverändert unter assets/images/Galaxy-2.png; CSS positioniert nur den
 Kern auf der Drehachse und erhält die natürlichen Bildproportionen. Keine
 zusätzliche kreisförmige Maske auf Bild oder Rotationscontainer, keine CSS-
 Abdunklung oder Farbfilter: Die eigene Transparenz und die außenliegenden
