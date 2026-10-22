@@ -253,3 +253,26 @@ Veränderung am Original.
 Geplante nächste Phase: Patrick markiert die exakten Pixelbereiche der beiden
 Monitore und der einzelnen Tasten/Schalter in GIMP. Daraus werden eigenständige
 interaktive Ebenen entwickelt, ausgerichtet an derselben Bilddatei.
+
+## Verbindlicher ORA-Ebenenaufbau (aktueller Stand)
+
+Patricks `Workstation-Ebenen.ora` ersetzt die frühere zusammengefasste
+Workstation. Canvas 1774 × 887; originale PNGs unverändert, keine KI-Neuerstellung.
+`base.png` (0/0, 1774×887), `monitors.png` (128/95, 1519×432),
+`panels.png` (38/423, 1701×209), `controls.png` (49/423, 1677×201).
+Auch ausgeblendete ORA-Ebenen werden ausgewertet. Sie enthalten Bildteile,
+keine flächigen Markierungsfarben. Genau einmal zusammensetzen.
+
+Ein gemeinsames relatives Koordinatensystem für Bitmapteile, Hauptmonitor-HTML,
+elf kleine Alpha-maskierte Displayanimationen und 61 adressierbare Bedienmasken.
+Matrix senkrecht nach unten, ausschließlich in den real ausgeschnittenen dunklen
+Panelbereichen, geschützt vor Displays, Schaltern und Metallreflexen. #19E50F,
+Akzente #39FF14, enger 1-Pixel-Schein. Kein ganzflächiger Grünfilter.
+Einmal erstellte SVG-Geometrie und CSS; offscreen/hidden/reduced-motion/saveData
+pausieren. Die alten sieben geschätzten Displaypolygone sind ersetzt.
+
+Auch mobil bleibt das komplette Gerät einschließlich Standfuß zusammenhängend;
+keine verzerrten oder getrennten Monitorrahmen. Für lesbare Telefoninhalte steht
+die rechte Monitor-Kopie zusätzlich unter dem Gerät. Ältere mobile Crop-Regeln
+in diesem Dokument sind damit überholt. Details und Maskenformel:
+[docs/workstation-ora.md](docs/workstation-ora.md).

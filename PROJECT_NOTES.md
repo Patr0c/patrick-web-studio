@@ -500,3 +500,26 @@ Geometrie einmalig in terminal.js erstellt; Animationen per CSS, keine Timer/
 Frame-Schleife. Offscreen, Hintergrundtab, Reduced Motion und saveData pausieren.
 Beide großen Displays behalten die vorhandene HTML-Kopie/Animation. Sonne,
 Korona, Galaxie, bestehende Skripte und Abschnitte nach dem Hero unverändert.
+
+## Originale GIMP-/ORA-Workstation
+
+Basis exakt feat/sketch-layout-20261022, Commit 6953f0f; neuer Branch
+feat/ora-layers-20261023. Vier PNGs bytegleich aus Workstation-Ebenen.ora
+übernommen; XCF als Referenz, kein KI-Rendering. 1774×887-Canvas, originale
+Versätze und Transparenzen. Versteckte Ebenen vollständig untersucht. Sie
+enthalten Bildausschnitte statt bloßer Markierungsfarben. Importskript,
+SHA-256-Manifest, Original-stack.xml und Dokumentation unter docs/workstation-ora.md.
+
+Zwei Hauptmonitore, elf kleine Original-Glasmasken, 19 Panelkomponenten und
+61 separat adressierbare Alpha-Pfade. Alle Ebenen skalieren gemeinsam. Alte
+Vollbild-WebP und mobile Rahmenduplikate aus dem aktiven Hero entfernt, Dateien
+historisch behalten. Kontinuierliche Matrix in dunklen Panel-Cutouts (76.561 px),
+Displays/Schalter/Metallreflexe ausgespart. Feinzeichige Downward-SVG-Ströme,
+CSS-Animationen ohne kontinuierliche JS-Zeichenberechnung. Observer pausiert
+an echter Gerätesichtbarkeit, 100%-Altvergleich, Tabvisibility und Nutzerpräferenzen.
+Originale Diagnostik bleibt unter maskiertem Telemetrielicht sichtbar. Mobile
+zeigt vollständiges Gerät plus lesbare rechte Displaykopie unterhalb.
+
+Quellen außerhalb der Terminal-Integration sowie HTML ab Missionssektion
+unverändert. Die Veröffentlichungs- und Browserprüfung wird nach Deployment
+mit tatsächlichen Ergebnissen ergänzt. main wird nicht aktualisiert.

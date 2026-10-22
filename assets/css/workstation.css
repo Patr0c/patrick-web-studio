@@ -1,157 +1,108 @@
-/* Flat two-monitor terminal: whole exterior in frame, closer large displays.
-   All scene changes are scoped to the first section. */
+/* Original ORA workstation. Geometry is generated from the 1774 × 887 source.
+   All device layers share one untransformed, uniformly scaled coordinate system. */
 .page-shell { margin-top:0; }
 .immersive-hero.hero {
   width:var(--scene-width,100vw); margin-left:calc((100% - var(--scene-width,100vw))/2);
-  height:100svh; min-height:640px; border:0; border-radius:0; box-shadow:none;
+  height:100svh; min-height:700px; border:0; border-radius:0; box-shadow:none;
   overflow:hidden; background:linear-gradient(180deg,#02040b22,#02040912);
 }
 .immersive-hero.hero::after { display:none; }
 .immersive-hero .hero-new { border-radius:0; }
 .immersive-hero .white-halo.sun-stage { top:36px; left:50%; width:268px; height:268px; }
-.immersive-hero .control-floor { inset:36% 0 0; border-radius:0; }
+.immersive-hero .control-floor { inset:38% 0 0; border-radius:0; }
 .workstation-stage {
-  position:absolute; z-index:12; left:50%; bottom:0; transform:translateX(-50%);
-  width:min(calc(100% - 28px),168svh); aspect-ratio:2; pointer-events:none; container-type:inline-size;
+  position:absolute; z-index:12; left:50%; bottom:54px; transform:translateX(-50%);
+  width:min(calc(100% - 28px),calc(200svh - 660px),1774px);
+  aspect-ratio:1774 / 887; pointer-events:none; container-type:inline-size;
+  isolation:isolate;
 }
-.workstation-art { display:block; width:100%; height:auto; filter:drop-shadow(0 14px 22px #000b); }
-.monitor-frame { display:none; }
+.workstation-layer { position:absolute; display:block; max-width:none; pointer-events:none; }
+.workstation-layer--base { z-index:1; filter:drop-shadow(0 10px 15px #0008); }
+.workstation-layer--monitors { z-index:2; }
+.workstation-layer--panels { z-index:2; }
+.workstation-layer--controls { z-index:5; }
 .workstation-stage .workstation-screen {
-  position:absolute; z-index:2; overflow:hidden; pointer-events:auto;
-  height:27%; padding:0; margin:0; bottom:auto;
+  position:absolute; z-index:6; overflow:hidden; pointer-events:auto;
+  padding:0; margin:0; bottom:auto; right:auto; transform:none;
 }
-.workstation-stage .screen-left { left:9%; right:auto; top:12.5%; width:35.5%; transform:none; }
-.workstation-stage .screen-right { left:auto; right:8.5%; top:12.5%; width:35.5%; transform:none; }
 .monitor-content { position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
-.workstation-stage .eyebrow { font-size:clamp(6px,.65cqw,10px); line-height:1.5; letter-spacing:.1em; margin-bottom:.75cqw; white-space:nowrap; }
-.workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(34px,4.65cqw,78px); line-height:.94; letter-spacing:-.055em; }
-.workstation-stage .text-link { margin-top:.6cqw; padding:6px 0; font-size:clamp(7px,.65cqw,11px); gap:22px; }
-.workstation-stage .text-link .rocket-mark { width:17px; height:17px; }
+.workstation-stage .monitor-content > :not(.dexter-stage) { flex-shrink:0; }
+.workstation-stage .eyebrow { font-size:.7cqw; line-height:1.5; letter-spacing:.1em; margin:0 0 .6cqw; white-space:nowrap; }
+.workstation-stage .hero-title-group h1.dexter-title { font-size:4.3cqw; line-height:.94; letter-spacing:-.055em; }
+.workstation-stage .text-link { margin-top:.6cqw; padding:.3cqw 0; font-size:.75cqw; gap:1.5cqw; }
+.workstation-stage .text-link .rocket-mark { width:1.2cqw; height:1.2cqw; }
 .workstation-stage .dexter-stage { inset:0; border-radius:0; }
 .workstation-stage .dexter-rule { left:0; right:0; top:48%; }
 .workstation-stage .hero-copy::before { content:none; }
-.workstation-stage .hero-copy .chapter { font-size:clamp(6px,.6cqw,10px); line-height:1.4; padding:3px 5px; letter-spacing:.08em; }
-.workstation-stage .hero-copy h2 { font-size:clamp(21px,2.3cqw,40px); line-height:1.08; margin:.45cqw 0 .5cqw; }
-.workstation-stage .hero-copy p { font-size:clamp(10px,.9cqw,15px); line-height:1.6; min-height:0; max-width:none; margin:0; }
-.workstation-stage .hero-action { font-size:clamp(8px,.65cqw,11px); padding:6px 9px; margin-top:.6cqw; gap:12px; min-height:32px; }
-.workstation-stage .hero-action .rocket-mark { width:15px; height:15px; }
-.immersive-hero .hero-bottom { z-index:15; bottom:64px; left:4.5%; right:4.5%; }
+.workstation-stage .hero-copy .chapter { font-size:.65cqw; line-height:1.4; padding:.2cqw .4cqw; letter-spacing:.08em; }
+.workstation-stage .hero-copy h2 { font-size:2.45cqw; line-height:1.06; margin:.45cqw 0 .5cqw; }
+.workstation-stage .hero-copy p { font-size:.96cqw; line-height:1.5; min-height:0; max-width:none; margin:0; }
+.workstation-stage .hero-action { font-size:.75cqw; padding:.45cqw .65cqw; margin-top:.6cqw; gap:1cqw; min-height:0; }
+.workstation-stage .hero-action .rocket-mark { width:1.1cqw; height:1.1cqw; }
+.immersive-hero .hero-bottom { z-index:15; bottom:38px; left:clamp(14px,1.3vw,28px); right:clamp(14px,1.3vw,28px); }
 .immersive-hero .hero-work-link { gap:6px; padding:8px 12px; border-radius:5px; background:#02080bd6; }
 .immersive-hero .hero-work-link strong { font-size:13px; }
 .immersive-hero .hero-work-link .mono { font-size:7px; }
-.immersive-hero .compare-labels { left:4.5%; right:4.5%; }
+.immersive-hero .compare-labels { left:14px; right:14px; }
+.workstation-mobile-copy { display:none; }
 
-/* On narrower screens, crop the real monitor bezels into larger legible panels. */
-@media (max-width:1000px) {
-  .immersive-hero.hero { min-height:780px; }
-  .workstation-stage { width:100%; height:100%; aspect-ratio:auto; }
-  .workstation-art { position:absolute; width:100%; left:0; bottom:0; transform:none; clip-path:inset(46% 0 0); }
-  .workstation-stage .workstation-screen { top:34%; width:44%; height:auto; aspect-ratio:1.4; transform:none; padding:5% 3.8% 2.8%; }
-  .workstation-stage .screen-left { left:4%; right:auto; }
-  .workstation-stage .screen-right { right:4%; left:auto; }
-  .monitor-frame { display:block; position:absolute; inset:0; overflow:hidden; pointer-events:none; }
-  .monitor-frame img { position:absolute; width:217.3913%; height:256.4103%; top:-15.3846%; max-width:none; }
-  .screen-left .monitor-frame img { left:-5.4348%; }
-  .screen-right .monitor-frame img { left:-111.9565%; }
-  .workstation-stage .eyebrow { font-size:7px; margin-bottom:14px; white-space:normal; }
-  .workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(32px,5.2vw,45px); }
-  .workstation-stage .text-link { font-size:8px; margin-top:14px; }
-  .workstation-stage .hero-copy .chapter { font-size:7px; }
-  .workstation-stage .hero-copy h2 { font-size:23px; margin:9px 0; }
-  .workstation-stage .hero-copy p { font-size:11px; line-height:1.55; }
-  .workstation-stage .hero-action { font-size:9px; margin-top:10px; padding:7px 8px; }
-  .workstation-stage .monitor-content { height:100%; justify-content:center; }
-  .workstation-stage .monitor-content > :not(.dexter-stage) { flex-shrink:0; }
-  .immersive-hero .control-floor { top:34%; }
-  .immersive-hero .control-floor img { position:static; transform:none; width:100%; object-fit:cover; }
-}
-@media (max-width:650px) {
-  .immersive-hero.hero { height:100svh; min-height:810px; }
-  .immersive-hero .white-halo.sun-stage { width:158px; height:158px; top:64px; }
-  .workstation-stage .workstation-screen { width:calc(100% - 28px); height:clamp(236px,calc((var(--scene-width,100vw) - 28px)/1.6),260px); aspect-ratio:auto; left:14px; right:14px; padding:26px 10% 18px; }
-  .workstation-stage .screen-left { top:224px; }
-  .workstation-stage .screen-right { top:calc(232px + clamp(236px,calc((var(--scene-width,100vw) - 28px)/1.6),260px)); padding-top:42px; }
-  .workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(32px,10vw,44px); }
-  .workstation-stage .eyebrow { font-size:7px; margin-bottom:10px; }
-  .workstation-stage .text-link { margin-top:10px; padding:6px 0; }
-  .workstation-stage .hero-copy h2 { font-size:22px; margin:7px 0; }
-  .workstation-stage .hero-copy p { font-size:10.5px; line-height:1.45; }
-  .workstation-stage .hero-copy .chapter { font-size:6px; }
-  .workstation-stage .hero-copy h2 br { display:none; }
-  .workstation-stage .hero-action { font-size:8px; margin-top:8px; padding:5px 7px; min-height:29px; }
-  .workstation-art { width:100%; bottom:0; }
-  .immersive-hero .control-floor { top:25%; }
-  .immersive-hero .hero-bottom { bottom:50px; left:14px; right:14px; }
-  .immersive-hero .hero-work-link { padding:6px 8px; }
-  .immersive-hero .hero-work-link strong { font-size:10px; }
-  .immersive-hero .scroll-note { font-size:6px; }
-  .immersive-hero .compare-labels { left:14px; right:14px; font-size:5px; bottom:8px; }
-}
-
-/* Crisp vector telemetry is clipped and mapped to the seven physical desk displays. */
-.aux-displays { position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none; color:#19e50f; }
-.aux-displays .aux-ink { fill:none; stroke:currentColor; stroke-width:1.2; }
-.aux-displays .aux-faint { opacity:.38; }
-.aux-displays .aux-bright { stroke:#b8ffb2; }
-.aux-code { animation:auxCode var(--flow,1.7s) steps(12,end) infinite; }
+/* One bounded SVG, no canvas / timers / per-frame JavaScript. The original
+   photographic diagnostics remain visible beneath the precise light overlays. */
+.terminal-effects { position:absolute; inset:0; width:100%; height:100%; z-index:3; pointer-events:none; color:#19e50f; overflow:hidden; }
+.terminal-effects .aux-ink { fill:none; stroke:currentColor; stroke-width:1.2; }
+.terminal-effects .aux-faint { opacity:.38; }
+.terminal-effects .aux-bright { stroke:#39ff14; }
+.terminal-effects .aux-screen-light { opacity:.8; mix-blend-mode:screen; }
+.matrix-column { animation:matrixFall var(--flow) linear infinite; animation-delay:var(--phase); }
+.matrix-light { filter:drop-shadow(0 0 1px #19e50f88); }
+.aux-code { animation:auxCode var(--flow,1.7s) linear infinite; }
 .aux-wave { animation:auxWave var(--wave,3.4s) linear infinite; }
 .aux-radar { transform-box:fill-box; transform-origin:center; animation:auxRadar 5.8s linear infinite; }
 .aux-packets { animation:auxPackets 2.2s steps(5,end) infinite alternate; }
 .aux-scan { animation:auxScan 2.8s linear infinite; }
-.aux-displays.is-paused * { animation-play-state:paused !important; }
+.terminal-effects.is-paused * { animation-play-state:paused !important; }
+@keyframes matrixFall { from { transform:translateY(-144px); } to { transform:translateY(0); } }
 @keyframes auxCode { to { transform:translateY(-144px); } }
 @keyframes auxWave { to { transform:translateX(-320px); } }
 @keyframes auxRadar { to { transform:rotate(360deg); } }
 @keyframes auxPackets { from { opacity:.45; } to { opacity:1; } }
 @keyframes auxScan { from { transform:translateY(-120px); } to { transform:translateY(144px); } }
+@media(prefers-reduced-motion:reduce) { .terminal-effects * { animation:none !important; } }
+
+/* Fit the COMPLETE device, including its pedestal, on every viewport.
+   Phones additionally get a readable copy of the right display below the device;
+   the source-sized display artwork and live title stay registered on the glass. */
 @media(max-width:1000px) {
-  .aux-displays { inset:auto 0 0; height:auto; aspect-ratio:2; clip-path:inset(46% 0 0); }
+  .workstation-stage { width:calc(100% - 24px); bottom:90px; }
+  .immersive-hero.hero { min-height:720px; }
 }
-@media(prefers-reduced-motion:reduce) { .aux-displays * { animation:none !important; } }
-
-
-/* Sketch composition — 1610 x 853 reference, 22 Oct 2026 */
-/*
- * The sketch is a COMPOSITION guide, not a white page background.
- * Top: compact left-aligned navigation and the unobstructed real sun.
- * Bottom: the existing realistic terminal as the main focal point.
- * Keep both HTML panels mapped to the original native monitor glass.
- * No independent stretching, skewing or repositioning of panel content.
- */
-@media (min-width:1001px) {
-  .immersive-hero.hero {
-    --sketch-terminal-width:min(calc(100vw + 140px),200svh,2100px);
-    height:100svh;
-    min-height:640px;
+@media(max-width:650px) {
+  .immersive-hero.hero { height:100svh; min-height:810px; }
+  .immersive-hero .white-halo.sun-stage { width:158px; height:158px; top:76px; }
+  .workstation-stage { width:calc(100% - 20px); top:270px; bottom:auto; }
+  .workstation-stage .workstation-screen { pointer-events:none; }
+  .workstation-stage .hero-title-group h1.dexter-title { font-size:4.3cqw; }
+  .workstation-stage .hero-copy h2 { font-size:2.45cqw; }
+  .hero .workstation-stage .hero-title-group .outline { -webkit-text-stroke-width:.5px !important; }
+  .workstation-stage .hero-copy .chapter, .workstation-stage .eyebrow { letter-spacing:0; }
+  .workstation-mobile-copy:not([hidden]) {
+    display:flex; flex-direction:column; align-items:flex-start;
+    position:absolute; z-index:12; top:calc(288px + (var(--scene-width,100vw) - 20px)/2);
+    left:24px; right:24px;
   }
-  .immersive-hero .workstation-stage {
-    width:var(--sketch-terminal-width);
-    /* Screen top is ~41% viewport height, but never touches the sun
-       on short laptop displays. Original image aspect ratio remains 2:1.
-       Corresponding coefficients = 43.75% of width for 12.5%-screen inset. */
-    bottom:calc(100svh - max(340px,41svh) - min(calc(43.75vw + 61.25px),87.5svh,918.75px));
-    left:50%;
-    transform:translateX(-50%);
-    aspect-ratio:2;
-  }
-  .immersive-hero .control-floor {
-    inset:38% 0 0;
-  }
-  .immersive-hero .hero-bottom {
-    bottom:clamp(44px,6svh,64px);
-    left:clamp(14px,1.3vw,28px);
-    right:clamp(14px,1.3vw,28px);
-  }
-  .immersive-hero .compare-labels {
-    left:clamp(14px,1.3vw,28px);
-    right:clamp(14px,1.3vw,28px);
-  }
+  .workstation-mobile-copy .chapter { font-size:8px; color:#19e50f; letter-spacing:.1em; }
+  .workstation-mobile-copy h2 { font-family:var(--studio-display); font-size:27px; line-height:1.08; margin:10px 0; }
+  .workstation-mobile-copy h2 br { display:none; }
+  .workstation-mobile-copy p { font-size:13px; line-height:1.6; margin:0; max-width:430px; color:#b8c1b8; }
+  .workstation-mobile-copy .hero-action { font-size:11px; min-height:44px; margin-top:14px; padding:10px 13px; }
+  .immersive-hero .control-floor { top:25%; }
+  .immersive-hero .hero-bottom { bottom:38px; left:14px; right:14px; }
+  .immersive-hero .hero-work-link { padding:6px 8px; }
+  .immersive-hero .hero-work-link strong { font-size:10px; }
+  .immersive-hero .scroll-note { font-size:6px; }
+  .immersive-hero .compare-labels { font-size:5px; bottom:8px; }
 }
-/*
- * The compact navigation belongs to the top LEFT of the reference.
- * Do not cover the sun or stretch the nav across the right half.
- * Tablet/mobile retain their accessible existing navigation layout.
- */
+
 @media (min-width:1440px) {
   .page-shell > .nav {
     left:calc((100% - var(--scene-width,100vw))/2);
@@ -181,69 +132,4 @@
     font-size:clamp(10px,.92vw,15px) !important;
   }
   .page-shell > .nav .links a { white-space:nowrap; }
-}
-/* Prefer a taller control deck when the browser is tall and narrow:
-   bound the image by both viewport dimensions to protect side housings. */
-@media (min-width:1001px) and (max-height:670px) {
-  .immersive-hero.hero { min-height:670px; }
-  .immersive-hero .workstation-stage {
-    bottom:calc(100svh - max(340px,41svh) - min(calc(43.75vw + 61.25px),87.5svh,918.75px));
-  }
-}
-
-
-/* Sketch screen geometry: balanced left / centre / right proportions */
-/* Desktop reference at 1610px: left panel x≈110–660, centre gap to x≈960,
-   right panel x≈960–1515, all aligned to the console artwork. */
-@media (min-width:1001px) {
-  .workstation-stage .workstation-screen {
-    top:13%;
-    height:20%;
-    padding:0 .45%;
-  }
-  .workstation-stage .screen-left {
-    left:9.25%;
-    width:32.5%;
-    right:auto;
-    transform:none;
-  }
-  .workstation-stage .screen-right {
-    right:8.5%;
-    width:32.5%;
-    left:auto;
-    transform:none;
-  }
-  .workstation-stage .eyebrow {
-    font-size:clamp(6px,.55cqw,9px);
-    margin-bottom:.4cqw;
-    letter-spacing:.09em;
-  }
-  .workstation-stage .hero-title-group h1.dexter-title {
-    font-size:clamp(39px,3.45cqw,68px);
-    line-height:.93;
-  }
-  .workstation-stage .text-link {
-    font-size:clamp(7px,.57cqw,10px);
-    margin-top:.3cqw;
-    padding:3px 0;
-  }
-  .workstation-stage .hero-copy .chapter {
-    font-size:clamp(6px,.52cqw,9px);
-    padding:2px 5px;
-  }
-  .workstation-stage .hero-copy h2 {
-    font-size:clamp(21px,1.98cqw,36px);
-    line-height:1.04;
-    margin:.3cqw 0 .35cqw;
-  }
-  .workstation-stage .hero-copy p {
-    font-size:clamp(10px,.75cqw,13px);
-    line-height:1.37;
-  }
-  .workstation-stage .hero-action {
-    font-size:clamp(8px,.58cqw,10px);
-    min-height:26px;
-    padding:4px 8px;
-    margin-top:.4cqw;
-  }
 }

@@ -1,25 +1,30 @@
-/* Original vector interfaces inspired by Patrick's green retro-computer reference.
-   Geometry is built once; CSS moves bounded layers only while the hero is visible. */
-(() => {
+/* Original ORA geometry: all device masks use its native 1774 × 887 canvas.
+   Build once; bounded CSS transforms, no per-frame JavaScript or canvas. */
+(async () => {
   const stage = document.querySelector('.workstation-stage');
   const hero = document.querySelector('.immersive-hero');
   if (!stage || !hero) return;
   const ns = 'http://www.w3.org/2000/svg';
+  let geometry;
+  try {
+    const response = await fetch('assets/workstation/geometry.json');
+    if (!response.ok) throw new Error(`Workstation geometry: ${response.status}`);
+    geometry = await response.json();
+  } catch (error) {
+    // Original PNG layers and both HTML monitors remain usable on fetch failure.
+    console.error(error);
+    return;
+  }
   const svg = document.createElementNS(ns, 'svg');
-  svg.classList.add('aux-displays', 'is-paused');
+  svg.classList.add('terminal-effects', 'is-paused');
   svg.setAttribute('viewBox', '0 0 1774 887');
   svg.setAttribute('aria-hidden', 'true');
   svg.setAttribute('focusable', 'false');
-  // Four measured glass corners, clockwise, in native image coordinates.
-  const panels = [
-    [[207,444],[291,439],[304,510],[218,518]],
-    [[319,440],[480,435],[495,503],[331,510]],
-    [[658,436],[714,436],[713,458],[661,460]],
-    [[758,435],[1026,435],[1032,521],[747,520]],
-    [[1062,437],[1115,438],[1115,458],[1064,459]],
-    [[1292,437],[1446,442],[1432,511],[1278,504]],
-    [[1479,446],[1559,450],[1545,521],[1465,516]]
-  ];
+  // Every region comes from connected components of the ACTUAL source alpha.
+  const panels = geometry.auxiliary.map(region => {
+    const [x0,y0,x1,y1] = region.box;
+    return [[x0,y0],[x1,y0],[x1,y1],[x0,y1]];
+  });
   let seed = 5222026;
   const random = max => {
     seed = (Math.imul(seed,1664525)+1013904223) >>> 0;
@@ -38,7 +43,19 @@
     'M1 5h10M1 11h10M3 1v14M9 1v14', 'M2 2h8v12H2M2 2l8 12'
   ];
   let defs = glyphPaths.map((d,i) => `<symbol id="aux-rune-${i}" viewBox="0 0 12 16"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.2"/></symbol>`).join('');
-  let content = '';
+  defs += '<mask id="terminal-aux-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1774" height="887" style="mask-type:alpha"><image href="assets/workstation/aux-mask.png" width="1774" height="887"/></mask><mask id="terminal-matrix-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1774" height="887" style="mask-type:alpha"><image href="assets/workstation/matrix-mask.png" width="1774" height="887"/></mask>';
+  let matrix = '';
+  // Identical repeated 144px periods make every downward wrap seamless.
+  // Fine 6×8 source-pixel runes; speeds and tail densities vary per column.
+  for (let x=38; x<1739; x+=11) {
+    let column = '';
+    const rows = Array.from({length:12}, () => ({r:random(glyphPaths.length), a:.15+random(67)/100}));
+    for (const offset of [0,144,288]) rows.forEach((row,y) => {
+      column += `<use href="#aux-rune-${row.r}" x="${x}" y="${423+offset+y*12}" width="6" height="8" opacity="${row.a}"${y===11?' style="color:#39ff14;opacity:.95"':''}/>`;
+    });
+    matrix += `<g class="matrix-column" style="--flow:${3+random(60)/10}s;--phase:-${random(90)/10}s">${column}</g>`;
+  }
+  let content = `<g class="matrix-light" mask="url(#terminal-matrix-mask)" data-matrix-direction="down">${matrix}</g>`;
   panels.forEach((points,index) => {
     const p = points.map(x => x.join(',')).join(' ');
     defs += `<clipPath id="aux-glass-${index}"><polygon points="${p}"/></clipPath><clipPath id="aux-code-${index}"><rect x="5" y="8" width="112" height="128"/></clipPath><clipPath id="aux-plot-${index}"><rect x="126" y="8" width="188" height="128"/></clipPath>`;
@@ -50,8 +67,8 @@
       code += `<use href="#aux-rune-${r}" x="${7+x*22}" y="${offset+7+y*18}" width="13" height="16" opacity="${.42+random(59)/100}"/>`;
     }));
     let graph = '';
-    if (index === 3) {
-      graph = '<g class="aux-ink"><circle cx="223" cy="66" r="51"/><ellipse cx="223" cy="66" rx="20" ry="51"/><ellipse cx="223" cy="66" rx="40" ry="51"/><ellipse cx="223" cy="66" rx="51" ry="17"/><ellipse cx="223" cy="66" rx="51" ry="35"/><path d="M172 66h102M223 15v102"/><g class="aux-radar"><ellipse cx="223" cy="66" rx="69" ry="28" transform="rotate(-23 223 66)"/><circle cx="286" cy="41" r="3" fill="#b8ffb2"/></g></g>';
+    if (geometry.auxiliary[index].pixels === Math.max(...geometry.auxiliary.map(r => r.pixels))) {
+      graph = '<g opacity=".5" class="aux-ink"><circle cx="223" cy="66" r="51"/><ellipse cx="223" cy="66" rx="20" ry="51"/><ellipse cx="223" cy="66" rx="40" ry="51"/><ellipse cx="223" cy="66" rx="51" ry="17"/><ellipse cx="223" cy="66" rx="51" ry="35"/><path d="M172 66h102M223 15v102"/><g class="aux-radar"><ellipse cx="223" cy="66" rx="69" ry="28" transform="rotate(-23 223 66)"/><circle cx="286" cy="41" r="3" fill="#39ff14"/></g></g>';
     } else if (index % 2) {
       let wave = '';
       for (let x=0;x<=640;x+=8) wave += `${x},${30+random(55)} `;
@@ -68,16 +85,37 @@
     graph += '<g class="aux-packets" fill="currentColor">';
     for(let i=0;i<11;i++) graph += `<circle cx="${133+i*16}" cy="132" r="2.5" opacity="${.3+random(70)/100}"/>`;
     graph += '</g>';
-    content += `<g clip-path="url(#aux-glass-${index})" data-aux-screen="${index+1}"><polygon points="${p}" fill="#010805"/><g transform="matrix(${matrix})"><path class="aux-ink aux-faint" d="M119 4v136M3 4h314v136H3z"/><g clip-path="url(#aux-code-${index})"><g class="aux-code" style="--flow:${1.25+index*.14}s;animation-delay:-${index*.27}s">${code}</g></g>${graph}<path class="aux-scan aux-ink aux-faint" d="M4 130h310"/></g></g>`;
+    content += `<g class="aux-screen-light" mask="url(#terminal-aux-mask)" data-aux-screen="${geometry.auxiliary[index].id}"><g clip-path="url(#aux-glass-${index})"><g transform="matrix(${matrix})"><path class="aux-ink aux-faint" d="M119 4v136M3 4h314v136H3z"/><g clip-path="url(#aux-code-${index})"><g class="aux-code" style="--flow:${1.25+index*.14}s;animation-delay:-${index*.27}s">${code}</g></g>${graph}<path class="aux-scan aux-ink aux-faint" d="M4 130h310"/></g></g></g>`;
   });
-  svg.innerHTML = `<defs>${defs}</defs>${content}`;
+  // Pixel-span paths are individually addressable, not fake buttons. No handlers
+  // or keyboard stops until Patrick chooses interactions for these controls.
+  const controls = geometry.controls.map(region => `<path data-control-id="control-${String(region.id).padStart(2,'0')}" data-source-box="${region.box.join(' ')}" d="${region.path}" fill="transparent"/>`).join('');
+  svg.innerHTML = `<defs>${defs}</defs>${content}<g class="workstation-control-regions" pointer-events="none">${controls}</g>`;
   stage.insertBefore(svg, stage.querySelector('.workstation-screen'));
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false;
-  const update = () => svg.classList.toggle('is-paused', !visible || document.hidden || motion.matches || Boolean(navigator.connection?.saveData));
-  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; update(); },{threshold:.03}).observe(hero);
+  const update = () => svg.classList.toggle('is-paused', !visible || Number(document.querySelector('.compare-handle')?.getAttribute('aria-valuenow')) === 100 || document.hidden || motion.matches || Boolean(navigator.connection?.saveData));
+  // Observe the device itself; stop when comparison completely hides it as well.
+  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; update(); },{threshold:0}).observe(stage);
+  new MutationObserver(update).observe(hero, {attributes:true,attributeFilter:['style']});
   document.addEventListener('visibilitychange',update);
   motion.addEventListener('change',update);
   window.addEventListener('pagehide',() => svg.classList.add('is-paused'));
   window.addEventListener('pageshow',update);
+  navigator.connection?.addEventListener('change',update);
+  // Same right-monitor content at a readable phone size; never crop/disassemble
+  // the original terminal to enlarge its physical bezels.
+  const phone = matchMedia('(max-width:650px)');
+  const readingCopy = document.querySelector('.workstation-mobile-copy');
+  const right = stage.querySelector('.screen-right');
+  const updateReading = () => {
+    readingCopy.hidden = !phone.matches;
+    right.setAttribute('aria-hidden', String(phone.matches));
+    stage.querySelectorAll('.workstation-screen a').forEach(link => {
+      if (phone.matches) link.setAttribute('tabindex','-1');
+      else link.removeAttribute('tabindex');
+    });
+  };
+  phone.addEventListener('change',updateReading);
+  updateReading();
 })();
