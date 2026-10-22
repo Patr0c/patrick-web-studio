@@ -101,7 +101,9 @@ Zurück-nach-oben-Link verwenden dieselbe Strichsprache. Bewegung nur sichtbar
 und im aktiven Tab; Reduced Motion zeigt ruhende Illustrationen.
 Antrieb starten ist eine optionale 4.5-s-Interaktion mit bedienbarem Stop und
 Statusrückmeldung. Kein neuer Canvas oder dauernder JavaScript-Frame-Loop.
-Die Sonnenkorona wurde auf 14 s bei 60 fps verlangsamt. Ein achtsekündiges
-weiches Ausglühen und derselbe ruhige Ring am Schleifenanfang/-ende vermeiden
-das abrupte Verschwinden. Die linke überlappende Flare wird sanft ausgeblendet
+Die Sonnenkorona läuft ruhig über 36 s bei 60 fps. Aufbau und Rückzug dauern
+je 15 s mit exakt derselben weichen Bewegungskurve; die Aufnahme wird dafür
+vorwärts und rückwärts durchlaufen. Je 2 s Ruhe am Anfang/Ende und 2 s am
+Höhepunkt verhindern ein hektisches Pendeln. Derselbe Ring an den Endpunkten
+vermeidet einen sichtbaren Schleifensprung. Die linke überlappende Flare wird sanft ausgeblendet
 und ihre Kante gefiedert. Originalsonne, Größe und Position bleiben erhalten.

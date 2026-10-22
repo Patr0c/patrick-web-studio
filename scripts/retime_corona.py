@@ -11,7 +11,7 @@ from scipy.ndimage import gaussian_filter
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-FPS, DURATION, SIZE = 60, 14, 512
+FPS, DURATION, SIZE = 60, 36, 512
 
 def smooth(x):
     x = np.clip(x, 0, 1)
@@ -54,13 +54,14 @@ with tempfile.TemporaryDirectory() as directory:
         command=['ffmpeg','-v','error','-y','-f','rawvideo','-pix_fmt','rgba','-s','512x512','-r',str(FPS),'-i','-','-vf',f'scale={size}:{size}:flags=lanczos','-c:v','libvpx-vp9','-pix_fmt','yuva420p','-b:v','0','-crf',crf,'-deadline','good','-cpu-used','5','-row-mt','1','-threads','2','-auto-alt-ref','0',str(ROOT/'assets/video'/name)]
         outputs.append(sp.Popen(command,stdin=sp.PIPE))
     for n in range(FPS*DURATION):
-        t=n/FPS
-        # 14 seconds instead of 4.93. The final eight seconds gently extinguish.
-        progress=t/(DURATION-1/FPS)
-        source=(1-(1-progress)**1.3)*(len(frames)-1)
+        # Exactly mirrored motion: 2s rest, 15s build, 2s peak, 15s retreat, 2s rest.
+        # Both source motion and brightness follow the same curve in each direction.
+        progress=n/(FPS*DURATION-1)
+        half_time=(1-abs(2*progress-1))*(DURATION/2)
+        envelope=float(smooth((half_time-2)/15))
+        source=envelope*(len(frames)-1)
         k=int(source);fraction=source-k
         f=feathered[k].astype(np.float32)*(1-fraction)+feathered[min(k+1,len(frames)-1)].astype(np.float32)*fraction
-        envelope=float(smooth((t-.25)/2.1)*(1-smooth((t-5.0)/8.0)))
         a=f[:,:,3:4]/255
         outa=base_alpha*(1-envelope)+a*envelope
         rgb=(base_rgb*(1-envelope)+f[:,:,:3]*a*envelope)/np.maximum(outa,.001)
@@ -70,4 +71,4 @@ with tempfile.TemporaryDirectory() as directory:
     for process in outputs:
         process.stdin.close()
         if process.wait():raise SystemExit('Corona encoding failed')
-print('Encoded 14s / 60fps alpha loops, with an 8s smooth fade and identical resting endpoints.')
+print('Encoded 36s / 60fps alpha loops: equal 15s build and retreat, with mirrored motion and resting endpoints.')

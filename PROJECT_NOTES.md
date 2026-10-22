@@ -229,3 +229,16 @@ eine tatsächliche Betriebssystem-Umschaltung wurde nicht automatisiert.
 Firefox bleibt in dieser Umgebung ungetestet. Screenshot: docs/space-preview.jpg.
 Entwicklungs-Preview: https://feat-space-motion-20261022.patrick-web-studio.pages.dev/
 main bleibt unverändert.
+
+## Korrektur: Aufbau und Rückzug gleich ruhig
+Nach Patricks Rückmeldung wurde die asymmetrische 14-s-Fassung ersetzt.
+Neuer Ablauf 36 s / 60 fps: 2 s Ruhe, 15 s Aufbau, 2 s Höhepunkt,
+15 s Rückzug, 2 s Ruhe. Aufnahmezeit und Flammenhelligkeit verwenden dieselbe
+gespiegelte Smoothstep-Kurve, statt einen schnellen Aufbau mit langem bloßem
+Ausblenden zu kombinieren. Zeitkurve numerisch auf exakte Symmetrie geprüft.
+Linke Kantenkorrektur, Ringausrichtung und ursprüngliche Sonne bleiben erhalten.
+Keine Änderungen an Icons, Galaxie, Seitentext oder anderen Interaktionen.
+Desktop und mobile Datei: 36.000 s, 60 fps. Spiegelbildliche Framepaare
+bei 6/29.983 und 12/23.983 s nach dem Decodieren verglichen: mittlere
+Codecabweichung unter 2 von 255 pro Kanal. Transparenz bleibt erhalten.
+Ressourcenprüfung und git diff --check erfolgreich.
