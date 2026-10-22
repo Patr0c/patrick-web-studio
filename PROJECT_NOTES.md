@@ -451,3 +451,16 @@ per echtem Hover abgespielt (readyState=4, laufende Zeit); vorherige Aufnahme
 pausiert beim Wechsel, nach Verlassen alle pausiert. Kein Websitefehler in der
 Prüfung beobachtet; Browser-Erweiterung protokolliert eigene Metadatenfehler.
 Keine Produktionsänderung; nur separater Cloudflare-Preview-Branch.
+
+## Näheres gerades Terminal, Seitenkonturen vollständig
+Basis fff4282, Branch feat/flat-terminal-20261022. Patricks Wahlmöglichkeit
+umgesetzt: neues Terminal ohne Bildschirmkrümmung statt unpassender Projektion.
+Zwei größere Hauptdisplays, Erdtelemetrie im kleinen zentralen Pultdisplay.
+Gehäuse-/Joystick-Außenkanten nun vollständig im Bild. Native 1774x887 RGBA,
+WebP verlustfrei/pixelgleich, 1287700 Bytes; Alpha >32 liegt in x=43..1731,
+y=81..823, also etwa 2.4% wirklich freie Ränder. Im Layout zusätzliche 14 px
+je Seite. Hauptdisplays breiter, Titel größer, keine skewY-Verzerrung.
+Mobile Pultgrafik passt in die Breite; neue Monitorrahmen/Einsetzflächen an
+neues Bild angepasst. Original-Sonne, Galaxie, Korona, sämtliche Skripte und
+alle Abschnitte nach dem Hero bleiben unverändert.
+Bildherkunft/Prompt: integrierte Bildgenerierung, docs/workstation-flat-prompt.md.

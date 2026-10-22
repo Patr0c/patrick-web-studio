@@ -25,3 +25,6 @@ obsolete variants without Patrick's request. Preserve the latest development wor
 - First scene is full width: live animated DIGITAL REWORK in the left monitor,
   hero copy in the right monitor. Open on the complete new scene; keep the
   comparison available. Preserve the sections below the scene.
+
+- Current terminal has two flat coplanar main screens. Keep both outer console
+  edges fully visible with small side gaps; no skew on the live screen content.

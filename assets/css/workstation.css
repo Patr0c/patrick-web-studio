@@ -1,4 +1,5 @@
-/* Seated operator view. All scene changes are scoped to the first section. */
+/* Flat two-monitor terminal: whole exterior in frame, closer large displays.
+   All scene changes are scoped to the first section. */
 .page-shell { margin-top:0; }
 .immersive-hero.hero {
   width:var(--scene-width,100vw); margin-left:calc((100% - var(--scene-width,100vw))/2);
@@ -11,27 +12,27 @@
 .immersive-hero .control-floor { inset:36% 0 0; border-radius:0; }
 .workstation-stage {
   position:absolute; z-index:12; left:50%; bottom:0; transform:translateX(-50%);
-  width:min(100%,160svh); aspect-ratio:2; pointer-events:none; container-type:inline-size;
+  width:min(calc(100% - 28px),168svh); aspect-ratio:2; pointer-events:none; container-type:inline-size;
 }
 .workstation-art { display:block; width:100%; height:auto; filter:drop-shadow(0 14px 22px #000b); }
 .monitor-frame { display:none; }
 .workstation-stage .workstation-screen {
   position:absolute; z-index:2; overflow:hidden; pointer-events:auto;
-  height:32%; padding:0; margin:0; bottom:auto;
+  height:33%; padding:0; margin:0; bottom:auto;
 }
-.workstation-stage .screen-left { left:4.8%; right:auto; top:26%; width:26%; transform:skewY(1.8deg); }
-.workstation-stage .screen-right { left:auto; right:4.8%; top:26%; width:26%; transform:skewY(-1.8deg); }
+.workstation-stage .screen-left { left:10%; right:auto; top:15%; width:36.7%; transform:none; }
+.workstation-stage .screen-right { left:auto; right:10%; top:15%; width:36.7%; transform:none; }
 .monitor-content { position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
 .workstation-stage .eyebrow { font-size:clamp(6px,.65cqw,10px); line-height:1.5; letter-spacing:.1em; margin-bottom:1.3cqw; white-space:nowrap; }
-.workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(32px,4.6cqw,78px); line-height:.94; letter-spacing:-.055em; }
+.workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(36px,5.4cqw,90px); line-height:.94; letter-spacing:-.055em; }
 .workstation-stage .text-link { margin-top:1.2cqw; padding:8px 0; font-size:clamp(7px,.65cqw,11px); gap:22px; }
 .workstation-stage .text-link .rocket-mark { width:17px; height:17px; }
 .workstation-stage .dexter-stage { inset:0; border-radius:0; }
 .workstation-stage .dexter-rule { left:0; right:0; top:48%; }
 .workstation-stage .hero-copy::before { content:none; }
 .workstation-stage .hero-copy .chapter { font-size:clamp(6px,.6cqw,10px); line-height:1.4; padding:3px 5px; letter-spacing:.08em; }
-.workstation-stage .hero-copy h2 { font-size:clamp(20px,2.4cqw,40px); line-height:1.08; margin:.7cqw 0 .8cqw; }
-.workstation-stage .hero-copy p { font-size:clamp(10px,.95cqw,16px); line-height:1.6; min-height:0; max-width:none; margin:0; }
+.workstation-stage .hero-copy h2 { font-size:clamp(22px,2.6cqw,44px); line-height:1.08; margin:.7cqw 0 .8cqw; }
+.workstation-stage .hero-copy p { font-size:clamp(11px,1cqw,17px); line-height:1.6; min-height:0; max-width:none; margin:0; }
 .workstation-stage .hero-action { font-size:clamp(8px,.65cqw,11px); padding:8px 10px; margin-top:1cqw; gap:12px; min-height:32px; }
 .workstation-stage .hero-action .rocket-mark { width:15px; height:15px; }
 .immersive-hero .hero-bottom { z-index:15; bottom:64px; left:4.5%; right:4.5%; }
@@ -44,14 +45,14 @@
 @media (max-width:1000px) {
   .immersive-hero.hero { min-height:780px; }
   .workstation-stage { width:100%; height:100%; aspect-ratio:auto; }
-  .workstation-art { position:absolute; width:max(100%,900px); left:50%; bottom:-26px; transform:translateX(-50%); clip-path:inset(62% 0 0); }
+  .workstation-art { position:absolute; width:100%; left:0; bottom:0; transform:none; clip-path:inset(54% 0 0); }
   .workstation-stage .workstation-screen { top:34%; width:44%; height:auto; aspect-ratio:1.4; transform:none; padding:5% 3.8% 2.8%; }
   .workstation-stage .screen-left { left:4%; right:auto; }
   .workstation-stage .screen-right { right:4%; left:auto; }
   .monitor-frame { display:block; position:absolute; inset:0; overflow:hidden; pointer-events:none; }
-  .monitor-frame img { position:absolute; width:298.5075%; height:206.1856%; top:-29.897%; max-width:none; }
-  .screen-left .monitor-frame img { left:0; }
-  .screen-right .monitor-frame img { left:-198.5075%; }
+  .monitor-frame img { position:absolute; width:213.6752%; height:217.3913%; top:-17.3913%; max-width:none; }
+  .screen-left .monitor-frame img { left:-7.2649%; }
+  .screen-right .monitor-frame img { left:-106.4103%; }
   .workstation-stage .eyebrow { font-size:7px; margin-bottom:14px; white-space:normal; }
   .workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(32px,5.2vw,45px); }
   .workstation-stage .text-link { font-size:8px; margin-top:14px; }
@@ -78,7 +79,7 @@
   .workstation-stage .hero-copy .chapter { font-size:6px; }
   .workstation-stage .hero-copy h2 br { display:none; }
   .workstation-stage .hero-action { font-size:8px; margin-top:8px; padding:5px 7px; min-height:29px; }
-  .workstation-art { width:max(100%,600px); bottom:-24px; }
+  .workstation-art { width:100%; bottom:0; }
   .immersive-hero .control-floor { top:25%; }
   .immersive-hero .hero-bottom { bottom:50px; left:14px; right:14px; }
   .immersive-hero .hero-work-link { padding:6px 8px; }

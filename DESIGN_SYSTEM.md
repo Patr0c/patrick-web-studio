@@ -177,3 +177,14 @@ Auf kleinen Displays werden dieselben realen Monitorrahmen lesbar untereinander
 angeordnet; der Bedienpult-Ausschnitt bleibt im Vordergrund. Keine Schrift im
 Rasterbild. Farben, Detailgrad, Goldreflexe und Boden fortführen.
 Alle Abschnitte unterhalb des Einstiegs bleiben in ihrer bisherigen Gestaltung.
+
+## Gerades Terminal mit sichtbaren Außenkanten
+Aktuelle Präzisierung: zwei große, plane Hauptmonitore ohne Krümmung oder
+Trapezperspektive. Live-Inhalte und Animation stehen unverzerrt auf diesen
+Flächen; keine skewY-Transformation. Erdtelemetrie im kleinen Pultdisplay.
+Asset workstation-flat.webp, native 1774x887 RGBA, verlustfrei. Beide seitlichen
+Gehäuseenden vollständig enthalten; kleine transparente Ränder im Bild plus
+14 px Layoutabstand. Größere Hauptdisplays geben die gewünschte nähere Ansicht,
+ohne die Station an den Seiten abzuschneiden. HTML-Kopie, Farben und Animation
+bleiben erhalten. Mobile verwendet die neuen geraden Monitorrahmen; Pultbreite
+passt vollständig in den Viewport.

@@ -34,7 +34,8 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
 - `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
   zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
-- `docs/workstation-operator-preview.jpg` und `docs/workstation-operator-mobile-preview.jpg`: aktueller bildschirmfüllender Einstieg mit Monitorinhalten.
+- `docs/workstation-flat-preview.jpg` und `docs/workstation-flat-mobile-preview.jpg`: aktuelles gerades Terminal mit sichtbaren Seitenkanten.
+- `docs/workstation-operator-preview.jpg` und `docs/workstation-operator-mobile-preview.jpg`: vorheriger bildschirmfüllender Einstieg mit drei Monitoren.
 - `docs/control-center-preview.jpg` und `docs/control-center-mobile-preview.jpg`: vorherige Kontrollzentrale mit Boden.
 - `docs/mission-hover-preview.jpg`, `docs/nova-live-preview.jpg` und
   `docs/nova-timing-preview.jpg`: Kachel-Hover, Sonne in der Website und aktueller Nova-Ablauf.
@@ -46,7 +47,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktuell: https://feat-workstation-immersive-2.patrick-web-studio.pages.dev/
+Aktuell: https://feat-flat-terminal-20261022.patrick-web-studio.pages.dev/
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;
