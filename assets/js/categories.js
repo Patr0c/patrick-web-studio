@@ -18,12 +18,14 @@ const concepts={
 const categoryNames={hotel:'Hotel',restaurant:'Restaurant',driving:'Fahrschulen'};
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const all=Object.values(concepts).flat();
+const orbitVisibility=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('orbit-offscreen',!entry.isIntersecting)),{threshold:.01});
 const modal=document.querySelector('.concept-dialog');
 const demo=document.querySelector('.concept-demo');
 let activeTrigger=null;
 function miniature(c,key){return `<span class="mini-site mini-${c.layout}" style="--mini-bg:${c.bg};--mini-fg:${c.fg};--mini-accent:${c.accent}"><span class="mini-nav">${escape(c.brand)}<i>☰</i></span><span class="mini-image" style="background-image:url('concepts/${key}.webp')"></span><strong>${escape(c.hero).replaceAll('\n','<br>')}</strong><span class="mini-rule"></span></span>`;}
 for(const article of document.querySelectorAll('.category')){
  const key=article.dataset.category,trigger=article.querySelector('.category-trigger'),panel=article.querySelector('.wheel-panel'),orbit=article.querySelector('.concept-orbit');
+ orbit.replaceChildren();
  concepts[key].forEach((c,i)=>{
   const node=document.createElement('div');node.className='orbit-node';node.style.setProperty('--node-angle',`${i*120-90}deg`);
   node.innerHTML=`<button class="orbit-window" type="button" data-concept="${c.id}" aria-label="${categoryNames[key]}: ${escape(c.name)} Vorschau öffnen"><span class="orbit-chrome"><i></i><i></i><i></i></span>${miniature(c,key)}<span class="orbit-label">${escape(c.name)} <b>↗</b></span></button>`;
@@ -33,6 +35,7 @@ for(const article of document.querySelectorAll('.category')){
   const open=trigger.getAttribute('aria-expanded')!=='true';
   trigger.setAttribute('aria-expanded',String(open));article.classList.toggle('is-open',open);panel.hidden=!open;
  });
+ orbitVisibility.observe(article);
  const pause=article.querySelector('.wheel-pause');
  pause.addEventListener('click',()=>{
   const isPaused=pause.getAttribute('aria-pressed')!=='true';pause.setAttribute('aria-pressed',String(isPaused));article.classList.toggle('is-paused',isPaused);pause.textContent=isPaused?'▷ Weiter':'Ⅱ Pause';

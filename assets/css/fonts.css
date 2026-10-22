@@ -1,0 +1,14 @@
+/* Chosen typography only. OFL licenses are in assets/fonts/. */
+@font-face {
+  font-family:'Archivo'; font-style:normal; font-weight:100 900;
+  font-stretch:62% 125%; font-display:swap;
+  src:url('../fonts/archivo.woff2') format('woff2');
+}
+@font-face {
+  font-family:'Manrope'; font-style:normal; font-weight:200 800;
+  font-display:swap; src:url('../fonts/manrope.woff2') format('woff2');
+}
+@font-face {
+  font-family:'DM Mono'; font-style:normal; font-weight:400;
+  font-display:swap; src:url('../fonts/dm-mono.woff2') format('woff2');
+}
