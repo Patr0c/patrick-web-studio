@@ -319,3 +319,13 @@ c2b55f3 unverändert. Ressourcenprüfung (28 Dateien/26 IDs), categories.js-
 Syntax und diff --check erfolgreich. Firefox weiterhin nicht verfügbar.
 Screenshots: docs/icons-cleanup-preview.jpg (Hover-Flamme),
 docs/projects-cleanup-preview.jpg und docs/footer-cleanup-preview.jpg.
+
+## Karten-Hover für die drei kleinen Missionsraketen
+Basis 0972ee7, Branch feat/mission-hover-20261022. Screenshot 172236 geprüft:
+Orange markiert die kleinen Linkraketen außen, Gelb den mittleren Startknopf.
+Der mittlere Knopf verwendet jetzt dasselbe kleine gefüllte SVG statt Text.
+Sein Start/Stop-Name bleibt für Hilfstechnologien als aria-label erhalten;
+JavaScript ändert nicht mehr textContent und bewahrt so das Icon beim Schalten.
+Alle kleinen Raketen zünden auf Karten-Hover oder Fokus innerhalb der Kachel.
+Die mittlere bleibt zusätzlich während eines manuellen Schubs aktiv.
+Keine orange/gelben Markierungsrahmen ins Design übernommen.

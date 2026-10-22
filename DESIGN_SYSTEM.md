@@ -135,3 +135,11 @@ Kategorie-Titelleisten; drei zusätzliche runde Projektlinks; Rakete am
 Projekt-Hinweistext; großer runder Footerlink; Konzeptstudie-2026-Zeile;
 Rakete neben dem textlichen Back-to-top-Link. Markierte Dekoration nicht
 später erneut hinzufügen. Haupt-Vorschaulinks und textlicher Top-Link bleiben.
+
+## Missionskacheln: Raketen bei Karten-Hover
+Alle drei kleinen Raketen zünden bereits beim Hover über ihre gesamte Kachel,
+auch wenn der Zeiger auf Überschrift oder Fließtext steht. Fokus innerhalb
+der Kachel aktiviert denselben Zustand. Der mittlere textliche Startknopf ist
+durch eine kleine gefüllte Rakete gleicher Größe ersetzt; sie bleibt als Button
+per Tastatur und Touch steuerbar und hat ein dynamisches aria-label.
+Die orange/gelben Screenshot-Kästen sind Markierungen, keine sichtbaren Rahmen.

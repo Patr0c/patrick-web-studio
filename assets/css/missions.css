@@ -24,12 +24,9 @@
 .mission-link span { color:#39ff14; font-size:18px; transition:transform .2s; }
 .mission-link:hover span { transform:translate(3px,-3px); }
 .mission-link:focus-visible,.engine-trigger:focus-visible { outline:2px solid #39ff14; outline-offset:5px; }
-.engine-trigger { border:1px solid #39ff1455; background:#12331a; color:#d8ffda; padding:9px 13px; border-radius:7px; font:10px 'DM Mono',monospace; letter-spacing:.04em; }
-.engine-trigger:hover { border-color:#39ff14; }
 .engine-controls { display:flex; align-items:center; gap:12px; margin-top:auto; min-height:36px; }
 .engine-status { font:9px 'DM Mono',monospace; color:#91a795; }
 .mission-card.is-boosting { border-color:#f5b65599; }
-.mission-card.is-boosting .engine-trigger { border-color:#ffb34d; color:#ffce89; background:#3a2715; }
 .mission-card.is-boosting .engine-status { color:#ffce89; }
 .mission-illustration [class*="move-"] { transform-box:view-box; animation-play-state:paused; }
 .move-exhaust { transform-origin:32px 53px; animation:missionExhaust .8s ease-in-out infinite alternate; }
@@ -53,7 +50,6 @@ html.studio-tab-hidden .mission-illustration [class*="move-"] { animation-play-s
 .mission-illustration .move-exhaust { visibility:hidden; animation-play-state:paused !important; }
 .mission-engine.is-powered .move-exhaust { visibility:visible; animation-play-state:running !important; stroke:#ffb34d; }
 .mission-engine.is-powered .move-exhaust { animation-duration:.6s; }
-.mission-card .engine-trigger { color:var(--neon-green); border-color:#19e50f70; background:#071b0b; }
 .mission-engine.is-powered .engine-status { color:var(--neon-green); }
 .mission-live::before { content:none; }
 .mission-heading .mono { color:var(--neon-green); }
@@ -105,3 +101,13 @@ html.studio-tab-hidden .rocket-flame { animation-play-state:paused !important; }
 .chrome>span:nth-child(2) { position:absolute; left:27px; right:27px; text-align:center; }
 .footer-main>div { margin-right:0; }
 @media (max-width:760px) { .footer-main>div { width:100%; } }
+
+/* Mission launch icons ignite across their whole card, including keyboard focus. */
+.mission-card:hover .rocket-flame,
+.mission-card:focus-within .rocket-flame,
+.mission-card.is-powered .rocket-flame { opacity:1; animation:rocketBurn .5s ease-in-out infinite alternate; }
+.engine-trigger { display:inline-grid; place-items:center; width:32px; height:32px; padding:8px; border:0; border-radius:4px; color:var(--neon-green); background:transparent; cursor:pointer; }
+.engine-trigger .rocket-mark { width:15px; height:15px; }
+@media (prefers-reduced-motion:reduce) {
+  .mission-card .rocket-flame { animation:none !important; }
+}

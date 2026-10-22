@@ -19,7 +19,7 @@
       card.classList.toggle('is-powered', powered);
       card.classList.toggle('is-boosting', boosted);
       button.setAttribute('aria-pressed', String(boosted));
-      button.textContent = boosted ? 'Antrieb stoppen' : 'Antrieb starten';
+      button.setAttribute('aria-label', boosted ? 'Antrieb stoppen' : 'Antrieb starten');
       status.textContent = powered ? 'Schub aktiv.' : 'Bereit.';
     };
     const stop = () => {
