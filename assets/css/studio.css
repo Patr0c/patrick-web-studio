@@ -693,7 +693,6 @@ summary h3 { font-family:var(--studio-display); font-size:22px; font-weight:650;
   .asset-credits p { font-size:9px; }
 }
 @media (max-width:380px) {
-  .links { gap:8px; font-size:6.5px; }
   .logo { font-size:16px; }
   .section-head h2 { font-size:36px; }
   .services-intro h2 { font-size:36px; }
@@ -884,4 +883,9 @@ html.studio-tab-hidden .hero-new * { animation-play-state:paused !important; }
 @media (max-width:760px) {
   .hero.comparison-ready .hero-new { overflow:hidden; }
   .hero-title-group { z-index:13; }
+}
+@media (max-width:380px) {
+  .nav { height:96px; flex-wrap:wrap; align-content:center; gap:3px; padding-top:12px; padding-bottom:12px; }
+  .links { flex-basis:100%; margin-left:0; justify-content:space-between; gap:8px !important; font-size:8px !important; }
+  .hero { height:980px; }
 }

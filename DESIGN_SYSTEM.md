@@ -20,7 +20,7 @@ alten Designs, Raster, blauen Leisten oder bewegten Fensterflammen ohne Auftrag.
 | Dunkle Grünabstufung | #0E8F19 |
 | DIGITAL | #F7FFF5, klarer Kern, kein milchiger Lichtteppich |
 | REWORK | transparente Füllung, 1.45 px Kontur #23D92A |
-| REWORK Glow | 1 / 4 / 9 px, keine weitere Ausdehnung |
+| REWORK Glow | Konturgebundene Drop-Shadows 1 / 4 px; kein text-shadow, der die transparente Füllung aufhellt |
 | Sonne und Rahmen | Orange/Amber #FFB34D, heller Rand #FFCF81 |
 
 Helligkeit über Kern und Deckkraft erhöhen. Bestehende Radien für kleine Akzente

@@ -11,7 +11,7 @@ Alle 18 zusätzlichen Entwicklungscommits sind Vorfahren des neuen Branches
 ## Umgesetzt
 - Browser-Export-Verzeichnis in klare assets/css, assets/js, assets/images,
   assets/video und assets/fonts aufgeteilt; drei redundante Konzeptbilder entfernt.
-- Aktive Styles konsolidiert, 461 überholte Deklarationen sowie nicht mehr
+- Aktive Styles konsolidiert, über 460 überholte Deklarationen sowie nicht mehr
   verwendete Feuer-, SVG-, Canvas- und Fontauswahl-Regeln entfernt.
 - Gewählte Display-Schrift Archivo beibehalten; Manrope/DM Mono für Text/Labels.
   Nur diese drei Schriftfamilien lokal einschließlich OFL-Lizenzen bereitgestellt.
@@ -56,12 +56,38 @@ NASA/ESA- und weitere ursprüngliche Bildnachweise bleiben auf der Website.
 - https://villa-schwalbe.vercel.app/
 - https://gasthof-wagner-demo.vercel.app/
 
-## Prüfung / noch offen
-Lokale Ressourcen, interne Sprungziele und JavaScript-Syntax geprüft.
-Tatsächliche Desktop-/Handydarstellung, Interaktionen und Cloudflare-Vorschau
-werden nach Bereitstellung ergänzt. Die angekündigte PNG liegt jetzt vor.
+## Prüfung
+- Ressourcenprüfung: 23 lokale Ressourcen, 17 eindeutige IDs, interne Sprungziele
+  und unveränderte Projektlinks erfolgreich; JavaScript-Syntax und CSS-Parser sauber.
+- GitHub Actions: beide static-site-Läufe erfolgreich. Cloudflare-Checks erfolgreich.
+- Chromium-Desktop (1363×936): tatsächliche Darstellung, 50/50-Start,
+  Pos1/Ende/Pfeiltasten und Doppelklick sowie echte Mausbewegung des Reglers geprüft;
+  Drag auf 30 % wurde korrekt als aria-valuenow=30 gemeldet.
+- Sofort sichtbare echte Projektposter, Hoverstart, unmittelbare Pause und
+  Rücksprung aller geladenen Aufnahmen auf currentTime=0 nach zehn Sekunden geprüft.
+  Sonne spielt im sichtbaren Header und pausiert nach dem Scrollen zum Projektteil.
+- Alle neun Entwürfe einzeln geöffnet/geschlossen; Desktop-/Handy-Umschaltung
+  geprüft. Dialog ist auch im schmalen Smartphone-Viewport sichtbar und scrollbar.
+- Mobile Layouts über echte CSS-Viewport-Rahmen (390 und 320 px) im Cloud-Chromium
+  gerendert. Kein physisches Mobilgerät. Sonnenlicht-Überbreite behoben; 390-px-
+  Rahmen meldet scrollWidth=clientWidth=375 (15 px Scrollbar).
+- Bei 320 px zusätzlich zweizeilige Navigation und mehr Abstand zwischen
+  Textblock und unterem Projektlink eingerichtet; abschließende Prüfung folgt.
+- Alle drei externen Projektziele liefern bei GET HTTP 200 ohne Umleitung.
+- Font-Auswahl vollständig entfernt; Archivo/Manrope/DM Mono lokal ausgeliefert.
+- Neuer Galaxiekern sitzt auf der Drehachse, Bild und Sternenfilm haben dieselbe
+  Rotationsmatrix; feste Hintergrundsterne besitzen keine Rotationsanimation.
+- Kein aktiver Flammenrenderer und kein kontinuierliches JS-Sternen-Repaint.
+  Die verfügbaren Logs zeigten Fehler der Browsererweiterung, nicht des Portfolios.
+
+## Grenzen / noch offen
 Die lokale Playwright-Installation hat keine Browserbinärdateien; der Download
 lieferte leere Archive. Deshalb wird der verfügbare Cloud-Browser zur visuellen
 Prüfung verwendet. Firefox-Prüfung ist in dieser Umgebung bisher nicht möglich.
 Kontaktmöglichkeit/Impressum sind im Bestand unvollständig und wurden im Rahmen
 dieses Designauftrags nicht mit erfundenen Angaben ergänzt.
+
+## Review
+Entwicklungs-Preview: https://chore-design-system-cleanup.patrick-web-studio.pages.dev/
+Draft-PR: https://github.com/Patr0c/patrick-web-studio/pull/2
+Nur Entwicklung veröffentlicht, keine Änderungen auf main.
