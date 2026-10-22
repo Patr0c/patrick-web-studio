@@ -154,7 +154,7 @@
  */
 @media (min-width:1440px) {
   .page-shell > .nav {
-    left:0;
+    left:calc((100% - var(--scene-width,100vw))/2);
     right:auto;
     top:0;
     width:min(660px,calc(50vw - 140px));
