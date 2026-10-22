@@ -27,7 +27,7 @@ Alle 18 zusätzlichen Entwicklungscommits sind Vorfahren des neuen Branches
 - Veralteten Posterworkflow ersetzt: CI prüft Dateien und JavaScript, schreibt
   nicht mehr automatisch in den alten Entwicklungsbranch.
 - Galaxie aus Patricks Upload übernommen, Kern zentriert, quadratischer gemeinsamer
-  Rotationscontainer mit Randmaske; feine Sternenebene synchron, Randsterne fest.
+  Rotationscontainer mit eigener PNG-Transparenz; feine Sternenebene synchron, Randsterne fest.
 - DIGITAL ohne flächigen Lichtfleck, REWORK mit enger grüner Laserkontur;
   Laserfarben verbindlich dokumentiert, Orange für Sonne und Rahmen erhalten.
 - Vergleich ohne veraltetes verstecktes Flammen-SVG; ein CSS-Lichtstrahl über die
@@ -48,7 +48,8 @@ Galaxie.png und 2Galaxie.png sind bytegenau identisch:
 SHA-256 e20e283c53c12e16c9cf066f1212e26897fc6d782303f68083748ea3e8189436.
 Die Grafik hat 287982 völlig transparente Pixel und weiche Alphakanalübergänge.
 Ihr helles Zentrum liegt rechts der Bildmitte; CSS positioniert es bei der
-Drehachse. Die äußeren Ausschnittkanten werden per kreisförmiger Maske überblendet.
+Drehachse. Eine frühere kreisförmige Maske wurde nach Patricks Rückmeldung entfernt;
+die Transparenz stammt ausschließlich aus seiner PNG.
 NASA/ESA- und weitere ursprüngliche Bildnachweise bleiben auf der Website.
 
 ## Projektlinks (unverändert)
@@ -135,4 +136,8 @@ zusätzliche helle Schleier. Das Original heißt jetzt ausdrücklich 2Galaxie.pn
 Die PNG verwendet ihre eigene Transparenz bei Deckkraft 1. Der separate
 synchron rotierende Sternenfilm bleibt mit 20 % Deckkraft dezent erhalten;
 feste Sterne, Sonne und übriger Seiteninhalt bleiben unverändert.
-Browserprüfung der neuen Darstellung folgt.
+Desktop und mobiler CSS-Viewport wurden geprüft: Geladen wird ausdrücklich
+assets/images/2Galaxie.png mit 1280×1001 Pixeln, opacity=1, filter=none und
+mask-image=none auf Bild sowie Rotationscontainer. Die äußeren Sternenbereiche
+sind in der Vorschau sichtbar. Das Original wird auch unter der direkten
+Asset-URL ausgeliefert. Sonne, Medien und sonstige Interaktionen sind unverändert.
