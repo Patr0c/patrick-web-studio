@@ -23,10 +23,14 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `assets/js/space.js`: feste Sterne und gemeinsam rotierende Galaxie/Sternenfilm.
 - `assets/js/categories.js`: drei Kategorien mit insgesamt neun Vorschlägen.
 - `assets/images/`: Astronaut, originale transparente Galaxie, Sonnenstandbild.
-- `assets/video/`: drei Aufnahmen und zwei 60-fps-Sonnenfassungen.
+- `assets/video/`: drei Aufnahmen, zwei unveränderte Sonnenfassungen und
+  zwei kleine Korona-Overlays mit 60 fps.
 - `concepts/`: je ein Bild pro Branche, von Kacheln und Vorschauen gemeinsam genutzt.
 - `previews/`: sofort sichtbare echte Standbilder aus den Bildschirmaufnahmen.
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
+- `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
+  zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
+- `docs/preview.jpg`: geprüfte Designansicht.
 
 ## Entwicklungs-Vorschau
 

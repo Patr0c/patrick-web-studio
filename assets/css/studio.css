@@ -889,3 +889,18 @@ html.studio-tab-hidden .hero-new * { animation-play-state:paused !important; }
   .links { flex-basis:100%; margin-left:0; justify-content:space-between; gap:8px !important; font-size:8px !important; }
   .hero { height:980px; }
 }
+/* Recorded Eclipsio corona added around the unchanged original sun.
+   The source ring radius is 176/512: 145.455% aligns it to the sun's radius.
+   Only this additional media layer is larger; the existing sun keeps its size. */
+.solar-corona-layer {
+  position:absolute; left:-22.7275%; top:-22.7275%; width:145.455%; height:145.455%;
+  z-index:2; pointer-events:none; mix-blend-mode:screen;
+  mask-image:radial-gradient(circle closest-side,transparent 0 62%,#000 68%,#000 92%,transparent 100%);
+  -webkit-mask-image:radial-gradient(circle closest-side,transparent 0 62%,#000 68%,#000 92%,transparent 100%);
+}
+.solar-corona-plate,.solar-corona-video {
+  position:absolute; inset:0; width:100%; height:100%; display:block; object-fit:contain;
+}
+.solar-corona-video { opacity:0; transition:opacity .6s ease; }
+.solar-corona-video.is-ready { opacity:1; }
+@media(prefers-reduced-motion:reduce) { .solar-corona-video { display:none; } }

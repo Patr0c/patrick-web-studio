@@ -71,8 +71,8 @@ NASA/ESA- und weitere ursprüngliche Bildnachweise bleiben auf der Website.
 - Mobile Layouts über echte CSS-Viewport-Rahmen (390 und 320 px) im Cloud-Chromium
   gerendert. Kein physisches Mobilgerät. Sonnenlicht-Überbreite behoben; 390-px-
   Rahmen meldet scrollWidth=clientWidth=375 (15 px Scrollbar).
-- Bei 320 px zusätzlich zweizeilige Navigation und mehr Abstand zwischen
-  Textblock und unterem Projektlink eingerichtet; abschließende Prüfung folgt.
+- Bei 320 px zweizeilige Navigation und mehr Abstand zwischen Textblock und
+  unterem Projektlink eingerichtet und visuell geprüft; scrollWidth=clientWidth=305.
 - Alle drei externen Projektziele liefern bei GET HTTP 200 ohne Umleitung.
 - Font-Auswahl vollständig entfernt; Archivo/Manrope/DM Mono lokal ausgeliefert.
 - Neuer Galaxiekern sitzt auf der Drehachse, Bild und Sternenfilm haben dieselbe
@@ -91,3 +91,22 @@ dieses Designauftrags nicht mit erfundenen Angaben ergänzt.
 Entwicklungs-Preview: https://chore-design-system-cleanup.patrick-web-studio.pages.dev/
 Draft-PR: https://github.com/Patr0c/patrick-web-studio/pull/2
 Nur Entwicklung veröffentlicht, keine Änderungen auf main.
+
+## Ergänzung: Eclipsio-Korona
+Patrick hat ausdrücklich präzisiert: Die vorhandene Sonne bleibt in Darstellung,
+Größe und Position erhalten; nur Ring und Flammen werden hinzugefügt.
+Originale Sonnenvideos/Poster sind bytegenau unverändert. Ein zuvor lokal
+vorbereiteter breiter Sonnenrand wurde vor Bereitstellung verworfen.
+Die Originalkorona aus dem bereitgestellten Film wurde vorab auf einen ganzen
+Kreis umgelegt, mit versetzten Filmphasen und weichen Übergängen. Es läuft kein
+zusätzlicher Szenenrenderer im Browser. Der schmale 60-fps-Ringfilm ist 273449
+Bytes groß (512×512, 4.93 s); eine kleinere mobile Fassung ist ebenfalls vorhanden.
+Neue Dateien: assets/video/sun-corona.mp4, sun-corona-mobile.mp4 sowie
+assets/images/sun-corona.webp. Der Ruheframe und das Video sind gleich groß
+ausgerichtet; Video wird nach dem ersten playing-Ereignis eingeblendet.
+Quelle: https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/48106c12-33c9-4cea-9780-4a080477405e.mp4
+Die Bildschirmaufnahme von MotionSites wurde als zusätzliche visuelle Referenz
+geprüft. Keine Eclipsio-Texte, Navigation oder sonstige Landingpage-Elemente
+übernommen. Die Änderung am Produkt betrifft ausschließlich die Sonne.
+Ressourcenprüfung nach Ergänzung: 26 lokale Ressourcen, Syntax erfolgreich.
+Browserprüfung der zusätzlichen Korona folgt.

@@ -56,6 +56,12 @@ weißlich, scharf, mit sparsamen kleinen vierstrahligen Glints.
 Kinetische DIGITAL/REWORK-Animation und ruhige Galaxiedrehung erhalten.
 Sonne: vorhandene 60-fps-Fassungen, normaler playbackRate, kleineres Video mobil;
 außerhalb des sichtbaren Headers und im versteckten Tab pausieren.
+Zusatzwunsch: Die ursprüngliche Sonne bleibt unverändert. Ein eigener gefilmter
+Koronaring mit Flammen aus der Eclipsio-Referenz liegt darüber (512 px/60 fps,
+mobil 384 px/60 fps). Originale Position und Sonnengröße nicht verändern.
+Ringradius 176/512, Ebenengröße 145.455 %, Versatz -22.7275 %; screen blendet
+Schwarz aus, eine enge Ringmaske hält die Sonnenoberfläche frei. Keine Flammen
+per Laufzeit-Canvas erzeugen. Beide Videos gemeinsam sichtbar/unsichtbar schalten.
 Vergleich startet 50/50. Ein gerader orangeweißer Lichtstrahl reicht exakt von
 Rahmenkante zu Rahmenkante, ohne Ankerpunkte, Überstand oder zweite Leiste.
 Maus, Touch und Pfeiltasten/Pos1/Ende bedienen den Regler; Doppelklick zentriert.

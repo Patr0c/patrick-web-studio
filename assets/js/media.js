@@ -53,23 +53,28 @@
   }));
 })();
 
-// The slow 60-fps solar motion is encoded in the media, not playbackRate.
+// Original sun and recorded corona run together only in the visible header.
 (() => {
   const sun = document.querySelector('.sun-video'), hero = document.querySelector('.hero');
+  const corona = document.querySelector('.solar-corona-video');
   if (!sun || !hero) return;
+  const videos = [sun, corona].filter(Boolean);
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false, started = false;
-  sun.muted = true; sun.defaultMuted = true; sun.autoplay = false;
+  videos.forEach(video => { video.muted = true; video.defaultMuted = true; video.autoplay = false; });
+  corona?.addEventListener('playing', () => corona.classList.add('is-ready'), { once: true });
   function update() {
-    if (started && visible && !document.hidden && !motion.matches && !navigator.connection?.saveData) {
-      if (sun.paused) sun.play().catch(() => {});
-    } else sun.pause();
+    const active = started && visible && !document.hidden && !motion.matches && !navigator.connection?.saveData;
+    videos.forEach(video => {
+      if (active) { if (video.paused) video.play().catch(() => {}); }
+      else video.pause();
+    });
   }
   new IntersectionObserver(entries => { visible = entries[0].isIntersecting; update(); }, { threshold: .03 }).observe(hero);
   const begin = () => { started = true; update(); };
   if ('requestIdleCallback' in window) requestIdleCallback(begin, { timeout: 1300 }); else setTimeout(begin, 550);
   motion.addEventListener('change', update);
   document.addEventListener('visibilitychange', update);
-  window.addEventListener('pagehide', () => sun.pause());
+  window.addEventListener('pagehide', () => videos.forEach(video => video.pause()));
   window.addEventListener('pageshow', update);
 })();
