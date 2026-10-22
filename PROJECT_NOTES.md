@@ -242,3 +242,7 @@ Desktop und mobile Datei: 36.000 s, 60 fps. Spiegelbildliche Framepaare
 bei 6/29.983 und 12/23.983 s nach dem Decodieren verglichen: mittlere
 Codecabweichung unter 2 von 255 pro Kanal. Transparenz bleibt erhalten.
 Ressourcenprüfung und git diff --check erfolgreich.
+Chromium-Vorschau lädt die neue Fassung: duration=36, readyState=4,
+spielt im sichtbaren Header; Aufbau und Beginn des Rückzugs visuell geprüft.
+Vorschaubild aktualisiert. Die vorherige Responsive-Prüfung gilt weiter,
+da ausschließlich die Filmdateien und deren Offline-Zeitkurve geändert wurden.
