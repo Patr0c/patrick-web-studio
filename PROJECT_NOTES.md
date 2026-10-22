@@ -156,3 +156,14 @@ separater Zufallsstartwert; bisherige Sterne bleiben an ihren bisherigen Positio
 Sie werden nur initial und bei Größenänderungen im bestehenden festen Canvas
 gezeichnet und drehen sich nicht mit. Keine zusätzliche Animationsschleife.
 Sonne, Korona, Seiteninhalt und übrige Interaktionen sind unverändert.
+Browserprüfung der neuen Fassung in Chromium abgeschlossen: Desktop und mobile
+CSS-Viewports 390/320 px zeigen die neue PNG proportional und ohne zusätzliche
+Bildmaske; naturalWidth/Height=1280/1001, opacity=1, filter=none. Keine horizontale
+Überbreite (Desktop 1348/1348, mobil 375/375 bzw. 305/305 CSS-Pixel).
+Die Galaxie meldet galaxyTurn, die feste Sternenebene animation=none und
+transform=none. Desktop-Vorschau unter docs/preview.jpg aktualisiert.
+Ressourcenprüfung (26 Referenzen), JavaScript-Syntax, CSS-Parser und git diff
+--check erfolgreich. Beide CI-Läufe sowie Cloudflare-Preview erfolgreich.
+Unveränderte Interaktionen wurden in der vorherigen Fassung vollständig geprüft;
+für diese reine Hintergrundänderung wurden die betroffenen Darstellungen und
+der Vergleichsregler erneut kontrolliert. Firefox bleibt ungetestet.
