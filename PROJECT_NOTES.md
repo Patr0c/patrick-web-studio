@@ -99,10 +99,12 @@ Originale Sonnenvideos/Poster sind bytegenau unverändert. Ein zuvor lokal
 vorbereiteter breiter Sonnenrand wurde vor Bereitstellung verworfen.
 Die Originalkorona aus dem bereitgestellten Film wurde vorab auf einen ganzen
 Kreis umgelegt, mit versetzten Filmphasen und weichen Übergängen. Es läuft kein
-zusätzlicher Szenenrenderer im Browser. Der schmale 60-fps-Ringfilm ist 273449
+zusätzlicher Szenenrenderer im Browser. Der schmale 60-fps-Ringfilm ist 1110912
 Bytes groß (512×512, 4.93 s); eine kleinere mobile Fassung ist ebenfalls vorhanden.
-Neue Dateien: assets/video/sun-corona.mp4, sun-corona-mobile.mp4 sowie
-assets/images/sun-corona.webp. Der Ruheframe und das Video sind gleich groß
+Neue Dateien: assets/video/sun-corona.webm, sun-corona-mobile.webm sowie
+assets/images/sun-corona.webp. Ringfilm und Ruheframe besitzen echte Alphatransparenz (VP9/WebM bzw. WebP),
+damit kein schwarzer Saum die Galaxie oder Rahmenkante verdeckt.
+Der Ruheframe und das Video sind gleich groß
 ausgerichtet; Video wird nach dem ersten playing-Ereignis eingeblendet.
 Quelle: https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/48106c12-33c9-4cea-9780-4a080477405e.mp4
 Die Bildschirmaufnahme von MotionSites wurde als zusätzliche visuelle Referenz
