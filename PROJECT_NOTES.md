@@ -353,3 +353,19 @@ Nach Verlassen alle drei opacity=0. Mittlere Rakete nach Start und nach dem
 Knopf ist transparent und ohne Rahmen; Screenshot docs/mission-hover-preview.jpg.
 390er-Rahmen 375/375 ohne Überlauf; mittlerer Iconknopf auf 320er-Rahmen
 per Klick/Touchfunktion bedient, Größe 32 px, SVG bleibt erhalten.
+
+Veröffentlichte Sonnenfassung in Chromium verifiziert: duration=33.5,
+readyState=4, paused=false im sichtbaren Header. Beide statischen Checks und
+Cloudflare-Deployment für e175495 erfolgreich. Alle drei Karten-Hover-
+Zustände und korrektes Rücksetzen zuvor in der veröffentlichten Vorschau geprüft.
+Auch nach automatischem Ende des Schubs bleibt der mittlere SVG-Knopf erhalten.
+Handybreiten 390/320: 375/375 bzw. 305/305 ohne horizontalen Überlauf.
+Kleine Kartenflammen pausieren zusätzlich explizit außerhalb des Viewports,
+auch wenn ein Link nach Navigation noch Tastaturfokus hat. Reduced Motion und
+Tab-Pausierung bleiben aktiv. Firefox weiterhin nicht verfügbar.
+
+Die mobile Fassung lädt ebenfalls duration=33.5, readyState=4, paused=false,
+mit currentSrc sun-corona-mobile.webm. Hauptansicht bei 14.39 s mit
+sichtbarem rechten, linken und oberen Ausbruch geprüft und dokumentiert:
+docs/nova-live-preview.jpg. Zurückziehen und Ruhephase im decodierten
+Kontaktbogen kontrolliert. Ursprüngliche Sonnenvideos sind unverändert.

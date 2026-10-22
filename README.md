@@ -33,7 +33,8 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `.github/workflows/check-site.yml`: Ressourcen- und JavaScript-Prüfung.
 - `tests/responsive.html`: lädt dieselbe Website in schmalen/größeren Viewports
   zur browserbasierten Darstellungsprüfung; keine zusätzliche Designversion.
-- `docs/mission-hover-preview.jpg` und `docs/nova-timing-preview.jpg`: Kachel-Hover und aktueller Nova-Ablauf.
+- `docs/mission-hover-preview.jpg`, `docs/nova-live-preview.jpg` und
+  `docs/nova-timing-preview.jpg`: Kachel-Hover, Sonne in der Website und aktueller Nova-Ablauf.
 - `docs/icons-cleanup-preview.jpg`, `docs/projects-cleanup-preview.jpg` und
   `docs/footer-cleanup-preview.jpg`: aktuelle, geprüfte Icon- und Bereinigungsansichten.
 - `docs/icons-preview.jpg` und `docs/laser-preview.jpg`: vorherige Icon-/Neonkorrektur.

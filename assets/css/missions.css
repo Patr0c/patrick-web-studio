@@ -111,3 +111,5 @@ html.studio-tab-hidden .rocket-flame { animation-play-state:paused !important; }
 @media (prefers-reduced-motion:reduce) {
   .mission-card .rocket-flame { animation:none !important; }
 }
+
+.mission-card:not(.is-inview) .rocket-flame { animation-play-state:paused !important; }
