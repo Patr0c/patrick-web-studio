@@ -90,3 +90,18 @@ Keine dauerlaufenden versteckten Videos/Canvas-Effekte. Offscreen- und
 Tab-Pausierung; prefers-reduced-motion und saveData berücksichtigen.
 Desktop und Smartphone tatsächlich rendern, Firefox und Chromium prüfen, soweit
 die Umgebung das erlaubt. Grenzen konkret dokumentieren.
+
+## Space-Icons und Missionsbewegung
+Drei eigene SVG-Illustrationen greifen die Referenzideen auf: gegensinniger
+Astronauten-Laufzyklus, mechanischer Kreativantrieb, Globus mit Satellitenbahn.
+Kompakte sechseckige Missionskonturen, weißliche Striche, Lasergrün und warme
+Amberdetails. Keine fremden Grafiken oder Logos in die Seite kopiert.
+Die Module verbinden Hero und Arbeiten; Service-Icons und eine Rakete am
+Zurück-nach-oben-Link verwenden dieselbe Strichsprache. Bewegung nur sichtbar
+und im aktiven Tab; Reduced Motion zeigt ruhende Illustrationen.
+Antrieb starten ist eine optionale 4.5-s-Interaktion mit bedienbarem Stop und
+Statusrückmeldung. Kein neuer Canvas oder dauernder JavaScript-Frame-Loop.
+Die Sonnenkorona wurde auf 14 s bei 60 fps verlangsamt. Ein achtsekündiges
+weiches Ausglühen und derselbe ruhige Ring am Schleifenanfang/-ende vermeiden
+das abrupte Verschwinden. Die linke überlappende Flare wird sanft ausgeblendet
+und ihre Kante gefiedert. Originalsonne, Größe und Position bleiben erhalten.

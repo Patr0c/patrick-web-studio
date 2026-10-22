@@ -187,3 +187,29 @@ Galaxie und feste Sterne behalten ihre getrennten Rotationszustände.
 Originalbytegleichheit geprüft; Styles, Skripte und Sonnenmedien sind
 gegenüber f0583af unverändert. Vorschaubild aktualisiert. Firefox weiterhin
 nicht verfügbar; unveränderte übrige Interaktionen zuvor vollständig geprüft.
+
+## Space-Referenzen und weich ausglühende Sonnenkorona
+Neuer Entwicklungsbranch feat/space-motion-20261022, Basis c32edc9.
+Alle fünf verlinkten Dribbble-Arbeiten im Browser visuell geprüft:
+- https://dribbble.com/shots/1892373-Astronaut-Walk (Oliver Sin): gegenläufiger Lauf.
+- https://dribbble.com/shots/1528969-Globe (Nick Slater): Globus und Satellitenbahn.
+- https://dribbble.com/shots/1741666-KeenCon-Stickers (Dom Flask): Missionsabzeichen.
+- https://dribbble.com/shots/1934673-Creative-Drive (spovv): mechanischer Zeichenantrieb.
+- https://dribbble.com/shots/1635731-Space-Icons (John Barrier Wilson): Hexagon und Raumfahrtsymbole.
+Eigenständig gezeichnete SVGs, keine übernommenen Dribbble-Dateien im Produkt.
+Drei Missionsmodule ergänzen die Seite; die bisherigen Inhalte bleiben bestehen.
+Zusätzliche Service-Symbole und Raketen-Link zum Seitenanfang. CSS-Animationen
+pausieren außerhalb des Viewports und bei verstecktem Tab; Reduced Motion
+stoppt sie. Antrieb lässt sich starten/stoppen, nach 4.5 s endet der Schub.
+Der zusätzliche Screenshot zeigt eine überlappende linke Sonnenflare.
+Offline-Retiming unter scripts/retime_corona.py verwendet die ursprüngliche
+Alpha-Aufnahme aus Git: 14 s / 60 fps, weichere linke Flare und 8 s Fade-out
+auf einen ruhigen Ring. Identische Ruhephasen an Anfang/Ende. Die ursprünglichen
+Sonnenvideos und ihre Größe/Position sind unverändert. Kein neuer Browserrenderer.
+Offline-Prüfung: Beide Zusatzfilme 14.000 s, 60 fps und echte Alpha-Transparenz.
+Desktopfilm 623294 Bytes, mobil 431021 Bytes. Kontaktbogen bei 0/2/4/7/10/12.5/13.98 s
+zeigt den Ausbruch und das lange Abklingen. Differenz erster/letzter decodierter
+Frames im Mittel 0.223 von 255 pro Farb-/Alphakanal (Codecabweichung).
+Ressourcenprüfung (28 lokale Ressourcen, 23 IDs), JS-Syntax und git diff --check
+erfolgreich. Keine Änderungen an Galaxie, festem Sternenhintergrund oder
+ursprünglichen Sonnenvideos.
