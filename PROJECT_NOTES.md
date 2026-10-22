@@ -409,3 +409,20 @@ und drei Hoveraufnahmen wurden im vorherigen Stand geprüft; deren Quellen und
 sämtliche Skripte unverändert gegenüber 89b40a0. Ressourcenprüfung (29 lokale
 Referenzen, 26 IDs) und diff --check erfolgreich. Firefox nicht verfügbar.
 Beweisbilder: docs/control-center-preview.jpg, docs/control-center-mobile-preview.jpg.
+
+## Breite Workstation aus sitzender Nahperspektive
+Basis dc1f1e0, separater Branch feat/workstation-immersive-20261022.
+Auf Patricks Wunsch Stuhl entfernt, Kamera näher; Konsole über die erste Szene
+verbreitert. Szene bis an beide Browserränder, Höhe 100svh mit Mindesthöhe für
+lesbare Inhalte. Bestehende Seite darunter im bisherigen Content-Rahmen.
+Neues eigenes Bild workstation-operator.webp: native 1774x887 RGBA,
+1570256 Bytes, verlustfreies WebP, pixelgleich zur PNG und nicht hochskaliert.
+Leere Seitenmonitore tragen echte HTML-Inhalte: links DIGITAL REWORK mit
+unveränderter dexterType/dexterCut/dexterRule-Animation, rechts bisherige Kopie.
+Animationslinie in linken Monitor verschoben, keine CSS-/JS-Neuzeichnung der
+Konsole. Mobile Rahmen sind CSS-Ausschnitte derselben Bitmap, Inhalte bleiben
+skalierbare Schrift und bedienbare Links. Vergleichsregler bleibt 50/50.
+Nur beim Laden/Resize wird die tatsächliche Clientbreite für den Hero gelesen,
+kein kontinuierlicher Resize-/Paint-Loop. Originale Sonnen-/Koronafilme,
+Galaxie, Projekte, Kategorien und deren Steuerungen unverändert.
+Prompt und Herkunft: docs/workstation-operator-prompt.md.

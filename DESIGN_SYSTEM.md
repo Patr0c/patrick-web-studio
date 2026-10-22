@@ -164,3 +164,16 @@ Titan unter. Perspektivische Paneele, sehr feine grüne Fugen und warme Reflexe
 führen den Materiallook fort. Desktop-Horizont ungefähr auf Bildschirmmitte;
 mobil an den Stationsfuß angepasst. Nur innerhalb des Hero und der neuen
 Vergleichshälfte, hinter Kopie und Station. Kontaktschatten erdet die Basis.
+
+## Bildschirmfüllender Einstieg aus Operator-Perspektive
+Aktueller Wunsch: kein Stuhl; nahe sitzende Perspektive auf eine breite Konsole.
+Die erste Szene reicht über die gesamte Browserbreite und füllt den Bildschirm.
+Die bestehende Sonne/Korona und die originale Galaxie bleiben echte Medien.
+Neues freigestelltes Workstation-Asset mit leeren seitlichen Monitoren:
+1774x887 RGBA, verlustfrei. Links echte HTML-Typografie DIGITAL / REWORK samt
+vorhandener 7.6-s-Animation, auf diesen Monitor begrenzt. Rechts Titel,
+Beschreibung und CTA als echte interaktive HTML-Inhalte. Mittig Erdtelemetrie.
+Auf kleinen Displays werden dieselben realen Monitorrahmen lesbar untereinander
+angeordnet; der Bedienpult-Ausschnitt bleibt im Vordergrund. Keine Schrift im
+Rasterbild. Farben, Detailgrad, Goldreflexe und Boden fortführen.
+Alle Abschnitte unterhalb des Einstiegs bleiben in ihrer bisherigen Gestaltung.

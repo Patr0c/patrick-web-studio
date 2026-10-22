@@ -1,0 +1,87 @@
+/* Seated operator view. All scene changes are scoped to the first section. */
+.page-shell { margin-top:0; }
+.immersive-hero.hero {
+  width:var(--scene-width,100vw); margin-left:calc((100% - var(--scene-width,100vw))/2);
+  height:100svh; min-height:640px; border:0; border-radius:0; box-shadow:none;
+  overflow:hidden; background:linear-gradient(180deg,#02040b22,#02040912);
+}
+.immersive-hero.hero::after { display:none; }
+.immersive-hero .hero-new { border-radius:0; }
+.immersive-hero .white-halo.sun-stage { top:36px; left:50%; width:268px; height:268px; }
+.immersive-hero .control-floor { inset:36% 0 0; border-radius:0; }
+.workstation-stage {
+  position:absolute; z-index:12; left:50%; bottom:0; transform:translateX(-50%);
+  width:min(100%,160svh); aspect-ratio:2; pointer-events:none; container-type:inline-size;
+}
+.workstation-art { display:block; width:100%; height:auto; filter:drop-shadow(0 14px 22px #000b); }
+.monitor-frame { display:none; }
+.workstation-stage .workstation-screen {
+  position:absolute; z-index:2; overflow:hidden; pointer-events:auto;
+  height:32%; padding:0; margin:0; bottom:auto;
+}
+.workstation-stage .screen-left { left:4.8%; right:auto; top:26%; width:26%; transform:skewY(1.8deg); }
+.workstation-stage .screen-right { left:auto; right:4.8%; top:26%; width:26%; transform:skewY(-1.8deg); }
+.monitor-content { position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+.workstation-stage .eyebrow { font-size:clamp(6px,.65cqw,10px); line-height:1.5; letter-spacing:.1em; margin-bottom:1.3cqw; white-space:nowrap; }
+.workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(32px,4.6cqw,78px); line-height:.94; letter-spacing:-.055em; }
+.workstation-stage .text-link { margin-top:1.2cqw; padding:8px 0; font-size:clamp(7px,.65cqw,11px); gap:22px; }
+.workstation-stage .text-link .rocket-mark { width:17px; height:17px; }
+.workstation-stage .dexter-stage { inset:0; border-radius:0; }
+.workstation-stage .dexter-rule { left:0; right:0; top:48%; }
+.workstation-stage .hero-copy::before { content:none; }
+.workstation-stage .hero-copy .chapter { font-size:clamp(6px,.6cqw,10px); line-height:1.4; padding:3px 5px; letter-spacing:.08em; }
+.workstation-stage .hero-copy h2 { font-size:clamp(20px,2.4cqw,40px); line-height:1.08; margin:.7cqw 0 .8cqw; }
+.workstation-stage .hero-copy p { font-size:clamp(10px,.95cqw,16px); line-height:1.6; min-height:0; max-width:none; margin:0; }
+.workstation-stage .hero-action { font-size:clamp(8px,.65cqw,11px); padding:8px 10px; margin-top:1cqw; gap:12px; min-height:32px; }
+.workstation-stage .hero-action .rocket-mark { width:15px; height:15px; }
+.immersive-hero .hero-bottom { z-index:15; bottom:64px; left:4.5%; right:4.5%; }
+.immersive-hero .hero-work-link { gap:6px; padding:8px 12px; border-radius:5px; background:#02080bd6; }
+.immersive-hero .hero-work-link strong { font-size:13px; }
+.immersive-hero .hero-work-link .mono { font-size:7px; }
+.immersive-hero .compare-labels { left:4.5%; right:4.5%; }
+
+/* On narrower screens, crop the real monitor bezels into larger legible panels. */
+@media (max-width:1000px) {
+  .immersive-hero.hero { min-height:780px; }
+  .workstation-stage { width:100%; height:100%; aspect-ratio:auto; }
+  .workstation-art { position:absolute; width:max(100%,900px); left:50%; bottom:-26px; transform:translateX(-50%); clip-path:inset(62% 0 0); }
+  .workstation-stage .workstation-screen { top:34%; width:44%; height:auto; aspect-ratio:1.4; transform:none; padding:5% 3.8% 2.8%; }
+  .workstation-stage .screen-left { left:4%; right:auto; }
+  .workstation-stage .screen-right { right:4%; left:auto; }
+  .monitor-frame { display:block; position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+  .monitor-frame img { position:absolute; width:298.5075%; height:206.1856%; top:-29.897%; max-width:none; }
+  .screen-left .monitor-frame img { left:0; }
+  .screen-right .monitor-frame img { left:-198.5075%; }
+  .workstation-stage .eyebrow { font-size:7px; margin-bottom:14px; white-space:normal; }
+  .workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(32px,5.2vw,45px); }
+  .workstation-stage .text-link { font-size:8px; margin-top:14px; }
+  .workstation-stage .hero-copy .chapter { font-size:7px; }
+  .workstation-stage .hero-copy h2 { font-size:23px; margin:9px 0; }
+  .workstation-stage .hero-copy p { font-size:11px; line-height:1.55; }
+  .workstation-stage .hero-action { font-size:9px; margin-top:10px; padding:7px 8px; }
+  .workstation-stage .monitor-content { height:100%; justify-content:center; }
+  .immersive-hero .control-floor { top:34%; }
+  .immersive-hero .control-floor img { position:static; transform:none; width:100%; object-fit:cover; }
+}
+@media (max-width:650px) {
+  .immersive-hero.hero { height:100svh; min-height:810px; }
+  .immersive-hero .white-halo.sun-stage { width:158px; height:158px; top:64px; }
+  .workstation-stage .workstation-screen { width:calc(100% - 28px); height:calc((var(--scene-width,100vw) - 28px)/1.6); aspect-ratio:auto; left:14px; right:14px; padding:26px 10% 18px; }
+  .workstation-stage .screen-left { top:224px; }
+  .workstation-stage .screen-right { top:calc(232px + (var(--scene-width,100vw) - 28px)/1.6); }
+  .workstation-stage .hero-title-group h1.dexter-title { font-size:clamp(32px,10vw,44px); }
+  .workstation-stage .eyebrow { font-size:7px; margin-bottom:10px; }
+  .workstation-stage .text-link { margin-top:10px; padding:6px 0; }
+  .workstation-stage .hero-copy h2 { font-size:23px; margin:7px 0; }
+  .workstation-stage .hero-copy p { font-size:11px; line-height:1.5; }
+  .workstation-stage .hero-copy .chapter { font-size:6px; }
+  .workstation-stage .hero-copy h2 br { display:none; }
+  .workstation-stage .hero-action { font-size:8px; margin-top:8px; padding:5px 7px; min-height:29px; }
+  .workstation-art { width:max(100%,600px); bottom:-24px; }
+  .immersive-hero .control-floor { top:25%; }
+  .immersive-hero .hero-bottom { bottom:50px; left:14px; right:14px; }
+  .immersive-hero .hero-work-link { padding:6px 8px; }
+  .immersive-hero .hero-work-link strong { font-size:10px; }
+  .immersive-hero .scroll-note { font-size:6px; }
+  .immersive-hero .compare-labels { left:14px; right:14px; font-size:5px; bottom:8px; }
+}

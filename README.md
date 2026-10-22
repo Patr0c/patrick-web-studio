@@ -18,6 +18,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `index.html`: einzige aktuelle Website, einschließlich Alt/Neu-Demonstration.
 - `assets/css/fonts.css`: nur Archivo, Manrope, DM Mono; OFL-Lizenzen beigelegt.
 - `assets/css/studio.css`: aktuelles Layout, responsive Regeln und Effekte.
+- `assets/css/workstation.css`: bildschirmfüllender Einstieg aus Operator-Perspektive.
 - `assets/js/comparison.js`: Alt/Neu-Regler mit Tastatur und Pointer Capture.
 - `assets/js/media.js`: Hovervideos, Reset und sichtbarkeitsabhängige Sonne.
 - `assets/js/space.js`: feste Sterne und gemeinsam rotierende Galaxie/Sternenfilm.
@@ -44,7 +45,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktuell: https://feat-control-center-20261022.patrick-web-studio.pages.dev/
+Aktuell: https://feat-workstation-immersive-20261022.patrick-web-studio.pages.dev/
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;

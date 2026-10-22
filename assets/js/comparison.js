@@ -6,6 +6,10 @@
   const handle = hero?.querySelector('.compare-handle');
   if (!hero || !old || !fresh || !handle) return;
   let position = 50, pending = 0, drag = null;
+  // Measure only on load/resize: a full-width hero without scrollbar overflow.
+  const fitScene = () => hero.style.setProperty('--scene-width', `${document.documentElement.clientWidth}px`);
+  fitScene();
+  window.addEventListener('resize', fitScene, { passive: true });
   function render() {
     pending = 0;
     hero.style.setProperty('--reveal', `${position}%`);
