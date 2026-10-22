@@ -111,4 +111,16 @@ Die Bildschirmaufnahme von MotionSites wurde als zusätzliche visuelle Referenz
 geprüft. Keine Eclipsio-Texte, Navigation oder sonstige Landingpage-Elemente
 übernommen. Die Änderung am Produkt betrifft ausschließlich die Sonne.
 Ressourcenprüfung nach Ergänzung: 26 lokale Ressourcen, Syntax erfolgreich.
-Browserprüfung der zusätzlichen Korona folgt.
+Browserprüfung der zusätzlichen Korona abgeschlossen: In Chromium spielt die
+transparente Zusatzebene am Desktop und im mobilen CSS-Viewport sichtbar ab.
+Die bestehende Sonne bleibt 268×268 px (Desktop) bzw. 165×165 px (mobil).
+Original- und Koronavideo melden readyState=4, spielen bei sichtbarem Header
+und pausieren beide nach dem Scrollen zu den Projekten. WebM-Alpha ist sichtbar
+transparent, ohne schwarzen Saum am Rahmen. Alle drei Projektaufnahmen wurden
+nochmals einzeln per tatsächlicher Mausbewegung gestartet und wieder pausiert.
+Ein Vergleich bestätigt: HTML außerhalb der Sonne und ihrer Bildnachweise,
+Galaxieskript, Kategorieskript sowie beide alten Sonnenvideos und deren Poster
+sind gegenüber dem Stand vor dem Sonnenwunsch unverändert.
+Die zusätzliche Korona benötigt WebM/VP9-Wiedergabe; andernfalls bleibt das
+transparente Standbild sichtbar. Firefox konnte in dieser Umgebung nicht direkt
+getestet werden. Das gilt weiterhin als Testgrenze, nicht als bestätigter Fehler.
