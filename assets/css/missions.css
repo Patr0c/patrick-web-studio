@@ -32,33 +32,13 @@
 .mission-card.is-boosting .engine-trigger { border-color:#ffb34d; color:#ffce89; background:#3a2715; }
 .mission-card.is-boosting .engine-status { color:#ffce89; }
 .mission-illustration [class*="move-"] { transform-box:view-box; animation-play-state:paused; }
-.move-orbit { transform-origin:64px 65px; animation:missionOrbit 18s linear infinite; }
-.move-globe { transform-origin:64px 65px; animation:missionGlobe 7s ease-in-out infinite alternate; }
-.move-walk { animation:missionBob 1.6s ease-in-out infinite; }
-.move-leg-front { transform-origin:64px 83px; animation:missionStep 1.6s ease-in-out infinite alternate; }
-.move-leg-back { transform-origin:64px 83px; animation:missionStep 1.6s ease-in-out infinite alternate-reverse; }
-.move-arm { transform-origin:65px 57px; animation:missionArm 1.6s ease-in-out infinite alternate; }
-.move-piston { animation:missionPiston 1.5s ease-in-out infinite; }
-.move-crank { transform-origin:64px 81px; animation:missionOrbit 3s linear infinite; }
-.move-exhaust { transform-origin:64px 105px; animation:missionExhaust .8s ease-in-out infinite alternate; }
+.move-exhaust { transform-origin:32px 53px; animation:missionExhaust .8s ease-in-out infinite alternate; }
 .mission-card.is-inview [class*="move-"] { animation-play-state:running; }
-.is-boosting .move-crank { animation-duration:.6s; }
-.is-boosting .move-piston { animation-duration:.3s; }
-.is-boosting .move-exhaust { animation-duration:.16s; stroke:#ffb34d; }
 .service-space-icon { width:30px; height:30px; color:#87c58c; margin-right:8px; }
 .services-list summary .mono { display:flex; align-items:center; gap:14px; min-width:70px; }
 .services-list details[open] .service-space-icon { color:#39ff14; }
-.space-backtop { display:grid; place-items:center; }
-.space-backtop .space-icon { width:34px; height:34px; transition:transform .3s; }
-.space-backtop:hover .space-icon { transform:translateY(-5px); }
 .mission-heading a { color:#b6d8bc; }
 html.studio-tab-hidden .mission-illustration [class*="move-"] { animation-play-state:paused; }
-@keyframes missionOrbit { to { transform:rotate(360deg); } }
-@keyframes missionGlobe { from { transform:scaleX(.72); } to { transform:scaleX(1); } }
-@keyframes missionBob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-2px); } }
-@keyframes missionStep { from { transform:rotate(-17deg); } to { transform:rotate(17deg); } }
-@keyframes missionArm { from { transform:rotate(14deg); } to { transform:rotate(-14deg); } }
-@keyframes missionPiston { 0%,100% { transform:translateY(0); } 50% { transform:translateY(5px); } }
 @keyframes missionExhaust { from { transform:scaleY(.7); opacity:.5; } to { transform:scaleY(1.12); opacity:1; } }
 @media (max-width:900px) { .mission-section { padding:27px 22px; } .mission-card { padding:20px 17px; } .mission-card h3 { font-size:21px; } .mission-illustration { width:108px; height:115px; } .mission-grid { gap:12px; } .engine-controls { flex-wrap:wrap; gap:8px; } }
 @media (max-width:650px) { .mission-section { padding:25px 17px 17px; margin:25px 0; } .mission-heading { align-items:start; } .mission-live { display:none; } .mission-grid { grid-template-columns:1fr; } .mission-card { padding:22px 18px 22px 130px; min-height:180px; } .mission-illustration { position:absolute; top:30px; left:15px; width:100px; height:115px; margin:0; } .mission-card .mission-index { position:static; margin-bottom:10px; } .mission-card h3 { font-size:22px; } .mission-card p { margin-bottom:12px; font-size:12px; } .mission-link { font-size:9px; } .services-list summary .mono { min-width:40px; gap:8px; } .service-space-icon { width:24px; height:24px; margin:0; } }
@@ -68,13 +48,10 @@ html.studio-tab-hidden .mission-illustration [class*="move-"] { animation-play-s
 /* One laser palette; dark tube interiors with a narrow, saturated light edge. */
 :root { --laser-ink:#041b08; --laser-glow:rgba(25,229,15,.38); }
 .icon-accent { stroke:var(--icon-accent,var(--neon-green)); }
-.reference-icon { stroke:#eff4f0; stroke-width:2; }
+.reference-icon { stroke:#eff4f0; stroke-width:1.8; }
 .reference-icon .icon-accent { stroke:var(--neon-green); filter:drop-shadow(0 0 2px var(--laser-glow)); }
-.mission-engine .mission-illustration { stroke-width:2.6; }
 .mission-illustration .move-exhaust { visibility:hidden; animation-play-state:paused !important; }
 .mission-engine.is-powered .move-exhaust { visibility:visible; animation-play-state:running !important; stroke:#ffb34d; }
-.mission-engine.is-powered .move-crank { animation-duration:1.2s; }
-.mission-engine.is-powered .move-piston { animation-duration:.65s; }
 .mission-engine.is-powered .move-exhaust { animation-duration:.6s; }
 .mission-card .engine-trigger { color:var(--neon-green); border-color:#19e50f70; background:#071b0b; }
 .mission-engine.is-powered .engine-status { color:var(--neon-green); }
@@ -93,10 +70,9 @@ html.studio-tab-hidden .mission-illustration [class*="move-"] { animation-play-s
 .service-orbit i { border-color:#19e50f40; }
 .service-orbit::after,.links a:first-child::after { content:none !important; }
 
-/* Small filled rockets replace directional arrows. The porthole stays cut out. */
+/* Compact filled launch silhouettes share one symbol definition. */
 .rocket-mark { display:inline-grid !important; place-items:center; position:relative; z-index:1; width:17px; height:17px; margin:0 !important; padding:0 !important; line-height:1 !important; font-size:0 !important; color:var(--neon-green) !important; vertical-align:middle; flex:0 0 auto; text-shadow:none !important; }
 .rocket-mark>svg { width:100%; height:100%; display:block; overflow:visible; transform:rotate(45deg); fill:currentColor; stroke:none; filter:drop-shadow(0 0 .65px #19e50f99); }
-.rocket-port { fill:var(--rocket-port,#041208); }
 .rocket-flame { fill:#ff9d30; opacity:0; transform-box:view-box; transform-origin:16px 27px; animation:none; }
 .rocket-flame .flame-core { fill:#ffdf91; }
 a:hover .rocket-flame,a:focus-visible .rocket-flame,button:hover .rocket-flame,button:focus-visible .rocket-flame,.service-orbit:hover .rocket-flame { opacity:1; animation:rocketBurn .5s ease-in-out infinite alternate; }
@@ -104,34 +80,28 @@ a:hover .rocket-flame,a:focus-visible .rocket-flame,button:hover .rocket-flame,b
 .links a:last-child { display:inline-flex; align-items:center; gap:5px; }
 .text-link .rocket-mark { width:20px; height:20px; }
 .hero-action .rocket-mark { width:16px; height:16px; }
-.hero-signature .rocket-mark { margin-left:13px !important; width:13px; height:13px; }
 .scroll-note { display:inline-flex; align-items:center; gap:13px; }
-.scroll-note .rocket-mark>svg { transform:rotate(180deg); }
 .mission-link .rocket-mark { width:15px; height:15px; }
 .mission-link:hover .rocket-mark,.text-link:hover .rocket-mark { transform:none; }
-.chrome .rocket-mark { width:12px; height:12px; color:#e4e8e5 !important; }
-.chrome .rocket-mark>svg { filter:none; }
 .view-project .rocket-mark,.video-play-hint .rocket-mark,.wheel-toolbar .rocket-mark,.window-bar .rocket-mark,.orbit-label .rocket-mark,.fine .rocket-mark { width:11px; height:11px; }
 .service-orbit .rocket-mark { width:26px; height:26px; }
 .service-orbit .rocket-mark>svg { transform:rotate(45deg); }
 
-/* The hover paint and the icon occupy separate planes, with fixed centering. */
-.project-meta>a,.back-top { position:relative; isolation:isolate; padding:0; display:grid; place-items:center; line-height:1; color:#edf4ee !important; background:transparent !important; border-color:#19e50f55; }
-.project-meta>a::before,.back-top::before { content:""; position:absolute; inset:0; z-index:0; border-radius:inherit; background:var(--neon-green); opacity:0; transition:none; pointer-events:none; }
-.project-meta>a>*,.back-top>* { position:relative; z-index:1; }
-.project-meta>a:is(:hover,:focus-visible)::before,.back-top:is(:hover,:focus-visible)::before { opacity:1; }
-.project-meta>a:is(:hover,:focus-visible),.back-top:is(:hover,:focus-visible) { color:var(--laser-ink) !important; --rocket-port:var(--neon-green); }
-.project-meta>a .rocket-mark { width:18px; height:18px; color:inherit !important; }
-.project-meta>a:is(:hover,:focus-visible) .rocket-mark { color:var(--laser-ink) !important; }
-.project-meta>a .rocket-mark>svg { filter:none; }
-.back-top .space-icon { width:33px; height:33px; transform:none !important; color:inherit !important; }
-.back-top .outline-flame { opacity:0; }
-.back-top:is(:hover,:focus-visible) .outline-flame { opacity:1; }
-.back-top .icon-accent { stroke:currentColor; }
 @keyframes rocketBurn { from { transform:scaleY(.55); } to { transform:scaleY(1.05); } }
 html.studio-tab-hidden .rocket-flame { animation-play-state:paused !important; }
-@media (prefers-reduced-motion:reduce) { .rocket-flame { animation:none !important; } .project-meta>a::before,.back-top::before { transition:none; } .mission-engine.is-powered .move-exhaust { animation:none !important; } }
+@media (prefers-reduced-motion:reduce) { .rocket-flame { animation:none !important; } .mission-engine.is-powered .move-exhaust { animation:none !important; } }
 
-.back-top:is(:hover,:focus-visible) { --icon-accent:var(--laser-ink); }
 .compare-handle { border-color:var(--neon-green) !important; }
 .compare-handle>span { color:#e4f5e8 !important; }
+
+/* All Space motifs share the new reference geometry; white contour, laser accent. */
+.space-icon { stroke-width:1.8; }
+.icon-light { fill:var(--neon-green); stroke:none; filter:drop-shadow(0 0 1.2px #19e50f55); }
+.engine-plume { fill:#f4a33a; stroke:none; }
+.engine-plume-core { fill:#ffe2a1; stroke:none; }
+.services-list details[open] .service-space-icon { color:#edf3ef; }
+/* Keep the remaining browser caption centered after removing its extra symbol. */
+.chrome { position:relative; }
+.chrome>span:nth-child(2) { position:absolute; left:27px; right:27px; text-align:center; }
+.footer-main>div { margin-right:0; }
+@media (max-width:760px) { .footer-main>div { width:100%; } }

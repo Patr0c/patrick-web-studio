@@ -287,3 +287,16 @@ Sonne, Galaxie, Sterne und bestehende Videologik sind gegenüber b5279cd
 bytegenau unverändert. Lokale Ressourcen- und Syntaxprüfungen erfolgreich.
 Cloudflare-Vorschau mit der neuen CSS-Fassung im Browser verifiziert.
 Firefox bleibt in dieser Umgebung ungetestet.
+
+## Icon-Vereinheitlichung und markierte Entfernen-Korrekturen
+Basis c2b55f3, neuer Preview-Branch feat/space-icon-cleanup-20261022.
+Vier neue Screenshots vollständig geprüft. Mike-Hill-Vorlage erneut visuell
+verglichen: bisherige mechanische Grafik und abweichende Konturen ersetzt.
+Alle Space-Motive liegen zentral in SVG-symbol-Definitionen; Mission und
+Services teilen ihre Geometrie. Kleine Linkraketen sind gefüllte Varianten.
+Entfernt wurden exakt die rot markierten Elemente: Name im Hero; Rakete am
+Scrollhinweis; Projekt-/Kategorie-Leistenraketen; drei runde Projektlinks;
+Rakete am Wiedergabehinweis; großer runder Footerlink; Konzeptstudie 2026;
+Rakete am verbleibenden Back-to-top-Text. Projekt-Vorschaulinks bleiben und
+Ressourcenprüfung erwartet deshalb einen Link pro Projekt statt zwei.
+Sonne, Galaxie, Astronaut, Slider und Medienlogik sind unverändert.

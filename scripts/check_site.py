@@ -56,7 +56,7 @@ for marker in ('font-preview', 'font-options', 'schriften.html', 'Archivo_files'
     if marker in html:
         errors.append(f'Retired export/font picker remains: {marker}')
 for expected in ('https://www.hrservice-fm.de/', 'https://villa-schwalbe.vercel.app/', 'https://gasthof-wagner-demo.vercel.app/'):
-    if html.count(expected) != 2:
+    if html.count(expected) != 1:
         errors.append(f'Changed or missing project link: {expected}')
 if errors:
     raise SystemExit('\n'.join(errors))

@@ -122,3 +122,16 @@ Grüne Beschriftungen verwenden #19E50F. Große Akzentwörter haben einen dunkle
 Kern, eine enge grüne Kontur und kleine lichtgebundene Schatten statt hellgrüner
 Vollfüllung oder breitem Glow. DIGITAL bleibt weiß. Navigationspunkt unter
 Arbeiten, einzelner Punkt am Service-Orbit und grüner Fleck im Hero entfallen.
+
+## Präzisierung nach vier Korrekturbildern
+Alle Space-Motive nutzen gemeinsame SVG-Symbole nach der neuen Mike-Hill-
+Vorlage: schräge Rakete mit runder Nase, Teleskop, Ringplanet, Satellit und UFO.
+Die mechanische Antriebszeichnung entfällt; im Antriebsmodul steht dieselbe
+Rakete, deren warme Flamme weiterhin erst bei Hover oder manueller Aktivierung
+erscheint. Services nutzen dieselben Symbole, weiße Konturen und grüne Akzente.
+Kleine verbleibende Linkraketen sind vollständig gefüllte Varianten.
+Entfernt: Hero-Namenszeile; Rakete am Scrollhinweis; Raketen in Projekt- und
+Kategorie-Titelleisten; drei zusätzliche runde Projektlinks; Rakete am
+Projekt-Hinweistext; großer runder Footerlink; Konzeptstudie-2026-Zeile;
+Rakete neben dem textlichen Back-to-top-Link. Markierte Dekoration nicht
+später erneut hinzufügen. Haupt-Vorschaulinks und textlicher Top-Link bleiben.
