@@ -3,7 +3,9 @@
 .hero .workstation-stage.scene-stage {width:min(calc(100% - 48px),calc((100svh - 32px) * 2560 / 1440));aspect-ratio:2560/1440;bottom:12px;overflow:visible;}
 .scene-native {position:absolute;left:0;top:0;width:2560px;height:1440px;transform:scale(var(--scene-scale,.5));transform-origin:0 0;isolation:isolate;pointer-events:none;}
 .scene-native .scene-layer,.scene-hardware {position:absolute;max-width:none;display:block;pointer-events:none;}
-.scene-native .scene-hardware {inset:0;width:2560px;height:1440px;z-index:3;}
+.scene-native .scene-hardware {inset:0;width:2560px;height:1440px;z-index:3;clip-path:inset(1150px 0 0 0);}
+.scene-monitor-assembly {position:absolute;inset:0;width:2560px;height:1440px;transform-origin:0 0;z-index:3;pointer-events:none;}
+.scene-native .scene-monitor-hardware {clip-path:inset(0 0 290px 0);}
 .immersive-hero .scene-native .scene-sun.white-halo.sun-stage {left:338px;top:151px;width:322px;height:322px;transform:none;z-index:2!important;}
 .scene-brand {position:absolute;z-index:6;left:920px;top:213px;width:1480px;pointer-events:auto;}
 .scene-eyebrow {font-size:18px;letter-spacing:.18em;color:#a8b7c6;margin:0 0 24px;}
@@ -119,7 +121,7 @@ html.scene-light-paused .galaxy-rotator::before {animation-play-state:paused!imp
    Uniform image scaling keeps the original tile perspective and crisp edges. */
 .scene-floor {position:absolute;inset:0;z-index:10;overflow:hidden;pointer-events:none;}
 .scene-floor .scene-platform {position:absolute;left:0;bottom:0;display:block;width:100%;height:auto;max-width:none;filter:grayscale(1) brightness(.79) contrast(.94);}
-.scene-reflection-field {position:absolute;left:0;top:800px;width:2560px;height:640px;z-index:8;pointer-events:none;contain:strict;mask:url('../scene/surface-reflection-mask.webp') 0 -800px/2560px 1440px no-repeat;-webkit-mask:url('../scene/surface-reflection-mask.webp') 0 -800px/2560px 1440px no-repeat;}
+.scene-reflection-field {position:absolute;left:0;top:800px;width:2560px;height:640px;z-index:8;pointer-events:none;contain:strict;mask:url('../scene/monitor-reflection-mask.webp') 0 -800px/2560px 1440px no-repeat;-webkit-mask:url('../scene/monitor-reflection-mask.webp') 0 -800px/2560px 1440px no-repeat;}
 /* Sunlight is emitted by the whole sphere; atmosphere is its existing round aura. */
 .scene-sun .sun-video,.scene-sun .solar-corona-video {will-change:transform;transform:translateZ(0);backface-visibility:hidden;}
 

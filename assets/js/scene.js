@@ -21,6 +21,9 @@
   element.style.transform=`matrix3d(${a/w},${d/w},0,${g/w},${b/h},${e/h},0,${hq/h},0,0,1,0,${p0[0]},${p0[1]},0,1)`;
  }
  geometry.screens.forEach(screen=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screen.quad,screen.width,screen.height));
+ // Keep bezel, support geometry and live HTML faces on one camera plane.
+ const monitorAssembly=stage.querySelector('.scene-monitor-assembly');
+ project(monitorAssembly,geometry.monitor_perspective.canvas_quad,2560,1440);
  const lighting=window.createSceneLighting?.(stage,native,sun,geometry);
  // The supplied clean recording is the matrix source: original symbols,
  // cadence and falloff, with 110% horizontal stream density baked offline.

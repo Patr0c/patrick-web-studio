@@ -424,3 +424,11 @@ Der Boden war fälschlich Teil der verkleinerten Tischbühne. Auf breiteren bezi
 Plattform jetzt als eigene scene-floor-Ebene direkt unter hero-new, hinter der Tischbühne und vor der Galaxie. Das unveränderte Originalbild wird mit width:100%/height:auto proportional über die ganze Hero-Breite skaliert und am Hero-Boden verankert. Keine weichen Seiten, keine neue Grafik, keine Verzerrung. Schreibtisch, Zubehör, Monitorquads und Matrix behalten ihr gemeinsames natives2560×1440-Raster und den bestehenden sicheren Randabstand. Hardware- und Zubehörreflexe unverändert.
 
 Regentropfen bleiben vollständig entfernt. Konstante violette Beschriftung mit Originalmaske und Glowradius0. Alle anderen vorherigen Farb-/Monitorentscheidungen bleiben erhalten.
+
+
+### Monitorperspektive: obere Kante näher und breiter
+Alle drei Monitore inklusive Halterungen und HTML-Inhalte liegen jetzt in einer gemeinsamen scene-monitor-assembly. Eine einzige projektive Transformation erweitert den Aufbau bei nativer Referenzhöhe y521 um5% und zieht die obere Ebene60 native Pixel nach oben. Die Anschlusslinie y1150 bleibt punktweise unverändert. Seitliche Eindrehung und ursprüngliche Monitorrahmen bleiben erhalten; keine KI-Neuzeichnung, keine neu erfundenen Halterungen. Originale Hardware- und Zubehörbitmaps bleiben unverändert.
+
+Die bestehende Hardware wird mit zwei komplementären Clipbereichen ohne Überlappung verwendet: oberer Aufbau y0–1150 im geneigten Container, unterer Tischbereich y1150–1440 unverändert. Die Display-Homografien bleiben an ihre ursprünglichen Rahmenkoordinaten gebunden und erhalten anschließend dieselbe Elterntransformation. Dadurch stimmen Inhalte und Rahmen auch auf Telefonen überein. Boden bleibt unabhängig über volle Hero-Breite; Tastatur bleibt konstant violett ohne Regentropfen.
+
+Reproduzierbar: scripts/build_monitor_perspective.py, nach scripts/build_scene_masks.py ausführen, wenn die ursprünglichen Masken neu erstellt werden. geometry.json enthält monitor_perspective mit Matrix, Referenzmaßen und tatsächlich projizierten Bildschirmquads. Nur die Reflexions-Alpha wird offline entsprechend transformiert; monitor-reflection-mask.webp ersetzt den bisherigen Empfänger in CSS. Lichtfeld und Laufzeitberechnung selbst unverändert, kein zusätzlicher Canvas-/Animationsloop.
