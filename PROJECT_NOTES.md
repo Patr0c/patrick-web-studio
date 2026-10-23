@@ -612,3 +612,52 @@ Offscreen bei scrollY=2205: SVG und Sonnenvideo pausiert; Rückkehr setzt fort.
 Main am Abschluss weiterhin 1ad8b12eb5e822c209beaf938757b84212b099ae.
 Screenshot: docs/smoked-glass-desktop-preview.jpg und smoked-glass-mobile-preview.jpg.
 Die zwei folgenden Dokumentationsänderungen ändern keine Runtime-Dateien.
+
+
+## Textmode Flightdeck (23.10.2026)
+
+Branch feat/textmode-flightdeck-20261023, Basis 9e352b6. Drei Hauptmonitore und
+16 Original-GIMP-Layer unverändert registriert. Mittlerer Monitor vollflächige
+ASCII-Strömung nach Textmode-Screenshot, Weiß/Grau mit Grün statt Rot. Vier
+kleine Monitore: drei vorhandene Projektaufnahmen plus edle Kontaktvorschau.
+Mauspad dunkler, Matrix anhand Originalalpha und Hardware-Aussparungen maskiert.
+Drei originale Knöpfe als native Buttons, Hover/Pressfeedback ohne ungeklärte
+Navigation. Zentrierte größere Nav, Sonne tiefer, Tisch kleiner, Boden oben
+10% kürzer, Galaxie dahinter mit schmalem Lichtsaum. Folgeabschnitte Rauchglas/
+Titan; bestehende Inhalte, Icons und neun Konzepte erhalten. Maße/Controller:
+docs/textmode-flightdeck.md.
+
+Chromium: Desktop 1348×936, vollständige Gehäusekanten und Frontkante am Hero-
+Ende. Iframes nominal320/390/768/1440 mit tatsächlichen Clientbreiten
+305/375/753/1425 jeweils gleich scrollWidth, Tisch/Herounterkante jeweils844.
+Telefon-Lesekopie bei kleinen Breiten vorhanden. Alle 16 Originalbilder
+hashgeprüft, sämtliche lokalen Ressourcen und Anker gültig; JS-Syntax und
+diff --check erfolgreich. GitHub static-site und Cloudflare Pages erfolgreich.
+
+WebGL wird in dieser Cloud-Browserumgebung nicht bereitgestellt; der animierte
+Canvas2D-Fallback wurde real geprüft. WebGL-Shader nur statisch/Syntax geprüft,
+kein behaupteter WebGL-Laufzeittest. ASCII und Matrix laufen sichtbar, stoppen
+bei Kategorien (scrollY2201) zusammen mit Sonnenmedien und setzen bei Rückkehr
+fort. Vergleich Ende=100 pausiert beide, Pos1=0 setzt fort. Alle drei Knöpfe per
+Leertaste mit korrekter Statusrückmeldung geprüft. Im Test entdeckter interner
+Scrollversatz durch native Bildauswahl/Fokus behoben: overflow:clip statt hidden,
+Originalbilder nicht ziehbar. Nach Interaktion scrollTop der Stage exakt0.
+
+Drei Aufnahmen einzeln per echtem Pointer-Hover in lokaler/Online-Vorschau
+geladen (readyState4/laufende Zeit), Verlassen pausiert unmittelbar; spätere
+Messung nach 10 Sekunden alle Zeiten0. Gemeinsamer Controller lässt nur eine
+Aufnahme aktiv. Alle neun Konzeptdialoge per Tastatur geöffnet: korrekte Titel,
+Motivbilder mit naturalWidth667/1333 geladen. Materialdarstellung der Kategorien
+und Missionen visuell geprüft. Keine Websitefehler beobachtet; protokollierte
+Metadatenfehler stammen von der Browser-Erweiterung.
+
+Firefox, physische Smartphones und Präferenz-Umschaltung Reduced Motion/Save
+Data nicht verfügbar. Hintergrundtab- und Präferenzguards sind implementiert,
+nicht separat als Laufzeittests ausgegeben. Keine Zusage über FPS auf fremder
+Hardware. Keine Produktion geändert: main weiterhin1ad8b12eb5e822c209beaf938757b84212b099ae.
+
+Verifizierte Runtime-Vorschau (bb2de64):
+https://e4693fb8.patrick-web-studio.pages.dev/
+Dauerhafte Entwicklungsvorschau:
+https://feat-textmode-flightdeck-202.patrick-web-studio.pages.dev/
+Screenshots: docs/textmode-desktop-preview.jpg, docs/textmode-mobile-preview.jpg.

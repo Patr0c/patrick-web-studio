@@ -55,7 +55,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 Aktueller Entwicklungsbranch: `feat/textmode-flightdeck-20261023`.
 
-Neue Textmode-Vorschau: siehe Abschlusslink und PROJECT_NOTES.md.
+Direkte Online-Vorschau: https://feat-textmode-flightdeck-202.patrick-web-studio.pages.dev/
 
 [Textmode, Masken und Material](docs/textmode-flightdeck.md).
 
