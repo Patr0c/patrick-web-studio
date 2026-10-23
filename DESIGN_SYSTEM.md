@@ -276,3 +276,25 @@ keine verzerrten oder getrennten Monitorrahmen. Für lesbare Telefoninhalte steh
 die rechte Monitor-Kopie zusätzlich unter dem Gerät. Ältere mobile Crop-Regeln
 in diesem Dokument sind damit überholt. Details und Maskenformel:
 [docs/workstation-ora.md](docs/workstation-ora.md).
+
+
+## Aktuell: Rauchglas-Tisch mit drei Monitoren (23.10.2026)
+
+Der neue GIMP-Import aus `Tisch einzelteile(1).ora` ersetzt den früheren schweren
+1774×887-Kontrollpult-Aufbau im aktiven Hero. Verbindlich ist jetzt **1949×826**,
+16 benannte Originalebenen mit ihren echten Alpha-Masken und Originalversätzen.
+Die neue Skizze verwendet den alten Tisch ausschließlich als Platzhalter für
+Anordnung/Größenverhältnisse. Tatsächlich drei Hauptmonitore, vier kleine Displays,
+Rauchglas, Titanhalterungen und rote/orange/grüne Originalknöpfe verwenden.
+Tischvorderkante bündig unten am Hero; Sonne oben frei sichtbar, Navigation links.
+Links DIGITAL REWORK, rechts bisherige Kopie/CTA, Mitte feine grüne Telemetrie.
+Drei grüne Hinweisfelder an Gerät und Viewport anpassen. Kleinmonitore behalten
+ihre Originaldiagnostik; Matrix nur in echten schmalen Display-Codebereichen.
+
+Ausdrücklich freigegebener Oberflächen-Feinschliff: separate Tastaturtextur und
+scharfe echte Beschriftung. Originale 16 PNGs bleiben unverändert archiviert.
+Keine KI-Neuzeichnung des Tisches/der anderen Geräteflächen. Keine neue Palette,
+keine zusätzlichen Knopffunktionen. Auf Telefonen vollständiges Gerät unten
+plus lesbare Textkopie darüber; keine getrennten oder verzerrten Monitorrahmen.
+Native Maße, Downloads, Feinschliffherkunft und Prüfgrenzen:
+[docs/smoked-glass-desk.md](docs/smoked-glass-desk.md).

@@ -19,8 +19,8 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `assets/css/fonts.css`: nur Archivo, Manrope, DM Mono; OFL-Lizenzen beigelegt.
 - `assets/css/studio.css`: aktuelles Layout, responsive Regeln und Effekte.
 - `assets/css/workstation.css`: bildschirmfüllender Einstieg aus Operator-Perspektive.
-- `assets/js/terminal.js`: elf Alpha-maskierte Retro-Displays und vertikale Matrix in Original-Cutouts.
-- `assets/workstation/`: vier unveränderte ORA-PNGs, echte Masken und native Geometrie.
+- `assets/js/terminal.js`: vier Original-Nebendisplays, zentrale Telemetrie und schmal maskierte Matrix.
+- `assets/workstation/`: historischer 1774×887-ORA-Import. Der aktive neue Tisch liegt in `assets/desk/`.
 - `scripts/import_workstation_ora.py`: reproduzierbarer Import aus Patricks ORA; kein Runtime-Build.
 - `docs/workstation-ora.md`: Quellmaße, Alpha-Auswertung, Lichtmasken und Bedienregionen.
 - `assets/js/comparison.js`: Alt/Neu-Regler mit Tastatur und Pointer Capture.
@@ -53,7 +53,11 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktuell: https://feat-ora-layers-20261023.patrick-web-studio.pages.dev/
+Aktueller Entwicklungsbranch: `feat/smoked-glass-desk-20261023`.
+
+Rauchglas-Tisch: [Ebenen, Maße, Feinschliff und Tests](docs/smoked-glass-desk.md).
+Aktive Assets: `assets/desk/`; Import: `scripts/import_smoked_desk.py`.
+Downloadbare GIMP-Arbeitskopie: `assets/desk/Rauchglas-Tisch-Feinschliff.ora`.
 
 Cloudflare Pages ist bereits mit GitHub verbunden und meldet den Preview-Link
 als „Cloudflare Pages“-Check am Commit. Kein Build-Befehl erforderlich;

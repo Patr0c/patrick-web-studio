@@ -1,0 +1,420 @@
+{
+  "canvas": [
+    1949,
+    826
+  ],
+  "source": "Tisch einzelteile(1).ora",
+  "sourceSha256": "cf05438cf64adbda2882c1a851588d0694814b08e795627495867c7b2877f772",
+  "layers": [
+    {
+      "name": "main-left",
+      "label": "Haupt Monitor 1 Links",
+      "file": "original/main-left.png",
+      "x": 90,
+      "y": 113,
+      "width": 557,
+      "height": 258,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "d5c4b0975a9e003f52810fbd607677c788c1be4576b6f24f17a4387e7e9547d5",
+      "alphaBox": [
+        0,
+        0,
+        557,
+        258
+      ]
+    },
+    {
+      "name": "main-center",
+      "label": "Hauptmonitor 2 Mitte",
+      "file": "original/main-center.png",
+      "x": 669,
+      "y": 115,
+      "width": 554,
+      "height": 255,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "ba0eb32c829e55dcecebd7fa17def8917c646c32339bbab862d11626dc73ff3a",
+      "alphaBox": [
+        0,
+        0,
+        554,
+        255
+      ]
+    },
+    {
+      "name": "main-right",
+      "label": "Hauptmonitor 3 Rechts",
+      "file": "original/main-right.png",
+      "x": 1246,
+      "y": 115,
+      "width": 554,
+      "height": 255,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "ba13f09b9c474dd4db73b8f64e84c4706fd844d332f837d0c4f309fbdf3283b3",
+      "alphaBox": [
+        0,
+        0,
+        554,
+        255
+      ]
+    },
+    {
+      "name": "aux-left-outer",
+      "label": "Monitor 1 klein links außen",
+      "file": "original/aux-left-outer.png",
+      "x": 309,
+      "y": 446,
+      "width": 318,
+      "height": 138,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "9593863056e8cc5f534c392167e2df98c5dcec4f4e7dbb2939dfd150d1b38e32",
+      "alphaBox": [
+        0,
+        0,
+        318,
+        138
+      ]
+    },
+    {
+      "name": "aux-left-inner",
+      "label": "Monitor 2 klein links innen",
+      "file": "original/aux-left-inner.png",
+      "x": 309,
+      "y": 446,
+      "width": 630,
+      "height": 138,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "10562ac62f3ea8f4a85f24cacad4a8f8441c1a8c770bc926c44d451e2fa70b99",
+      "alphaBox": [
+        329,
+        0,
+        630,
+        138
+      ]
+    },
+    {
+      "name": "aux-right-inner",
+      "label": "Monitor 3 klein rechts innen",
+      "file": "original/aux-right-inner.png",
+      "x": 309,
+      "y": 446,
+      "width": 945,
+      "height": 138,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "42cd72c636eae35a23f9b74262495ad64f09adec74e48f2e06acc9e118c8fa32",
+      "alphaBox": [
+        644,
+        0,
+        945,
+        138
+      ]
+    },
+    {
+      "name": "aux-right-outer",
+      "label": "Monitor 4 klein rechts außen",
+      "file": "original/aux-right-outer.png",
+      "x": 309,
+      "y": 446,
+      "width": 1277,
+      "height": 138,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "cdaabe599731ba3bddf8b983d6ba10bce1df64e7e3a68d04101275832dc537bd",
+      "alphaBox": [
+        956,
+        0,
+        1277,
+        138
+      ]
+    },
+    {
+      "name": "keyboard-labels",
+      "label": "Weiße Beschriftung Tastatur",
+      "file": "original/keyboard-labels.png",
+      "x": 561,
+      "y": 619,
+      "width": 709,
+      "height": 199,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "cb5af6bbf8c8071a298df36f983d54b1438bb18b78f8abd546f75739fa94e71f",
+      "alphaBox": [
+        33,
+        34,
+        674,
+        164
+      ]
+    },
+    {
+      "name": "keyboard",
+      "label": "Tastatur blank",
+      "file": "original/keyboard.png",
+      "x": 561,
+      "y": 619,
+      "width": 709,
+      "height": 199,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "e02621d73514633a603cc3abfbad6bfcf2db1dd05dcd116c731f444d5736b134",
+      "alphaBox": [
+        14,
+        19,
+        695,
+        191
+      ]
+    },
+    {
+      "name": "mouse-wheel",
+      "label": "Mausrad",
+      "file": "original/mouse-wheel.png",
+      "x": 1337,
+      "y": 684,
+      "width": 22,
+      "height": 17,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "d462c2ee8b943df056a278f40c2bf5c3e73640a16bf8ced32ef9016c89709597",
+      "alphaBox": [
+        0,
+        2,
+        22,
+        17
+      ]
+    },
+    {
+      "name": "mouse",
+      "label": "Maus ohne Mausrad",
+      "file": "original/mouse.png",
+      "x": 1300,
+      "y": 685,
+      "width": 110,
+      "height": 100,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "cd40cbd65dc92625558288d9cfc08c0e71105266fbd7eb923770cf8797448c64",
+      "alphaBox": [
+        0,
+        0,
+        110,
+        100
+      ]
+    },
+    {
+      "name": "button-red",
+      "label": "Roter Knopf",
+      "file": "original/button-red.png",
+      "x": 287,
+      "y": 648,
+      "width": 113,
+      "height": 92,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "4a26e1df0267687a017a383e9c5b4f2c3424776741fc3f2f68b0df294cd1013f",
+      "alphaBox": [
+        3,
+        6,
+        109,
+        82
+      ]
+    },
+    {
+      "name": "button-orange",
+      "label": "Orangener Knopf",
+      "file": "original/button-orange.png",
+      "x": 400,
+      "y": 644,
+      "width": 112,
+      "height": 89,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "4189ed04b0e9fd0871e5b3682680c5df9ed6a42ca6093e31cd567bb01549be9b",
+      "alphaBox": [
+        3,
+        9,
+        108,
+        86
+      ]
+    },
+    {
+      "name": "button-green",
+      "label": "Grüner Knopf",
+      "file": "original/button-green.png",
+      "x": 1482,
+      "y": 642,
+      "width": 101,
+      "height": 91,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "cd265aa63b6704978404aa61ae351e641e1fb40d843cecd140374aaf57c65fce",
+      "alphaBox": [
+        1,
+        7,
+        100,
+        84
+      ]
+    },
+    {
+      "name": "mousepad",
+      "label": "Mauspad",
+      "file": "original/mousepad.png",
+      "x": 502,
+      "y": 648,
+      "width": 977,
+      "height": 163,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "fd31e50378d7c458f8c82cd644f068a9e760ba175e3d911a2ef645c759aca3b0",
+      "alphaBox": [
+        0,
+        0,
+        977,
+        163
+      ]
+    },
+    {
+      "name": "base",
+      "label": "Workstation basic",
+      "file": "original/base.png",
+      "x": -174,
+      "y": -83,
+      "width": 2240,
+      "height": 1360,
+      "opacity": 1.0,
+      "visibility": "visible",
+      "sha256": "1ba94b704d0eecacbad41d9e59e67257e9b0de3efafe98f6e802b17ec076fa8f",
+      "alphaBox": [
+        252,
+        186,
+        1987,
+        1211
+      ]
+    }
+  ],
+  "main": [
+    {
+      "id": "main-left",
+      "box": [
+        102,
+        125,
+        635,
+        359
+      ],
+      "pixels": 143706
+    },
+    {
+      "id": "main-center",
+      "box": [
+        681,
+        127,
+        1211,
+        358
+      ],
+      "pixels": 141270
+    },
+    {
+      "id": "main-right",
+      "box": [
+        1258,
+        127,
+        1788,
+        358
+      ],
+      "pixels": 141270
+    }
+  ],
+  "auxiliary": [
+    {
+      "id": "aux-left-outer",
+      "box": [
+        312,
+        449,
+        624,
+        581
+      ],
+      "pixels": 43884
+    },
+    {
+      "id": "aux-left-inner",
+      "box": [
+        641,
+        449,
+        936,
+        581
+      ],
+      "pixels": 41538
+    },
+    {
+      "id": "aux-right-inner",
+      "box": [
+        956,
+        449,
+        1251,
+        581
+      ],
+      "pixels": 41538
+    },
+    {
+      "id": "aux-right-outer",
+      "box": [
+        1268,
+        449,
+        1583,
+        581
+      ],
+      "pixels": 44298
+    }
+  ],
+  "center": {
+    "id": "main-center",
+    "box": [
+      681,
+      127,
+      1211,
+      358
+    ],
+    "pixels": 141270
+  },
+  "controls": [
+    {
+      "id": "button-red",
+      "box": [
+        290,
+        654,
+        396,
+        730
+      ],
+      "pixels": 8056,
+      "path": "M338 654h13v1H338zM331 655h27v1H331zM326 656h36v1H326zM323 657h42v1H323zM320 658h48v1H320zM318 659h52v1H318zM316 660h56v1H316zM314 661h59v1H314zM313 662h62v1H313zM312 663h64v1H312zM311 664h66v1H311zM310 665h68v1H310zM309 666h70v1H309zM308 667h71v1H308zM307 668h73v1H307zM305 669h77v1H305zM304 670h79v1H304zM302 671h82v1H302zM301 672h85v1H301zM300 673h87v1H300zM299 674h89v1H299zM298 675h91v1H298zM297 676h93v1H297zM296 677h95v1H296zM295 678h96v1H295zM295 679h97v1H295zM294 680h99v1H294zM293 681h100v1H293zM293 682h101v1H293zM293 683h101v1H293zM292 684h102v1H292zM292 685h103v1H292zM292 686h103v1H292zM292 687h103v1H292zM291 688h104v1H291zM291 689h104v1H291zM291 690h104v1H291zM291 691h104v1H291zM291 692h104v1H291zM291 693h104v1H291zM291 694h104v1H291zM291 695h104v1H291zM291 696h104v1H291zM291 697h104v1H291zM291 698h104v1H291zM291 699h104v1H291zM291 700h104v1H291zM291 701h104v1H291zM292 702h103v1H292zM292 703h103v1H292zM292 704h102v1H292zM293 705h101v1H293zM293 706h101v1H293zM294 707h99v1H294zM294 708h98v1H294zM295 709h97v1H295zM295 710h96v1H295zM296 711h95v1H296zM297 712h93v1H297zM297 713h92v1H297zM298 714h90v1H298zM299 715h88v1H299zM300 716h86v1H300zM302 717h83v1H302zM303 718h81v1H303zM304 719h78v1H304zM306 720h75v1H306zM308 721h71v1H308zM310 722h67v1H310zM312 723h63v1H312zM314 724h58v1H314zM317 725h52v1H317zM321 726h45v1H321zM325 727h37v1H325zM330 728h26v1H330zM342 729h3v1H342z"
+    },
+    {
+      "id": "button-orange",
+      "box": [
+        403,
+        653,
+        508,
+        730
+      ],
+      "pixels": 8085,
+      "path": "M451 653h10v1H451zM443 654h25v1H443zM439 655h34v1H439zM435 656h41v1H435zM433 657h45v1H433zM430 658h51v1H430zM428 659h54v1H428zM427 660h57v1H427zM425 661h61v1H425zM424 662h63v1H424zM423 663h65v1H423zM422 664h67v1H422zM421 665h69v1H421zM420 666h71v1H420zM419 667h72v1H419zM418 668h75v1H418zM416 669h78v1H416zM415 670h81v1H415zM413 671h84v1H413zM412 672h86v1H412zM411 673h88v1H411zM410 674h90v1H410zM409 675h92v1H409zM408 676h94v1H408zM408 677h95v1H408zM407 678h96v1H407zM406 679h98v1H406zM406 680h99v1H406zM405 681h100v1H405zM405 682h101v1H405zM404 683h102v1H404zM404 684h102v1H404zM404 685h103v1H404zM403 686h104v1H403zM403 687h104v1H403zM403 688h104v1H403zM403 689h104v1H403zM403 690h104v1H403zM403 691h104v1H403zM403 692h104v1H403zM403 693h104v1H403zM403 694h104v1H403zM403 695h104v1H403zM403 696h104v1H403zM403 697h104v1H403zM403 698h104v1H403zM403 699h104v1H403zM403 700h104v1H403zM403 701h104v1H403zM404 702h103v1H404zM404 703h102v1H404zM404 704h102v1H404zM405 705h100v1H405zM405 706h100v1H405zM406 707h98v1H406zM406 708h98v1H406zM407 709h96v1H407zM407 710h96v1H407zM408 711h94v1H408zM409 712h92v1H409zM410 713h91v1H410zM411 714h89v1H411zM412 715h87v1H412zM413 716h84v1H413zM414 717h82v1H414zM415 718h80v1H415zM417 719h76v1H417zM419 720h73v1H419zM420 721h70v1H420zM422 722h66v1H422zM425 723h60v1H425zM428 724h54v1H428zM431 725h48v1H431zM434 726h42v1H434zM439 727h32v1H439zM444 728h22v1H444z"
+    },
+    {
+      "id": "button-green",
+      "box": [
+        1483,
+        649,
+        1582,
+        726
+      ],
+      "pixels": 7623,
+      "path": "M1524 655h18v1H1524zM1518 656h29v1H1518zM1514 657h37v1H1514zM1511 658h43v1H1511zM1509 659h47v1H1509zM1507 660h51v1H1507zM1505 661h55v1H1505zM1504 662h57v1H1504zM1503 663h59v1H1503zM1502 664h61v1H1502zM1501 665h63v1H1501zM1500 666h65v1H1500zM1499 667h67v1H1499zM1498 668h69v1H1498zM1496 669h72v1H1496zM1495 670h75v1H1495zM1493 671h78v1H1493zM1492 672h81v1H1492zM1491 673h83v1H1491zM1490 674h85v1H1490zM1489 675h87v1H1489zM1488 676h88v1H1488zM1488 677h89v1H1488zM1487 678h91v1H1487zM1486 679h93v1H1486zM1486 680h93v1H1486zM1485 681h95v1H1485zM1485 682h95v1H1485zM1485 683h95v1H1485zM1484 684h96v1H1484zM1484 685h97v1H1484zM1484 686h97v1H1484zM1484 687h97v1H1484zM1484 688h97v1H1484zM1484 689h97v1H1484zM1484 690h97v1H1484zM1484 691h97v1H1484zM1484 692h97v1H1484zM1484 693h97v1H1484zM1484 694h97v1H1484zM1484 695h97v1H1484zM1484 696h97v1H1484zM1484 697h97v1H1484zM1484 698h97v1H1484zM1484 699h97v1H1484zM1484 700h96v1H1484zM1484 701h96v1H1484zM1485 702h95v1H1485zM1485 703h95v1H1485zM1486 704h93v1H1486zM1486 705h92v1H1486zM1487 706h91v1H1487zM1487 707h90v1H1487zM1488 708h89v1H1488zM1489 709h87v1H1489zM1489 710h86v1H1489zM1490 711h84v1H1490zM1491 712h82v1H1491zM1492 713h80v1H1492zM1494 714h77v1H1494zM1495 715h75v1H1495zM1496 716h72v1H1496zM1498 717h69v1H1498zM1500 718h65v1H1500zM1502 719h60v1H1502zM1504 720h56v1H1504zM1507 721h50v1H1507zM1510 722h44v1H1510zM1514 723h37v1H1514zM1518 724h28v1H1518zM1526 725h12v1H1526z"
+    }
+  ],
+  "bottomEdge": 826,
+  "keyboardRetouch": true,
+  "keyboardRetouchSha256": "396c24578d6e2d69cc456cc8b108209bc488dada13abd3509427cbffdf3e24de"
+}

@@ -26,10 +26,16 @@ obsolete variants without Patrick's request. Preserve the latest development wor
   hero copy in the right monitor. Open on the complete new scene; keep the
   comparison available. Preserve the sections below the scene.
 
-- Current terminal has two flat coplanar main screens. Keep both outer console
+- Current smoked-glass desk has three flat main screens. Keep all outer desk
   edges fully visible with small side gaps; no skew on the live screen content.
 
 - Terminal hardware lighting is white; orange only as fine exterior solar rim
-  reflections. Keep the center pedestal/base and the open monitor gap.
+  reflections. Keep the original three monitor supports. The native desk canvas ends at the front desk edge, anchored to the hero bottom.
 - Other desk screens carry original green vector diagnostics and fast unknown
   glyph streams. Pause them offscreen/hidden/reduced motion/saveData.
+
+- Active source: Tisch einzelteile(1).ora, 1949×826, 16 named layers in assets/desk/.
+  Original PNG bytes/offsets archived; only the explicitly authorized separate
+  keyboard surface retouch and sharp lettering replace their working overlays.
+  Keep the new three-monitor smoked-glass desk; the sketch shows old hardware
+  only to explain composition. See docs/smoked-glass-desk.md.

@@ -563,3 +563,41 @@ Guards; die Browsersteuerung stellt keine Umschaltung dieser Präferenzen bereit
 daher nicht als separate Laufzeittests ausgegeben. Telefonprüfungen sind reale
 Chromium-Iframe-Viewports, keine physische Mobilgeräteprüfung. Keine Aussage
 über Langzeit-FPS auf fremder Hardware. Ausschließlich separater Preview-Branch.
+
+
+## Neuer Rauchglas-Tisch aus 16 GIMP-Ebenen (23.10.2026)
+
+Basis 7813470, Branch feat/smoked-glass-desk-20261023. Patricks neue ORA
+1949×826 vollständig eingelesen; alle 16 benannten PNGs bytegleich archiviert.
+Drei Hauptmonitore, vier Nebendisplays, Tastatur/Beschriftung, Maus/Rad, drei
+Knöpfe, Mauspad, Gehäuse. Negative Basisversätze −174/−83 erhalten. Drei
+Hauptdisplays als ein Gerät, Tischvorderkante exakt am Hero-Ende. Neue Skizze
+023714 dient nur der Komposition, zeigt ausdrücklich nicht das aktive Tischmodell.
+
+Separat freigegebener Oberflächen-Feinschliff an blanker Tastatur; originale
+Alpha-Silhouette und logische Koordinaten erhalten. Echte scharfe QWERTZ-Schrift
+statt unscharfer Rasterbuchstaben. Originale Quellen bleiben unverändert.
+Arbeitskopie als 16-lagige ORA und transparente PNG unter assets/desk/.
+Details und sämtliche Maße: docs/smoked-glass-desk.md.
+
+Chromium-Viewport 1348×936: alle 16 Bilder geladen; Stage 1320×559.42,
+x=14/y=376.58, untere Kante exakt 936. Vier Originalkleindisplays plus mittlere
+feine Kommunikations-/Telemetrieanimation, drei einzeln adressierbare Tastermasken.
+Nur 16 statt vorher 155 Matrixspalten. Matrix bleibt auf kleine echte Glasbereiche
+begrenzt; Metall und Bedienelemente frei. Quellalpha-Überlappung des Gehäuses
+mit sieben Displayflächen/Tastatur: deckend 0 %, keine doppelten Originalbilder.
+
+Echte Chromium-Iframes 320/390/768/1440: Clientbreiten 305/375/753/1425 gleich
+scrollWidth, Gerät und Hero enden jeweils bei y=844. Inhalte passen nach
+Entrance-Phase in die Monitore. Telefon-Lesekopie auf dunklem Glas oberhalb,
+Vergleichsgriff verdeckt keinen CTA. Ende=100 pausiert SVG, Pos1=0 setzt fort.
+Sonnenmedien readyState=4/laufend, Dauer 46.033333/33.5 s. Originalmedien und
+Controller unverändert, genauso HTML/Interaktionslogik aller Folgeabschnitte.
+Ressourcenprüfung, PNG-Hashes, JavaScript-Syntax und diff --check erfolgreich.
+
+Testgrenzen: Firefox und echte Smartphone-Hardware nicht verfügbar. Reduced
+Motion/Save-Data/Hintergrundtab-Guards nicht separat per Browser umgeschaltet.
+Hoveraufnahmen und neun Konzeptdialoge gegenüber der vollständig geprüften
+Basis unverändert, deshalb nicht erneut vollständig getestet. Browser-Erweiterung
+protokolliert eigene Metadatenfehler; kein Websitefehler festgestellt.
+Ausschließlich Entwicklungsbranch/Cloudflare-Vorschau; main bleibt unberührt.
