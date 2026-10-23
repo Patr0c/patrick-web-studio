@@ -661,3 +661,16 @@ https://e4693fb8.patrick-web-studio.pages.dev/
 Dauerhafte Entwicklungsvorschau:
 https://feat-textmode-flightdeck-202.patrick-web-studio.pages.dev/
 Screenshots: docs/textmode-desktop-preview.jpg, docs/textmode-mobile-preview.jpg.
+
+
+## Tastatur unten freigestellt (23.10.2026)
+
+Patricks Screenshot104929: Tastatur wirkt an der Tischkante abgeschnitten.
+Quell-PNG vollständig, aber nur16 native Pixel Luft zwischen sichtbarer
+Tastaturunterkante und Hero-Ende. Tastatur samt separater Beschriftung um24
+native Pixel nach hinten versetzt (y619→595), Größe unverändert. Jetzt40px
+Abstand im Originalraster. Matrix-Schutzmaske anhand tatsächlicher Alpha der
+verschobenen Tastatur neu erzeugt; alte Aussparung nicht zurückgelassen.
+Alle anderen Geräte-/Layoutteile und Originaldateien unverändert.
+Reproduzierbar: python3 scripts/build_mousepad_mask.py.
+Ressourcen-/Originalhash-Prüfung und git diff --check erfolgreich.

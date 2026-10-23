@@ -321,3 +321,12 @@ und Unterkante. Galaxie dahinter. Feiner blassblau/creme/peachfarbener Lichtsaum
 am neuen oberen Rand mit gelegentlichen Helligkeitsimpulsen. Folgeabschnitte in
 Rauchglas/Titan mit schmalen Silberkanten und präzisem Grün; keine Änderungen
 an Inhalten, Konzeptmarken oder Sonnenmedien. Details: docs/textmode-flightdeck.md.
+
+
+### Tastaturabstand zur Vorderkante (23.10.2026)
+
+Tastatur und Beschriftung gemeinsam 24 native Pixel nach hinten versetzt:
+Arbeitsposition y=595 statt619, identische Größe/Proportionen. Originale GIMP-
+Dateien und archivierte Geometrie unverändert. 40 native Pixel zwischen der
+sichtbaren Tastaturunterkante (y786) und dem Canvas-Ende (826). Matrixmaske
+mit derselben Arbeitsposition neu abgeleitet: scripts/build_mousepad_mask.py.

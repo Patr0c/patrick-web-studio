@@ -37,6 +37,10 @@ body.studio-final .page-shell > .nav .links a { white-space:nowrap; padding:14px
 }
 .textmode-canvas[hidden] { display:none !important; }
 .textmode-canvas,.textmode-fallback { display:block; width:100%; height:100%; object-fit:fill; }
+/* Working keyboard placement: y=595 instead of 619 on the native 826px grid.
+   Keep labels registered; leave a clear strip of mousepad before the desk edge. */
+.workstation-stage .desk-layer--keyboard,
+.workstation-stage .desk-layer--keyboard-labels { top:72.033898305%; }
 .desk-layer--mousepad { filter:brightness(.36) saturate(.8); }
 .mousepad-matrix { position:absolute; inset:0; width:100%; height:100%; z-index:7; pointer-events:none; color:#19e50f; }
 .pad-light { filter:drop-shadow(0 0 .65px #39ff14df) drop-shadow(0 0 1.15px #19e50f80); }
