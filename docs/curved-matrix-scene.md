@@ -28,3 +28,9 @@ Ein gemeinsamer Sichtbarkeitscontroller stoppt Canvas, CSS-Effekte und Monitorvi
 Ressourcen, Projektlinks, interne Anker, neue Asset-Hashes, perspektivisch konvexe Displayquads, Original-ORA-Archiv, JavaScript-Syntax und `git diff --check` erfolgreich. Tatsächliches Chromium-Rendering: Desktop1348×936 sowie Telefon-Inhaltsbreiten375/305×844 ohne horizontale Überläufe. Alle drei Aufnahmen wurden im rotierenden linken Monitor gesehen; manuelle Auswahl geprüft. Vergleichsregler mit Ende/Pos1 geprüft; bei100% Alt-Entwurf alle Videos, Tischmatrix und Textmode angehalten. Sonne0.6× und Galaxie500s im DOM bestätigt. Browser stellt hier kein WebGL bereit: Canvas2D-Fallback wurde tatsächlich geprüft, GPU-Renderer und Firefox sowie physische Telefone nicht geprüft. Reduced Motion/Save Data Codepfade geprüft, keine Simulation eines physischen Geräts behauptet.
 
 Alle anderen Abschnitte und neun Konzeptinhalte bleiben erhalten. Kein Push nach `main`; dessen Referenz vor Beginn: `1ad8b12eb5e822c209beaf938757b84212b099ae`.
+
+## Verifizierte Entwicklungsvorschau
+
+https://52b0a81b.patrick-web-studio.pages.dev
+
+Funktionscommit `42680d5f9d1dbb9d48a3e296018f6a102f01107b`: Cloudflare Pages „Deployed successfully“ und GitHub `static-site` beide erfolgreich. Draft-PR #4 richtet sich gegen den vorherigen Entwicklungsbranch, nicht gegen main.
