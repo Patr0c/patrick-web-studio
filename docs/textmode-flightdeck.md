@@ -46,7 +46,9 @@ keine Navigation ohne festgelegtes Ziel.
 
 flightdeck.css ergänzt die vorhandene Kaskade nach geometry.css. Desktopgerät
 maximal 66vw/1100px sowie verbleibender Höhe; Telefon unverzerrt mit 10px
-Seitenabstand und lesbarer Textkopie darüber. Frontkante bündig am Hero-Ende.
+Seitenabstand und lesbarer Textkopie darüber. Frontkante bündig am Hero-Ende. Stage mit overflow:clip: Fokus/Zeigerauswahl
+darf keinen internen Scrolloffset des Ebenensystems erzeugen. Originalbilder
+sind nicht nativ ziehbar; HTML-Texte bleiben normal markierbar.
 Boden bleibt gleich skaliert, nur obere 10% der sichtbaren Fläche geclippt;
 Schnittkante aus Quellhorizont und object-fit-Abbildung berechnet. Galaxie
 bleibt hinter dem Boden. 1px heller Galaxie-Lichtsaum, 13s dezenter Impuls.

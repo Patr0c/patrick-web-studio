@@ -29,6 +29,7 @@ body.studio-final .page-shell > .nav .links a { white-space:nowrap; padding:14px
 }
 @keyframes galaxyEdgeLight { 0%,34%,51%,80%,100%{opacity:.38} 40%,44%{opacity:.95} 46%{opacity:.5} 87%{opacity:.75} }
 .desk-effects-paused .platform-beam { animation-play-state:paused; }
+.immersive-hero .workstation-stage { overflow:clip; }
 .textmode-monitor {
   position:absolute; z-index:31; overflow:hidden; pointer-events:none; background:#020604;
   mask-image:url('../desk/original/main-center.png'); mask-size:100% 100%;
