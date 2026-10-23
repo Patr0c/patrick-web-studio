@@ -5,7 +5,7 @@
   const galaxyImage = galaxy?.querySelector('.round-galaxy');
   if (!space || !galaxy || !galaxyImage) return;
 
-  // Keep galaxy artwork, fine stars and soft veil in the same rotation layer.
+  // Keep galaxy artwork, fine stars and soft veil registered in one static layer.
   const rotating = document.createElement('div');
   rotating.className = 'galaxy-rotator';
   galaxyImage.replaceWith(rotating);
@@ -27,7 +27,7 @@
   const twinkles=document.createElement('div');twinkles.className='sky-twinkles';space.append(twinkles);
   const syncMotion=()=>{
     const save=Boolean(navigator.connection?.saveData);
-    rotating.style.animation=motion.matches||save?'none':'';
+    rotating.style.animation='none';
     document.documentElement.classList.toggle('studio-save-data',save);
   };
   motion.addEventListener('change',syncMotion);navigator.connection?.addEventListener('change',syncMotion);syncMotion();
@@ -103,7 +103,7 @@
     if (!size) return;
     const ctx = prepare(dust,size,size);
     const centered = size/2, rand = random(19042026);
-    // Paint ONCE: the canvas itself rotates with the galaxy.
+    // Paint ONCE: the canvas stays registered to the stationary galaxy.
     // A high-contrast fine star film, concentrated near the spiral core.
     // Parent galaxy opacity is handled on the image, not on this canvas.
     const countDust = Math.round(Math.min(2850, Math.max(1200, size * 2.35)));

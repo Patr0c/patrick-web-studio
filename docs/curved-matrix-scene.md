@@ -34,3 +34,12 @@ Alle anderen Abschnitte und neun Konzeptinhalte bleiben erhalten. Kein Push nach
 https://52b0a81b.patrick-web-studio.pages.dev
 
 Funktionscommit `42680d5f9d1dbb9d48a3e296018f6a102f01107b`: Cloudflare Pages „Deployed successfully“ und GitHub `static-site` beide erfolgreich. Draft-PR #4 richtet sich gegen den vorherigen Entwicklungsbranch, nicht gegen main.
+
+
+## Präzisierung: ruhige Galaxie, Rauchglas und Hover (23.10.2026)
+
+Galaxie und gemeinsamer Sternenstaub stehen fest; individuelle Sternenglints und Lichtimpulse bleiben erhalten. Sonne nochmals 30% langsamer: 0.6 × 0.7 = 0.42×; Koronatiming unverändert. Tischmatrix ausschließlich auf der innenliegenden Rauchglasfläche, mit Sicherheitsabstand zum Metallrahmen und vollständigem Ausschluss der echten Mauspad-/Gerätealpha. Zeichenkern um15%, Ebenendeckkraft von0.88 auf0.96 angehoben, Glowradius unverändert. Drei native Knöpfe vorläufig per hidden ausgeblendet und aus der Material-Lichtmaske entfernt; Originalassets/Positionen bleiben gespeichert.
+
+Im linken Monitor wechseln die drei Standbilder weiter. Aufnahme startet ausschließlich bei Maus-/Stifthover, pausiert sofort beim Verlassen und setzt nach10 Sekunden zurück; Fokus/Touch/automatischer Bildwechsel starten keine Aufnahme. Nur eine Aufnahme wird dekodiert. Untere Projektkarten behalten denselben Hoververtrag.
+
+Masken reproduzierbar mit `python3 scripts/build_scene_masks.py`; aktualisierte Prüfsummen in geometry.json und inline identisch. Null Alphaüberlappung mit Mauspad, Tastatur, Maus und Rad numerisch geprüft. Chromium Desktop1348×936: alle drei Hovervideos einzeln, sofortiges Pausieren und10s-Reset bestätigt; Sonne0.42×, Galaxieanimation none und drei hidden Knöpfe im DOM bestätigt. Telefoniframe375×844 ohne horizontalen Überlauf und ohne Autoplay. Ressourcen-/Hashprüfung, JS-Syntax und diffcheck erfolgreich. Firefox und physische Mobilgeräte hier nicht verfügbar. Beleg: docs/glass-hover-desktop-preview.jpg. Veröffentlichung ausschließlich auf dem bestehenden Entwicklungsbranch; main bleibt unverändert.
