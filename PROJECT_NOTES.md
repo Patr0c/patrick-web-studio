@@ -601,3 +601,14 @@ Hoveraufnahmen und neun Konzeptdialoge gegenüber der vollständig geprüften
 Basis unverändert, deshalb nicht erneut vollständig getestet. Browser-Erweiterung
 protokolliert eigene Metadatenfehler; kein Websitefehler festgestellt.
 Ausschließlich Entwicklungsbranch/Cloudflare-Vorschau; main bleibt unberührt.
+
+Online-Abschlussprüfung für e77c5ff: Cloudflare Pages und static-site beide
+erfolgreich. Direkte gerenderte Vorschau: https://8886dcca.patrick-web-studio.pages.dev/
+Dauerhafte Branch-Vorschau: https://feat-smoked-glass-desk-20261.patrick-web-studio.pages.dev/
+Beide URLs im Browser aufgerufen und verifiziert. Deployment zeigt 16 vollständig
+geladene Ebenen, 4 Nebendisplays, 1 zentrale Telemetrie und 3 Knopfmasken;
+1348 px Clientbreite gleich scrollWidth, Geräte-/Herokante exakt y=936.
+Offscreen bei scrollY=2205: SVG und Sonnenvideo pausiert; Rückkehr setzt fort.
+Main am Abschluss weiterhin 1ad8b12eb5e822c209beaf938757b84212b099ae.
+Screenshot: docs/smoked-glass-desktop-preview.jpg und smoked-glass-mobile-preview.jpg.
+Die zwei folgenden Dokumentationsänderungen ändern keine Runtime-Dateien.

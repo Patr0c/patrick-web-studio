@@ -55,6 +55,8 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 Aktueller Entwicklungsbranch: `feat/smoked-glass-desk-20261023`.
 
+Direkte Online-Vorschau: https://feat-smoked-glass-desk-20261.patrick-web-studio.pages.dev/
+
 Rauchglas-Tisch: [Ebenen, Maße, Feinschliff und Tests](docs/smoked-glass-desk.md).
 Aktive Assets: `assets/desk/`; Import: `scripts/import_smoked_desk.py`.
 Downloadbare GIMP-Arbeitskopie: `assets/desk/Rauchglas-Tisch-Feinschliff.ora`.
