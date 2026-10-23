@@ -47,6 +47,9 @@
     if (document.hidden) stop(state); else if (state.hovered) play(state);
   }));
   window.addEventListener('pagehide', () => states.forEach(stop));
+  document.addEventListener('play', event => {
+    if (event.target.matches?.('[data-project-video]')) states.forEach(stop);
+  }, true);
   const details = [...document.querySelectorAll('.services-list details')];
   details.forEach(item => item.addEventListener('toggle', () => {
     if (item.open) details.forEach(other => { if (other !== item) other.open = false; });
@@ -59,18 +62,22 @@
   const corona = document.querySelector('.solar-corona-video');
   if (!sun || !hero) return;
   const videos = [sun, corona].filter(Boolean);
+  // Rotation speed is reduced by 40%; the existing flare timing is retained.
+  sun.defaultPlaybackRate = .6; sun.playbackRate = .6;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false, started = false;
   videos.forEach(video => { video.muted = true; video.defaultMuted = true; video.autoplay = false; });
   corona?.addEventListener('playing', () => corona.classList.add('is-ready'), { once: true });
   function update() {
-    const active = started && visible && !document.hidden && !motion.matches && !navigator.connection?.saveData;
+    const active = started && visible && !document.hidden && !motion.matches && !navigator.connection?.saveData && Number(hero.querySelector('.compare-handle')?.getAttribute('aria-valuenow')) !== 100;
     videos.forEach(video => {
       if (active) { if (video.paused) video.play().catch(() => {}); }
       else video.pause();
     });
   }
   new IntersectionObserver(entries => { visible = entries[0].isIntersecting; update(); }, { threshold: .03 }).observe(hero);
+  const handle=hero.querySelector('.compare-handle');
+  if(handle)new MutationObserver(update).observe(handle,{attributes:true,attributeFilter:['aria-valuenow']});
   const begin = () => { started = true; update(); };
   if ('requestIdleCallback' in window) requestIdleCallback(begin, { timeout: 1300 }); else setTimeout(begin, 550);
   motion.addEventListener('change', update);

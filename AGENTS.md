@@ -45,3 +45,7 @@ obsolete variants without Patrick's request. Preserve the latest development wor
   keyboard surface retouch and sharp lettering replace their working overlays.
   Keep the new three-monitor smoked-glass desk; the sketch shows old hardware
   only to explain composition. See docs/smoked-glass-desk.md.
+
+## Latest user override — 23.10.2026 Curved Matrix Scene
+
+Active source is now Digital-Rework-Zubehoer-v3(1).xcf,2560×1440, assets/scene/. User explicitly authorizes repairing/regenerating desk, frames and screen faces to the current perspective. Keep original current accessory positions. Prior flat-screen/1949×826/four-aux-display rules above are superseded for this hero. Left main monitor cycles the3 real recordings, middle shows smoother flowing ASCII/pixel patterns, right COMING SOON – Ihr Projekt. Table matrix waves stay on actual table alpha, keyboard rain glows only on lettering. Sun rotation0.6×; galaxy500s desktop/600s mobile. Subtle dust and individual fixed-star glints; main warm light follows actual sun, occasional galaxy light pulses. Existing sections/concepts and preview-only publishing rule remain. See docs/curved-matrix-scene.md.

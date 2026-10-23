@@ -683,3 +683,12 @@ mit allen sechs Hardwareflächen numerisch0. Firefox/physische Telefone hier
 nicht verfügbar. Direkte Runtime-Vorschau:
 https://65dd23ba.patrick-web-studio.pages.dev/
 Nachweis: docs/keyboard-clearance-preview.jpg.
+
+
+### 23.10.2026 – Curved Matrix Scene
+
+Neuer Branch `feat/curved-matrix-scene-20261023` ab2846986. Aktuelle XCF2560×1440 mit102 Einträgen einschließlich versteckter Ebenen vollständig analysiert. Autorisierte Reparatur von Tisch, Monitorrahmen/-flächen und Anschlüssen, aktuelles Zubehör pixelgetreu übernommen. Neuer nativer Positionsvertrag und echte projektive Einpassung aller drei Hauptmonitorinhalte. Matrixwellen auf Tischmaske, Lasergrün-Regenimpulse auf Schriftalpha, Sonnenrotation0.6×, Galaxie500s/600s, dezenter Sternenstaub und individuelle Sternenglints. Warme Sonnenlichtquelle an tatsächlicher Position, periodische dezente Galaxieimpulse auf realen Oberflächen. Alte Hero-Overlays und alter terminal.js aus aktiver Einbindung entfernt; alle unteren Abschnitte/Konzepte erhalten.
+
+Ressourcen-/Hash-/Quadprüfung, JS-Syntax, diffcheck erfolgreich. Chromium Desktop1348×936 und Telefon375/305×844 ohne Seitenüberlauf. Drei Videos im Wechsel und manuelle Auswahl gesehen. Ende/Pos1 am Vergleich geprüft;100%-Alt stoppt alle Videos und beide Renderer. Tatsächlich verfügbarer Canvas2D-Fallback geprüft; WebGL-GPU, Firefox und physische Telefone hier nicht verfügbar. Details: docs/curved-matrix-scene.md. Main-Referenz vor Beginn1ad8b12eb5e822c209beaf938757b84212b099ae. Cloudflare-Publishing folgt ausschließlich als Entwicklungsvorschau.
+
+Zusätzliche Browserprüfung: echter Scroll aus dem Hero hält beide Renderer, Sonne und alle drei Monitorvideos an. Grüner physischer Knopf meldet ausschließlich Pressfeedback. Standbild-Rückfallebene und First-Video-Frame-Überblendung verhindern schwarze Zwischenbilder beim Projektwechsel. Nachweise: docs/curved-matrix-desktop-preview.jpg und docs/curved-matrix-mobile-preview.jpg.

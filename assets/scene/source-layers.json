@@ -1,0 +1,1631 @@
+[
+  {
+    "i": 0,
+    "name": "Obergruppe bearbeitung – Curved und Perspektive v2",
+    "w": 2749,
+    "h": 1684,
+    "x": -25,
+    "y": 0,
+    "visible": 1,
+    "group": true,
+    "path": [],
+    "mask": 0
+  },
+  {
+    "i": 1,
+    "name": "ORIGINAL / Sonne – Videostandbild",
+    "w": 322,
+    "h": 322,
+    "x": 338,
+    "y": 151,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 2,
+    "name": "LICHT – Workstation, getrennt schaltbar",
+    "w": 2507,
+    "h": 458,
+    "x": 27,
+    "y": 982,
+    "visible": 0,
+    "group": true,
+    "path": [
+      0,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 3,
+    "name": "Galaxie – heller Impuls / für spätere Animation",
+    "w": 1962,
+    "h": 458,
+    "x": 572,
+    "y": 982,
+    "visible": 0,
+    "group": true,
+    "path": [
+      0,
+      1,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 4,
+    "name": "Impuls – Galaxie auf Tisch und Haltern",
+    "w": 1962,
+    "h": 458,
+    "x": 572,
+    "y": 982,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 5,
+    "name": "Galaxie – kühler Reflex auf Glas und Metall",
+    "w": 1872,
+    "h": 458,
+    "x": 661,
+    "y": 982,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      1,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 6,
+    "name": "Sonne – warme Streifreflexion auf Tisch und Haltern",
+    "w": 1913,
+    "h": 458,
+    "x": 27,
+    "y": 982,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      1,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 7,
+    "name": "Tischplatte und Zubehör – Originalausschnitte",
+    "w": 2606,
+    "h": 1057,
+    "x": -25,
+    "y": 395,
+    "visible": 1,
+    "group": true,
+    "path": [
+      0,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 8,
+    "name": "Mausrad",
+    "w": 21,
+    "h": 16,
+    "x": 1913,
+    "y": 1252,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 9,
+    "name": "Maus ohne Mausrad",
+    "w": 151,
+    "h": 108,
+    "x": 1865,
+    "y": 1252,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 10,
+    "name": "ORIGINAL / Roter Knopf #1",
+    "w": 164,
+    "h": 103,
+    "x": 2207,
+    "y": 1166,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 11,
+    "name": "ORIGINAL / Orangener Knopf #1",
+    "w": 159,
+    "h": 101,
+    "x": 223,
+    "y": 1159,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 12,
+    "name": "ORIGINAL / Grüner Knopf #1",
+    "w": 148,
+    "h": 102,
+    "x": 353,
+    "y": 1283,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      4
+    ],
+    "mask": 0
+  },
+  {
+    "i": 13,
+    "name": "Beschriftung Weiß – Alternative-Kopie #1",
+    "w": 943,
+    "h": 210,
+    "x": 771,
+    "y": 1181,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      5
+    ],
+    "mask": 0
+  },
+  {
+    "i": 14,
+    "name": "Tastatur – Originalgrafik ohne Beschriftung-Kopie #1",
+    "w": 943,
+    "h": 210,
+    "x": 771,
+    "y": 1181,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      6
+    ],
+    "mask": 0
+  },
+  {
+    "i": 15,
+    "name": "Mauspad – neu, feines Anthrazitgewebe",
+    "w": 1600,
+    "h": 217,
+    "x": 552,
+    "y": 1177,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      7
+    ],
+    "mask": 0
+  },
+  {
+    "i": 16,
+    "name": "Tischsegment links – Rauchglas und saubere Kante",
+    "w": 912,
+    "h": 968,
+    "x": -25,
+    "y": 478,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      8
+    ],
+    "mask": 0
+  },
+  {
+    "i": 17,
+    "name": "Tischsegment Mitte – Rauchglas und Frontkante",
+    "w": 913,
+    "h": 959,
+    "x": 837,
+    "y": 487,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      9
+    ],
+    "mask": 0
+  },
+  {
+    "i": 18,
+    "name": "Tischsegment rechts – Rauchglas und saubere Kante",
+    "w": 890,
+    "h": 1051,
+    "x": 1691,
+    "y": 395,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      10
+    ],
+    "mask": 0
+  },
+  {
+    "i": 19,
+    "name": "Tisch – Randpixel der Ausschnitte",
+    "w": 1,
+    "h": 461,
+    "x": 841,
+    "y": 991,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      2,
+      11
+    ],
+    "mask": 0
+  },
+  {
+    "i": 20,
+    "name": "Monitore und Halterungen – Curved-Setup",
+    "w": 2399,
+    "h": 668,
+    "x": 63,
+    "y": 494,
+    "visible": 1,
+    "group": true,
+    "path": [
+      0,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 21,
+    "name": "Monitor links – zum Sitzplatz eingedreht",
+    "w": 803,
+    "h": 562,
+    "x": 63,
+    "y": 494,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      3,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 22,
+    "name": "Monitor Mitte – frontal",
+    "w": 889,
+    "h": 425,
+    "x": 839,
+    "y": 562,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      3,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 23,
+    "name": "Monitor rechts – zum Sitzplatz eingedreht",
+    "w": 776,
+    "h": 531,
+    "x": 1686,
+    "y": 503,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      3,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 24,
+    "name": "Halterung links – perspektivisch angepasst",
+    "w": 221,
+    "h": 156,
+    "x": 299,
+    "y": 1005,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      3,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 25,
+    "name": "Halterung Mitte – perspektivisch angepasst",
+    "w": 120,
+    "h": 161,
+    "x": 1217,
+    "y": 973,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      3,
+      4
+    ],
+    "mask": 0
+  },
+  {
+    "i": 26,
+    "name": "Halterung rechts – perspektivisch angepasst",
+    "w": 228,
+    "h": 162,
+    "x": 2029,
+    "y": 1000,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      3,
+      5
+    ],
+    "mask": 0
+  },
+  {
+    "i": 27,
+    "name": "Plattform – Perspektive und Licht",
+    "w": 2560,
+    "h": 893,
+    "x": 0,
+    "y": 547,
+    "visible": 1,
+    "group": true,
+    "path": [
+      0,
+      4
+    ],
+    "mask": 0
+  },
+  {
+    "i": 28,
+    "name": "Galaxie – heller Impuls / für spätere Animation #1",
+    "w": 2123,
+    "h": 542,
+    "x": 437,
+    "y": 898,
+    "visible": 0,
+    "group": true,
+    "path": [
+      0,
+      4,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 29,
+    "name": "Impuls – Galaxie mischt sich mit Sonnenlicht",
+    "w": 2123,
+    "h": 542,
+    "x": 437,
+    "y": 898,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      4,
+      0,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 30,
+    "name": "Galaxie – blauer Grundreflex auf Plattform",
+    "w": 1456,
+    "h": 542,
+    "x": 1104,
+    "y": 898,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      4,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 31,
+    "name": "Sonne – gerichtete Bodenreflexion links",
+    "w": 1180,
+    "h": 542,
+    "x": 0,
+    "y": 898,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      4,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 32,
+    "name": "Plattform – frontale Perspektive, neutrales Graphit",
+    "w": 2560,
+    "h": 893,
+    "x": 0,
+    "y": 547,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      4,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 33,
+    "name": "ORIGINAL / Galaxie",
+    "w": 1936,
+    "h": 1515,
+    "x": 788,
+    "y": 169,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      5
+    ],
+    "mask": 0
+  },
+  {
+    "i": 34,
+    "name": "HINTERGRUND / Dunkler Weltraum",
+    "w": 2560,
+    "h": 1440,
+    "x": 0,
+    "y": 0,
+    "visible": 1,
+    "group": false,
+    "path": [
+      0,
+      6
+    ],
+    "mask": 0
+  },
+  {
+    "i": 35,
+    "name": "ARCHIV – deine Originalebenen, unverändert",
+    "w": 3605,
+    "h": 2928,
+    "x": -307,
+    "y": -294,
+    "visible": 0,
+    "group": true,
+    "path": [],
+    "mask": 0
+  },
+  {
+    "i": 36,
+    "name": "Ebenengruppe",
+    "w": 3605,
+    "h": 2928,
+    "x": -307,
+    "y": -294,
+    "visible": 0,
+    "group": true,
+    "path": [
+      1,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 37,
+    "name": "ORIGINAL / Plattform",
+    "w": 1774,
+    "h": 887,
+    "x": 0,
+    "y": 0,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 38,
+    "name": "WELTRAUM / Galaxie – transparent und drehbar",
+    "w": 3147,
+    "h": 2928,
+    "x": 151,
+    "y": -294,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 39,
+    "name": "DISPLAY / Projektbildschirm 4",
+    "w": 177,
+    "h": 75,
+    "x": 1446,
+    "y": 1227,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 40,
+    "name": "DISPLAY / Projektbildschirm 3",
+    "w": 166,
+    "h": 75,
+    "x": 1270,
+    "y": 1227,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 41,
+    "name": "DISPLAY / Projektbildschirm 2",
+    "w": 166,
+    "h": 75,
+    "x": 1092,
+    "y": 1227,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      4
+    ],
+    "mask": 0
+  },
+  {
+    "i": 42,
+    "name": "DISPLAY / Projektbildschirm 1",
+    "w": 176,
+    "h": 75,
+    "x": 906,
+    "y": 1227,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      5
+    ],
+    "mask": 0
+  },
+  {
+    "i": 43,
+    "name": "DISPLAY / ASCII-Kommunikation – Standbild",
+    "w": 312,
+    "h": 144,
+    "x": 1108,
+    "y": 1039,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      6
+    ],
+    "mask": 0
+  },
+  {
+    "i": 44,
+    "name": "DISPLAY / Zeit für einen neuen Auftritt",
+    "w": 299,
+    "h": 131,
+    "x": 1440,
+    "y": 1045,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      7
+    ],
+    "mask": 0
+  },
+  {
+    "i": 45,
+    "name": "DISPLAY / DIGITAL REWORK",
+    "w": 300,
+    "h": 132,
+    "x": 788,
+    "y": 1044,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      8
+    ],
+    "mask": 0
+  },
+  {
+    "i": 46,
+    "name": "Navigation / Patrick und Links – Screenshot",
+    "w": 1000,
+    "h": 106,
+    "x": 780,
+    "y": 0,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      9
+    ],
+    "mask": 0
+  },
+  {
+    "i": 47,
+    "name": "Hinweis / Vorher",
+    "w": 140,
+    "h": 48,
+    "x": 230,
+    "y": 185,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      10
+    ],
+    "mask": 0
+  },
+  {
+    "i": 48,
+    "name": "Hinweis / Neues Design",
+    "w": 140,
+    "h": 48,
+    "x": 2292,
+    "y": 185,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      11
+    ],
+    "mask": 0
+  },
+  {
+    "i": 49,
+    "name": "GERÄT / Haupt Monitor 1 Links",
+    "w": 314,
+    "h": 146,
+    "x": 781,
+    "y": 1038,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      12
+    ],
+    "mask": 0
+  },
+  {
+    "i": 50,
+    "name": "GERÄT / Hauptmonitor 2 Mitte",
+    "w": 313,
+    "h": 144,
+    "x": 1108,
+    "y": 1039,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      13
+    ],
+    "mask": 0
+  },
+  {
+    "i": 51,
+    "name": "GERÄT / Hauptmonitor 3 Rechts",
+    "w": 313,
+    "h": 144,
+    "x": 1433,
+    "y": 1039,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      14
+    ],
+    "mask": 0
+  },
+  {
+    "i": 52,
+    "name": "GERÄT / Weiße Beschriftung Tastatur",
+    "w": 400,
+    "h": 112,
+    "x": 1047,
+    "y": 1310,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      15
+    ],
+    "mask": 0
+  },
+  {
+    "i": 53,
+    "name": "GERÄT / Tastatur blank",
+    "w": 400,
+    "h": 112,
+    "x": 1047,
+    "y": 1310,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      16
+    ],
+    "mask": 0
+  },
+  {
+    "i": 54,
+    "name": "GERÄT / Mausrad",
+    "w": 12,
+    "h": 10,
+    "x": 1485,
+    "y": 1360,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      17
+    ],
+    "mask": 0
+  },
+  {
+    "i": 55,
+    "name": "GERÄT / Maus ohne Mausrad",
+    "w": 62,
+    "h": 56,
+    "x": 1464,
+    "y": 1360,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      18
+    ],
+    "mask": 0
+  },
+  {
+    "i": 56,
+    "name": "GERÄT / Roter Knopf",
+    "w": 64,
+    "h": 52,
+    "x": 892,
+    "y": 1340,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      19
+    ],
+    "mask": 0
+  },
+  {
+    "i": 57,
+    "name": "GERÄT / Orangener Knopf",
+    "w": 63,
+    "h": 50,
+    "x": 956,
+    "y": 1337,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      20
+    ],
+    "mask": 0
+  },
+  {
+    "i": 58,
+    "name": "GERÄT / Grüner Knopf",
+    "w": 57,
+    "h": 51,
+    "x": 1566,
+    "y": 1336,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      21
+    ],
+    "mask": 0
+  },
+  {
+    "i": 59,
+    "name": "TISCH / Mauspad – ohne Effekte",
+    "w": 551,
+    "h": 92,
+    "x": 1013,
+    "y": 1340,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      22
+    ],
+    "mask": 0
+  },
+  {
+    "i": 60,
+    "name": "TISCH / Rauchglas-Gehäuse und Monitorhalterungen",
+    "w": 1100,
+    "h": 466,
+    "x": 730,
+    "y": 974,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      23
+    ],
+    "mask": 0
+  },
+  {
+    "i": 61,
+    "name": "WELTRAUM / Sonne – ohne Korona und Glow",
+    "w": 236,
+    "h": 236,
+    "x": 1162,
+    "y": 112,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      24
+    ],
+    "mask": 0
+  },
+  {
+    "i": 62,
+    "name": "REFERENZ / Originaler Browser-Screenshot – ausgeblendet",
+    "w": 2560,
+    "h": 1440,
+    "x": 0,
+    "y": 0,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      25
+    ],
+    "mask": 0
+  },
+  {
+    "i": 63,
+    "name": "Monitor 1 ganz links",
+    "w": 1069,
+    "h": 355,
+    "x": -307,
+    "y": 840,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      26
+    ],
+    "mask": 0
+  },
+  {
+    "i": 64,
+    "name": "Transformation",
+    "w": 1069,
+    "h": 355,
+    "x": 1581,
+    "y": 837,
+    "visible": 0,
+    "group": false,
+    "path": [
+      1,
+      0,
+      27
+    ],
+    "mask": 0
+  },
+  {
+    "i": 65,
+    "name": "Tisch unbearbeiter mit einzelnen ausschnitten",
+    "w": 1866,
+    "h": 1134,
+    "x": 436,
+    "y": -23,
+    "visible": 0,
+    "group": true,
+    "path": [
+      1,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 66,
+    "name": "ORIGINAL / Haupt Monitor 1 Links",
+    "w": 465,
+    "h": 216,
+    "x": 656,
+    "y": 140,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 67,
+    "name": "ORIGINAL / Hauptmonitor 2 Mitte",
+    "w": 462,
+    "h": 214,
+    "x": 1138,
+    "y": 142,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 68,
+    "name": "ORIGINAL / Hauptmonitor 3 Rechts",
+    "w": 463,
+    "h": 214,
+    "x": 1618,
+    "y": 142,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 69,
+    "name": "ORIGINAL / Monitor 1 klein links außen",
+    "w": 267,
+    "h": 117,
+    "x": 838,
+    "y": 417,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 70,
+    "name": "ORIGINAL / Monitor 2 klein links innen",
+    "w": 526,
+    "h": 117,
+    "x": 838,
+    "y": 417,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      4
+    ],
+    "mask": 0
+  },
+  {
+    "i": 71,
+    "name": "ORIGINAL / Monitor 3 klein rechts innen",
+    "w": 788,
+    "h": 117,
+    "x": 838,
+    "y": 417,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      5
+    ],
+    "mask": 0
+  },
+  {
+    "i": 72,
+    "name": "ORIGINAL / Monitor 4 klein rechts außen",
+    "w": 1065,
+    "h": 117,
+    "x": 838,
+    "y": 417,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      6
+    ],
+    "mask": 0
+  },
+  {
+    "i": 73,
+    "name": "ORIGINAL / Mausrad-Kopie",
+    "w": 17,
+    "h": 13,
+    "x": 1694,
+    "y": 615,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      7
+    ],
+    "mask": 0
+  },
+  {
+    "i": 74,
+    "name": "ORIGINAL / Maus ohne Mausrad",
+    "w": 93,
+    "h": 86,
+    "x": 1663,
+    "y": 615,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      8
+    ],
+    "mask": 0
+  },
+  {
+    "i": 75,
+    "name": "ORIGINAL / Roter Knopf",
+    "w": 96,
+    "h": 78,
+    "x": 820,
+    "y": 585,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      9
+    ],
+    "mask": 0
+  },
+  {
+    "i": 76,
+    "name": "ORIGINAL / Orangener Knopf",
+    "w": 94,
+    "h": 76,
+    "x": 914,
+    "y": 582,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      10
+    ],
+    "mask": 0
+  },
+  {
+    "i": 77,
+    "name": "ORIGINAL / Grüner Knopf",
+    "w": 86,
+    "h": 78,
+    "x": 1814,
+    "y": 580,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      11
+    ],
+    "mask": 0
+  },
+  {
+    "i": 78,
+    "name": "Beschriftung Weiß – Alternative-Kopie",
+    "w": 652,
+    "h": 181,
+    "x": 1032,
+    "y": 553,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      12
+    ],
+    "mask": 0
+  },
+  {
+    "i": 79,
+    "name": "Tastatur – Originalgrafik ohne Beschriftung-Kopie",
+    "w": 652,
+    "h": 181,
+    "x": 1032,
+    "y": 553,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      13
+    ],
+    "mask": 0
+  },
+  {
+    "i": 80,
+    "name": "ORIGINAL / Mauspad",
+    "w": 816,
+    "h": 138,
+    "x": 998,
+    "y": 585,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      14
+    ],
+    "mask": 0
+  },
+  {
+    "i": 81,
+    "name": "ORIGINAL / Workstation basic",
+    "w": 1866,
+    "h": 1134,
+    "x": 436,
+    "y": -23,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      1,
+      15
+    ],
+    "mask": 0
+  },
+  {
+    "i": 82,
+    "name": "Obergruppe bearbeitung",
+    "w": 2825,
+    "h": 1866,
+    "x": -101,
+    "y": 0,
+    "visible": 0,
+    "group": true,
+    "path": [
+      1,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 83,
+    "name": "ORIGINAL / Sonne – Videostandbild #1",
+    "w": 322,
+    "h": 322,
+    "x": 338,
+    "y": 151,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 84,
+    "name": "Tisch platte und Zubehör",
+    "w": 2788,
+    "h": 1735,
+    "x": -101,
+    "y": 131,
+    "visible": 1,
+    "group": true,
+    "path": [
+      1,
+      2,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 85,
+    "name": "ORIGINAL / Mausrad-Kopie #2",
+    "w": 29,
+    "h": 19,
+    "x": 1911,
+    "y": 1240,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 86,
+    "name": "ORIGINAL / Maus ohne Mausrad #2",
+    "w": 151,
+    "h": 108,
+    "x": 1863,
+    "y": 1240,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 87,
+    "name": "ORIGINAL / Roter Knopf #2",
+    "w": 197,
+    "h": 123,
+    "x": 207,
+    "y": 1180,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 88,
+    "name": "ORIGINAL / Orangener Knopf #2",
+    "w": 191,
+    "h": 120,
+    "x": 391,
+    "y": 1175,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 89,
+    "name": "ORIGINAL / Grüner Knopf #2",
+    "w": 177,
+    "h": 122,
+    "x": 2132,
+    "y": 1173,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      4
+    ],
+    "mask": 0
+  },
+  {
+    "i": 90,
+    "name": "Beschriftung Weiß – Alternative-Kopie #2",
+    "w": 943,
+    "h": 210,
+    "x": 793,
+    "y": 1180,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      5
+    ],
+    "mask": 0
+  },
+  {
+    "i": 91,
+    "name": "Tastatur – Originalgrafik ohne Beschriftung-Kopie #2",
+    "w": 943,
+    "h": 210,
+    "x": 793,
+    "y": 1180,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      6
+    ],
+    "mask": 0
+  },
+  {
+    "i": 92,
+    "name": "ORIGINAL / Mauspad #1",
+    "w": 1600,
+    "h": 217,
+    "x": 548,
+    "y": 1180,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      7
+    ],
+    "mask": 0
+  },
+  {
+    "i": 93,
+    "name": "ORIGINAL / Workstation basic #1",
+    "w": 2788,
+    "h": 1735,
+    "x": -101,
+    "y": 131,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      1,
+      8
+    ],
+    "mask": 0
+  },
+  {
+    "i": 94,
+    "name": "Monitore und Halterung",
+    "w": 2592,
+    "h": 563,
+    "x": -18,
+    "y": 582,
+    "visible": 1,
+    "group": true,
+    "path": [
+      1,
+      2,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 95,
+    "name": "ORIGINAL / Haupt Monitor 1 Links #1",
+    "w": 527,
+    "h": 423,
+    "x": 344,
+    "y": 685,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      2,
+      0
+    ],
+    "mask": 0
+  },
+  {
+    "i": 96,
+    "name": "ORIGINAL / Hauptmonitor 2 Mitte #1",
+    "w": 773,
+    "h": 346,
+    "x": 897,
+    "y": 710,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "mask": 0
+  },
+  {
+    "i": 97,
+    "name": "ORIGINAL / Hauptmonitor 3 Rechts #1",
+    "w": 563,
+    "h": 443,
+    "x": 1698,
+    "y": 667,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "mask": 0
+  },
+  {
+    "i": 98,
+    "name": "ORIGINAL / Workstation basic #2",
+    "w": 2592,
+    "h": 563,
+    "x": -18,
+    "y": 582,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      2,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 99,
+    "name": "WELTRAUM / Plattform – obere 10 Prozent beschnitten",
+    "w": 2560,
+    "h": 893,
+    "x": 0,
+    "y": 547,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      3
+    ],
+    "mask": 0
+  },
+  {
+    "i": 100,
+    "name": "ORIGINAL / Galaxie #1",
+    "w": 1936,
+    "h": 1515,
+    "x": 788,
+    "y": 169,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      4
+    ],
+    "mask": 0
+  },
+  {
+    "i": 101,
+    "name": "HINTERGRUND / Dunkler Weltraum #1",
+    "w": 2560,
+    "h": 1440,
+    "x": 0,
+    "y": 0,
+    "visible": 1,
+    "group": false,
+    "path": [
+      1,
+      2,
+      5
+    ],
+    "mask": 0
+  }
+]

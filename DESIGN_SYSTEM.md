@@ -330,3 +330,10 @@ Arbeitsposition y=595 statt619, identische Größe/Proportionen. Originale GIMP-
 Dateien und archivierte Geometrie unverändert. 40 native Pixel zwischen der
 sichtbaren Tastaturunterkante (y786) und dem Canvas-Ende (826). Matrixmaske
 mit derselben Arbeitsposition neu abgeleitet: scripts/build_mousepad_mask.py.
+
+
+## Aktuell verbindlich: Curved-Matrix-Szene (23.10.2026)
+
+Die aktuelle Nutzerdatei `Digital-Rework-Zubehoer-v3(1).xcf` mit 2560×1440 ersetzt für den aktiven Hero das alte 1949×826-Raster. Fotografische Reparatur von Tisch, Rahmen und Bildschirmen ist diesmal ausdrücklich beauftragt. Maßgeblich sind Patricks neue Perspektive und Zubehörpositionen. Drei sanft zum Sitzplatz eingedrehte Displays: links rotierende echte Projektaufnahmen, Mitte weich fließende Pixel-/ASCII-Bänder, rechts „COMING SOON – Ihr Projekt“. Die bisherigen Anweisungen zu geraden Displays, Hauptmonitor-Kopie und vier kleinen Displays sind für diesen aktuellen Aufbau überholt. Die DIGITAL-REWORK-Identität steht im freien Bereich oberhalb der Monitorreihe.
+
+Matrixwellen über der tatsächlichen Tischoberfläche, Schriften-Regenimpulse nur auf der separaten Tastaturalpha in #19E50F. Sonne dreht mit0.6×, Galaxie500s/600s. Feiner gemeinsamer Sternenstaub, einzelne feste Sternenglints, gerichtetes Sonnenlicht aus der nativen Quellposition und dezente Galaxielichtimpulse. Keine grünen Lichtwolken. Alle Animationen sichtbarkeitsabhängig, Reduced Motion und Save Data beachten. Weitere Maße, Lichtmasken und ehrliche Prüfgrenzen: [Curved-Matrix-Szene](docs/curved-matrix-scene.md).
