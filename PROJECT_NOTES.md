@@ -749,3 +749,7 @@ Links startet dauerhaft HRService. Ausschließlich die drei Auswahlknöpfe wechs
 Hero auf DIGITAL REWORK reduziert:64.4 statt92 native Schriftpixel (−30%), ohne kinetische Titelklasse, Scanlinie, Glow oder Animation. Namens-/Beschreibungstexte und Hero-Projektaufruf entfernt, große obere Navigationsleiste entfernt. Mobile kurze Identität plus ein Arbeiten-Link. Technischer Flow-Text und Projekt-Kickerkästchen entfernt; linke Vorschau behält nur Projektname und manuelle Auswahl. Sonne, Licht, ruhende Galaxie, Hardware und Folgeabschnitte unverändert.
 
 Prüfung dieses Durchgangs: Chromium1363×936: keine horizontale Überbreite, Titelschrift64.4px/animation none, Detektivbild1672px geladen, drei Videos initial pausiert. Alle drei Auswahlknöpfe tatsächlich geklickt, Auswahl bleibt ohne Zeitwechsel stehen. Hover startet das ausgewählte Video; vorhandene Pause/Reset-Implementierung unverändert,10s-Reset diesmal nicht erneut zeitlich gemessen. Mobile390×844 im Chromium-iframe visuell geprüft. Firefox und physische Telefone nicht verfügbar. Ressourcen-/Hashprüfung, JS-Syntax und git diff --check erfolgreich. Keine erneute FPS-Messung und kein neuer Anspruch auf ruckelfreie Gesamtszene. Beleg: docs/surface-monitor-focus-preview.jpg.
+
+
+### Tischmatrix – Dichte und Stärke
+Stranganzahl151→302 (verdoppelt), Helligkeitsverstärkung×1.4 vor der Alpha-Begrenzung. Unveränderte Perspektive, Glasmaske, Zeichen, enger Glowradius, Stranglänge, Flussrate und Sichtbarkeitssteuerung. JS-Syntax, Ressourcen-/Hashprüfung und diffcheck geprüft.

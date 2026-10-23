@@ -380,3 +380,7 @@ Matrixstränge wieder perspektivisch flach auf der Rauchglasfläche, von hinten 
 Links startet dauerhaft HRService. Ausschließlich die drei Auswahlknöpfe wechseln zum nächsten Projekt; kein Rotationstimer und kein Pauseknopf. Hover-only-Wiedergabe, sofortige Pause und10s-Reset bleiben. Mitte: Patricks hochgeladenes Ermittlertafelbild (1672×941) als Detektiv-Vorschau, ohne erfundene URL oder zusätzliche Schrift. Rechts: bisheriger Pixel-/ASCII-Effekt. Bildschirmquads und Hardware unverändert, nur Inhalte getauscht.
 
 Hero auf DIGITAL REWORK reduziert:64.4 statt92 native Schriftpixel (−30%), ohne kinetische Titelklasse, Scanlinie, Glow oder Animation. Namens-/Beschreibungstexte und Hero-Projektaufruf entfernt, große obere Navigationsleiste entfernt. Mobile kurze Identität plus ein Arbeiten-Link. Technischer Flow-Text und Projekt-Kickerkästchen entfernt; linke Vorschau behält nur Projektname und manuelle Auswahl. Sonne, Licht, ruhende Galaxie, Hardware und Folgeabschnitte unverändert.
+
+
+### Tischmatrix – Dichte und Stärke
+Stranganzahl151→302 (verdoppelt), Helligkeitsverstärkung×1.4 vor der Alpha-Begrenzung. Unveränderte Perspektive, Glasmaske, Zeichen, enger Glowradius, Stranglänge, Flussrate und Sichtbarkeitssteuerung. JS-Syntax, Ressourcen-/Hashprüfung und diffcheck geprüft.
