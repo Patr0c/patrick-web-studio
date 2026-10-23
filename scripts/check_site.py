@@ -98,6 +98,8 @@ for screen in scene['screens']:
     assert all(v>0 for v in cross), f'Invalid screen perspective: {screen["id"]}'
 assert html.count('data-project-video=')==3
 assert 'assets/js/terminal.js' not in html
+assert 'class="table-flow-video"' in html and 'class="table-flow-canvas"' not in html
+assert 'assets/video/table-matrix-reference-mobile.mp4' in html
 assert 'class="scene-screen scene-detective" data-screen="textmode"' in html
 assert 'class="scene-screen scene-textmode" data-screen="coming-soon"' in html
 assert 'scene-flow-caption mono' not in html and 'carousel-pause"' not in html

@@ -1,5 +1,5 @@
 /* The current GIMP scene: one native grid, measured projective screen faces,
-   one bounded tabletop renderer and separately masked keyboard/light layers. */
+   one native tabletop video and separately masked keyboard/light layers. */
 (() => {
  'use strict';
  const stage=document.querySelector('.scene-stage'),hero=document.querySelector('.immersive-hero');
@@ -29,61 +29,23 @@
   circle.setAttribute('cx',String(66+(i*173)%811));circle.setAttribute('cy',String(35+(i*47)%130));circle.setAttribute('r','165');circle.classList.add('rain-ring');
   circle.style.setProperty('--rain-duration',`${4.5+(i%5)*.53}s`);circle.style.setProperty('--rain-delay',`${-i*.81}s`);ripples.append(circle);
  }
- // Atlas of fine unknown glyphs: painted once, reused by the table renderer.
- const paths=['M2 2h8v12H2zM2 7h8M6 2v12','M2 2h8L2 14h8M6 3v10','M6 1 11 8 6 15 1 8zM1 8h10','M2 2v12h8V8H4M2 5h6','M1 4h10M3 1v14M8 4v8h3','M2 1v5h8v9M1 10h7','M2 2h8v4H5v8H2M5 10h5','M1 1h10M6 1v14M2 6h8M2 11h8','M2 1v14M2 4h8v8H5M6 1v3','M1 3h10L3 13h8M2 7h8','M1 8 6 1l5 7-5 7zM6 5v6','M2 2h3v12h5V2M1 8h10','M1 1h4v10h6v4M8 1v6h3','M1 2h10L6 8v7M1 12h10','M2 1v14h8M2 5h8v5H6','M1 4h10v8H1zM4 1v14M8 1v14'];
- const atlas=document.createElement('canvas');atlas.width=paths.length*28;atlas.height=40;
- const ac=atlas.getContext('2d');ac.lineWidth=1.1;ac.strokeStyle='#39ff14';ac.shadowColor='#19e50f';ac.shadowBlur=1.25;
- paths.forEach((path,i)=>{ac.save();ac.translate(i*28+3,3);ac.scale(1.7,1.7);ac.stroke(new Path2D(path));ac.restore();});
- const canvas=stage.querySelector('.table-flow-canvas'),ctx=canvas.getContext('2d',{alpha:true});
- let seed=134117;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
- // Separate flowing code trails with natural gaps, without a coverage quota.
- // Stable glyphs and soft ends are baked once; straight movement stays cheap.
- const planeWidth=2400,planeHeight=850,ribbonWidth=20;
- const lengths=Array.from({length:paths.length},(_,i)=>.58+((i*7)%16)/15*.42);
- const ribbons=document.createElement('canvas');ribbons.width=paths.length*ribbonWidth;ribbons.height=planeHeight;
- const rc=ribbons.getContext('2d');
- for(let variant=0;variant<paths.length;variant++){
-  const height=lengths[variant]*planeHeight,rows=Math.floor(height/35.5);
-  for(let row=0;row<rows;row++){
-   const f=(row+.5)/rows,glyph=(variant+row*7)%paths.length;
-   const tail=Math.min(1,f/.3),head=Math.min(1,(1-f)/.12);
-   const profile=tail*tail*(3-2*tail)*head*head*(3-2*head);
-   rc.globalAlpha=profile*(.78+.22*((row*13+variant*7)%17)/16);
-   rc.drawImage(atlas,glyph*28,0,28,40,variant*ribbonWidth+3,row*height/rows,14,32);
-  }
- }
- const columns=Array.from({length:302},(_,i)=>({u:(i+.5)/302,speed:(.062+random()*.045)*1.2,phase:random(),strength:.45+random()*.55,g:Math.floor(random()*paths.length)}));
- project(canvas,geometry.table_quad,planeWidth,planeHeight);
- let raf=0,previous=0,last=0,time=13.7,frames=0;
- function drawTable(){
-  const sx=canvas.width/planeWidth,sy=canvas.height/planeHeight;
-  ctx.setTransform(sx,0,0,sy,0,0);ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.clearRect(0,0,planeWidth,planeHeight);
-  for(const col of columns){
-   const length=lengths[col.g],period=1+length+.3;
-   const head=(time*col.speed+col.phase*period)%period-.15;
-   const height=length*planeHeight;
-   ctx.globalAlpha=Math.min(1,col.strength*1.15*1.15*1.4);
-   // The whole trail leaves the plane before it restarts above the rear edge.
-   ctx.drawImage(ribbons,col.g*ribbonWidth,0,ribbonWidth,height,col.u*planeWidth-7.1,(head-length)*planeHeight,14.2,height);
-  }
-  // Gentle travelling light on the existing trails, never a solid green carpet.
-  const wave=ctx.createLinearGradient(0,0,0,planeHeight);
-  for(let i=0;i<=64;i++){
-   const v=i/64;
-   const edge=Math.max(0,Math.min(1,v/.025,(1-v)/.025));
-   const fade=edge*edge*(3-2*edge);
-   const brightness=(.72+.28*Math.pow(.5+.5*Math.cos((v-time*.16)*Math.PI*2),2))*fade;
-   wave.addColorStop(v,`rgba(255,255,255,${brightness})`);
-  }
-  ctx.globalAlpha=1;ctx.globalCompositeOperation='destination-in';ctx.fillStyle=wave;ctx.fillRect(0,0,planeWidth,planeHeight);
-  ctx.globalCompositeOperation='source-over';frames++;if(frames%60===0)canvas.dataset.frames=String(frames);
- }
+ // The supplied clean recording is the matrix source: original symbols,
+ // cadence and falloff, with 110% horizontal stream density baked offline.
+ // Native video compositing replaces the old per-glyph Canvas renderer.
+ const tableVideo=stage.querySelector('.table-flow-video');
+ tableVideo.muted=true;tableVideo.defaultMuted=true;tableVideo.autoplay=false;
+ project(tableVideo,geometry.table_quad,2400,1350);
+ let raf=0;
  function frame(now){
   raf=0;if(!active)return;
-  if(now-last>=1000/60){if(previous)time+=Math.min((now-previous)/1000,.1);previous=now;last=now-((now-last)%(1000/60));drawTable();}
   lighting?.tick(now);raf=requestAnimationFrame(frame);
  }
- function setTable(value){if(!value){cancelAnimationFrame(raf);raf=0;previous=0;}else if(!raf)raf=requestAnimationFrame(frame);canvas.dataset.running=String(value);}
+ function setTable(value){
+  tableVideo.dataset.running=String(value);
+  if(!value){cancelAnimationFrame(raf);raf=0;tableVideo.pause();return;}
+  if(!raf)raf=requestAnimationFrame(frame);
+  if(tableVideo.paused)tableVideo.play().then(()=>{if(!active)tableVideo.pause();}).catch(()=>{});
+ }
  // HRService is the fixed initial selection. Only clicks change the project;
  // playback still starts exclusively on pointer hover.
  const carousel=stage.querySelector('.scene-carousel'),slides=[...carousel.querySelectorAll('[data-project-slide]')];
@@ -139,7 +101,7 @@
    sun.style.left=`${box.left-root.left+338*scale}px`;sun.style.top=`${box.top-root.top+151*scale}px`;
    sun.style.width=`${322*scale}px`;sun.style.height=`${322*scale}px`;
   }
-  canvas.width=Math.max(960,Math.min(2400,Math.round(box.width*Math.min(devicePixelRatio||1,1.5)*1.4)));canvas.height=Math.round(canvas.width*planeHeight/planeWidth);drawTable();flow?.resize();
+  flow?.resize();
   const source=sun.getBoundingClientRect(),x=(source.left+source.width/2-box.left)/scale,y=(source.top+source.height/2-box.top)/scale;
   native.style.setProperty('--sun-native-x',`${x}px`);lighting?.setSource(x,y);
   dispatchEvent(new CustomEvent('scene:layout'));
