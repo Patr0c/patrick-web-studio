@@ -36,36 +36,43 @@
  paths.forEach((path,i)=>{ac.save();ac.translate(i*28+3,3);ac.scale(1.7,1.7);ac.stroke(new Path2D(path));ac.restore();});
  const canvas=stage.querySelector('.table-flow-canvas'),ctx=canvas.getContext('2d',{alpha:true});
  let seed=134117;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
- // Long strands flow from rear to front, projected flat into the glass plane.
- // Each strand fully leaves the glass before wrapping. Glyphs stay attached
- // to their strand instead of changing together on a global timer.
- const columns=Array.from({length:302},(_,i)=>({u:(i+.5)/302,speed:(.062+random()*.045)*1.2,phase:random()*1.85,length:.55+random()*.52,strength:.45+random()*.55,g:Math.floor(random()*paths.length)}));
+ // Continuous straight ribbons: 20 of every 24 rows contain a glyph, even
+ // between wave crests. Cache the repeating texture once; no glyph mutation.
+ const planeWidth=2400,planeHeight=850,ribbonWidth=20,rowCount=24;
+ const ribbons=document.createElement('canvas');ribbons.width=paths.length*ribbonWidth;ribbons.height=planeHeight*3;
+ const rc=ribbons.getContext('2d');
+ for(let variant=0;variant<paths.length;variant++)for(let row=0;row<rowCount;row++){
+  if((row+variant)%6===0)continue;
+  const glyph=(variant+row*7)%paths.length;
+  const y=row*planeHeight/rowCount;
+  rc.globalAlpha=.82+.18*((row*13+variant*7)%17)/16;
+  for(let repeat=0;repeat<3;repeat++)rc.drawImage(atlas,glyph*28,0,28,40,variant*ribbonWidth+3,y+repeat*planeHeight,14,32);
+ }
+ const columns=Array.from({length:302},(_,i)=>({u:(i+.5)/302,speed:(.062+random()*.045)*1.2,phase:random(),strength:.45+random()*.55,g:Math.floor(random()*paths.length)}));
+ project(canvas,geometry.table_quad,planeWidth,planeHeight);
  let raf=0,previous=0,last=0,time=13.7,frames=0;
  function drawTable(){
-  const sx=canvas.width/2560,sy=canvas.height/310;ctx.setTransform(sx,0,0,sy,0,0);ctx.clearRect(0,0,2560,310);
+  const sx=canvas.width/planeWidth,sy=canvas.height/planeHeight;
+  ctx.setTransform(sx,0,0,sy,0,0);ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.clearRect(0,0,planeWidth,planeHeight);
   for(const col of columns){
-   const period=1+col.length+.4;
-   const head=(time*col.speed+col.phase*period+Math.sin(col.u*8-time*.15)*.13)%period-.2;
-   for(let j=0;j<27;j++){
-    const f=(j+.5)/27,v=head-f*col.length;if(v<0||v>1)continue;
-    const profile=Math.pow(Math.sin(Math.PI*f),1.65);
-    const detail=.72+.28*Math.sin(j*1.71+col.phase*11);
-    const edge=Math.max(0,Math.min(1,v/.045,(1-v)/.045));
-    const fade=edge*edge*(3-2*edge);
-    const brightness=Math.min(1,profile*col.strength*detail*1.15*1.15*1.4)*fade;
-    if(brightness<.035)continue;
-    const u=col.u;
-    const left=278-210*v,right=2284+205*v;
-    const x=left+(right-left)*u,y=45+v*226,size=9+v*4.5;
-    const depth=.26+v*.1;
-    const glyph=(col.g+j*7)%paths.length;
-    ctx.globalAlpha=brightness;
-    // Same flat projection, one transform instead of four state-stack calls.
-    ctx.setTransform(sx,0,sx*(u-.5)*1.1,sy*depth,sx*x,sy*y);
-    ctx.drawImage(atlas,glyph*28,0,28,40,0,0,size,size*1.43*1.2);
-   }
+   const offset=((time*col.speed+col.phase)%1)*planeHeight;
+   ctx.globalAlpha=Math.min(1,col.strength*1.15*1.15*1.4);
+   // Scrolling the cached strip moves every character continuously along
+   // its straight line. Identical interior copies make wrapping seamless.
+   ctx.drawImage(ribbons,col.g*ribbonWidth,planeHeight*2-offset,ribbonWidth,planeHeight,col.u*planeWidth-7.1,0,14.2,planeHeight);
   }
-  ctx.globalAlpha=1;frames++;if(frames%60===0)canvas.dataset.frames=String(frames);
+  // A wide travelling brightness wave, with a permanently visible base.
+  // The wave changes light only; it never bends or wipes the code paths.
+  const wave=ctx.createLinearGradient(0,0,0,planeHeight);
+  for(let i=0;i<=64;i++){
+   const v=i/64;
+   const edge=Math.max(0,Math.min(1,v/.025,(1-v)/.025));
+   const fade=edge*edge*(3-2*edge);
+   const brightness=(.48+.52*Math.pow(.5+.5*Math.cos((v-time*.16)*Math.PI*2),2))*fade;
+   wave.addColorStop(v,`rgba(255,255,255,${brightness})`);
+  }
+  ctx.globalAlpha=1;ctx.globalCompositeOperation='destination-in';ctx.fillStyle=wave;ctx.fillRect(0,0,planeWidth,planeHeight);
+  ctx.globalCompositeOperation='source-over';frames++;if(frames%60===0)canvas.dataset.frames=String(frames);
  }
  function frame(now){
   raf=0;if(!active)return;
@@ -128,7 +135,7 @@
    sun.style.left=`${box.left-root.left+338*scale}px`;sun.style.top=`${box.top-root.top+151*scale}px`;
    sun.style.width=`${322*scale}px`;sun.style.height=`${322*scale}px`;
   }
-  canvas.width=Math.max(480,Math.min(1440,Math.round(box.width*Math.min(devicePixelRatio||1,1.5))));canvas.height=Math.round(canvas.width*310/2560);drawTable();flow?.resize();
+  canvas.width=Math.max(960,Math.min(2400,Math.round(box.width*Math.min(devicePixelRatio||1,1.5)*1.4)));canvas.height=Math.round(canvas.width*planeHeight/planeWidth);drawTable();flow?.resize();
   const source=sun.getBoundingClientRect(),x=(source.left+source.width/2-box.left)/scale,y=(source.top+source.height/2-box.top)/scale;
   native.style.setProperty('--sun-native-x',`${x}px`);lighting?.setSource(x,y);
   dispatchEvent(new CustomEvent('scene:layout'));

@@ -388,3 +388,11 @@ Stranganzahl151→302 (verdoppelt), Helligkeitsverstärkung×1.4 vor der Alpha-B
 
 ### Fließende statt flackernde Tischmatrix
 Der bisherige feste1.85-Zyklus setzte lange Stränge zurück, obwohl ihr hinterer Abschnitt noch sichtbar war. Neue Zykluslänge1+Stranglänge+0.4 stellt sicher, dass alle Zeichen die Fläche vollständig verlassen, bevor der Strang zurückkehrt. Sanfte4.5%-Randblenden. Zeichen bleiben am Strang fixiert, kein synchroner globaler Zeichenwechsel alle2.86s und keine seitliche Mikroverschiebung. Tischrenderer maximal60 statt30fps, weiterhin ein gemeinsamer sichtbarkeitsgesteuerter RAF und begrenzter Reflexrenderer.302Stränge und Helligkeitsgain×1.4 bleiben erhalten; Hardware/Glasmaske/Perspektive/Monitore unverändert.
+
+
+### Gerade, durchgehend dichte Tischmatrix
+Letzte zwei externen Matrixreferenzen verworfen; keine Bokeh-/Partikelplumen mehr.302 gerade, parallel in der Tischebene laufende Zeichenbahnen. Pro Bahn sind20 von24 periodischen Zeichenplätzen belegt; ein Grundlicht bleibt immer sichtbar. Breite sinusförmige Helligkeitswelle wandert von hinten nach vorne, ohne seitliche Auslenkung oder großflächiges Auslöschen. Unveränderte16 Zeichen, Lasergrün, enger Glow und Helligkeitsgain×1.4.
+
+Eine echte Homografie legt das gesamte Codefeld auf die vorhandenen Tischquads; originale Glas-/Gerätemaske bleibt unverändert.16 kleine, dreifach periodisierte Streifentexturen werden einmal gecacht. Pro Frame nur302 Streifenzeichnungen statt Tausender einzelner Zeichen. Nahtlose Innenkopien, feste Glyphen und stetiger Texturversatz vermeiden synchronen Zeichenwechsel und Strangabbrüche. Renderer maximal60fps, Reflexe weiter begrenzt; Offscreen-/Tab-/Reduced-Motion-/Save-Data-Steuerung bleibt. Zeichenraster960–2400px breit, Seitenverhältnis2400×850; Maximalfläche2.04MP.
+
+Abdeckungsprüfung: Original-Glasalpha auf die echte Homografie abgebildet,302×96 Messzellen über241 Phasen in120s. Belegte Zeichenplätze auf sichtbarem Glas82.7–83.8%; dies bezeichnet Zeichenplatzabdeckung, nicht den Anteil grüner Strichpixel. Chromium Desktop1363×936 visuell geprüft, Renderer aktiv und kein horizontaler Überlauf. Ressourcen-/Hash-/Syntax-/Diffprüfung bestanden. Keine neue FPS-Garantie; Firefox und physische Telefone nicht verfügbar.
