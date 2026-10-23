@@ -1,7 +1,7 @@
 // Real recording posters are visible without loading/decoding the recordings.
 // Playback starts only on mouse/pen hover, and only while actually onscreen.
 (() => {
-  const states = [...document.querySelectorAll('.project-preview')].map(preview => ({
+  const states = [...document.querySelectorAll('.project-preview, .desk-preview[data-recording]')].map(preview => ({
     preview, video: preview.querySelector('video'), visible: false, hovered: false, timer: 0, revision: 0
   })).filter(state => state.video);
   function stop(state) {

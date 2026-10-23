@@ -31,8 +31,14 @@ obsolete variants without Patrick's request. Preserve the latest development wor
 
 - Terminal hardware lighting is white; orange only as fine exterior solar rim
   reflections. Keep the original three monitor supports. The native desk canvas ends at the front desk edge, anchored to the hero bottom.
-- Other desk screens carry original green vector diagnostics and fast unknown
-  glyph streams. Pause them offscreen/hidden/reduced motion/saveData.
+- Center monitor: full-width flowing green/white ASCII, no split or extension UI.
+  Four auxiliary displays: three existing hover recordings, fourth elegant contact
+  preview. Matrix only on the darkened, alpha-masked mousepad. Pause continuous
+  effects offscreen/hidden/reduced motion/saveData. Three native physical buttons
+  provide press feedback only; destinations await Patrick’s instructions.
+- Current screenshot layout: centered larger top nav, sun at 112px desktop, smaller
+  desk bottom-aligned. Platform source scale unchanged; crop upper 10% of its
+  visible length. Galaxy behind platform; narrow galaxy-colored edge beam.
 
 - Active source: Tisch einzelteile(1).ora, 1949×826, 16 named layers in assets/desk/.
   Original PNG bytes/offsets archived; only the explicitly authorized separate

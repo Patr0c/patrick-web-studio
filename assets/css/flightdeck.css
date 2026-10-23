@@ -1,0 +1,159 @@
+/* Current flight deck: smoked glass, satin titanium, galaxy edge light.
+   Original GIMP pixel geometry stays in geometry.css. */
+:root { --glass-edge:#d9e6ee45; --glass-dark:#060a10e8; --galaxy-blue:#9dc5e5; --galaxy-warm:#d9b18b; }
+.immersive-hero.hero { --desk-width:min(66vw,1100px,calc((100svh - 460px)*2.359564)); }
+body.studio-final .page-shell > .nav {
+  left:50%; right:auto; top:0; transform:translateX(-50%);
+  width:min(calc(100vw - 88px),1000px); height:106px; padding:0;
+  gap:clamp(28px,4vw,64px); justify-content:space-between;
+  background:linear-gradient(180deg,#02050bce,#02050b80 70%,transparent); border-radius:0;
+}
+body.studio-final .page-shell > .nav .logo { font-size:clamp(37px,4.3vw,65px); line-height:1; flex:none; }
+body.studio-final .page-shell > .nav .links {
+  flex:1; display:flex; justify-content:space-between; gap:clamp(15px,2vw,35px) !important;
+  margin:0; font-size:clamp(12px,1.25vw,19px) !important; font-weight:650; letter-spacing:.015em;
+}
+body.studio-final .page-shell > .nav .links a { white-space:nowrap; padding:14px 0; }
+.immersive-hero .white-halo.sun-stage { top:112px; width:236px; height:236px; }
+.immersive-hero .compare-labels { top:clamp(156px,19svh,185px); left:9%; right:5%; bottom:auto; }
+.immersive-hero .compare-labels > span { font-size:9px; padding:10px 13px; }
+.immersive-hero .compare-labels i { font-size:8px; }
+.immersive-hero .control-floor { z-index:3; clip-path:inset(var(--platform-cut,28%) 0 0); }
+.immersive-hero .control-floor img { height:100%; width:100%; object-fit:cover; object-position:center top; }
+.space-background .galaxy-position { z-index:0; }
+.platform-beam {
+  position:absolute; z-index:3; top:calc(var(--platform-cut,28%) + 1px); left:3%; right:3%; height:1px;
+  background:linear-gradient(90deg,transparent,#8ebce488 12%,#c7e7ff 34%,#fff1d9 50%,#dfb185 66%,#9bbbd880 88%,transparent);
+  box-shadow:0 0 3px #d4e8fba8,0 2px 9px #abcde84d;
+  opacity:.55; pointer-events:none; animation:galaxyEdgeLight 13s ease-in-out infinite;
+}
+@keyframes galaxyEdgeLight { 0%,34%,51%,80%,100%{opacity:.38} 40%,44%{opacity:.95} 46%{opacity:.5} 87%{opacity:.75} }
+.desk-effects-paused .platform-beam { animation-play-state:paused; }
+.textmode-monitor {
+  position:absolute; z-index:31; overflow:hidden; pointer-events:none; background:#020604;
+  mask-image:url('../desk/original/main-center.png'); mask-size:100% 100%;
+  -webkit-mask-image:url('../desk/original/main-center.png'); -webkit-mask-size:100% 100%;
+}
+.textmode-canvas[hidden] { display:none !important; }
+.textmode-canvas,.textmode-fallback { display:block; width:100%; height:100%; object-fit:fill; }
+.desk-layer--mousepad { filter:brightness(.36) saturate(.8); }
+.mousepad-matrix { position:absolute; inset:0; width:100%; height:100%; z-index:7; pointer-events:none; color:#19e50f; }
+.pad-light { filter:drop-shadow(0 0 .65px #39ff14df) drop-shadow(0 0 1.15px #19e50f80); }
+.pad-column { animation:padMatrixFall var(--flow) linear infinite; animation-delay:var(--phase); }
+@keyframes padMatrixFall { from{transform:translateY(-192px)} to{transform:translateY(0)} }
+.mousepad-matrix.is-paused * { animation-play-state:paused !important; }
+/* Live recordings replace the four diagnostic faces, preserving original bezels. */
+.desk-layer--aux-left-outer,.desk-layer--aux-left-inner,.desk-layer--aux-right-inner,.desk-layer--aux-right-outer,
+.desk-layer--button-red,.desk-layer--button-orange,.desk-layer--button-green { visibility:hidden; }
+.desk-preview {
+  position:absolute; z-index:35; display:block; overflow:hidden; pointer-events:auto;
+  background:#020509; border-radius:1px; outline-offset:3px;
+}
+.desk-preview video { display:block; width:100%; height:100%; object-fit:cover; object-position:center top; pointer-events:none; }
+.desk-preview::after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 8px #0008; border:1px solid #dce9f21a; }
+.desk-preview:focus-visible { outline:2px solid #39ff14; }
+.desk-preview-label {
+  position:absolute; bottom:0; left:0; right:0; display:flex; justify-content:space-between; gap:4px;
+  font:500 .6cqw/1.5 Manrope,sans-serif; letter-spacing:.01em; padding:.16cqw .35cqw;
+  color:#eaf1ea; background:linear-gradient(0deg,#020606f5,#020606a0); transition:opacity .25s;
+}
+.desk-preview-label b { color:#39ff14; font-weight:500; }
+.desk-preview.is-playing .desk-preview-label { opacity:0; }
+.future-preview { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:.7cqw 1cqw; background:radial-gradient(ellipse at 85% 0%,#233b46a6,transparent 65%),linear-gradient(135deg,#151b23,#05080d); }
+.future-preview strong { position:relative; font:550 1.38cqw/1.03 Archivo,sans-serif; letter-spacing:-.045em; color:#edf2ef; }
+.future-kicker { position:relative; font:400 .36cqw/1.4 'DM Mono',monospace; letter-spacing:.12em; margin-bottom:.38cqw; color:#bcd1d4; }
+.future-caption { position:relative; font:400 .43cqw/1.4 Manrope,sans-serif; color:#a8b9be; margin-top:.42cqw; }
+.future-orbit { position:absolute; right:-9%; top:-36%; width:65%; aspect-ratio:1; border:1px solid #dceef233; border-radius:50%; box-shadow:0 0 0 12px #c5e7ed06,0 0 0 28px #d9edf207; transform:rotate(-30deg) scaleX(.68); }
+.future-preview::before { content:""; position:absolute; left:0; right:0; top:0; height:1px; background:linear-gradient(90deg,transparent,#d8e6e9a0,#dab68b80,transparent); }
+.desk-control { position:absolute; z-index:42; display:block; padding:0; border:0; background:none; pointer-events:auto; overflow:visible; cursor:pointer; outline-offset:4px; }
+.desk-control img { width:100%; height:100%; display:block; pointer-events:none; transition:filter .2s,transform .18s; }
+.desk-control:hover img { filter:brightness(1.16) drop-shadow(0 0 2px #eef7f044); transform:translateY(-1px); }
+.desk-control:active img { transform:translateY(2px); }
+.desk-control:focus-visible { outline:2px solid #e8f7e4; border-radius:50%; }
+.desk-control.is-pressed { animation:controlPress .36s ease-out; }
+@keyframes controlPress { 0%,100%{transform:translateY(0)} 28%,55%{transform:translateY(2px)} }
+
+/* Extend the new hardware materials through the existing portfolio.
+   All content, original icons, recordings and nine concept interactions remain. */
+body.studio-final .mission-section,
+body.studio-final main > .solar-window,
+body.studio-final .footer {
+  border:1px solid #d0dce338; box-shadow:inset 0 1px 0 #fff1,0 20px 55px #0004;
+  background:linear-gradient(135deg,#141c24e8,#060a11eb 58%,#121820e8);
+}
+body.studio-final main > .immersive-hero.solar-window { border:0; box-shadow:none; background:transparent; }
+body.studio-final main > .solar-window:not(.immersive-hero)::after,
+body.studio-final .footer.solar-window::after {
+  inset:-1px; padding:1px; background:linear-gradient(135deg,#edf6f455,#9ec3dc33 30%,#ffffff08 58%,#d9b18b55 85%,#edf6f433);
+  opacity:.65 !important;
+}
+body.studio-final .mission-section { margin:40px 0; padding:34px; border-radius:18px; }
+body.studio-final .mission-card {
+  border:1px solid #d3e3e62b; border-radius:12px;
+  background:linear-gradient(145deg,#25303b6b,#070c13d9 65%); box-shadow:inset 0 1px 0 #fff1;
+}
+body.studio-final .mission-card:hover,body.studio-final .mission-card:focus-within { border-color:#b5d1c06b; background:linear-gradient(145deg,#283a3b88,#080e14e8); }
+body.studio-final .mission-index,body.studio-final .mission-live { color:#a3b5bb; }
+body.studio-final .project-preview,body.studio-final .category-trigger,body.studio-final .orbit-window {
+  border:1px solid #c4d6df73; box-shadow:0 0 0 1px #000b,inset 0 1px 0 #ffffff16,0 12px 28px #0004;
+  background:#0a1017; border-radius:12px;
+}
+body.studio-final .project-preview:hover,body.studio-final .category-trigger:hover,
+body.studio-final .category.is-open .category-trigger,body.studio-final .orbit-window:hover {
+  border-color:#19e50f88 !important; box-shadow:0 0 2px #19e50f88,0 0 8px #19e50f28,0 12px 28px #0005 !important;
+}
+body.studio-final .chrome,body.studio-final .window-bar,body.studio-final .orbit-chrome,
+body.studio-final .concept-dialog-bar { background:linear-gradient(180deg,#202a33,#111a22); border-bottom:1px solid #c0d7e52e; }
+body.studio-final .chrome i,body.studio-final .window-bar > i { background:#a5bbc6; box-shadow:0 0 1px #d7e5e8; }
+body.studio-final .project-preview video { border-radius:0 0 10px 10px; }
+body.studio-final .project-preview .view-project { border-color:#c1d6dc33; background:#081119e8; color:#e7f1ea; }
+body.studio-final .project-preview:hover .view-project { background:#10251ce8; }
+body.studio-final .project-meta { padding-top:20px; }
+body.studio-final .project-meta .mono { color:#9fb2ba; }
+body.studio-final .category-caption { background:linear-gradient(180deg,#111b23f0,#090f16); }
+body.studio-final .orbit-label { background:#0c151eee; }
+body.studio-final .wheel-center { background:radial-gradient(circle,#17252ae8,#050a0fe8); border-color:#bfdee23b; }
+body.studio-final .wheel-pause { background:#111c22e0; border-color:#c5dfe533; color:#cddfda; }
+body.studio-final .concept-dialog { border-color:#c8dce26b; background:#081019; box-shadow:0 28px 100px #000b; }
+body.studio-final .preview-size-controls button.active { background:#1b3729; border-color:#19e50f77; }
+body.studio-final .dialog-close:hover { background:#23363d; }
+body.studio-final .services-list details { border-color:#d1e1e52c; }
+body.studio-final .services-list details[open] { background:linear-gradient(90deg,#33464c24,transparent); }
+body.studio-final .services-list summary { padding-left:12px; padding-right:12px; }
+body.studio-final .services-list details > p { color:#b9c6cb; }
+body.studio-final .services-section,body.studio-final .category-section,body.studio-final .work-section { margin-top:32px; border-radius:18px; }
+body.studio-final .footer { margin-top:32px; border-radius:18px; }
+body.studio-final .fine { border-top-color:#c5dce52b; color:#9aaeb7; }
+
+@media(max-width:1000px) {
+  body.studio-final .page-shell > .nav { width:calc(100vw - 48px); gap:28px; }
+  body.studio-final .page-shell > .nav .logo { font-size:41px; }
+  body.studio-final .page-shell > .nav .links { font-size:12px !important; gap:15px !important; }
+  .immersive-hero.hero { --desk-width:min(calc(100% - 28px),calc((100svh - 390px)*2.359564)); }
+  .immersive-hero .white-halo.sun-stage { top:120px; width:202px; height:202px; }
+  .immersive-hero .compare-labels { top:170px; left:4%; right:4%; }
+}
+@media(max-width:650px) {
+  .immersive-hero.hero { --desk-width:calc(100% - 20px); min-height:840px; }
+  body.studio-final .page-shell > .nav { width:calc(100vw - 36px); height:112px; flex-wrap:wrap; align-content:center; justify-content:center; gap:4px 20px; background:none; }
+  body.studio-final .page-shell > .nav .logo { font-size:40px; }
+  body.studio-final .page-shell > .nav .links { flex:0 0 100%; font-size:9px !important; gap:10px !important; justify-content:center; }
+  body.studio-final .page-shell > .nav .links a { padding:8px 0; }
+  .immersive-hero .white-halo.sun-stage { top:132px; width:164px; height:164px; }
+  .workstation-mobile-copy:not([hidden]) { top:315px; }
+  .immersive-hero .compare-labels { top:auto; bottom:calc((var(--scene-width,100vw) - 20px)/2.359564 + 12px); left:20px; right:20px; }
+  .immersive-hero .compare-labels > span { font-size:5px; padding:4px; }
+  .immersive-hero .compare-labels i { font-size:4px; }
+  .immersive-hero .control-floor img { position:absolute; left:50%; transform:translateX(-50%); width:max(100%,700px); object-fit:cover; }
+  .desk-preview-label { font-size:.8cqw; padding:.2cqw; }
+  .future-preview { padding:.6cqw; }
+  .future-preview strong { font-size:1.5cqw; }
+  .future-kicker,.future-caption { display:none; }
+  body.studio-final .mission-section { padding:24px 16px 16px; margin:26px 0; }
+  body.studio-final .work-section,body.studio-final .category-section,body.studio-final .services-section,body.studio-final .footer { margin-top:22px; border-radius:14px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .pad-column,.platform-beam { animation:none !important; }
+  .desk-control img { transition:none; }
+  .desk-control.is-pressed { animation:none; }
+}

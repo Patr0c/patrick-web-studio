@@ -55,7 +55,7 @@ for path in (ROOT / 'assets/css').glob('*.css'):
 for category in ('hotel', 'restaurant', 'driving'):
     check_ref(f'concepts/{category}.webp', ROOT)
 # Native ORA source pixels, including negative/off-canvas base offsets, stay archived.
-for name in ('geometry.json', 'aux-mask.png', 'matrix-mask.png', 'keyboard-labels.svg', 'keyboard-refined.png'):
+for name in ('geometry.json', 'mousepad-mask.png', 'keyboard-labels.svg', 'keyboard-refined.png'):
     check_ref(f'assets/desk/{name}', ROOT)
 geometry_path = ROOT / 'assets/desk/geometry.json'
 if geometry_path.is_file():
@@ -79,7 +79,7 @@ for marker in ('font-preview', 'font-options', 'schriften.html', 'Archivo_files'
     if marker in html:
         errors.append(f'Retired export/font picker remains: {marker}')
 for expected in ('https://www.hrservice-fm.de/', 'https://villa-schwalbe.vercel.app/', 'https://gasthof-wagner-demo.vercel.app/'):
-    if html.count(expected) != 1:
+    if html.count(expected) != 2:
         errors.append(f'Changed or missing project link: {expected}')
 if errors:
     raise SystemExit('\n'.join(errors))

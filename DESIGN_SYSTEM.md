@@ -298,3 +298,26 @@ keine zusätzlichen Knopffunktionen. Auf Telefonen vollständiges Gerät unten
 plus lesbare Textkopie darüber; keine getrennten oder verzerrten Monitorrahmen.
 Native Maße, Downloads, Feinschliffherkunft und Prüfgrenzen:
 [docs/smoked-glass-desk.md](docs/smoked-glass-desk.md).
+
+
+## Aktuell: Textmode Flightdeck (23.10.2026)
+
+Die neue Skizze 033549 ersetzt die vorige Anordnung: größere zentrierte Navigation,
+Sonne oben bei 112px, kleinerer Tisch bündig am Hero-Ende. Die Originalebenen
+1949×826 und alle Archiv-PNGs bleiben unverändert. Mitte: vollflächige ASCII-
+Strömungen in Weiß/Grau und Lasergrün, keine Vergleichsteilung oder Extension-UI.
+Links/rechts bleiben DIGITAL REWORK und bisheriger Text/CTA.
+
+Vier kleine Monitore: vorhandene Aufnahmen HRService, Villa Schwalbe, Gasthof
+Wagner; vierter edle Kontaktvorschau „Hier könnten Sie sein“. Gemeinsamer
+Hover-Controller: sofort pausieren, nach 10 Sekunden außerhalb auf Anfang.
+Matrix senkrecht auf dem vorher abgedunkelten Mauspad, anhand echter Quellalpha
+maskiert; Tastatur, Maus, Rad und drei Knöpfe ausgespart. Enger heller Kern,
+keine grüne Lichtwolke. Physische Originalknöpfe reagieren auf Hover/Klick,
+keine noch nicht vereinbarten Ziele.
+
+Plattform: obere 10% ihrer sichtbaren Länge wegschneiden, unveränderte Projektion
+und Unterkante. Galaxie dahinter. Feiner blassblau/creme/peachfarbener Lichtsaum
+am neuen oberen Rand mit gelegentlichen Helligkeitsimpulsen. Folgeabschnitte in
+Rauchglas/Titan mit schmalen Silberkanten und präzisem Grün; keine Änderungen
+an Inhalten, Konzeptmarken oder Sonnenmedien. Details: docs/textmode-flightdeck.md.

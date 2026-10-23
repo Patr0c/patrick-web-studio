@@ -19,7 +19,7 @@ for file in assets/js/*.js; do node --check "$file"; done
 - `assets/css/fonts.css`: nur Archivo, Manrope, DM Mono; OFL-Lizenzen beigelegt.
 - `assets/css/studio.css`: aktuelles Layout, responsive Regeln und Effekte.
 - `assets/css/workstation.css`: bildschirmfüllender Einstieg aus Operator-Perspektive.
-- `assets/js/terminal.js`: vier Original-Nebendisplays, zentrale Telemetrie und schmal maskierte Matrix.
+- `assets/js/terminal.js`: Mauspad-Matrix, Sichtbarkeit und drei native Steuerknöpfe.
 - `assets/workstation/`: historischer 1774×887-ORA-Import. Der aktive neue Tisch liegt in `assets/desk/`.
 - `scripts/import_workstation_ora.py`: reproduzierbarer Import aus Patricks ORA; kein Runtime-Build.
 - `docs/workstation-ora.md`: Quellmaße, Alpha-Auswertung, Lichtmasken und Bedienregionen.
@@ -53,9 +53,11 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktueller Entwicklungsbranch: `feat/smoked-glass-desk-20261023`.
+Aktueller Entwicklungsbranch: `feat/textmode-flightdeck-20261023`.
 
-Direkte Online-Vorschau: https://feat-smoked-glass-desk-20261.patrick-web-studio.pages.dev/
+Neue Textmode-Vorschau: siehe Abschlusslink und PROJECT_NOTES.md.
+
+[Textmode, Masken und Material](docs/textmode-flightdeck.md).
 
 Rauchglas-Tisch: [Ebenen, Maße, Feinschliff und Tests](docs/smoked-glass-desk.md).
 Aktive Assets: `assets/desk/`; Import: `scripts/import_smoked_desk.py`.
