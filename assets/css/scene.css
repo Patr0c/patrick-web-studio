@@ -115,15 +115,10 @@ html.scene-light-paused .galaxy-rotator::before {animation-play-state:paused!imp
 
 /* Precisely split native glass/structure: each original pixel appears once. */
 .scene-native .scene-tabletop {position:absolute;inset:0;width:2560px;height:1440px;max-width:none;z-index:3;pointer-events:none;filter:grayscale(1);}
-/* Only the source floor has rectangular cut edges. Fade its own alpha;
-   the separate metal rim, glass and registered accessories remain intact. */
-.scene-native .scene-platform {
- filter:grayscale(1) brightness(.79) contrast(.94);
- mask-image:linear-gradient(90deg,transparent,#000 96px,#000 calc(100% - 96px),transparent),linear-gradient(transparent 350px,#000 382px,#000 calc(100% - 18px),transparent);
- mask-composite:intersect;
- -webkit-mask-image:linear-gradient(90deg,transparent,#000 96px,#000 calc(100% - 96px),transparent),linear-gradient(transparent 350px,#000 382px,#000 calc(100% - 18px),transparent);
- -webkit-mask-composite:source-in;
-}
+/* Floor belongs to the viewport, not the smaller, inset desk coordinate grid.
+   Uniform image scaling keeps the original tile perspective and crisp edges. */
+.scene-floor {position:absolute;inset:0;z-index:10;overflow:hidden;pointer-events:none;}
+.scene-floor .scene-platform {position:absolute;left:0;bottom:0;display:block;width:100%;height:auto;max-width:none;filter:grayscale(1) brightness(.79) contrast(.94);}
 .scene-reflection-field {position:absolute;left:0;top:800px;width:2560px;height:640px;z-index:8;pointer-events:none;contain:strict;mask:url('../scene/surface-reflection-mask.webp') 0 -800px/2560px 1440px no-repeat;-webkit-mask:url('../scene/surface-reflection-mask.webp') 0 -800px/2560px 1440px no-repeat;}
 /* Sunlight is emitted by the whole sphere; atmosphere is its existing round aura. */
 .scene-sun .sun-video,.scene-sun .solar-corona-video {will-change:transform;transform:translateZ(0);backface-visibility:hidden;}

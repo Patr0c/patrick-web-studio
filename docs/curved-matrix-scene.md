@@ -103,7 +103,9 @@ Villa Schwalbe vom linken Projektwähler auf den rechten Monitor verschoben, ein
 Gesamte Tischbühne proportional innerhalb48px horizontaler/32px vertikaler Desktopreserve,12px Abstand unten; mobil24px horizontal/8px unten. Vollständiges gemeinsames2560×1440-Raster, Außenkanten und Bildschirminhalte skalieren zusammen. Bühne selbst beschneidet keine Außenränder mehr. Keine Asset-Verzerrung oder Neuzeichnung. Vergleich über data-comparison-hidden deaktiviert: Slidergriff/Lichtlinie/beide grünen Kästen und Anweisung ausgeblendet, alter Entwurf verborgen, neue Ansicht dauerhaft vollständig. Viewportbreiten-Messung bleibt aktiv; keine unsichtbaren Slider-Drag-/Tastaturhandler.
 
 
-### Ruhige Tastatur und Plattformabschluss
-Regentropfen vollständig aus aktivem HTML, CSS und Controller entfernt: keine SVG-Ringe, keyRain-Keyframes oder erzeugten Kreisobjekte. Stattdessen statische keyboard-backlight-Ebene mit derselben pixelgenauen Beschriftungsmaske, konstantem #A855F7 und Glowradius0. Originalgrafiken, Positionen und Tastaturperspektive unverändert.
+### Korrektur: Plattform über die volle Bildschirmbreite
+Der Boden war fälschlich Teil der verkleinerten Tischbühne. Auf breiteren beziehungsweise niedrigeren Fenstern begrenzte deren Seiten-/Höhenreserve auch den Boden und erzeugte sichtbare rechteckige Abschlüsse. Die vorige Alphablende kaschierte diese Ursache nur und ist vollständig entfernt.
 
-Der Nutzer-Screenshot zeigt harte rechteckige Bildabschlüsse der Plattform, obwohl die Tischbühne bereits innerhalb des Viewports liegt. Nur die separate Plattform erhält eine nicht destruktive CSS-Alphablende:96 native Pixel seitlich,32px am vorhandenen Horizont (native Layer-y350–382),18px unten. Keine Neuzeichnung, kein zusätzlicher Zoom, keine Maskierung der eigenständigen Chrom-Tischkante. Quelldateien und ihre Hashes unverändert.
+Plattform jetzt als eigene scene-floor-Ebene direkt unter hero-new, hinter der Tischbühne und vor der Galaxie. Das unveränderte Originalbild wird mit width:100%/height:auto proportional über die ganze Hero-Breite skaliert und am Hero-Boden verankert. Keine weichen Seiten, keine neue Grafik, keine Verzerrung. Schreibtisch, Zubehör, Monitorquads und Matrix behalten ihr gemeinsames natives2560×1440-Raster und den bestehenden sicheren Randabstand. Hardware- und Zubehörreflexe unverändert.
+
+Regentropfen bleiben vollständig entfernt. Konstante violette Beschriftung mit Originalmaske und Glowradius0. Alle anderen vorherigen Farb-/Monitorentscheidungen bleiben erhalten.
