@@ -37,35 +37,39 @@
  const canvas=stage.querySelector('.table-flow-canvas'),ctx=canvas.getContext('2d',{alpha:true});
  let seed=134117;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
  // Long strands flow from rear to front, projected flat into the glass plane.
- // The latest length, tight core and brightness profile stay unchanged.
+ // Each strand fully leaves the glass before wrapping. Glyphs stay attached
+ // to their strand instead of changing together on a global timer.
  const columns=Array.from({length:302},(_,i)=>({u:(i+.5)/302,speed:(.062+random()*.045)*1.2,phase:random()*1.85,length:.55+random()*.52,strength:.45+random()*.55,g:Math.floor(random()*paths.length)}));
  let raf=0,previous=0,last=0,time=13.7,frames=0;
  function drawTable(){
   const sx=canvas.width/2560,sy=canvas.height/310;ctx.setTransform(sx,0,0,sy,0,0);ctx.clearRect(0,0,2560,310);
   for(const col of columns){
-   const head=(time*col.speed+col.phase+Math.sin(col.u*8-time*.15)*.13)%1.85-.2;
+   const period=1+col.length+.4;
+   const head=(time*col.speed+col.phase*period+Math.sin(col.u*8-time*.15)*.13)%period-.2;
    for(let j=0;j<27;j++){
     const f=(j+.5)/27,v=head-f*col.length;if(v<0||v>1)continue;
     const profile=Math.pow(Math.sin(Math.PI*f),1.65);
     const detail=.72+.28*Math.sin(j*1.71+col.phase*11);
-    const brightness=Math.min(1,profile*col.strength*detail*1.15*1.15*1.4);
+    const edge=Math.max(0,Math.min(1,v/.045,(1-v)/.045));
+    const fade=edge*edge*(3-2*edge);
+    const brightness=Math.min(1,profile*col.strength*detail*1.15*1.15*1.4)*fade;
     if(brightness<.035)continue;
-    const u=col.u+Math.sin(v*4+col.phase)*.0015;
+    const u=col.u;
     const left=278-210*v,right=2284+205*v;
     const x=left+(right-left)*u,y=45+v*226,size=9+v*4.5;
     const depth=.26+v*.1;
-    const glyph=(col.g+j*7+Math.floor(time*.35))%paths.length;
-    ctx.globalAlpha=brightness;ctx.save();
-    // Compress glyph depth and fan its vertical axis toward the seated viewer.
-    ctx.translate(x,y);ctx.transform(1,0,(u-.5)*1.1,depth,0,0);
-    ctx.drawImage(atlas,glyph*28,0,28,40,0,0,size,size*1.43*1.2);ctx.restore();
+    const glyph=(col.g+j*7)%paths.length;
+    ctx.globalAlpha=brightness;
+    // Same flat projection, one transform instead of four state-stack calls.
+    ctx.setTransform(sx,0,sx*(u-.5)*1.1,sy*depth,sx*x,sy*y);
+    ctx.drawImage(atlas,glyph*28,0,28,40,0,0,size,size*1.43*1.2);
    }
   }
-  ctx.globalAlpha=1;frames++;if(frames%30===0)canvas.dataset.frames=String(frames);
+  ctx.globalAlpha=1;frames++;if(frames%60===0)canvas.dataset.frames=String(frames);
  }
  function frame(now){
   raf=0;if(!active)return;
-  if(now-last>=1000/30){if(previous)time+=Math.min((now-previous)/1000,.1);previous=now;last=now-((now-last)%(1000/30));drawTable();}
+  if(now-last>=1000/60){if(previous)time+=Math.min((now-previous)/1000,.1);previous=now;last=now-((now-last)%(1000/60));drawTable();}
   lighting?.tick(now);raf=requestAnimationFrame(frame);
  }
  function setTable(value){if(!value){cancelAnimationFrame(raf);raf=0;previous=0;}else if(!raf)raf=requestAnimationFrame(frame);canvas.dataset.running=String(value);}

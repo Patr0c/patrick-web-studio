@@ -753,3 +753,9 @@ Prüfung dieses Durchgangs: Chromium1363×936: keine horizontale Überbreite, Ti
 
 ### Tischmatrix – Dichte und Stärke
 Stranganzahl151→302 (verdoppelt), Helligkeitsverstärkung×1.4 vor der Alpha-Begrenzung. Unveränderte Perspektive, Glasmaske, Zeichen, enger Glowradius, Stranglänge, Flussrate und Sichtbarkeitssteuerung. JS-Syntax, Ressourcen-/Hashprüfung und diffcheck geprüft.
+
+
+### Fließende statt flackernde Tischmatrix
+Der bisherige feste1.85-Zyklus setzte lange Stränge zurück, obwohl ihr hinterer Abschnitt noch sichtbar war. Neue Zykluslänge1+Stranglänge+0.4 stellt sicher, dass alle Zeichen die Fläche vollständig verlassen, bevor der Strang zurückkehrt. Sanfte4.5%-Randblenden. Zeichen bleiben am Strang fixiert, kein synchroner globaler Zeichenwechsel alle2.86s und keine seitliche Mikroverschiebung. Tischrenderer maximal60 statt30fps, weiterhin ein gemeinsamer sichtbarkeitsgesteuerter RAF und begrenzter Reflexrenderer.302Stränge und Helligkeitsgain×1.4 bleiben erhalten; Hardware/Glasmaske/Perspektive/Monitore unverändert.
+
+Zusätzlich Zeichenprojektion von save/translate/transform/restore auf eine äquivalente setTransform-Matrix reduziert, damit die302Stränge bei höherer Zielkadenz weniger Zustandswechsel verursachen. Chromium-Ansicht1363×936: Renderer aktiv, keine Überbreite, Glas-/Zubehöraussparung erhalten. Ressourcen-/Syntax-/Diffprüfung erfolgreich. Kein Nachweis tatsächlich gehaltener60fps, Firefox und physische Telefone nicht geprüft.
