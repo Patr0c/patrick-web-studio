@@ -40,6 +40,9 @@ class SiteParser(HTMLParser):
                 anchors.append(value[1:])
             else:
                 check_ref(value, ROOT)
+        for candidate in attrs.get('srcset', '').split(','):
+            if candidate.strip():
+                check_ref(candidate.strip().split()[0], ROOT)
         for value in re.findall(r'url\([\'"]?([^\)\'\"]+)', attrs.get('style', '')):
             check_ref(value, ROOT)
 
@@ -99,7 +102,7 @@ for screen in scene['screens']:
 assert html.count('data-project-video=')==3
 assert 'assets/js/terminal.js' not in html
 assert 'class="table-flow-video"' in html and 'class="table-flow-canvas"' not in html
-assert 'assets/video/table-matrix-reference-mobile.mp4' in html
+assert 'assets/video/table-matrix-mobile-green.mp4' in html
 assert 'class="scene-screen scene-detective" data-screen="textmode"' in html
 assert 'class="scene-screen scene-villa" data-screen="coming-soon"' in html
 assert 'data-comparison-hidden="true"' in html

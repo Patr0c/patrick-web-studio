@@ -5,6 +5,8 @@ window.createSceneLighting = (stage, native, sun, geometry) => {
  const ns='http://www.w3.org/2000/svg',video=sun.querySelector('.sun-video');
  const byId=id=>geometry.layers.find(layer=>layer.id===id);
  const node=(tag,attrs={})=>{const e=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));return e;};
+ const mobile=matchMedia('(max-width:760px)').matches,casts=[];
+ if(!mobile){
  const pad=byId('mousepad');
  const shadows=node('svg',{class:'scene-object-shadows',viewBox:'0 0 2560 1440','aria-hidden':'true'});
  const defs=node('defs');shadows.append(defs);
@@ -16,7 +18,6 @@ window.createSceneLighting = (stage, native, sun, geometry) => {
   filter.append(node('feColorMatrix',{type:'matrix',values:`0 0 0 0 0.004 0 0 0 0 0.008 0 0 0 0 0.012 0 0 0 ${opacity} 0`}));defs.append(filter);
  }
  const receiver=node('g',{mask:'url(#scene-pad-receiver)'});shadows.append(receiver);
- const casts=[];
  for(const [id,height] of [['keyboard',9],['mouse',22]]){
   const layer=byId(id);
   const cast=node('g',{filter:'url(#scene-shadow-cast)'});
@@ -30,10 +31,11 @@ window.createSceneLighting = (stage, native, sun, geometry) => {
  const padContact=node('g',{filter:'url(#scene-shadow-contact)',transform:'translate(1.7 1)',opacity:.45});
  padContact.append(node('image',{href:'assets/scene/'+pad.file,x:pad.x,y:pad.y,width:pad.width,height:pad.height}));
  padShadow.append(padContact);native.append(padShadow);
+ }
  // One low-resolution reflection compositor replaces the large SVG blur
  // surfaces and readbacks. The emitting sphere has no cone or visible beam.
  const canvas=document.createElement('canvas');canvas.className='scene-reflection-field';canvas.setAttribute('aria-hidden','true');
- canvas.width=768;canvas.height=192;native.append(canvas);
+ canvas.width=mobile?384:768;canvas.height=mobile?96:192;native.append(canvas);
  const ctx=canvas.getContext('2d',{alpha:true}),corona=sun.querySelector('.solar-corona-video');
  const sprite=(r,g,b)=>{
   const image=document.createElement('canvas');image.width=128;image.height=128;
@@ -49,7 +51,7 @@ window.createSceneLighting = (stage, native, sun, geometry) => {
   ctx.save();ctx.translate(x,y);ctx.rotate(angle);ctx.globalAlpha=opacity;ctx.drawImage(image,-width/2,-height/2,width,height);ctx.restore();
  }
  function tick(now=0,force=false){
-  if(!force&&(!active||now-last<1000/30-1))return;last=now;
+  if(!force&&(!active||now-last<1000/(mobile?20:30)-1))return;last=now;
   const t=video.currentTime||0,ct=corona?.currentTime||0,phase=t/(video.duration||108.733333)*Math.PI*2;
   const shimmer=.5+.5*(Math.sin(phase*13)*.58+Math.sin(phase*23+.6)*.27+Math.sin(phase*37+1.1)*.15);
   const burst=Math.pow(flareAt(ct),1.8),intensity=.7+shimmer*.3;

@@ -148,3 +148,18 @@ html.scene-light-paused .galaxy-rotator::before {animation-play-state:paused!imp
 .hero.comparison-ready[data-comparison-hidden] .compare-handle,
 .hero.comparison-ready[data-comparison-hidden] .compare-labels,
 .hero.comparison-ready[data-comparison-hidden] .comparison-overlay {display:none!important;}
+
+/* Mobile stability: baked source pixels, no large SVG color-filter surfaces or
+   nested assembly perspective layer. Live screen/video content stays separate. */
+.scene-picture {display:contents;}
+.scene-mobile-hardware {display:none;}
+@media(max-width:760px){
+ .scene-native .scene-mobile-hardware {position:absolute;inset:0;display:block;width:2560px;height:1440px;max-width:none;z-index:3;pointer-events:none;}
+ .scene-native .scene-hardware,.scene-native .scene-tabletop,.scene-native .scene-layer,.keyboard-backlight {display:none;}
+ .scene-monitor-assembly {display:contents;transform:none!important;}
+ .scene-native .scene-keyboard,.table-flow-video,.scene-floor .scene-platform {filter:none;}
+ .table-flow-mask {mask-image:url('../scene/mobile/matrix-mask.webp');-webkit-mask-image:url('../scene/mobile/matrix-mask.webp');}
+ .scene-reflection-field {mask-image:url('../scene/mobile/reflection-mask.webp');-webkit-mask-image:url('../scene/mobile/reflection-mask.webp');}
+ .scene-sun .sun-video,.scene-sun .solar-corona-video {will-change:auto;transform:none;}
+ .scene-sun.white-halo.sun-stage {will-change:auto;}
+}

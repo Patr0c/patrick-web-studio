@@ -20,15 +20,21 @@
   element.style.width=w+'px';element.style.height=h+'px';
   element.style.transform=`matrix3d(${a/w},${d/w},0,${g/w},${b/h},${e/h},0,${hq/h},0,0,1,0,${p0[0]},${p0[1]},0,1)`;
  }
- geometry.screens.forEach(screen=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screen.quad,screen.width,screen.height));
- // Keep bezel, support geometry and live HTML faces on one camera plane.
+ // Phones use baked original pixels and direct final screen quads instead of
+ // nesting a full 2560px perspective surface around three more 3D surfaces.
  const monitorAssembly=stage.querySelector('.scene-monitor-assembly');
- project(monitorAssembly,geometry.monitor_perspective.canvas_quad,2560,1440);
+ function fitMonitors(){
+  const screens=phone.matches?geometry.monitor_perspective.rendered_screens:geometry.screens;
+  geometry.screens.forEach((screen,i)=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screens[i].quad,screen.width,screen.height));
+  if(phone.matches)monitorAssembly.style.transform='none';
+  else project(monitorAssembly,geometry.monitor_perspective.canvas_quad,2560,1440);
+ }
  const lighting=window.createSceneLighting?.(stage,native,sun,geometry);
  // The supplied clean recording is the matrix source: original symbols,
  // cadence and falloff, with 110% horizontal stream density baked offline.
  // Native video compositing replaces the old per-glyph Canvas renderer.
  const tableVideo=stage.querySelector('.table-flow-video');
+ if(phone.matches)tableVideo.poster="assets/scene/mobile/matrix-poster.webp";
  tableVideo.muted=true;tableVideo.defaultMuted=true;tableVideo.autoplay=false;
  project(tableVideo,geometry.table_quad,2400,1350);
  let raf=0;
@@ -85,6 +91,7 @@
  },true);
  document.addEventListener('pause',event=>{if(event.target===external){external=null;playCurrent();}},true);
  function fit(){
+  fitMonitors();
   const box=stage.getBoundingClientRect();scale=box.width/2560;stage.style.setProperty('--scene-scale',String(scale));
   document.documentElement.style.setProperty('--scene-unit',`${scale}px`);document.documentElement.style.setProperty('--scene-top',`${box.top+scrollY}px`);
   // Keep the two solar video surfaces outside the large, repainting desk layer.
