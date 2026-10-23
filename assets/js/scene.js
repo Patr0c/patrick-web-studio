@@ -22,6 +22,7 @@
  }
  geometry.screens.forEach(screen=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screen.quad,screen.width,screen.height));
  const flow=window.createTextmodeFlow?.(stage.querySelector('.textmode-canvas'));
+ const lighting=window.createSceneLighting?.(stage,native,sun,geometry);
  const ns='http://www.w3.org/2000/svg',ripples=stage.querySelector('.keyboard-ripples');
  for(let i=0;i<15;i++){
   const circle=document.createElementNS(ns,'circle');
@@ -65,7 +66,7 @@
   }
   ctx.globalAlpha=1;frames++;if(frames%30===0)canvas.dataset.frames=String(frames);
  }
- function frame(now){raf=0;if(!active)return;if(now-last>=1000/30){if(previous)time+=Math.min((now-previous)/1000,.1)*1.2;previous=now;last=now;drawTable();}raf=requestAnimationFrame(frame);}
+ function frame(now){raf=0;if(!active)return;if(now-last>=1000/30){if(previous)time+=Math.min((now-previous)/1000,.1)*1.2;previous=now;last=now;drawTable();lighting?.tick(now);}raf=requestAnimationFrame(frame);}
  function setTable(value){if(!value){cancelAnimationFrame(raf);raf=0;previous=0;}else if(!raf)raf=requestAnimationFrame(frame);canvas.dataset.running=String(value);}
  // Only one recording is decoded at a time. The monitor rotates through all 3.
  const carousel=stage.querySelector('.scene-carousel'),slides=[...carousel.querySelectorAll('[data-project-slide]')];
@@ -122,8 +123,8 @@
   canvas.width=Math.max(480,Math.min(1440,Math.round(box.width*Math.min(devicePixelRatio||1,1.5))));canvas.height=Math.round(canvas.width*310/2560);drawTable();flow?.resize();
   const source=sun.getBoundingClientRect(),x=(source.left+source.width/2-box.left)/scale,y=(source.top+source.height/2-box.top)/scale;
   native.querySelector('.scene-light-cone path').setAttribute('d',`M${x} ${y}L-200 1440H2500Z`);
-  const gradient=native.querySelector('#solar-air');gradient.setAttribute('cx',`${x/2560*100}%`);gradient.setAttribute('cy',`${y/1440*100}%`);
-  native.style.setProperty('--sun-native-x',`${x}px`);
+  const gradient=native.querySelector('#solar-air');gradient.setAttribute('gradientUnits','userSpaceOnUse');gradient.setAttribute('cx',String(x));gradient.setAttribute('cy',String(y));gradient.setAttribute('r',String(Math.max(2400,Math.hypot(2560-x,1440-y)*1.15)));
+  native.style.setProperty('--sun-native-x',`${x}px`);lighting?.setSource(x,y);
   dispatchEvent(new CustomEvent('scene:layout'));
  }
  function update(){

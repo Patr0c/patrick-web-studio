@@ -123,3 +123,17 @@ html.studio-tab-hidden .sky-star,html.studio-tab-hidden .galaxy-rotator::before,
 @media(prefers-reduced-motion:reduce){.scene-project-slide video{transition:none;}}
 
 html.scene-light-paused .galaxy-rotator::before {animation-play-state:paused!important;}
+
+/* Neutral satin chrome is the underlying material. Warm color belongs to the
+   external sun reflections, never to an independently bronze monitor frame. */
+.scene-native .scene-hardware {filter:grayscale(1);}
+.scene-native {--solar-rgb:255 196 119;--solar-strength:.58;}
+.scene-object-shadows {position:absolute;inset:0;width:2560px;height:1440px;z-index:6;pointer-events:none;}
+.scene-solar-waves {position:absolute;inset:0;width:2560px;height:1440px;z-index:8;pointer-events:none;mix-blend-mode:screen;mask:url('../scene/material-light-mask.webp') 0 0/100% 100% no-repeat;-webkit-mask:url('../scene/material-light-mask.webp') 0 0/100% 100% no-repeat;}
+.scene-solar-waves circle {stroke:rgb(var(--solar-rgb));}
+.material-solar-reflection {background:radial-gradient(ellipse 1050px 240px at var(--sun-native-x,499px) 1115px,rgb(var(--solar-rgb) / .27),transparent 74%),linear-gradient(132deg,rgb(var(--solar-rgb) / .055),transparent 64%);opacity:var(--solar-strength);}
+.floor-solar-reflection {background:radial-gradient(ellipse 110px 540px at var(--sun-native-x,499px) 1140px,rgb(var(--solar-rgb) / .19),transparent 80%),radial-gradient(ellipse 700px 50px at var(--sun-native-x,499px) 916px,rgb(var(--solar-rgb) / .13),transparent);opacity:var(--solar-strength);}
+@media(prefers-reduced-motion:reduce){.scene-solar-waves{display:none;}}
+
+.scene-pad-shadow {position:absolute;inset:0;width:2560px;height:1440px;z-index:3;pointer-events:none;}
+.scene-light-cone stop {stop-color:rgb(var(--solar-rgb));}

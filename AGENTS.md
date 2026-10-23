@@ -53,3 +53,5 @@ Active source is now Digital-Rework-Zubehoer-v3(1).xcf,2560×1440, assets/scene/
 Latest user override: galaxy static (dust registered, no rotation), sun0.42×. Matrix only inset smoked glass, never metal frame or mousepad; script scripts/build_scene_masks.py. Three native controls hidden, assets retained. Left monitor poster carousel remains; video only on pointer hover, immediate pause on leave, reset after10s. Focus/touch/auto-selection never start playback.
 
 Current accessory override: mousepad, keyboard + lettering/rain, mouse + wheel all shifted -12 native y pixels. Keep source_position metadata; working geometry/HTML/masks must agree. Matrix also covers rear glass strip, glyph/wave lengths and flow speed1.2×.
+
+Material/lighting override: hardware base is neutral chrome via non-destructive grayscale; all warmth comes from external solar reflections. scene-lighting.js shares the existing scene RAF, follows sun-video time/color and actual mobile/desktop source. Exact pad-alpha receiver for keyboard/mouse contact + cast shadows; no independent wheel shadow. Keep screen faces excluded and hidden/offscreen/reduced-motion guards.
