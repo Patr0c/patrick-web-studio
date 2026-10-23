@@ -22,12 +22,6 @@
  }
  geometry.screens.forEach(screen=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screen.quad,screen.width,screen.height));
  const lighting=window.createSceneLighting?.(stage,native,sun,geometry);
- const ns='http://www.w3.org/2000/svg',ripples=stage.querySelector('.keyboard-ripples');
- for(let i=0;i<15;i++){
-  const circle=document.createElementNS(ns,'circle');
-  circle.setAttribute('cx',String(66+(i*173)%811));circle.setAttribute('cy',String(35+(i*47)%130));circle.setAttribute('r','165');circle.classList.add('rain-ring');
-  circle.style.setProperty('--rain-duration',`${4.5+(i%5)*.53}s`);circle.style.setProperty('--rain-delay',`${-i*.81}s`);ripples.append(circle);
- }
  // The supplied clean recording is the matrix source: original symbols,
  // cadence and falloff, with 110% horizontal stream density baked offline.
  // Native video compositing replaces the old per-glyph Canvas renderer.
