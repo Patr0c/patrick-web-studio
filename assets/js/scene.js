@@ -36,17 +36,21 @@
  paths.forEach((path,i)=>{ac.save();ac.translate(i*28+3,3);ac.scale(1.7,1.7);ac.stroke(new Path2D(path));ac.restore();});
  const canvas=stage.querySelector('.table-flow-canvas'),ctx=canvas.getContext('2d',{alpha:true});
  let seed=134117;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
- // Continuous straight ribbons: 20 of every 24 rows contain a glyph, even
- // between wave crests. Cache the repeating texture once; no glyph mutation.
- const planeWidth=2400,planeHeight=850,ribbonWidth=20,rowCount=24;
- const ribbons=document.createElement('canvas');ribbons.width=paths.length*ribbonWidth;ribbons.height=planeHeight*3;
+ // Separate flowing code trails with natural gaps, without a coverage quota.
+ // Stable glyphs and soft ends are baked once; straight movement stays cheap.
+ const planeWidth=2400,planeHeight=850,ribbonWidth=20;
+ const lengths=Array.from({length:paths.length},(_,i)=>.58+((i*7)%16)/15*.42);
+ const ribbons=document.createElement('canvas');ribbons.width=paths.length*ribbonWidth;ribbons.height=planeHeight;
  const rc=ribbons.getContext('2d');
- for(let variant=0;variant<paths.length;variant++)for(let row=0;row<rowCount;row++){
-  if((row+variant)%6===0)continue;
-  const glyph=(variant+row*7)%paths.length;
-  const y=row*planeHeight/rowCount;
-  rc.globalAlpha=.82+.18*((row*13+variant*7)%17)/16;
-  for(let repeat=0;repeat<3;repeat++)rc.drawImage(atlas,glyph*28,0,28,40,variant*ribbonWidth+3,y+repeat*planeHeight,14,32);
+ for(let variant=0;variant<paths.length;variant++){
+  const height=lengths[variant]*planeHeight,rows=Math.floor(height/35.5);
+  for(let row=0;row<rows;row++){
+   const f=(row+.5)/rows,glyph=(variant+row*7)%paths.length;
+   const tail=Math.min(1,f/.3),head=Math.min(1,(1-f)/.12);
+   const profile=tail*tail*(3-2*tail)*head*head*(3-2*head);
+   rc.globalAlpha=profile*(.78+.22*((row*13+variant*7)%17)/16);
+   rc.drawImage(atlas,glyph*28,0,28,40,variant*ribbonWidth+3,row*height/rows,14,32);
+  }
  }
  const columns=Array.from({length:302},(_,i)=>({u:(i+.5)/302,speed:(.062+random()*.045)*1.2,phase:random(),strength:.45+random()*.55,g:Math.floor(random()*paths.length)}));
  project(canvas,geometry.table_quad,planeWidth,planeHeight);
@@ -55,20 +59,20 @@
   const sx=canvas.width/planeWidth,sy=canvas.height/planeHeight;
   ctx.setTransform(sx,0,0,sy,0,0);ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.clearRect(0,0,planeWidth,planeHeight);
   for(const col of columns){
-   const offset=((time*col.speed+col.phase)%1)*planeHeight;
+   const length=lengths[col.g],period=1+length+.3;
+   const head=(time*col.speed+col.phase*period)%period-.15;
+   const height=length*planeHeight;
    ctx.globalAlpha=Math.min(1,col.strength*1.15*1.15*1.4);
-   // Scrolling the cached strip moves every character continuously along
-   // its straight line. Identical interior copies make wrapping seamless.
-   ctx.drawImage(ribbons,col.g*ribbonWidth,planeHeight*2-offset,ribbonWidth,planeHeight,col.u*planeWidth-7.1,0,14.2,planeHeight);
+   // The whole trail leaves the plane before it restarts above the rear edge.
+   ctx.drawImage(ribbons,col.g*ribbonWidth,0,ribbonWidth,height,col.u*planeWidth-7.1,(head-length)*planeHeight,14.2,height);
   }
-  // A wide travelling brightness wave, with a permanently visible base.
-  // The wave changes light only; it never bends or wipes the code paths.
+  // Gentle travelling light on the existing trails, never a solid green carpet.
   const wave=ctx.createLinearGradient(0,0,0,planeHeight);
   for(let i=0;i<=64;i++){
    const v=i/64;
    const edge=Math.max(0,Math.min(1,v/.025,(1-v)/.025));
    const fade=edge*edge*(3-2*edge);
-   const brightness=(.48+.52*Math.pow(.5+.5*Math.cos((v-time*.16)*Math.PI*2),2))*fade;
+   const brightness=(.72+.28*Math.pow(.5+.5*Math.cos((v-time*.16)*Math.PI*2),2))*fade;
    wave.addColorStop(v,`rgba(255,255,255,${brightness})`);
   }
   ctx.globalAlpha=1;ctx.globalCompositeOperation='destination-in';ctx.fillStyle=wave;ctx.fillRect(0,0,planeWidth,planeHeight);
