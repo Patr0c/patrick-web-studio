@@ -101,7 +101,8 @@ assert 'assets/js/terminal.js' not in html
 assert 'class="table-flow-video"' in html and 'class="table-flow-canvas"' not in html
 assert 'assets/video/table-matrix-reference-mobile.mp4' in html
 assert 'class="scene-screen scene-detective" data-screen="textmode"' in html
-assert 'class="scene-screen scene-textmode" data-screen="coming-soon"' in html
+assert 'class="scene-screen scene-villa" data-screen="coming-soon"' in html
+assert 'data-comparison-hidden="true"' in html
 assert 'scene-flow-caption mono' not in html and 'carousel-pause"' not in html
 assert '<header class="nav">' not in html
 assert 'h1 class="scene-title"' in html

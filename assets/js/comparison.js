@@ -10,6 +10,13 @@
   const fitScene = () => hero.style.setProperty('--scene-width', `${document.documentElement.clientWidth}px`);
   fitScene();
   window.addEventListener('resize', fitScene, { passive: true });
+  // Keep viewport sizing, but do not initialize the hidden comparison UI.
+  if(hero.hasAttribute('data-comparison-hidden')){
+    hero.style.setProperty('--reveal','0%');old.hidden=true;fresh.style.clipPath='none';
+    handle.hidden=true;handle.tabIndex=-1;handle.setAttribute('aria-valuenow','0');
+    hero.querySelectorAll('.comparison-overlay,.compare-labels,#compare-help').forEach(el=>el.hidden=true);
+    return;
+  }
   function render() {
     pending = 0;
     hero.style.setProperty('--reveal', `${position}%`);

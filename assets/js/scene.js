@@ -21,7 +21,6 @@
   element.style.transform=`matrix3d(${a/w},${d/w},0,${g/w},${b/h},${e/h},0,${hq/h},0,0,1,0,${p0[0]},${p0[1]},0,1)`;
  }
  geometry.screens.forEach(screen=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screen.quad,screen.width,screen.height));
- const flow=window.createTextmodeFlow?.(stage.querySelector('.textmode-canvas'));
  const lighting=window.createSceneLighting?.(stage,native,sun,geometry);
  const ns='http://www.w3.org/2000/svg',ripples=stage.querySelector('.keyboard-ripples');
  for(let i=0;i<15;i++){
@@ -84,7 +83,7 @@
  carousel.addEventListener('pointerleave',leave);
  carousel.addEventListener('pointercancel',leave);
  document.addEventListener('play',event=>{
-  if(event.target.matches?.('.project-preview video')){external=event.target;pauseVideos();}
+  if(event.target.matches?.('.project-preview video, .scene-recording video')){external=event.target;pauseVideos();}
   if(videos.includes(event.target))document.querySelectorAll('.project-preview video').forEach(video=>video.pause());
  },true);
  document.addEventListener('pause',event=>{if(event.target===external){external=null;playCurrent();}},true);
@@ -101,14 +100,13 @@
    sun.style.left=`${box.left-root.left+338*scale}px`;sun.style.top=`${box.top-root.top+151*scale}px`;
    sun.style.width=`${322*scale}px`;sun.style.height=`${322*scale}px`;
   }
-  flow?.resize();
   const source=sun.getBoundingClientRect(),x=(source.left+source.width/2-box.left)/scale,y=(source.top+source.height/2-box.top)/scale;
   native.style.setProperty('--sun-native-x',`${x}px`);lighting?.setSource(x,y);
   dispatchEvent(new CustomEvent('scene:layout'));
  }
  function update(){
   const next=!unloading&&visible&&!document.hidden&&!motion.matches&&!navigator.connection?.saveData&&Number(compare?.getAttribute('aria-valuenow'))!==100;
-  const changed=active!==next;active=next;stage.classList.toggle('scene-paused',!active);document.documentElement.classList.toggle('scene-light-paused',!active);stage.dataset.effects=active?'running':'paused';flow?.setActive(active);lighting?.setActive(active);setTable(active);
+  const changed=active!==next;active=next;stage.classList.toggle('scene-paused',!active);document.documentElement.classList.toggle('scene-light-paused',!active);stage.dataset.effects=active?'running':'paused';lighting?.setActive(active);setTable(active);
   if(changed){if(active){playCurrent();}else{pauseVideos();}}
  }
  new ResizeObserver(fit).observe(stage);new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;update();},{threshold:.04}).observe(stage);

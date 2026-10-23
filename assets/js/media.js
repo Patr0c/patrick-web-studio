@@ -1,9 +1,10 @@
 // Real recording posters are visible without loading/decoding the recordings.
 // Playback starts only on mouse/pen hover, and only while actually onscreen.
 (() => {
-  const states = [...document.querySelectorAll('.project-preview, .desk-preview[data-recording]')].map(preview => ({
-    preview, video: preview.querySelector('video'), visible: false, hovered: false, timer: 0, revision: 0
+  const states = [...document.querySelectorAll('.project-preview, .desk-preview[data-recording], .scene-recording')].map(preview => ({
+    preview, stage:preview.closest('.scene-stage'), video: preview.querySelector('video'), visible: false, hovered: false, timer: 0, revision: 0
   })).filter(state => state.video);
+  const canPlay=state=>state.hovered&&state.visible&&!document.hidden&&(!state.stage||state.stage.dataset.effects==='running');
   function stop(state) {
     state.revision++;
     state.video.pause();
@@ -11,18 +12,19 @@
     if (state.timer) return;
     state.timer = setTimeout(() => {
       state.timer = 0;
-      if (state.hovered && state.visible && !document.hidden) return;
+      if (canPlay(state)) return;
       if (state.video.readyState > 0) state.video.currentTime = 0;
+      state.preview.classList.remove('has-video-frame');
     }, 10000);
   }
   function play(state) {
-    if (!state.hovered || !state.visible || document.hidden) return;
+    if (!canPlay(state)) return;
     states.forEach(other => { if (other !== state) stop(other); });
     clearTimeout(state.timer); state.timer = 0;
     const revision = ++state.revision;
     state.video.play().then(() => {
-      if (state.revision !== revision || !state.hovered || !state.visible || document.hidden) {
-        if (!state.hovered || !state.visible || document.hidden) stop(state);
+      if (state.revision !== revision || !canPlay(state)) {
+        if (!canPlay(state)) stop(state);
       } else state.preview.classList.add('is-playing');
     }).catch(() => {});
   }
@@ -41,6 +43,13 @@
     });
     state.preview.addEventListener('pointerleave', () => { state.hovered = false; stop(state); });
     state.preview.addEventListener('pointercancel', () => { state.hovered = false; stop(state); });
+    if(state.stage){
+      state.video.addEventListener('playing',()=>{
+        const reveal=()=>state.preview.classList.add('has-video-frame');
+        if('requestVideoFrameCallback' in state.video)state.video.requestVideoFrameCallback(reveal);else reveal();
+      });
+      new MutationObserver(()=>{if(canPlay(state))play(state);else stop(state);}).observe(state.stage,{attributes:true,attributeFilter:['data-effects']});
+    }
     watcher.observe(state.preview);
   });
   document.addEventListener('visibilitychange', () => states.forEach(state => {
@@ -48,7 +57,7 @@
   }));
   window.addEventListener('pagehide', () => states.forEach(stop));
   document.addEventListener('play', event => {
-    if (event.target.matches?.('[data-project-video]')) states.forEach(stop);
+    if (event.target.matches?.('[data-project-video]')) states.forEach(state=>{if(state.video!==event.target)stop(state);});
   }, true);
   const details = [...document.querySelectorAll('.services-list details')];
   details.forEach(item => item.addEventListener('toggle', () => {

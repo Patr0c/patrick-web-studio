@@ -1,6 +1,6 @@
 /* Active scene: Patrick's edited 2560 × 1440 GIMP composition. */
 .immersive-hero.hero {height:100svh;min-height:700px;background:transparent;--desk-width:100%;}
-.hero .workstation-stage.scene-stage {width:min(100%,calc(100svh * 2560 / 1440));aspect-ratio:2560/1440;bottom:0;overflow:clip;}
+.hero .workstation-stage.scene-stage {width:min(calc(100% - 48px),calc((100svh - 32px) * 2560 / 1440));aspect-ratio:2560/1440;bottom:12px;overflow:visible;}
 .scene-native {position:absolute;left:0;top:0;width:2560px;height:1440px;transform:scale(var(--scene-scale,.5));transform-origin:0 0;isolation:isolate;pointer-events:none;}
 .scene-native .scene-layer,.scene-hardware {position:absolute;max-width:none;display:block;pointer-events:none;}
 .scene-native .scene-hardware {inset:0;width:2560px;height:1440px;z-index:3;}
@@ -54,9 +54,9 @@
 @keyframes comingOrbit {to{transform:rotate(360deg)}}
 .table-flow-mask {position:absolute;inset:0;z-index:5;pointer-events:none;mix-blend-mode:screen;mask:url('../scene/table-matrix-mask.webp') 0 0/2560px 1440px no-repeat;-webkit-mask:url('../scene/table-matrix-mask.webp') 0 0/2560px 1440px no-repeat;}
 .table-flow-video {position:absolute;left:0;top:0;width:2400px;height:1350px;max-width:none;transform-origin:0 0;display:block;opacity:1;object-fit:fill;pointer-events:none;}
-.keyboard-rain {position:absolute;z-index:10;pointer-events:none;background:#19e50f96;mask:url('../scene/keyboard-labels.webp') 0 0/100% 100% no-repeat;-webkit-mask:url('../scene/keyboard-labels.webp') 0 0/100% 100% no-repeat;filter:drop-shadow(0 0 .75px #19e50f);}
+.keyboard-rain {position:absolute;z-index:10;pointer-events:none;background:#a855f796;mask:url('../scene/keyboard-labels.webp') 0 0/100% 100% no-repeat;-webkit-mask:url('../scene/keyboard-labels.webp') 0 0/100% 100% no-repeat;filter:none;}
 .keyboard-ripples {width:100%;height:100%;display:block;overflow:hidden;}
-.rain-ring {fill:none;stroke:#a9ff8f;stroke-width:34;opacity:0;transform-box:fill-box;transform-origin:center;animation:keyRain var(--rain-duration) ease-out infinite;animation-delay:var(--rain-delay);filter:drop-shadow(0 0 1px #39ff14);}
+.rain-ring {fill:none;stroke:#d8b4fe;stroke-width:34;opacity:0;transform-box:fill-box;transform-origin:center;animation:keyRain var(--rain-duration) ease-out infinite;animation-delay:var(--rain-delay);filter:none;}
 @keyframes keyRain {0%{transform:scale(.01);opacity:0}7%{opacity:1}65%{opacity:.65}95%,100%{transform:scale(2.3);opacity:0}}
 .galaxy-light-pulse {animation:galaxyDeskLight 19s ease-in-out infinite;}
 @keyframes galaxyDeskLight {0%,29%,62%,100%{opacity:.045}39%{opacity:.32}46%{opacity:.95}52%{opacity:.4}57%{opacity:.13}}
@@ -74,7 +74,7 @@ html.studio-tab-hidden .sky-star,html.studio-tab-hidden .galaxy-rotator::before,
 .hero.comparison-ready.immersive-hero .compare-handle {top:48%!important;}
 @media(max-width:760px) {
  .immersive-hero.hero {min-height:780px;height:100svh;}
- .hero .workstation-stage.scene-stage {width:calc(100% - 12px);bottom:0;}
+ .hero .workstation-stage.scene-stage {width:calc(100% - 24px);bottom:8px;}
  .scene-brand {display:none;}
  .immersive-hero .scene-native .scene-sun.white-halo.sun-stage {left:338px;top:-2600px;width:800px;height:800px;}
  .scene-mobile-intro {position:absolute;display:flex;flex-direction:column;align-items:flex-start;z-index:18;top:310px;left:25px;right:25px;max-width:440px;}
@@ -91,7 +91,7 @@ html.studio-tab-hidden .sky-star,html.studio-tab-hidden .galaxy-rotator::before,
 }
 @media(prefers-reduced-motion:reduce) {
  .rain-ring,.sky-star,.galaxy-light-pulse,.coming-portal i,.space-background .galaxy-rotator::before {animation:none!important;}
- .keyboard-rain {background:#19e50fc0;}
+ .keyboard-rain {background:#a855f7c0;}
  .scene-project-slide,.scene-control img {transition:none;}
 }
 .scene-screen {box-sizing:border-box;}
@@ -138,3 +138,12 @@ html.scene-light-paused .galaxy-rotator::before {animation-play-state:paused!imp
 .scene-mobile-intro h2 span {color:transparent;-webkit-text-stroke:1px #23d92a;}
 
 .scene-detective img {display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
+
+/* Color only: no blur or glow is added to keyboard lettering. */
+.table-flow-video {filter:url('#matrix-laser-green');}
+.scene-native .scene-keyboard {filter:url('#keyboard-violet');}
+.scene-recording.has-video-frame video {opacity:1;}
+.hero[data-comparison-hidden] .hero-old,
+.hero.comparison-ready[data-comparison-hidden] .compare-handle,
+.hero.comparison-ready[data-comparison-hidden] .compare-labels,
+.hero.comparison-ready[data-comparison-hidden] .comparison-overlay {display:none!important;}
