@@ -10,10 +10,10 @@ ASSETS = ROOT / 'assets/scene'
 geometry = json.loads((ASSETS / 'geometry.json').read_text())
 size = tuple(geometry['canvas'])
 glass = Image.new('L', size)
-glass_quad = [(x, y + (26 if i < 2 else -8)) for i, (x, y) in enumerate(geometry['table_quad'])]
+glass_quad = [(x, y + (8 if i < 2 else -8)) for i, (x, y) in enumerate(geometry['table_quad'])]
 ImageDraw.Draw(glass).polygon(glass_quad, fill=255)
 # Inset the actual glass polygon, keeping all bright metal edges protected.
-glass = glass.filter(ImageFilter.MinFilter(17))
+glass = glass.filter(ImageFilter.MinFilter(3))
 material = Image.open(ASSETS / 'hardware.webp').getchannel('A')
 for screen in geometry['screens']:
     ImageDraw.Draw(material).polygon([tuple(p) for p in screen['quad']], fill=0)
@@ -24,7 +24,7 @@ for layer in geometry['layers']:
     alpha.paste(Image.open(ASSETS / layer['file']).getchannel('A'), (layer['x'], layer['y']))
     # Any visible source pixel plus a safety margin excludes the entire mousepad
     # and equipment. No guessed rectangle or visible hard mask boundary.
-    protected = alpha.point(lambda value: 255 if value > 0 else 0).filter(ImageFilter.MaxFilter(11))
+    protected = alpha.point(lambda value: 255 if value > 0 else 0).filter(ImageFilter.MaxFilter(3))
     glass = ImageChops.subtract(glass, protected)
     material = ImageChops.lighter(material, alpha)
     assert ImageChops.multiply(glass, alpha).getbbox() is None, layer['id']

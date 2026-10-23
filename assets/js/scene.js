@@ -39,6 +39,8 @@
  const canvas=stage.querySelector('.table-flow-canvas'),ctx=canvas.getContext('2d',{alpha:true});
  let seed=134117;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
  const cells=[];
+ // Fine perspective-compressed glyphs follow the narrow rear glass strip.
+ const rearCells=Array.from({length:151},(_,i)=>({x:275+i*13.3,g:Math.floor(random()*paths.length)}));
  for(let row=0;row<16;row++)for(let col=0;col<151;col++){
   if(random()>.86)continue;cells.push({u:(col+.5)/151,v:(row+.5)/16,g:Math.floor(random()*paths.length),phase:random()});
  }
@@ -47,19 +49,23 @@
   const sx=canvas.width/2560,sy=canvas.height/310;ctx.setTransform(sx,0,0,sy,0,0);ctx.clearRect(0,0,2560,310);
   for(const c of cells){
    const p=c.v+Math.sin(c.u*8+time*.3)*.13-time*.16;
-   const wave=Math.exp(-Math.pow(Math.sin(p*Math.PI*1.5),2)*28);
+   const wave=Math.exp(-Math.pow(Math.sin(p*Math.PI*1.5),2)*(28/1.44));
    const q=c.u+Math.sin(c.v*5-time*.2)*.14-time*.07;
-   const cross=Math.exp(-Math.pow(Math.sin(q*Math.PI*2),2)*38)*.36;
+   const cross=Math.exp(-Math.pow(Math.sin(q*Math.PI*2),2)*(38/1.44))*.36;
    const brightness=Math.min(1,(.035+wave*.83+cross)*1.15)*(c.phase*.35+.65);
    if(brightness<.06)continue;
    const left=260-215*c.v,right=2300+220*c.v;
    const x=left+(right-left)*c.u,y=33+c.v*247;
    const size=9+c.v*4.5,glyph=(c.g+Math.floor(time*.6+c.phase*9))%paths.length;
-   ctx.globalAlpha=brightness;ctx.drawImage(atlas,glyph*28,0,28,40,x,y,size,size*1.43);
+   ctx.globalAlpha=brightness;ctx.drawImage(atlas,glyph*28,0,28,40,x,y,size,size*1.43*1.2);
+  }
+  for(const c of rearCells){
+   const wave=.2+.8*Math.pow(.5+.5*Math.sin(c.x*.012-time*1.1),3);
+   ctx.globalAlpha=wave;ctx.drawImage(atlas,c.g*28,0,28,40,c.x,46,5,7.2);
   }
   ctx.globalAlpha=1;frames++;if(frames%30===0)canvas.dataset.frames=String(frames);
  }
- function frame(now){raf=0;if(!active)return;if(now-last>=1000/30){if(previous)time+=Math.min((now-previous)/1000,.1);previous=now;last=now;drawTable();}raf=requestAnimationFrame(frame);}
+ function frame(now){raf=0;if(!active)return;if(now-last>=1000/30){if(previous)time+=Math.min((now-previous)/1000,.1)*1.2;previous=now;last=now;drawTable();}raf=requestAnimationFrame(frame);}
  function setTable(value){if(!value){cancelAnimationFrame(raf);raf=0;previous=0;}else if(!raf)raf=requestAnimationFrame(frame);canvas.dataset.running=String(value);}
  // Only one recording is decoded at a time. The monitor rotates through all 3.
  const carousel=stage.querySelector('.scene-carousel'),slides=[...carousel.querySelectorAll('[data-project-slide]')];

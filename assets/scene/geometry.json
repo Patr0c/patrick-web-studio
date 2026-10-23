@@ -30,24 +30,32 @@
     {
       "id": "mouse-wheel",
       "x": 1913,
-      "y": 1252,
+      "y": 1240,
       "width": 21,
       "height": 16,
       "file": "mouse-wheel.webp",
       "source_layer": 8,
       "sha256": "6683248225fff008ff59cdc0b0decb6229c3db1371a9d403f4b4932fd0219bd0",
-      "file_sha256": "3b7977162732a89617148b3cac7adf042907855a033425f71ca5646798926026"
+      "file_sha256": "3b7977162732a89617148b3cac7adf042907855a033425f71ca5646798926026",
+      "source_position": [
+        1913,
+        1252
+      ]
     },
     {
       "id": "mouse",
       "x": 1865,
-      "y": 1252,
+      "y": 1240,
       "width": 151,
       "height": 108,
       "file": "mouse.webp",
       "source_layer": 9,
       "sha256": "2168b9f34ade1b2fe45114e42528a8fa2510178e425f1b62fc899fe5c0f7ab91",
-      "file_sha256": "7d12afe54851b357e9b9e762bbf9af93ef843be2fe8d54e32f10e844051bcd86"
+      "file_sha256": "7d12afe54851b357e9b9e762bbf9af93ef843be2fe8d54e32f10e844051bcd86",
+      "source_position": [
+        1865,
+        1252
+      ]
     },
     {
       "id": "button-red",
@@ -85,35 +93,47 @@
     {
       "id": "keyboard-labels",
       "x": 771,
-      "y": 1181,
+      "y": 1169,
       "width": 943,
       "height": 210,
       "file": "keyboard-labels.webp",
       "source_layer": 13,
       "sha256": "d703a631b27ca847a1b188c864e1bc493f07e4f4c8e0649954d1656cf8e047c5",
-      "file_sha256": "bbf81cae1331d46d9b94abc52654f0d2cb2cd9b343d9e93b95e3152ac0bcade8"
+      "file_sha256": "bbf81cae1331d46d9b94abc52654f0d2cb2cd9b343d9e93b95e3152ac0bcade8",
+      "source_position": [
+        771,
+        1181
+      ]
     },
     {
       "id": "keyboard",
       "x": 771,
-      "y": 1181,
+      "y": 1169,
       "width": 943,
       "height": 210,
       "file": "keyboard.webp",
       "source_layer": 14,
       "sha256": "9a72fb139ec4ef5f4bcc2b05f53e3e528757b1c6e293f59dc61651e08a5560ab",
-      "file_sha256": "3d085437160e4e6197f3ca532763ace379adaaffdefc49d1f0eb1f78695c0c44"
+      "file_sha256": "3d085437160e4e6197f3ca532763ace379adaaffdefc49d1f0eb1f78695c0c44",
+      "source_position": [
+        771,
+        1181
+      ]
     },
     {
       "id": "mousepad",
       "x": 552,
-      "y": 1177,
+      "y": 1165,
       "width": 1600,
       "height": 217,
       "file": "mousepad.webp",
       "source_layer": 15,
       "sha256": "24127a1f744504fc87a75ac7d5c667dacfa85e35d96b8ec7b267886127b411b6",
-      "file_sha256": "98a8642952b978d148e7add56660a2ebfb39fa926e38786865fb5ec76cf4cc5a"
+      "file_sha256": "98a8642952b978d148e7add56660a2ebfb39fa926e38786865fb5ec76cf4cc5a",
+      "source_position": [
+        552,
+        1177
+      ]
     },
     {
       "id": "platform",
@@ -238,9 +258,9 @@
     "hardware.webp": "d4bc6cc18d74f7b0c7d7f0ce7e1f31934782c967e0fda468d20bb475a100c874",
     "keyboard-labels.webp": "bbf81cae1331d46d9b94abc52654f0d2cb2cd9b343d9e93b95e3152ac0bcade8",
     "button-red.webp": "357d773ce49fca2daee4abd88cfa33673d7fdbc9be1dd74cccf9219aa7834c01",
-    "material-light-mask.webp": "bdf0edbb7992be8d1dfe341580cb161820fd757b61656e07a9bf3d8bc32947e7",
+    "material-light-mask.webp": "d2cc89d9a4a79b3281fe4acdd8501caf430cba55d5b542cd516395627cbaf322",
     "mouse.webp": "7d12afe54851b357e9b9e762bbf9af93ef843be2fe8d54e32f10e844051bcd86",
     "keyboard.webp": "3d085437160e4e6197f3ca532763ace379adaaffdefc49d1f0eb1f78695c0c44",
-    "table-matrix-mask.webp": "539c2cfac05c83c7a87ddeb4159c70daebc39462f34a05ac9b431f7775bb7e20"
+    "table-matrix-mask.webp": "3e01e406c6ba939decdd0852e118e928e088fc3c08361f6309e60aca23502584"
   }
 }
