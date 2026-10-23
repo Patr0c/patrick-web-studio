@@ -674,3 +674,12 @@ verschobenen Tastatur neu erzeugt; alte Aussparung nicht zurückgelassen.
 Alle anderen Geräte-/Layoutteile und Originaldateien unverändert.
 Reproduzierbar: python3 scripts/build_mousepad_mask.py.
 Ressourcen-/Originalhash-Prüfung und git diff --check erfolgreich.
+
+Online-Abschluss c9f394d: Cloudflare und static-site erfolgreich. Chromium
+1348×936: Tastatur/Beschriftung gleiche Box, Unterkante921.22 statt932.30,
+Hero-Ende936. Telefon-Clientbreiten375/305: Unterkanten838.16/839.31, Hero844,
+Beschriftung exakt deckungsgleich, keine seitlichen Überläufe. Maskenüberlappung
+mit allen sechs Hardwareflächen numerisch0. Firefox/physische Telefone hier
+nicht verfügbar. Direkte Runtime-Vorschau:
+https://65dd23ba.patrick-web-studio.pages.dev/
+Nachweis: docs/keyboard-clearance-preview.jpg.
