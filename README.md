@@ -72,3 +72,6 @@ Alte Versionen sind über Git verfügbar, nicht als zusätzliche aktive Websites
 
 
 Aktuelle Szene: [Curved-Matrix-Szene](docs/curved-matrix-scene.md), native Nutzerdatei2560×1440. Aktive Grafik und Positionsvertrag: `assets/scene/`; Steuerung: `assets/js/scene.js`, `assets/css/scene.css`. Der ältere Rauchglas-Import bleibt als Archiv erhalten. Direkte gerenderte Vorschau: https://52b0a81b.patrick-web-studio.pages.dev
+
+
+Aktueller Sonnen-/Tischdurchgang: separate originale Glasplattenebene, senkrechte Matrix-Lichtzeichen, kugelförmige Sonnenbeleuchtung mit Korona-Reflexen und offline geglättete60fps-Medien. Details/Quellmaße: docs/curved-matrix-scene.md. Reproduzierbare Medienaufbereitung: scripts/build_smooth_sun.py; native Masken: scripts/build_scene_masks.py. Nur Entwicklungsvorschau, keine Änderung an main.

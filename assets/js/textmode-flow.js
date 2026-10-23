@@ -9,7 +9,7 @@
     const gl = canvas.getContext('webgl', {alpha:false, antialias:false, depth:false,
       stencil:false, preserveDrawingBuffer:false, powerPreference:'low-power'});
     let active=false, raf=0, previous=0, last=0, elapsed=12.4, lost=false, frames=0;
-    let program, timeLocation, gridLocation, fallbackContext, fallbackCanvas;
+    let program, timeLocation, gridLocation, fallbackContext, fallbackCanvas, fallbackAtlas;
     const vertex = 'attribute vec2 a_position;varying vec2 v_uv;void main(){v_uv=a_position*.5+.5;gl_Position=vec4(a_position,0.,1.);}';
     const fragment = `precision highp float;
       varying vec2 v_uv;uniform sampler2D u_glyphs;uniform float u_time;
@@ -65,8 +65,9 @@
         const b=Math.pow(.5+.5*Math.sin(f*11.5-elapsed*.42),3.2);
         if(b<.1)continue;
         const green=.5+.5*Math.sin(f*2.45+x/w*5.8-elapsed*.12);
-        ctx.fillStyle=`rgb(${196-171*green},${214+15*green},${202-187*green})`;ctx.globalAlpha=.4+b*.6;
-        ctx.fillText(glyphs[Math.min(9,Math.floor(b*10))],x,y);
+        ctx.globalAlpha=.4+b*.6;
+        const ink=Math.min(31,Math.round(green*31)),glyph=Math.min(9,Math.floor(b*10));
+        ctx.drawImage(fallbackAtlas,glyph*8,ink*10,5,8,x,y,5,8);
       }
     };
     const render = () => {
@@ -118,7 +119,12 @@
       fallbackCanvas=document.createElement('canvas');fallbackCanvas.width=480;fallbackCanvas.height=220;
       fallbackCanvas.className='textmode-fallback';fallbackCanvas.setAttribute('aria-hidden','true');
       fallbackContext=fallbackCanvas.getContext('2d',{alpha:false});
-      fallbackContext.font='7px monospace';fallbackContext.textBaseline='top';
+      fallbackAtlas=document.createElement('canvas');fallbackAtlas.width=80;fallbackAtlas.height=320;
+      const ink=fallbackAtlas.getContext('2d');ink.font='7px monospace';ink.textBaseline='top';
+      for(let row=0;row<32;row++){
+        const green=row/31;ink.fillStyle=`rgb(${196-171*green},${214+15*green},${202-187*green})`;
+        [...glyphs].forEach((glyph,i)=>ink.fillText(glyph,i*8,row*10));
+      }
       canvas.after(fallbackCanvas);canvas.hidden=true;render();
     }
     canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();lost=true;setActive(false);});

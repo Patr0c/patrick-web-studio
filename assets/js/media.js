@@ -62,8 +62,9 @@
   const corona = document.querySelector('.solar-corona-video');
   if (!sun || !hero) return;
   const videos = [sun, corona].filter(Boolean);
-  // A further 30% reduction from 0.6x: 0.42x; existing flare timing retained.
-  sun.defaultPlaybackRate = .42; sun.playbackRate = .42;
+  // Original 0.42x rotation is baked into the optical-flow 60fps asset.
+  // Normal playback avoids repeating each original motion frame at slow speed.
+  sun.defaultPlaybackRate = 1; sun.playbackRate = 1;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false, started = false;
   videos.forEach(video => { video.muted = true; video.defaultMuted = true; video.autoplay = false; });

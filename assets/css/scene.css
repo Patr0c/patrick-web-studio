@@ -58,19 +58,8 @@
 .keyboard-ripples {width:100%;height:100%;display:block;overflow:hidden;}
 .rain-ring {fill:none;stroke:#a9ff8f;stroke-width:34;opacity:0;transform-box:fill-box;transform-origin:center;animation:keyRain var(--rain-duration) ease-out infinite;animation-delay:var(--rain-delay);filter:drop-shadow(0 0 1px #39ff14);}
 @keyframes keyRain {0%{transform:scale(.01);opacity:0}7%{opacity:1}65%{opacity:.65}95%,100%{transform:scale(2.3);opacity:0}}
-.scene-light-cone,.scene-floor-light,.scene-material-light {position:absolute;inset:0;width:2560px;height:1440px;pointer-events:none;}
-.scene-light-cone {z-index:2;}
-.scene-floor-light {z-index:2;mask:url('../scene/floor-mask.webp') 0 0/100% 100% no-repeat;-webkit-mask:url('../scene/floor-mask.webp') 0 0/100% 100% no-repeat;mix-blend-mode:screen;}
-.scene-material-light {z-index:8;mask:url('../scene/material-light-mask.webp') 0 0/100% 100% no-repeat;-webkit-mask:url('../scene/material-light-mask.webp') 0 0/100% 100% no-repeat;mix-blend-mode:screen;}
-.scene-floor-light i,.scene-material-light i {position:absolute;inset:0;display:block;}
-.material-solar-reflection {background:radial-gradient(ellipse 900px 240px at 500px 1115px,#ffbf7640,transparent 72%),linear-gradient(132deg,#ffd7a214,transparent 64%);opacity:.66;}
-.floor-solar-reflection {background:radial-gradient(ellipse 100px 540px at 500px 1140px,#ffbf7633,transparent 80%),radial-gradient(ellipse 700px 50px at 500px 916px,#fbbd8b26,transparent);}
-.material-galaxy-reflection {background:radial-gradient(ellipse 800px 180px at 1800px 1160px,#a0c4f94d,transparent 76%),radial-gradient(ellipse 440px 90px at 1390px 1300px,#baa6da33,transparent);}
-.floor-galaxy-reflection {background:radial-gradient(ellipse 530px 180px at 1700px 1030px,#9ac2f752,transparent 75%);}
 .galaxy-light-pulse {animation:galaxyDeskLight 19s ease-in-out infinite;}
 @keyframes galaxyDeskLight {0%,29%,62%,100%{opacity:.045}39%{opacity:.32}46%{opacity:.95}52%{opacity:.4}57%{opacity:.13}}
-.scene-galaxy-ray {position:absolute;inset:0;z-index:8;pointer-events:none;mix-blend-mode:screen;opacity:.22;mask:url('../scene/material-light-mask.webp') 0 0/100% 100% no-repeat;-webkit-mask:url('../scene/material-light-mask.webp') 0 0/100% 100% no-repeat;}
-.scene-galaxy-ray path {stroke-dasharray:270 1900;animation:galaxyRayTravel 19s ease-in-out infinite;}
 @keyframes galaxyRayTravel {0%,28%{stroke-dashoffset:2200;opacity:0}38%{opacity:.85}57%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:0;opacity:0}}
 .scene-mobile-intro {display:none;}
 .space-background .galaxy-position {left:calc(50% + var(--scene-unit, .5px)*491);top:calc(var(--scene-top,0px) + var(--scene-unit,.5px)*953);width:calc(var(--scene-unit,.5px)*1936);height:auto;aspect-ratio:1;}
@@ -99,18 +88,14 @@ html.studio-tab-hidden .sky-star,html.studio-tab-hidden .galaxy-rotator::before,
  .hero.comparison-ready.immersive-hero .compare-handle {top:270px!important;}
  .space-background .galaxy-position {width:145vw;left:68%;top:67svh;}
 
- .scene-light-cone {opacity:.5;}
 }
 @media(prefers-reduced-motion:reduce) {
- .rain-ring,.sky-star,.galaxy-light-pulse,.scene-galaxy-ray path,.coming-portal i,.space-background .galaxy-rotator::before {animation:none!important;}
+ .rain-ring,.sky-star,.galaxy-light-pulse,.coming-portal i,.space-background .galaxy-rotator::before {animation:none!important;}
  .keyboard-rain {background:#19e50fc0;}
  .scene-project-slide,.scene-control img {transition:none;}
 }
 .scene-screen {box-sizing:border-box;}
 .immersive-hero .hero-new>.scene-sun.white-halo.sun-stage {position:absolute;left:30px;top:132px;width:142px;height:142px;transform:none;z-index:12!important;}
-.material-solar-reflection {background:radial-gradient(ellipse 900px 240px at var(--sun-native-x,500px) 1115px,#ffbf7640,transparent 72%),linear-gradient(132deg,#ffd7a214,transparent 64%);}
-.floor-solar-reflection {background:radial-gradient(ellipse 100px 540px at var(--sun-native-x,500px) 1140px,#ffbf7633,transparent 80%),radial-gradient(ellipse 700px 50px at var(--sun-native-x,500px) 916px,#fbbd8b26,transparent);}
-.scene-galaxy-ray {width:2560px;height:1440px;}
 @media(max-width:760px) {
  .scene-mobile-intro {top:330px;}
  .hero.comparison-ready .compare-labels {left:80px;top:283px;}
@@ -129,11 +114,17 @@ html.scene-light-paused .galaxy-rotator::before {animation-play-state:paused!imp
 .scene-native .scene-hardware {filter:grayscale(1);}
 .scene-native {--solar-rgb:255 196 119;--solar-strength:.58;}
 .scene-object-shadows {position:absolute;inset:0;width:2560px;height:1440px;z-index:6;pointer-events:none;}
-.scene-solar-waves {position:absolute;inset:0;width:2560px;height:1440px;z-index:8;pointer-events:none;mix-blend-mode:screen;mask:url('../scene/material-light-mask.webp') 0 0/100% 100% no-repeat;-webkit-mask:url('../scene/material-light-mask.webp') 0 0/100% 100% no-repeat;}
-.scene-solar-waves circle {stroke:rgb(var(--solar-rgb));}
-.material-solar-reflection {background:radial-gradient(ellipse 1050px 240px at var(--sun-native-x,499px) 1115px,rgb(var(--solar-rgb) / .27),transparent 74%),linear-gradient(132deg,rgb(var(--solar-rgb) / .055),transparent 64%);opacity:var(--solar-strength);}
-.floor-solar-reflection {background:radial-gradient(ellipse 110px 540px at var(--sun-native-x,499px) 1140px,rgb(var(--solar-rgb) / .19),transparent 80%),radial-gradient(ellipse 700px 50px at var(--sun-native-x,499px) 916px,rgb(var(--solar-rgb) / .13),transparent);opacity:var(--solar-strength);}
-@media(prefers-reduced-motion:reduce){.scene-solar-waves{display:none;}}
 
 .scene-pad-shadow {position:absolute;inset:0;width:2560px;height:1440px;z-index:3;pointer-events:none;}
-.scene-light-cone stop {stop-color:rgb(var(--solar-rgb));}
+
+/* Precisely split native glass/structure: each original pixel appears once. */
+.scene-native .scene-tabletop {position:absolute;inset:0;width:2560px;height:1440px;max-width:none;z-index:3;pointer-events:none;filter:grayscale(1);}
+.scene-native .scene-platform {filter:grayscale(1) brightness(.79) contrast(.94);}
+.scene-reflection-field {position:absolute;left:0;top:800px;width:2560px;height:640px;z-index:8;pointer-events:none;contain:strict;mask:url('../scene/surface-reflection-mask.webp') 0 -800px/2560px 1440px no-repeat;-webkit-mask:url('../scene/surface-reflection-mask.webp') 0 -800px/2560px 1440px no-repeat;}
+/* Sunlight is emitted by the whole sphere; atmosphere is its existing round aura. */
+.scene-sun .sun-video,.scene-sun .solar-corona-video {will-change:transform;transform:translateZ(0);backface-visibility:hidden;}
+
+/* Isolate the small solar composition from the large workstation backdrop. */
+.scene-sun.white-halo.sun-stage {isolation:isolate;mix-blend-mode:screen;contain:layout style;will-change:transform;}
+
+@media(min-width:761px){.immersive-hero .hero-new>.scene-sun.white-halo.sun-stage{z-index:13!important;}}
