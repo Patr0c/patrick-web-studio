@@ -36,14 +36,14 @@
  paths.forEach((path,i)=>{ac.save();ac.translate(i*28+3,3);ac.scale(1.7,1.7);ac.stroke(new Path2D(path));ac.restore();});
  const canvas=stage.querySelector('.table-flow-canvas'),ctx=canvas.getContext('2d',{alpha:true});
  let seed=134117;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
- // Long, vertically descending plumes with bright inner bodies and faded
- // beginnings/ends. Glyph paths are unchanged; positions move continuously.
+ // Long strands flow from rear to front, projected flat into the glass plane.
+ // The latest length, tight core and brightness profile stay unchanged.
  const columns=Array.from({length:151},(_,i)=>({u:(i+.5)/151,speed:(.062+random()*.045)*1.2,phase:random()*1.85,length:.55+random()*.52,strength:.45+random()*.55,g:Math.floor(random()*paths.length)}));
  let raf=0,previous=0,last=0,time=13.7,frames=0;
  function drawTable(){
   const sx=canvas.width/2560,sy=canvas.height/310;ctx.setTransform(sx,0,0,sy,0,0);ctx.clearRect(0,0,2560,310);
   for(const col of columns){
-   const head=(time*col.speed+col.phase)%1.85-.2;
+   const head=(time*col.speed+col.phase+Math.sin(col.u*8-time*.15)*.13)%1.85-.2;
    for(let j=0;j<27;j++){
     const f=(j+.5)/27,v=head-f*col.length;if(v<0||v>1)continue;
     const profile=Math.pow(Math.sin(Math.PI*f),1.65);
@@ -51,9 +51,14 @@
     const brightness=Math.min(1,profile*col.strength*detail*1.15*1.15);
     if(brightness<.035)continue;
     const u=col.u+Math.sin(v*4+col.phase)*.0015;
-    const x=40+2480*u,y=45+v*226,size=7.5+v*4.6;
+    const left=278-210*v,right=2284+205*v;
+    const x=left+(right-left)*u,y=45+v*226,size=9+v*4.5;
+    const depth=.26+v*.1;
     const glyph=(col.g+j*7+Math.floor(time*.35))%paths.length;
-    ctx.globalAlpha=brightness;ctx.drawImage(atlas,glyph*28,0,28,40,x,y,size,size*1.43*1.2);
+    ctx.globalAlpha=brightness;ctx.save();
+    // Compress glyph depth and fan its vertical axis toward the seated viewer.
+    ctx.translate(x,y);ctx.transform(1,0,(u-.5)*1.1,depth,0,0);
+    ctx.drawImage(atlas,glyph*28,0,28,40,0,0,size,size*1.43*1.2);ctx.restore();
    }
   }
   ctx.globalAlpha=1;frames++;if(frames%30===0)canvas.dataset.frames=String(frames);
@@ -64,7 +69,8 @@
   lighting?.tick(now);raf=requestAnimationFrame(frame);
  }
  function setTable(value){if(!value){cancelAnimationFrame(raf);raf=0;previous=0;}else if(!raf)raf=requestAnimationFrame(frame);canvas.dataset.running=String(value);}
- // Only one recording is decoded at a time. The monitor rotates through all 3.
+ // HRService is the fixed initial selection. Only clicks change the project;
+ // playback still starts exclusively on pointer hover.
  const carousel=stage.querySelector('.scene-carousel'),slides=[...carousel.querySelectorAll('[data-project-slide]')];
  const videos=slides.map(slide=>slide.querySelector('video')),dots=[...carousel.querySelectorAll('[data-show-project]')];
  videos.forEach((video,i)=>{
@@ -74,8 +80,7 @@
   });
   video.addEventListener('error',()=>slides[i].classList.remove('has-video-frame'));
  });
- const pauseButton=carousel.querySelector('.carousel-pause');
- let index=0,timer=0,hold=false,hovered=false,manual=false,revision=0,external=null;
+ let index=0,hovered=false,revision=0,external=null;
  const resets=new Map();
  function scheduleReset(video){
   if(resets.has(video))return;
@@ -85,9 +90,7 @@
    slides[videos.indexOf(video)].classList.remove('has-video-frame');
   },10000));
  }
- function clearRotation(){clearTimeout(timer);timer=0;}
  function pauseVideos(){revision++;videos.forEach(video=>{video.pause();scheduleReset(video);});}
- function arm(){clearRotation();if(active&&!hold&&!manual&&!external)timer=setTimeout(()=>show((index+1)%slides.length),12000);}
  function playCurrent(){
   pauseVideos();if(!active||!hovered||external)return;
   const video=videos[index],version=revision;
@@ -96,21 +99,18 @@
  }
  function show(next){
   index=next;slides.forEach((slide,i)=>{const on=i===index;slide.classList.toggle('is-active',on);slide.setAttribute('aria-hidden',String(!on));slide.tabIndex=on?0:-1;dots[i].setAttribute('aria-pressed',String(on));});
-  carousel.querySelector('.project-counter').textContent=String(index+1).padStart(2,'0');carousel.dataset.project=String(index);playCurrent();arm();
+  carousel.dataset.project=String(index);playCurrent();
  }
  dots.forEach((button,i)=>button.addEventListener('click',()=>show(i)));
- pauseButton.addEventListener('click',()=>{manual=!manual;pauseButton.setAttribute('aria-pressed',String(manual));pauseButton.setAttribute('aria-label',manual?'Projektwechsel fortsetzen':'Projektwechsel pausieren');pauseButton.textContent=manual?'▶':'Ⅱ';arm();});
- carousel.addEventListener('pointerenter',event=>{if(event.pointerType!=='touch'){hovered=true;hold=true;playCurrent();arm();}});
- function leave(){hovered=false;hold=carousel.contains(document.activeElement);pauseVideos();arm();}
+ carousel.addEventListener('pointerenter',event=>{if(event.pointerType!=='touch'){hovered=true;playCurrent();}});
+ function leave(){hovered=false;pauseVideos();}
  carousel.addEventListener('pointerleave',leave);
  carousel.addEventListener('pointercancel',leave);
- carousel.addEventListener('focusin',()=>{hold=true;arm();});
- carousel.addEventListener('focusout',event=>{if(!carousel.contains(event.relatedTarget)){hold=false;arm();}});
  document.addEventListener('play',event=>{
-  if(event.target.matches?.('.project-preview video')){external=event.target;pauseVideos();clearRotation();}
+  if(event.target.matches?.('.project-preview video')){external=event.target;pauseVideos();}
   if(videos.includes(event.target))document.querySelectorAll('.project-preview video').forEach(video=>video.pause());
  },true);
- document.addEventListener('pause',event=>{if(event.target===external){external=null;playCurrent();arm();}},true);
+ document.addEventListener('pause',event=>{if(event.target===external){external=null;playCurrent();}},true);
  function fit(){
   const box=stage.getBoundingClientRect();scale=box.width/2560;stage.style.setProperty('--scene-scale',String(scale));
   document.documentElement.style.setProperty('--scene-unit',`${scale}px`);document.documentElement.style.setProperty('--scene-top',`${box.top+scrollY}px`);
@@ -132,7 +132,7 @@
  function update(){
   const next=!unloading&&visible&&!document.hidden&&!motion.matches&&!navigator.connection?.saveData&&Number(compare?.getAttribute('aria-valuenow'))!==100;
   const changed=active!==next;active=next;stage.classList.toggle('scene-paused',!active);document.documentElement.classList.toggle('scene-light-paused',!active);stage.dataset.effects=active?'running':'paused';flow?.setActive(active);lighting?.setActive(active);setTable(active);
-  if(changed){if(active){playCurrent();arm();}else{pauseVideos();clearRotation();}}
+  if(changed){if(active){playCurrent();}else{pauseVideos();}}
  }
  new ResizeObserver(fit).observe(stage);new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;update();},{threshold:.04}).observe(stage);
  if(compare)new MutationObserver(update).observe(compare,{attributes:true,attributeFilter:['aria-valuenow']});
