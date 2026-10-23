@@ -9,26 +9,26 @@
     const gl = canvas.getContext('webgl', {alpha:false, antialias:false, depth:false,
       stencil:false, preserveDrawingBuffer:false, powerPreference:'low-power'});
     let active=false, raf=0, previous=0, last=0, elapsed=12.4, lost=false, frames=0;
-    let program, timeLocation, gridLocation, fallbackContext, fallbackCanvas;
+    let program, timeLocation, gridLocation, fallbackContext, fallbackCanvas, fallbackAtlas;
     const vertex = 'attribute vec2 a_position;varying vec2 v_uv;void main(){v_uv=a_position*.5+.5;gl_Position=vec4(a_position,0.,1.);}';
     const fragment = `precision highp float;
       varying vec2 v_uv;uniform sampler2D u_glyphs;uniform float u_time;
       uniform vec2 u_grid;uniform float u_aspect;
       float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
       float field(vec2 p,float t){
-        p+=vec2(sin(t*.032)*.42,t*.025);
-        vec2 q=p+vec2(sin(p.y*.92+t*.045),cos(p.x*.87-t*.038))*.51;
-        float f=sin(q.x*1.18+sin(q.y*.94))+cos(q.y*1.31+cos(q.x*.83));
-        f+=.24*sin(q.x*2.72+q.y*1.64+t*.062);
+        p+=vec2(sin(t*.075)*.55,cos(t*.063)*.5);
+        vec2 q=p+vec2(sin(p.y*.78+t*.13),cos(p.x*.71-t*.11))*1.05;
+        float f=sin(q.x*.91+sin(q.y*.77+t*.09))+cos(q.y*1.05+cos(q.x*.72-t*.07));
+        f+=.16*sin(q.x*1.8+q.y*1.32+t*.16);
         return f;
       }
       void main(){
         vec2 cell=floor(v_uv*u_grid), uv=(cell+.5)/u_grid;
         vec2 p=(uv-.5)*vec2(u_aspect*4.8,4.8);
         float f=field(p,u_time);
-        float ribbon=pow(.5+.5*sin(f*21.5-u_time*.34),8.);
-        float strand=pow(.5+.5*sin(f*21.5-u_time*.34+.48),16.);
-        float grain=.58+.42*hash(cell);
+        float ribbon=pow(.5+.5*sin(f*11.5-u_time*.42),3.2);
+        float strand=pow(.5+.5*sin(f*11.5-u_time*.42+.58),8.);
+        float grain=.82+.18*hash(cell);
         float brightness=clamp((ribbon*.92+strand*.31)*grain,0.,.999);
         float index=floor(brightness*10.);
         vec2 local=fract(v_uv*u_grid);
@@ -59,14 +59,15 @@
       const ctx=fallbackContext,w=480,h=220;
       ctx.globalAlpha=1;ctx.fillStyle='#020604';ctx.fillRect(0,0,w,h);
       for(let y=0;y<h;y+=8)for(let x=0;x<w;x+=5){
-        const px=(x/w-.5)*10.5+Math.sin(elapsed*.032)*.42,py=(y/h-.5)*4.8+elapsed*.025;
-        const qx=px+Math.sin(py*.92+elapsed*.045)*.51,qy=py+Math.cos(px*.87-elapsed*.038)*.51;
-        const f=Math.sin(qx*1.18+Math.sin(qy*.94))+Math.cos(qy*1.31+Math.cos(qx*.83))+.24*Math.sin(qx*2.72+qy*1.64+elapsed*.062);
-        const b=Math.pow(.5+.5*Math.sin(f*21.5-elapsed*.34),8);
+        const px=(x/w-.5)*10.5+Math.sin(elapsed*.075)*.55,py=(y/h-.5)*4.8+Math.cos(elapsed*.063)*.5;
+        const qx=px+Math.sin(py*.78+elapsed*.13)*1.05,qy=py+Math.cos(px*.71-elapsed*.11)*1.05;
+        const f=Math.sin(qx*.91+Math.sin(qy*.77+elapsed*.09))+Math.cos(qy*1.05+Math.cos(qx*.72-elapsed*.07))+.16*Math.sin(qx*1.8+qy*1.32+elapsed*.16);
+        const b=Math.pow(.5+.5*Math.sin(f*11.5-elapsed*.42),3.2);
         if(b<.1)continue;
-        const green=Math.sin(f*2.45+x/w*5.8-elapsed*.12)>.5;
-        ctx.fillStyle=green?'#19e50f':'#c4d6ca';ctx.globalAlpha=.4+b*.6;
-        ctx.fillText(glyphs[Math.min(9,Math.floor(b*10))],x,y);
+        const green=.5+.5*Math.sin(f*2.45+x/w*5.8-elapsed*.12);
+        ctx.globalAlpha=.4+b*.6;
+        const ink=Math.min(31,Math.round(green*31)),glyph=Math.min(9,Math.floor(b*10));
+        ctx.drawImage(fallbackAtlas,glyph*8,ink*10,5,8,x,y,5,8);
       }
     };
     const render = () => {
@@ -76,7 +77,7 @@
     };
     const frame = now => {
       raf=0;if(!active || lost)return;
-      if(now-last>=1000/30){
+      if(now-last>=1000/(fallbackContext?20:45)){
         if(previous)elapsed+=Math.min((now-previous)/1000,.1);
         previous=now;last=now;render();
       }
@@ -118,7 +119,12 @@
       fallbackCanvas=document.createElement('canvas');fallbackCanvas.width=480;fallbackCanvas.height=220;
       fallbackCanvas.className='textmode-fallback';fallbackCanvas.setAttribute('aria-hidden','true');
       fallbackContext=fallbackCanvas.getContext('2d',{alpha:false});
-      fallbackContext.font='7px monospace';fallbackContext.textBaseline='top';
+      fallbackAtlas=document.createElement('canvas');fallbackAtlas.width=80;fallbackAtlas.height=320;
+      const ink=fallbackAtlas.getContext('2d');ink.font='7px monospace';ink.textBaseline='top';
+      for(let row=0;row<32;row++){
+        const green=row/31;ink.fillStyle=`rgb(${196-171*green},${214+15*green},${202-187*green})`;
+        [...glyphs].forEach((glyph,i)=>ink.fillText(glyph,i*8,row*10));
+      }
       canvas.after(fallbackCanvas);canvas.hidden=true;render();
     }
     canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();lost=true;setActive(false);});

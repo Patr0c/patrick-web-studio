@@ -330,3 +330,44 @@ Arbeitsposition y=595 statt619, identische Größe/Proportionen. Originale GIMP-
 Dateien und archivierte Geometrie unverändert. 40 native Pixel zwischen der
 sichtbaren Tastaturunterkante (y786) und dem Canvas-Ende (826). Matrixmaske
 mit derselben Arbeitsposition neu abgeleitet: scripts/build_mousepad_mask.py.
+
+
+## Aktuell verbindlich: Curved-Matrix-Szene (23.10.2026)
+
+Die aktuelle Nutzerdatei `Digital-Rework-Zubehoer-v3(1).xcf` mit 2560×1440 ersetzt für den aktiven Hero das alte 1949×826-Raster. Fotografische Reparatur von Tisch, Rahmen und Bildschirmen ist diesmal ausdrücklich beauftragt. Maßgeblich sind Patricks neue Perspektive und Zubehörpositionen. Drei sanft zum Sitzplatz eingedrehte Displays: links rotierende echte Projektaufnahmen, Mitte weich fließende Pixel-/ASCII-Bänder, rechts „COMING SOON – Ihr Projekt“. Die bisherigen Anweisungen zu geraden Displays, Hauptmonitor-Kopie und vier kleinen Displays sind für diesen aktuellen Aufbau überholt. Die DIGITAL-REWORK-Identität steht im freien Bereich oberhalb der Monitorreihe.
+
+Matrixwellen über der tatsächlichen Tischoberfläche, Schriften-Regenimpulse nur auf der separaten Tastaturalpha in #19E50F. Sonne dreht mit0.6×, Galaxie500s/600s. Feiner gemeinsamer Sternenstaub, einzelne feste Sternenglints, gerichtetes Sonnenlicht aus der nativen Quellposition und dezente Galaxielichtimpulse. Keine grünen Lichtwolken. Alle Animationen sichtbarkeitsabhängig, Reduced Motion und Save Data beachten. Weitere Maße, Lichtmasken und ehrliche Prüfgrenzen: [Curved-Matrix-Szene](docs/curved-matrix-scene.md).
+
+
+## Präzisierung: ruhige Galaxie, Rauchglas und Hover (23.10.2026)
+
+Galaxie und gemeinsamer Sternenstaub stehen fest; individuelle Sternenglints und Lichtimpulse bleiben erhalten. Sonne nochmals 30% langsamer: 0.6 × 0.7 = 0.42×; Koronatiming unverändert. Tischmatrix ausschließlich auf der innenliegenden Rauchglasfläche, mit Sicherheitsabstand zum Metallrahmen und vollständigem Ausschluss der echten Mauspad-/Gerätealpha. Zeichenkern um15%, Ebenendeckkraft von0.88 auf0.96 angehoben, Glowradius unverändert. Drei native Knöpfe vorläufig per hidden ausgeblendet und aus der Material-Lichtmaske entfernt; Originalassets/Positionen bleiben gespeichert.
+
+Im linken Monitor wechseln die drei Standbilder weiter. Aufnahme startet ausschließlich bei Maus-/Stifthover, pausiert sofort beim Verlassen und setzt nach10 Sekunden zurück; Fokus/Touch/automatischer Bildwechsel starten keine Aufnahme. Nur eine Aufnahme wird dekodiert. Untere Projektkarten behalten denselben Hoververtrag.
+
+Masken reproduzierbar mit `python3 scripts/build_scene_masks.py`; aktualisierte Prüfsummen in geometry.json und inline identisch. Null Alphaüberlappung mit Mauspad, Tastatur, Maus und Rad numerisch geprüft. Chromium Desktop1348×936: alle drei Hovervideos einzeln, sofortiges Pausieren und10s-Reset bestätigt; Sonne0.42×, Galaxieanimation none und drei hidden Knöpfe im DOM bestätigt. Telefoniframe375×844 ohne horizontalen Überlauf und ohne Autoplay. Ressourcen-/Hashprüfung, JS-Syntax und diffcheck erfolgreich. Firefox und physische Mobilgeräte hier nicht verfügbar. Beleg: docs/glass-hover-desktop-preview.jpg. Veröffentlichung ausschließlich auf dem bestehenden Entwicklungsbranch; main bleibt unverändert.
+
+
+### Mauspad vollständig auf Glas; Matrixfluss +20% (23.10.2026)
+
+Mauspad, Tastatur, separate Schrift-/Regenmaske, Maus und Mausrad gemeinsam12 native Pixel nach hinten verschoben, Größen/relative Abstände unverändert. Mauspad y1165 statt1177; sichtbare Unterkante vor der ab y1385 beginnenden vorderen Metallkante. Source-Positionen in geometry.json zusätzlich archiviert; Quellbitmaps unverändert. Material- und Matrixmasken anhand neuer tatsächlicher Alpha neu gebaut. Hinterer Glasstreifen ab y1156 freigegeben und mit einer perspektivisch feinen zusätzlichen Zeichenreihe im selben Canvas gefüllt. Mauspad/Geräte weiterhin vollständig ausgeschlossen. Zeichenlänge und Wellenlänge jeweils1.2×; Flusszeit läuft1.2×, weiter maximal30fps und nur sichtbar/aktiver Tab.
+
+
+### Einheitliches Metall und sonnengeführte Schatten (23.10.2026)
+
+Originale Hardware-/Zubehörbitmaps, Alpha, Bildschirmquads und aktuelle Positionen unverändert. Laufzeit-Materialkorrektur entfernt den fest eingebrannten bronzefarbenen Grundton: neutrales silbernes Chrom/Graphit, warme Farbe ausschließlich als Reflex der Sonne. Neue scene-lighting.js teilt den bestehenden sichtbarkeitsgesteuerten RAF des Tischrenderers, ohne eigene Animationsschleife. Tastatur/Maus: schmale Alpha-Kontaktschatten plus weicher, höhenabhängig nach unten/rechts projizierter Schatten von der tatsächlich gerenderten Sonne weg; Empfängermaske exakt die originale verschobene Mauspadalpha. Das Mausrad wirft keinen zweiten künstlichen Schatten aufs Pad. Pad selbst hat einen sehr engen Kontaktschatten auf dem Glas.
+
+Drei weich gefiederte Wellenfronten haben ihr Zentrum an der Sonne und wirken nur in der realen Materialmaske, ohne Bildschirmflächen. Reichweite aus Abstand zur Tischfläche, auch bei der mobil außerhalb des nativen Tischrasters stehenden Sonne. Gold/Amber/warmes Weiß und Helligkeit folgen der tatsächlichen Sonnenvideo-Phase; mittlere Videofarbe wird höchstens alle700ms aus12×12Pixeln gelesen, mit sicherem phasenbasiertem Rückfall. Lichtwerte höchstens8Hz, im vorhandenen30fps-Renderer; keine zusätzliche Video-/Canvas-Dauerschleife. Keine Änderung an Sonne0.42×, ruhender Galaxie, Matrix+20%, Zubehörabstand oder Hoververtrag. Reduced Motion zeigt statisches Licht ohne Wellen; Offscreen/Tab/Save Data pausieren über vorhandenen Controller.
+
+
+### Präzise Glasplatte, senkrechte Lichtzeichen und kugelförmige Lichtquelle
+
+Die native Tischplatte ist nun als eigene Ebene `assets/scene/tabletop.webp` ausgekoppelt; `hardware-structure.webp` enthält den verbleibenden Rahmen und die Halterungen. Originalhardware bleibt archiviert. Innenkante aus dem Originalraster mit kubischen Kurven nachgezogen, inklusive gerundeter Vorderenden;4× Coverage-Antialiasing. Kontur: `tabletop-outline.svg`; volle Quellalpha ist die exakte Summe beider Teilalphas. Kein neuer Bildinhalt, keine KI-Neuzeichnung. `scripts/build_scene_masks.py` baut diese Ebenen, Glas-/Matrixmaske und den kombinierten Oberflächenempfänger reproduzierbar. Mauspad/Tastatur/Maus/Rad bleiben vollständig ausgespart; drei Hauptbildschirme sind aus der Reflexionsmaske ausgeschlossen.
+
+Matrix: unveränderte16 Vektorzeichen,151 nach unten laufende Spalten mit langen, weich begrenzten Zeichenkörpern, hellerer Mitte und dunklen Anfängen/Enden. Keine seitliche Wellenbewegung; Zeichenkerne nochmals15% energiereicher, Glowsaum unverändert eng. Bewegung zeitbasiert,30fps, vorhandene1.2× Flussrate erhalten. Quellpixel von Zubehör und aktuelle Verschiebung−12px unverändert.
+
+Das Dreieck des Sonnenkegels, die großen SVG-Ringwellen und starren Reflex-Gradienten sind aus der aktiven Szene entfernt. Die vorhandene runde Sonnenaura bleibt. Ein gecachter Reflexkompositor (768×192Pixel, nur nativer unterer Bereich y800–1440) malt weiche wandernde Gold-/Warmweißreflexe, entsprechend der wirklichen Sonnenposition und der Plattformebene. Kein Lichtstrahl im freien Raum und keine leuchtenden rechteckigen Kacheln. Grundmetall/Plattform neutralisiert; Wärme entsteht durch die bewegliche externe Sonne. Zusätzliche zurückhaltende Rot-/Hellorange-Schimmer folgen exakt der vorhandenen Koronakurve:2s Ruhe,15s Aufbau,2s Peak,12.5s Rückzug,2s Ruhe. Galaxie bleibt unbewegt und setzt schwächere gelegentliche bläuliche Reflexe. Reflexphasen sind über den Sonnenloop periodisch und springen am Ende nicht.
+
+Sonnenrotation weiterhin ungefähr0.42× des Originaltempos, jetzt offline mit Motion-Compensated-Zwischenbildern auf echte60fps berechnet. Browser spielt die neue H.264-Fassung mit1×.512px Desktop /320px Telefon. Ursprünglicher Loop-Sprung mit0.8s Übergang in die eigene Öffnung geglättet; Laufzeit108.733333s. Korona unverändert33.5s/60fps, Alpha offline über Schwarz vormultipliziert und als H.264512/384px bereitgestellt; vorhandenes Screen-Blending erhält die Erscheinung und spart den Alpha-VP9-Decoder. Originalmedien unverändert archiviert. Reproduzierbar: `scripts/build_smooth_sun.py` (langsamer Offline-Schritt).
+
+Sonne als eigene kleine Komposition außerhalb der sich neu zeichnenden Tischbühne, bei identischer Desktopbox338/151/322 im Quellraster. Alle Reflexe/Schatten lesen weiter ihre tatsächliche Bildschirmposition. Ein bestehender RAF für Tisch und Reflexe; beide begrenzt30fps. Kein Video-Canvas-Readback, keine große animierte SVG-Weichzeichnung, keine pro-Frame-DOM-Telemetrie. Canvas2D-Fallback des mittleren Monitors nutzt dieselben Zeichen/Felder mit vorgerechnetem32-stufigem Farbatlas statt dauernder Text-Rasterung. Alle vorhandenen Sichtbarkeits-/Tab-/Präferenzguards bleiben.

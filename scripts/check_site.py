@@ -73,7 +73,7 @@ if geometry_path.is_file():
             x0, y0, x1, y1 = region['box']
             if not (0 <= x0 < x1 <= 1949 and 0 <= y0 < y1 <= 826):
                 errors.append(f'Out-of-canvas desk region: {kind}/{region["id"]}')
-    if 'data-coordinate-system="1949x826"' not in html or 'assets/workstation/' in html:
+    if 'data-coordinate-system="2560x1440"' not in html or 'assets/workstation/' in html:
         errors.append('Active scene uses obsolete workstation geometry')
 for marker in ('font-preview', 'font-options', 'schriften.html', 'Archivo_files'):
     if marker in html:
@@ -84,3 +84,18 @@ for expected in ('https://www.hrservice-fm.de/', 'https://villa-schwalbe.vercel.
 if errors:
     raise SystemExit('\n'.join(errors))
 print(f'OK: {len(references)} local resources, {len(ids)} unique IDs, project links and internal anchors')
+
+# Active source is now the user's 2560x1440 edited GIMP scene; the former ORA remains archived.
+scene=json.loads((ROOT/'assets/scene/geometry.json').read_text())
+assert scene['canvas']==[2560,1440] and len(scene['screens'])==3
+for name,checksum in scene['working_assets'].items():
+    asset=ROOT/'assets/scene'/name
+    assert asset.is_file() and hashlib.sha256(asset.read_bytes()).hexdigest()==checksum, f'Current asset changed: {name}'
+for screen in scene['screens']:
+    q=screen['quad']
+    assert len(q)==4 and all(0<=x<=2560 and 0<=y<=1440 for x,y in q)
+    cross=[(q[(i+1)%4][0]-q[i][0])*(q[(i+2)%4][1]-q[(i+1)%4][1])-(q[(i+1)%4][1]-q[i][1])*(q[(i+2)%4][0]-q[(i+1)%4][0]) for i in range(4)]
+    assert all(v>0 for v in cross), f'Invalid screen perspective: {screen["id"]}'
+assert html.count('data-project-video=')==3
+assert 'assets/js/terminal.js' not in html and 'COMING' in html
+print('OK: current GIMP assets, perspective quads, three recordings, and single active scene controller')

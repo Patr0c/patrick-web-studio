@@ -5,7 +5,7 @@
   const galaxyImage = galaxy?.querySelector('.round-galaxy');
   if (!space || !galaxy || !galaxyImage) return;
 
-  // Keep galaxy artwork, fine stars and soft veil in the same rotation layer.
+  // Keep galaxy artwork, fine stars and soft veil registered in one static layer.
   const rotating = document.createElement('div');
   rotating.className = 'galaxy-rotator';
   galaxyImage.replaceWith(rotating);
@@ -23,8 +23,14 @@
     seed = (Math.imul(1664525, seed) + 1013904223) >>> 0;
     return seed / 4294967296;
   };
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced) rotating.style.animation = 'none';
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const twinkles=document.createElement('div');twinkles.className='sky-twinkles';space.append(twinkles);
+  const syncMotion=()=>{
+    const save=Boolean(navigator.connection?.saveData);
+    rotating.style.animation='none';
+    document.documentElement.classList.toggle('studio-save-data',save);
+  };
+  motion.addEventListener('change',syncMotion);navigator.connection?.addEventListener('change',syncMotion);syncMotion();
 
   function prepare(canvas, width, height) {
     const dpr = Math.min(devicePixelRatio || 1, 1.25, Math.sqrt(2200000 / Math.max(1, width * height)));
@@ -60,6 +66,13 @@
       const bright = .18 + rng()*.64;
       star(fixedCtx,x,y,radius,bright,i%39===0);
     }
+    twinkles.replaceChildren();
+    const wink=random(20261024),winkCount=Math.min(28,Math.max(12,Math.round(width*height/49000)));
+    for(let i=0;i<winkCount;i++){
+      const dot=document.createElement('i');dot.className='sky-star';
+      dot.style.cssText=`left:${(wink()*100).toFixed(3)}%;top:${(wink()*100).toFixed(3)}%;width:${(.8+wink()*.8).toFixed(2)}px;height:${(.8+wink()*.8).toFixed(2)}px;--star-period:${(10+wink()*11).toFixed(2)}s;--star-delay:-${(wink()*24).toFixed(2)}s`;
+      twinkles.append(dot);
+    }
     const bounds = galaxy.getBoundingClientRect();
     // Extra stationary pinpoints just outside the turning spiral.
     // Same seed on every redraw: no twinkling, flicker or animation cost.
@@ -90,7 +103,7 @@
     if (!size) return;
     const ctx = prepare(dust,size,size);
     const centered = size/2, rand = random(19042026);
-    // Paint ONCE: the canvas itself rotates with the galaxy.
+    // Paint ONCE: the canvas stays registered to the stationary galaxy.
     // A high-contrast fine star film, concentrated near the spiral core.
     // Parent galaxy opacity is handled on the image, not on this canvas.
     const countDust = Math.round(Math.min(2850, Math.max(1200, size * 2.35)));
@@ -102,6 +115,14 @@
       star(ctx, x, y, .33 + rand()*.66, .36 + rand()*.58, i % 79 === 0);
     }
 
+    // Restrained blue/pearl microdust follows the same single rotating parent.
+    for(let i=0;i<3400;i++){
+      const r=Math.pow(rand(),.7)*size*.43;
+      const angle=(i%4)*Math.PI*.5+r/size*12+(rand()-.5)*.55;
+      const x=centered+Math.cos(angle)*r,y=centered+Math.sin(angle)*r*.78;
+      ctx.fillStyle=i%3===0?'rgba(211,180,151,.25)':'rgba(164,197,228,.28)';
+      ctx.fillRect(x,y,.35+rand()*.45,.35+rand()*.45);
+    }
     // Clearly legible luminous pinpoints across the actual galaxy centre.
     // The glows are short-ranged and never stretch with the CSS animation.
     for (let i=0; i<135; i++) {
@@ -141,6 +162,9 @@
     queued = true;
     requestAnimationFrame(() => { queued=false; render(); });
   }, {passive:true});
+  addEventListener('scene:layout', () => {
+    if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;render();});
+  });
   render();
 })();
 

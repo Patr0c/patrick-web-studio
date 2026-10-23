@@ -53,9 +53,9 @@ for file in assets/js/*.js; do node --check "$file"; done
 
 ## Entwicklungs-Vorschau
 
-Aktueller Entwicklungsbranch: `feat/textmode-flightdeck-20261023`.
+Aktueller Entwicklungsbranch: `feat/curved-matrix-scene-20261023`.
 
-Direkte Online-Vorschau: https://feat-textmode-flightdeck-202.patrick-web-studio.pages.dev/
+Direkte Online-Vorschau: https://52b0a81b.patrick-web-studio.pages.dev
 
 [Textmode, Masken und Material](docs/textmode-flightdeck.md).
 
@@ -69,3 +69,9 @@ Ausgabeverzeichnis ist das Repository-Wurzelverzeichnis. Auf einen separaten
 Entwicklungsbranch pushen, erfolgreichen Check abwarten und dessen URL verwenden.
 Hauptbranch/Produktivversion erst nach Patricks ausdrücklicher Freigabe ändern.
 Alte Versionen sind über Git verfügbar, nicht als zusätzliche aktive Websites.
+
+
+Aktuelle Szene: [Curved-Matrix-Szene](docs/curved-matrix-scene.md), native Nutzerdatei2560×1440. Aktive Grafik und Positionsvertrag: `assets/scene/`; Steuerung: `assets/js/scene.js`, `assets/css/scene.css`. Der ältere Rauchglas-Import bleibt als Archiv erhalten. Direkte gerenderte Vorschau: https://52b0a81b.patrick-web-studio.pages.dev
+
+
+Aktueller Sonnen-/Tischdurchgang: separate originale Glasplattenebene, senkrechte Matrix-Lichtzeichen, kugelförmige Sonnenbeleuchtung mit Korona-Reflexen und offline geglättete60fps-Medien. Details/Quellmaße: docs/curved-matrix-scene.md. Reproduzierbare Medienaufbereitung: scripts/build_smooth_sun.py; native Masken: scripts/build_scene_masks.py. Nur Entwicklungsvorschau, keine Änderung an main.
