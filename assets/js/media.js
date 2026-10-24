@@ -89,7 +89,7 @@
   const handle=hero.querySelector('.compare-handle');
   if(handle)new MutationObserver(update).observe(handle,{attributes:true,attributeFilter:['aria-valuenow']});
   const begin = () => { started = true; update(); };
-  if ('requestIdleCallback' in window) requestIdleCallback(begin, { timeout: 1300 }); else setTimeout(begin, 550);
+  hero.addEventListener('workstation:power',begin);
   motion.addEventListener('change', update);
   document.addEventListener('visibilitychange', update);
   window.addEventListener('pagehide', () => videos.forEach(video => video.pause()));

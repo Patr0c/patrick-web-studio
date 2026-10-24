@@ -74,3 +74,14 @@ All side walls, chamfers, frame recesses and their shadows/reflections are model
 The native desk, floor and light layers end at the hero bottom with0px clearance.
 
 Live display apertures come from visible object-ID10. Foreground alpha subtracts actual floor/display coverage; live HTML sits below the manufactured frames, so their inner walls occlude it correctly. Foreground overscan preserves outer45° case sides beyond the nominal grid while the viewport side clearance keeps them fully visible.
+
+
+## Refinement build
+Run `python scripts/prepare_accessory_materials.py` before Blender. Archived
+GIMP accessory pixels are rectified into physical top planes; camera-invisible
+proxies retain their contact/cast shadows. Keyboard lower case remains visible.
+Mouse is a registered photographic cutout, not a new sculpted mesh. The blue
+Galaxy light is disabled in the actual render. Surface textures are deterministic
+local derivatives ignored by Git; originals and preparation script are retained.
+The solar platform field projects world z0 corners through this same camera.
+See PROJECT_NOTES.md for corona sampling and start sequence details.

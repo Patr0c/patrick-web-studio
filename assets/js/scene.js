@@ -93,8 +93,7 @@
   // Desktop coordinates remain exactly the same native 338/151/322 rectangle.
   const receiver=hero.querySelector('.hero-new');
   if(sun.parentElement!==receiver)receiver.prepend(sun);
-  if(phone.matches){for(const property of ['left','top','width','height'])sun.style.removeProperty(property);}
-  else{
+  {
    const root=receiver.getBoundingClientRect();
    sun.style.left=`${box.left-root.left+338*scale}px`;sun.style.top=`${box.top-root.top+151*scale}px`;
    sun.style.width=`${322*scale}px`;sun.style.height=`${322*scale}px`;
@@ -104,12 +103,13 @@
   dispatchEvent(new CustomEvent('scene:layout'));
  }
  function update(){
-  const next=!unloading&&visible&&!document.hidden&&!motion.matches&&!navigator.connection?.saveData&&Number(compare?.getAttribute('aria-valuenow'))!==100;
+  const next=hero.dataset.power!=='night'&&!unloading&&visible&&!document.hidden&&!motion.matches&&!navigator.connection?.saveData&&Number(compare?.getAttribute('aria-valuenow'))!==100;
   const changed=active!==next;active=next;stage.classList.toggle('scene-paused',!active);document.documentElement.classList.toggle('scene-light-paused',!active);stage.dataset.effects=active?'running':'paused';lighting?.setActive(active);setTable(active);
   if(changed){if(active){playCurrent();}else{pauseVideos();}}
  }
  new ResizeObserver(fit).observe(stage);new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;update();},{threshold:.04}).observe(stage);
  if(compare)new MutationObserver(update).observe(compare,{attributes:true,attributeFilter:['aria-valuenow']});
+ hero.addEventListener('workstation:power',update);hero.addEventListener('workstation:ready',update);
  document.addEventListener('visibilitychange',update);motion.addEventListener('change',update);phone.addEventListener('change',fit);navigator.connection?.addEventListener('change',update);
  window.addEventListener('pagehide',()=>{unloading=true;update();});window.addEventListener('pageshow',()=>{unloading=false;update();});
  stage.querySelectorAll('.scene-control').forEach(button=>button.addEventListener('click',()=>{

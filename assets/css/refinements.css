@@ -1,0 +1,37 @@
+/* All positioning stays in the calibrated native camera coordinates. */
+.scene-moon {position:absolute;left:1900px;top:151px;width:322px;height:322px;max-width:none;z-index:0;pointer-events:none;transition:opacity 2.8s;}
+.scene-sun[role=button] {cursor:pointer;outline-offset:8px;border-radius:50%;}
+.scene-sun[role=button]:focus-visible {outline:2px solid #ffcf81;}
+.hero[data-power=night] .scene-sun video,.hero[data-power=night] .scene-sun .solar-corona-layer,.hero[data-power=night] .scene-sun .solar-aura {opacity:0!important;}
+.hero[data-power=night] .scene-sun {background:radial-gradient(circle,#19130c 0,#0d0b08 64%,#393022 67%,transparent 70%);mix-blend-mode:normal;}
+.hero[data-power=night] .scene-floor,.hero[data-power=night] .seated-foreground {filter:brightness(.22) saturate(.45);}
+.hero[data-power=night] .table-flow-mask,.hero[data-power=night] .seated-legends {opacity:0;}
+.hero[data-power=night] .scene-screen,.hero[data-power=boot] .scene-screen {visibility:hidden;pointer-events:none;}
+.scene-floor,.seated-foreground {transition:filter 3s ease;}
+.table-flow-mask,.seated-legends {transition:opacity 1.5s;}
+.hero[data-power=on] .scene-moon,.hero[data-power=boot] .scene-moon {opacity:.38;}
+.monitor-led {position:absolute;z-index:12;width:4px;height:4px;border-radius:50%;background:#36ff63;box-shadow:0 0 2px #36ff6380;pointer-events:none;animation:powerLed 2.6s ease-in-out infinite;}
+@keyframes powerLed {0%,35%,100%{opacity:.15}55%,70%{opacity:1}}
+.hero[data-power=on] .monitor-led {animation:none;opacity:.8;}
+.moon-reflection {position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(ellipse at 79% 83%,#bdc7ee22,transparent 27%);mask:url('../scene/seated/workstation.webp') center/4096px 1440px no-repeat;transition:opacity 2s;}
+.hero:not([data-power=night]) .moon-reflection {opacity:0;}
+.platform-wave-plane {position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;pointer-events:none;}
+.platform-wave {position:absolute;inset:-5% -100%;background:radial-gradient(ellipse at center,rgba(255,205,132,.38),rgba(255,129,58,.14) 16%,rgba(255,88,33,.04) 34%,transparent 55%);mix-blend-mode:screen;opacity:0;will-change:transform;}
+.particle-sphere {position:absolute;left:calc(50% + var(--scene-unit,.5px)*490);top:calc(var(--scene-top,0px) + var(--scene-unit,.5px)*750);width:calc(var(--scene-unit,.5px)*840);height:calc(var(--scene-unit,.5px)*840);transform:translate(-50%,-50%);pointer-events:none;}
+.particle-sphere img {position:absolute;inset:0;width:100%;height:100%;animation:particleRenewal var(--period) ease-in-out infinite;animation-delay:var(--delay);}
+@keyframes particleRenewal {0%,100%{opacity:.8;transform:translate(0,0) rotate(0deg)}35%{opacity:.17;transform:translate(1.6%,-1.4%) rotate(1deg)}65%{opacity:.7;transform:translate(-.7%,.8%) rotate(-.6deg)}}
+html.scene-light-paused .particle-sphere img,html.scene-light-paused .monitor-led,html.studio-tab-hidden .particle-sphere img {animation-play-state:paused;}
+html.studio-save-data .particle-sphere img {animation:none;}
+@media(prefers-reduced-motion:reduce){.particle-sphere img,.monitor-led{animation:none;}.scene-floor,.seated-foreground,.scene-moon{transition:none;}}
+.boot-circuit {display:none;position:absolute;inset:0;z-index:11;pointer-events:none;clip-path:inset(0 0 290px);mask:url('../scene/seated/workstation.webp') -768px 0/4096px 1440px no-repeat;background:repeating-linear-gradient(0deg,transparent 0 12px,#19e50f99 13px,transparent 15px 34px);}
+.hero[data-power=boot] .boot-circuit {display:block;animation:circuitBoot 3.6s ease-out both;}
+@keyframes circuitBoot {0%{opacity:0;background-position:0 -800px}25%{opacity:.55}75%{opacity:.3}100%{opacity:0;background-position:0 800px}}
+.hero[data-power=night] .scene-moon {animation:moonGlimmer 13s ease-in-out infinite;}
+@keyframes moonGlimmer {0%,100%{opacity:.85}50%{opacity:1}}
+html.scene-light-paused .scene-moon {animation-play-state:paused;}
+@media(prefers-reduced-motion:reduce){.hero[data-power=night] .scene-moon{animation:none;}}
+/* Powered-off panels stay opaque; stars must never show through the apertures. */
+.hero[data-power=night] .scene-screen,.hero[data-power=boot] .scene-screen {visibility:visible;background:radial-gradient(ellipse at 90% 20%,#10131b,#030609 70%);}
+.hero[data-power=night] .scene-screen *,.hero[data-power=boot] .scene-screen * {visibility:hidden!important;}
+.platform-wave-mask {position:absolute;inset:0;mask:url('../scene/seated/platform.webp') left bottom/4096px auto no-repeat;pointer-events:none;mix-blend-mode:screen;}
+@media(max-width:760px){.platform-wave-mask{mask-image:url('../scene/seated/platform-mobile.webp');}}

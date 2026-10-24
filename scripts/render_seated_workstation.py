@@ -1,6 +1,6 @@
 """Offline Blender 4.2 model/render. No 3D engine is shipped to the website.
 
-Run: blender -b -t 8 --python scripts/render_seated_workstation.py -- --draft
+Run prepare_accessory_materials.py first, then: blender -b -t 8 --python scripts/render_seated_workstation.py -- --draft
 The single camera, real mesh surfaces, ray-traced shadows and exported display
 vertices replace independent image warps. Original GIMP artwork stays archived.
 """
@@ -387,6 +387,45 @@ for i in range(10):
     a=i*math.tau/10
     cylinder('Wheel tread',(.493,.278+math.cos(a)*.0082,TABLE_Z+.055+math.sin(a)*.0082),(.507,.278+math.cos(a)*.0082,TABLE_Z+.055+math.sin(a)*.0082),.00045,graphite,6)
 
+# Restore the approved detailed GIMP surfaces, projected on the same physical
+# desk planes. Proxy bodies remain for contact/cast shadows and reflections.
+for obj in list(bpy.data.objects):
+    if obj.pass_index in (4,5,6,7):
+        obj.visible_camera=False
+        if obj.name.startswith(('Keyboard lower casing','Keyboard upper deck','Keyboard dark switch plate')):obj.visible_camera=True
+
+def surface(name,points,texture,category,emission=.25):
+    mesh=bpy.data.meshes.new(name)
+    mesh.from_pydata(points,[],[(0,1,2,3)]);mesh.update()
+    uv=mesh.uv_layers.new()
+    for loop,co in zip(mesh.loops,[(0,1),(1,1),(1,0),(0,0)]):
+        uv.data[loop.index].uv=co
+    obj=bpy.data.objects.new(name,mesh);scene.collection.objects.link(obj)
+    mat=material(name+' material',(.04,.04,.04),.05,.55)
+    nt=mat.node_tree;bs=nt.nodes.get('Principled BSDF')
+    tex=nt.nodes.new('ShaderNodeTexImage');tex.image=bpy.data.images.load(str(texture));tex.interpolation='Linear'
+    nt.links.new(tex.outputs['Color'],bs.inputs['Base Color'])
+    nt.links.new(tex.outputs['Alpha'],bs.inputs['Alpha'])
+    nt.links.new(tex.outputs['Color'],bs.inputs['Emission Color']);bs.inputs['Emission Strength'].default_value=emission
+    return finish(obj,mat,category)
+materials=OUT/'materials'
+surface('Archived woven pad surface',[(-.535,.447,.761),(.715,.447,.761),(.715,.052,.761),(-.535,.052,.761)],materials/'mousepad.png',4)
+bpy.context.view_layer.update()
+pts=[keyboard.matrix_world@Vector(p) for p in [(-.351,.1125,.021),(.351,.1125,.021),(.351,-.1125,.021),(-.351,-.1125,.021)]]
+surface('Original sculpted keyboard surface',pts,materials/'keyboard.png',5,.4)
+pts=[p+Vector((0,0,.0003)) for p in pts]
+legend=surface('Full original QWERTZ legends',pts,materials/'keyboard-labels.png',7,2)
+bs=legend.data.materials[0].node_tree.nodes.get('Principled BSDF')
+# Color-only violet ink; texture alpha retains every original sharp glyph.
+nt=legend.data.materials[0].node_tree
+for socket in ['Base Color','Emission Color']:
+    for link in list(bs.inputs[socket].links):nt.links.remove(link)
+    bs.inputs[socket].default_value=(.48,.15,.87,1)
+# Mouse is a camera-registered cutout at its physical position. Its hidden smooth
+# body still supplies the real table contact shadow and light occlusion.
+center=Vector((.50,.245,.79));u,v=project(center)
+pts=[on_plane(u+dx,v+dy,z=.79) for dx,dy in [(-52,-40),(52,-40),(52,35),(-52,35)]]
+surface('Original ergonomic mouse shell',pts,ROOT/'assets/scene/mouse.webp',6,.55)
 # A geometrically coherent graphite/chrome tiled platform. Depth edges converge
 # to the measured VP, independent of monitor yaw or table shape.
 rng=random.Random(20261024)
@@ -422,9 +461,9 @@ for group in ['Sun','Galaxy','Flare','Fill']:
     bpy.context.view_layer.lightgroups.add(name=group)
 sun=light('Main spherical sun — projected actual sky position','POINT',source_world(499,312,6),1350,(1,.69,.38),.48,'Sun')
 light('Coronal flare within solar sphere','POINT',sun.location+Vector((-.12,0,.18)),35,(1,.23,.06),.18,'Flare')
-galaxy=light('Occasional violet-blue galaxy contribution','AREA',source_world(1771,650,7),85,(.31,.39,1),2.5,'Galaxy')
-light('Soft neutral sky fill','AREA',(0,-1.4,2.6),95,(.76,.84,1),2.8,'Fill')
-light('White grazing definition, no emissive orange strips','AREA',(2,-.5,1.9),45,(.85,.91,1),1.4,'Fill')
+galaxy=light('Occasional violet-blue galaxy contribution','AREA',source_world(1771,650,7),0,(.45,.18,1),2.5,'Galaxy')
+light('Soft neutral sky fill','AREA',(0,-1.4,2.6),65,(.9,.9,.9),3.8,'Fill')
+light('White grazing definition, no emissive orange strips','AREA',(2,-.5,1.9),12,(.90,.90,.90),2.8,'Fill')
 
 bpy.context.view_layer.update()
 order=['projects','textmode','coming-soon']

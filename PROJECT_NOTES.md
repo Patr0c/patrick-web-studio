@@ -886,3 +886,42 @@ mesh geometry. Render intermediates live outside the browser-synchronized tree;
 packaged WebP/metadata use atomic writes and their hashes are verified.
 
 Final export: full4096×1440 foreground overscan preserves outer45° case side walls; CSS x−768 maps to the unchanged2560×1440 scene grid. Mobile foreground2048×720. Visible display ID10 makes exact apertures; live HTML is behind the case geometry, including real bevel/recess occlusion. Foreground coverage subtracts floor/display alpha exactly, avoiding duplicate antialiased floor edges. Center mount foot is on the actual tabletop at y.57m.
+
+
+## 24.10.2026 — workstation refinements and night startup
+Separate branch feat/workstation-refinements-20261024, parent4e8582b. Main untouched.
+Re-registered detailed archived GIMP keyboard/pad/mouse surfaces into the calibrated
+scene, retaining hidden physical proxies for contact/cast shadows. These are
+hybrid image surfaces, not a claim of a new fully sculpted peripheral model.
+Full original QWERTZ alpha legends restored as static violet, no blur/bloom/rain.
+Keyboard surface sits on its visible case, not hovering above it. Current monitor
+meshes, hinge joins, recessed apertures, camera and outer overscan remain.
+
+Galaxy area-light energy is zero; neutral fill softened and made achromatic.
+The unwanted blue patch is removed in the newly rendered beauty/platform files,
+not hidden by CSS. Original solar videos remain byte-identical. Sampled outer
+corona energy at1Hz:0.01 at0–2s,0.04 at3s,0.16 at4s,16.48 at17–18s.
+Floor wave begins at5s (visible onset4s +1s), spans10s, is a soft warm field on
+a homography calculated from world z0 using the actual camera, behind hardware.
+currentTime drives every phase; no independent repeated timeout can drift.
+
+Night: opaque dark screens, paused Matrix and sun/corona, green monitor LEDs,
+weak right-side moon reflection. Sun click/Enter/Space starts Matrix and one
+3.6s masked hardware circuit scan; monitor contents appear at corona time3.6s.
+Moon reflection fades away. Reduced motion/saveData activates final static state.
+Six disjoint pre-rendered violet particle layers slowly disperse/reform behind
+hardware; original spiral source and speed remain archived as fallback. This is
+a layered volumetric particle projection, not live3D or individual JS particles.
+Lunar sphere uses NASA SVS CGI Moon Kit LROC2k albedo, upper-left directional
+illumination and a clean round limb,1024/512px assets. It is static (no invented
+lunar corona), native center2061/312 mirrors the sun499/312. Source:
+https://svs.gsfc.nasa.gov/4720/ . Moon light shimmer is deliberately slight.
+
+Reproduce: prepare_accessory_materials.py → render_seated_workstation.py with
+Blender4.2 → package_seated_workstation.py. build_moon.py uses committed NASA
+texture; build_particle_sphere.py uses a fixed seed. Raw Cycles data stays in/tmp.
+Initial resource/archive hashes, all packaged render hashes, independent screen
+reprojection, rigid-screen/hinge checks and JS syntax pass. Local Chromium launch
+is blocked by the execution environment's socket permissions; browser verification
+will use the actual Cloudflare development URL. No real Safari/iPhone or Firefox
+claim. Further browser findings are recorded below after deployment.
