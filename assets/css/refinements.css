@@ -42,3 +42,38 @@ html.scene-light-paused .scene-moon {animation-play-state:paused;}
 .particle-sphere {filter:brightness(1.6);}
 /* A broad crest keeps the passing light legible on the dark graphite tiles. */
 .platform-wave {background:linear-gradient(90deg,transparent 30%,rgba(255,114,48,.07) 39%,rgba(255,180,89,.30) 45%,rgba(255,220,166,.58) 50%,rgba(255,149,65,.22) 55%,rgba(255,89,38,.04) 63%,transparent 70%);mask-image:linear-gradient(0deg,transparent,#000 12% 75%,transparent);}
+
+/* Version 3: sharp genuine SVG outlines. A single phase crosses top → bevel →
+   front. No SVG colour filter, bitmap video, bloom, or per-character mutation. */
+.matrix-vector-plane {position:absolute;left:0;top:0;max-width:none;transform-origin:0 0;background-image:url('../scene/seated/matrix-vector.svg');background-size:1920px 2304px;background-repeat:repeat-y;animation:matrixSurfaceFlow 96s linear infinite;background-position:0 calc(0px - var(--matrix-offset));}
+@keyframes matrixSurfaceFlow {from{background-position-y:calc(-2304px - var(--matrix-offset))}to{background-position-y:calc(0px - var(--matrix-offset))}}
+.table-flow-mask[data-running=false] .matrix-vector-plane {animation-play-state:paused;}
+html.studio-tab-hidden .matrix-vector-plane,.scene-paused .matrix-vector-plane {animation-play-state:paused;}
+.seated-native .table-flow-mask {filter:none;mix-blend-mode:normal;}
+
+/* Sun and moon are rigidly attached to diametrically opposed orbit arms. */
+.celestial-orbit {position:absolute;z-index:1;pointer-events:none;--orbit-phase:0deg;}
+.celestial-arm {position:absolute;inset:0;pointer-events:none;transition:transform 2.8s cubic-bezier(.45,0,.25,1);}
+.moon-arm {transform:rotate(var(--moon-angle));}
+.sun-arm {transform:rotate(var(--sun-angle));}
+.hero:not([data-power=night]) .moon-arm {transform:rotate(calc(var(--moon-angle) + var(--orbit-travel)));}
+.hero:not([data-power=night]) .sun-arm {transform:rotate(calc(var(--sun-angle) + var(--orbit-travel)));}
+.moon-trigger,.hero .celestial-orbit .scene-sun.white-halo.sun-stage {position:absolute;left:100%;top:50%;width:var(--body-size);height:var(--body-size);padding:0;border:0;background:transparent;border-radius:50%;box-shadow:none;pointer-events:none;transform:translate(-50%,-50%) rotate(calc(0deg - var(--sun-angle)));transition:transform 2.8s cubic-bezier(.45,0,.25,1),opacity 1s;}
+.moon-trigger {transform:translate(-50%,-50%) rotate(calc(0deg - var(--moon-angle)));cursor:pointer;}
+.hero[data-power=night] .moon-trigger {pointer-events:auto;}
+.moon-trigger:focus-visible {outline:2px solid #b6c3dc;outline-offset:8px;}
+.hero:not([data-power=night]) .moon-trigger {transform:translate(-50%,-50%) rotate(calc(0deg - var(--moon-angle) - var(--orbit-travel)));}
+.hero:not([data-power=night]) .celestial-orbit .scene-sun.white-halo.sun-stage {transform:translate(-50%,-50%) rotate(calc(0deg - var(--sun-angle) - var(--orbit-travel)));}
+.celestial-orbit .scene-moon {position:static;inset:auto;display:block;width:100%;height:100%;max-width:none;opacity:1;animation:none!important;transition:none;}
+.hero[data-power=night] .celestial-orbit .scene-moon {opacity:.62;}
+.hero[data-power=night] .celestial-orbit .scene-sun {opacity:0;}
+.hero:not([data-power=night]) .moon-trigger {opacity:0;transition:transform 2.8s cubic-bezier(.45,0,.25,1),opacity 2.8s;}
+.hero[data-power=night] .scene-floor,.hero[data-power=night] .seated-foreground {filter:brightness(.055) saturate(.2);}
+.hero[data-power=night] .scene-brand,.hero[data-power=night] .scene-mobile-intro,.hero[data-power=night] .particle-sphere {opacity:0;pointer-events:none;}
+.scene-brand,.scene-mobile-intro,.particle-sphere {transition:opacity 2.8s;}
+.moon-reflection {display:none;}
+html[data-scene-power=night] .space-background {opacity:.10;}
+html[data-scene-power=night] .particle-sphere {opacity:0;}
+.space-background {transition:opacity 2.8s;}
+.hero[data-power=night] .scene-screen {background:#010202;}
+@media(prefers-reduced-motion:reduce){.matrix-vector-plane{animation:none;}.celestial-arm,.moon-trigger,.hero .celestial-orbit .scene-sun.white-halo.sun-stage,.scene-brand,.particle-sphere,.space-background{transition:none;}}

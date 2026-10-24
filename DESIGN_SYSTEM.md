@@ -473,3 +473,15 @@ and lighting overscan use exactly the same scale/bottom anchor as the desk.
 No runtime3D library or model is downloaded. Original GIMP sources remain archived.
 
 Final45° case depth uses the4096px foreground overscan at native x−768 (mobile2048px). The2560×1440 coordinate grid stays unchanged. Actual visible display ID10 cuts apertures in the foreground; live HTML sits behind the physical frame walls rather than covering their depth.
+
+
+## Selected version3 — frameless vector glass and lunar orbit
+Latest user selection supersedes video Matrix and the chrome table trim.
+Genuine Noto Sans CJK JP outlines, fixed 60 straight lanes, no bloom or blur,
+continuous surface coordinates over top / rounded edge / visible front.
+A .041m dark smoked-glass body retains the prior footprint and camera.
+Matte rounded textile pad; real 3D charcoal mouse with no billboard and no
+clearance above the mat. The full archived keyboard legends remain violet.
+Moon activates the dark scene; both bodies are diametrically opposite on a
+single circle. Moon moves below the desk as the sun rises to the former solar
+light location. Initial darkness has no dormant sun or moon reflection.

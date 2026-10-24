@@ -1,0 +1,14 @@
+/* Separate iPhone edition; shared artwork, camera and activation controller. */
+html {min-height:-webkit-fill-available;}
+body.iphone-edition {min-height:100svh;-webkit-text-size-adjust:100%;}
+.iphone-edition button,.iphone-edition a {touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+@media(max-width:760px){
+ .iphone-edition .immersive-hero.hero {height:100svh;min-height:540px;}
+ .iphone-edition .scene-mobile-intro {top:27svh;left:max(24px,env(safe-area-inset-left));right:max(24px,env(safe-area-inset-right));}
+ .iphone-edition .moon-trigger::after {content:"";position:absolute;inset:-10px;border-radius:50%;}
+ .iphone-edition .particle-sphere {filter:none;}
+ /* No prepromoted fullscreen video textures on memory-limited WebKit. */
+ .iphone-edition .scene-sun,.iphone-edition .scene-sun video,.iphone-edition .platform-wave {will-change:auto;}
+ .iphone-edition .scene-sun video {backface-visibility:visible;}
+ .iphone-edition .projects {padding-inline:max(0px,env(safe-area-inset-left));}
+}

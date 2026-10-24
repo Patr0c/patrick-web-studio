@@ -100,7 +100,7 @@ for name in ['sun','galaxy','flare']:
     im=im.crop((0,light_y,4096,1440)).resize((2048,500),Image.Resampling.LANCZOS)
     save(im,'light-'+name,True)
 data['light_crop_y']=light_y
-data['render_engine']='Blender 4.2 / Cycles CPU, 48 samples, denoising, AgX'
+data['render_engine']='Blender 4.2 / Cycles CPU, 32 samples, denoising, AgX'
 data['assets']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(OUT.glob('*.webp'))}
 atomic(OUT/'camera.json',(json.dumps(data,indent=2)+'\n').encode())
 

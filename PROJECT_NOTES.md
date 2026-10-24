@@ -948,3 +948,47 @@ soft traveling band on the same physical plane for the final code revision.
 Firefox and physical Safari/iPhone remain untested. No claim of new hover/FPS
 stress testing; retained hover controller code and confirmed recordings paused
 without hover in active state. All nine existing concept links remain checked.
+
+
+## 24.10.2026 — selected version3 vector tabletop and lunar orbit
+Branch feat/vector-glass-orbit-20261024, based on12f4d9d. User selected
+Scharfe Vektor-Glyphen auf Matrixglas.png (third entry of attached five-way
+archive). The selection supersedes generating another15-candidate comparison.
+Table keeps the calibrated footprint; single .041m rounded dark slab replaces
+chrome perimeter/rails. Absorptive dark backing and restrained specular response
+keep the glyphs clear of the former large white reflection.
+Mat: real thin .003m rounded matte woven mesh, no stretched GIMP surface.
+Mouse: real molded volumetric mesh, base at pad top z.754, no camera billboard;
+shared Cycles shadows. Approved detailed keyboard with static violet lettering
+retained. Monitor meshes, projection, joins, sources and all9 concepts retained.
+
+Matrix is now actual Noto Sans CJK JP glyph paths (SIL OFL, included license
+and38KB subset source font). build_vector_matrix.py creates3395 stable uses of
+132 authentic symbols in60 straight lanes, SVG276KB. No compressed Matrix
+video, blur, bloom, colour filter or randomized character switching. All faces
+sample one periodic atlas in world-scaled unfolded coordinates: horizontal top,
+four quarter-round bevel segments, vertical front. Object-ID glass mask excludes
+mat, mouse, keyboard and mounts. CSS scroll24 source px/s, pause hidden/offscreen/
+night; reduced motion shows a static field. No new JavaScript RAF.
+
+One circular orbit center(1280,1000), radius hypot(781,688), arm angle difference
+exactly180deg. Moon starts2061/312, sun below the desk. Moon click rotates both
+arms82.7550636deg over2.8s, ending sun499/312 and moon below. No sun-click
+activation. Almost-black entry, no moon reflection or dormant solar disk.
+Existing Matrix / circuit / display / corona-clock floor-wave order retained.
+Explicit orbit-ready event fixes initialization ordering with ResizeObserver.
+
+Checks: local resource/archive hashes, packaged asset hashes, independent monitor
+reprojection, rigid body/hinge audit, JS syntax, whitespace. Chromium desktop
+1348×936 and390/320px iframe inspected. Moon click and Enter activation reach
+on; no horizontal overflow or focus-induced hero scrolling. Real iPhone/Safari
+and Firefox remain untested. During local packaging the initial iframe capture
+preceded image completion; verified loaded monitor posters after completion.
+Selected atlas was visually checked on both top and front at desktop scale.
+Final publish evidence follows. Production/main remains untouched.
+
+Additional user request: separate iPhone edition at iphone.html, generated
+from the same index/camera by build_iphone_edition.py. Uses the existing
+responsive half-size artwork and mobile solar sources, safe-area spacing,
+expanded moon touch target and fewer GPU promotion hints. No new autoplay
+project behavior. Physical Safari/iPhone test is still unavailable.

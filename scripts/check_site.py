@@ -101,8 +101,9 @@ for screen in scene['screens']:
     assert all(v>0 for v in cross), f'Invalid screen perspective: {screen["id"]}'
 assert html.count('data-project-video=')==3
 assert 'assets/js/terminal.js' not in html
-assert 'class="table-flow-video"' in html and 'class="table-flow-canvas"' not in html
-assert 'assets/video/table-matrix-mobile-green.mp4' in html
+assert 'data-matrix-method="vector-c"' in html and 'class="table-flow-canvas"' not in html
+assert 'class="table-flow-video"' not in html
+assert (ROOT/'assets/scene/seated/matrix-vector.svg').is_file()
 assert 'class="scene-screen scene-detective" data-screen="textmode"' in html
 assert 'class="scene-screen scene-villa" data-screen="coming-soon"' in html
 assert 'data-comparison-hidden="true"' in html
@@ -141,3 +142,15 @@ print('OK: rigid rectangular screens and flush shared bezel hinges')
 
 assert abs(seated['monitor_setup']['eye_above_center_m']-.05)<1e-7
 assert [s['pose']['yaw_degrees'] for s in seated['screens']]==[45,0,-45]
+
+# Independent continuity audit: adjacent projected surface edges must coincide.
+faces=seated['matrix_surfaces']
+assert len(faces)==6 and faces[0]['name']=='top' and faces[-1]['name']=='front'
+for a,b in zip(faces,faces[1:]):
+    assert math.dist(a['quad'][3],b['quad'][0])<.02
+    assert math.dist(a['quad'][2],b['quad'][1])<.02
+    assert abs(a['offset']+a['height']-b['offset'])<1e-6
+assert seated['mouse_contact']['gap_m']==0
+svg=(ROOT/'assets/scene/seated/matrix-vector.svg').read_text()
+assert '<filter' not in svg and '<text' not in svg and '<path' in svg and '<use' in svg
+print('OK: continuous top/bevel/front coordinates, real glyph paths, grounded mouse')

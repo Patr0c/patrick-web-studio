@@ -102,3 +102,19 @@ Principal point1280/785; updated floor VP1280/738.20856 follows this camera.
 Original measured VP1280/721 is a historical guide, not the active constraint.
 Monitor bezels are extruded rings with real openings and chamfers; display glass
 is recessed13mm behind the bezel face. Full casing depth53.5mm, not flat cards.
+
+Latest user override — vector glass / lunar switch24.10.2026: Version3 from
+Matrix-Tischplatte-5-Varianten.zip is selected (Scharfe Vektor-Glyphen auf
+Matrixglas). Preserve the calibrated table footprint, use one frameless dark
+smoked-glass slab with visible .041m front, no chrome perimeter. Live Matrix
+uses authentic Noto CJK SVG path glyphs; common unfolded coordinates connect
+top, four .003m quarter-round bevel strips and front. No bitmap Matrix video,
+no glow/colour filter, no random changing characters. Visible glass ID still
+excludes keyboard, matte rounded desk mat, grounded volumetric mouse and mounts.
+Mouse base touches pad at z.754m. Existing detailed violet keyboard stays.
+Night start is almost black. MOON is the activation button. Sun and moon occupy
+exactly opposite arms on one circular orbit, center(1280,1000), radius
+hypot(781,688). Moon starts(2061,312), sun below; shared82.76deg rotation
+puts sun(499,312) and moon below. Never restore click-to-start on the sun.
+Keep established Matrix → mount/bezel scan → monitor startup and solar wave.
+Use selected version3 directly; do not restart the superseded five-way selection.

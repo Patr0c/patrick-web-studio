@@ -741,6 +741,159 @@
     "7": "legends",
     "10": "live display aperture"
   },
+  "matrix_surfaces": [
+    {
+      "name": "top",
+      "quad": [
+        [
+          269.81348,
+          1155.00019
+        ],
+        [
+          2289.45239,
+          1155.00019
+        ],
+        [
+          2830.60522,
+          1378.43606
+        ],
+        [
+          -271.73279,
+          1378.43606
+        ]
+      ],
+      "width": 1920,
+      "height": 580.8171171639976,
+      "offset": 0
+    },
+    {
+      "name": "round-0",
+      "quad": [
+        [
+          -271.73279,
+          1378.43606
+        ],
+        [
+          2830.60522,
+          1378.43606
+        ],
+        [
+          2832.04517,
+          1379.35568
+        ],
+        [
+          -273.17377,
+          1379.35568
+        ]
+      ],
+      "width": 1920,
+      "height": 1.036954494487904,
+      "offset": 580.8171171639976
+    },
+    {
+      "name": "round-1",
+      "quad": [
+        [
+          -273.17377,
+          1379.35568
+        ],
+        [
+          2832.04517,
+          1379.35568
+        ],
+        [
+          2833.25244,
+          1380.78128
+        ],
+        [
+          -274.38202,
+          1380.78128
+        ]
+      ],
+      "width": 1920,
+      "height": 1.036954494487904,
+      "offset": 581.8540716584855
+    },
+    {
+      "name": "round-2",
+      "quad": [
+        [
+          -274.38202,
+          1380.78128
+        ],
+        [
+          2833.25244,
+          1380.78128
+        ],
+        [
+          2834.04199,
+          1382.49568
+        ],
+        [
+          -275.17206,
+          1382.49568
+        ]
+      ],
+      "width": 1920,
+      "height": 1.036954494487904,
+      "offset": 582.8910261529734
+    },
+    {
+      "name": "round-3",
+      "quad": [
+        [
+          -275.17206,
+          1382.49568
+        ],
+        [
+          2834.04199,
+          1382.49568
+        ],
+        [
+          2834.29199,
+          1384.23661
+        ],
+        [
+          -275.42227,
+          1384.23661
+        ]
+      ],
+      "width": 1920,
+      "height": 1.036954494487904,
+      "offset": 583.9279806474613
+    },
+    {
+      "name": "front",
+      "quad": [
+        [
+          -275.42227,
+          1384.23661
+        ],
+        [
+          2834.29199,
+          1384.23661
+        ],
+        [
+          2833.10864,
+          1433.62054
+        ],
+        [
+          -274.23804,
+          1433.62054
+        ]
+      ],
+      "width": 1920,
+      "height": 30.806800931033397,
+      "offset": 584.9649351419491
+    }
+  ],
+  "table_depth_m": 0.041,
+  "mouse_contact": {
+    "base_z": 0.754,
+    "pad_top_z": 0.754,
+    "gap_m": 0,
+    "method": "Physical shell on matte mat, real Cycles contact shadows"
+  },
   "bezel_join_error_m": 1.37884772080249e-08,
   "foreground_native_left": -768,
   "foreground_size": [
@@ -750,37 +903,37 @@
   "foreground_visible_bbox": [
     2,
     503,
-    4094,
+    4096,
     1440
   ],
   "floor_crop_y": 1002,
   "light_crop_y": 440,
-  "render_engine": "Blender 4.2 / Cycles CPU, 48 samples, denoising, AgX",
+  "render_engine": "Blender 4.2 / Cycles CPU, 32 samples, denoising, AgX",
   "assets": {
-    "glass-mask-mobile.webp": "bd91bed0b6f8a70eebb5966e08793a1cc3d63ea66ebb7d259b9dbdb26e6ae9ab",
-    "glass-mask.webp": "9d564362f709b0d6e448119031722c1f7e5c73d199625482935e0b2ca8f966b7",
-    "keyboard-legends-mobile.webp": "37b176a1d60d64b03c3224fef8c47b587d82d295bc592729c48966af0a5d2384",
-    "keyboard-legends.webp": "15ff29b27e5398221673e5d9c0d4773f56d51fb306e5fdf7eeb049c4b3971b2a",
-    "keyboard-mask.webp": "2c6c2f8a5d32fb7cd8dd71c2e38b5d875f4d16de14137f3bb3694db33695bb0a",
-    "light-flare-mobile.webp": "d60b765ff0fecaae2a27a67ca8f3753207ee98a2d4f72e1fd9e8907a239a7a3a",
-    "light-flare.webp": "16f325457cb6a8807c16ea45cfa21855e6af147e930a3359d1458bb14755d0b2",
-    "light-galaxy-mobile.webp": "1a16cf91ab4fee25eeefd1fac057d84803615665c9bd131634fc40e297bcfa9d",
-    "light-galaxy.webp": "df28d9375884138f4b6851280657e7d3ad2fc5eff86c12a2471ef585191a32ad",
-    "light-sun-mobile.webp": "883d54065b9fdf27ba3165e0fce8dedab5a4044ffaddad66b324a29a37076c43",
-    "light-sun.webp": "e2d431112694ddb99a1af36b9c50e73bec8f45ee51daa11aab7aed272ee34786",
+    "glass-mask-mobile.webp": "7c8214de21563239ad8cfe4e1b0eae79445191339cd373e4678cad05be1b0948",
+    "glass-mask.webp": "2809228b2170ae0d7baa11a5c4868beed20dcb3c833e3ddf2a201e7ba2537d0e",
+    "keyboard-legends-mobile.webp": "b372fbc65845bcd87195a2edb29aff4ce7e5368d75b1ac1cb49f32f86f1b6493",
+    "keyboard-legends.webp": "e2f1b3f3f66a9dc81abe91397f8c882db5771b9897a676edc121585d3786bcaa",
+    "keyboard-mask.webp": "4f5d38479d22841e6065e46f3ba70211316495cf4fb27552f24cee5930047458",
+    "light-flare-mobile.webp": "93c3ac6628efea0db219c8b0ae33d6858a64df119bba5e85c5633ced84dadfea",
+    "light-flare.webp": "4cb76e8786be68d222a3d84a03a12847bc37659671acb5c3007c483829e6f72c",
+    "light-galaxy-mobile.webp": "295233a57a54ff733694307a1e609460facc77296594cd0995b85e2ac0db9fda",
+    "light-galaxy.webp": "3f1aeb6e81562b7be02157eb07baac53d0c5cfb92c3dcb02a8d5b40fc6b82d26",
+    "light-sun-mobile.webp": "c6f44f5bfccb185a0080d29a53f0172a501b68d6642fb89f847547202e59c6eb",
+    "light-sun.webp": "7750227cc1107033d4f9c2efe2632b071b7e51a21bffa310f4b54de8a6cc8ab8",
     "moon-mobile.webp": "256182b6707efdd62026f4a50a0672cdf5ccf811319b83e9d04361a6541b1e58",
     "moon.webp": "bacd11a50fe7c9c3539ab984e3a48aa444c980f57370d1a4a6a8af4d8b6f90f6",
-    "mouse-mask.webp": "56b005a0761aa991e30075ebd71809517099dbb469f76b131a30e6ba0398dcef",
-    "pad-mask.webp": "9d042a5387e43a63fa4a73fa295d4dc1a90516c7b9e8b6be2259f072373a5995",
+    "mouse-mask.webp": "bb25daa9e84457c3e8f12054854280fc44f6a6eb9482b2462ae917835f07cc97",
+    "pad-mask.webp": "0c8e83937c896ecdecbbf71807cc075c2addbe3f88fc6282823a983940019ee9",
     "particle-0.webp": "e76f9793a40469208541c29ae3463c3e1e9b638589f5881817020710fae0a20d",
     "particle-1.webp": "f38e28e9d74f9754a28e2f72c33e867d058d1047adc9934fcdae6d4f2954e47f",
     "particle-2.webp": "056a0126ce8051b4f5c4b0783d16a01a1df367550662202b3a2a186e4d8cb311",
     "particle-3.webp": "44e4d0adb3bf5755b2308fb873ec2fe50e2e0f73401ae2a2f896fa7b817fc05c",
     "particle-4.webp": "26720176c982370ee93a6648dfe29cc0f08437e69b4eb51e404d1dfb6fda1e73",
     "particle-5.webp": "9d73aebe711759e1f942d0799364e2b043b3914d6844679ce52462f68ea67037",
-    "platform-mobile.webp": "68629bfb2ac906b876fb56042f18047a323f9118309242812fd719b8e0618c4a",
-    "platform.webp": "37571811a7f90b2bb67df13da219a422b5fab00c29bdb70d82316e4711a9a463",
-    "workstation-mobile.webp": "a3cd7168a5134b27c9847c24aaac93fbb7d15326d95fe48db2887c6751afaa37",
-    "workstation.webp": "c7e02791abc534bedfea8537c507268ccc4feb11e88735b35aef693dc76ff0b8"
+    "platform-mobile.webp": "51534c253f3ae89907008ff099eec1b042a22744bfaaaae280ce3aee9f4f79f2",
+    "platform.webp": "6203373dde50c155336064b563382cbf4176cf77f7651bb4373a72f118ef1721",
+    "workstation-mobile.webp": "204377cc78b6576cf6ec71e67e06405cf45c877ddf6e11a948020cf37aabad8e",
+    "workstation.webp": "0696c5a05157e908712758e69c0f4d4810fedde0b2c8289787a8669542722956"
   }
 }

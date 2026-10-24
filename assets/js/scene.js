@@ -25,23 +25,26 @@
   geometry.screens.forEach(screen=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screen.quad,screen.width,screen.height));
  }
  const lighting=window.createSceneLighting?.(stage,native,sun,geometry);
- // The supplied clean recording is the matrix source: original symbols,
- // cadence and falloff, with 110% horizontal stream density baked offline.
- // Native video compositing replaces the old per-glyph Canvas renderer.
- const tableVideo=stage.querySelector('.table-flow-video');
- if(phone.matches)tableVideo.poster="assets/scene/mobile/matrix-poster.webp";
- tableVideo.muted=true;tableVideo.defaultMuted=true;tableVideo.autoplay=false;
- project(tableVideo,geometry.table_quad,2400,1350);
+ // Version 3: real font outlines on one unfolded surface coordinate system.
+ // CSS moves the stable glyph atlas; the horizontal face, four bevel strips
+ // and vertical front all sample the SAME period and phase.
+ const field=stage.querySelector('.table-flow-mask');
+ for(const surface of geometry.matrix_surfaces){
+  const plane=document.createElement('div');plane.className='matrix-vector-plane';
+  plane.dataset.surface=surface.name;
+  plane.style.setProperty('--matrix-offset',surface.offset+'px');
+  project(plane,surface.quad,surface.width,surface.height);
+  field.append(plane);
+ }
  let raf=0;
  function frame(now){
   raf=0;if(!active)return;
   lighting?.tick(now);raf=requestAnimationFrame(frame);
  }
  function setTable(value){
-  tableVideo.dataset.running=String(value);
-  if(!value){cancelAnimationFrame(raf);raf=0;tableVideo.pause();return;}
+  field.dataset.running=String(value);
+  if(!value){cancelAnimationFrame(raf);raf=0;return;}
   if(!raf)raf=requestAnimationFrame(frame);
-  if(tableVideo.paused)tableVideo.play().then(()=>{if(!active)tableVideo.pause();}).catch(()=>{});
  }
  // HRService is the fixed initial selection. Only clicks change the project;
  // playback still starts exclusively on pointer hover.
@@ -92,11 +95,20 @@
   // Keep the two solar video surfaces outside the large, repainting desk layer.
   // Desktop coordinates remain exactly the same native 338/151/322 rectangle.
   const receiver=hero.querySelector('.hero-new');
-  if(sun.parentElement!==receiver)receiver.prepend(sun);
+  const orbit=receiver.querySelector('.celestial-orbit');
+  if(!orbit&&sun.parentElement!==receiver)receiver.prepend(sun);
   {
    const root=receiver.getBoundingClientRect();
-   sun.style.left=`${box.left-root.left+338*scale}px`;sun.style.top=`${box.top-root.top+151*scale}px`;
-   sun.style.width=`${322*scale}px`;sun.style.height=`${322*scale}px`;
+   if(orbit){
+    const radius=Math.hypot(781,688);
+    orbit.style.left=`${box.left-root.left+(1280-radius)*scale}px`;
+    orbit.style.top=`${box.top-root.top+(1000-radius)*scale}px`;
+    orbit.style.width=orbit.style.height=`${2*radius*scale}px`;
+    orbit.style.setProperty('--body-size',`${322*scale}px`);
+   }else{
+    sun.style.left=`${box.left-root.left+338*scale}px`;sun.style.top=`${box.top-root.top+151*scale}px`;
+    sun.style.width=`${322*scale}px`;sun.style.height=`${322*scale}px`;
+   }
   }
   const source=sun.getBoundingClientRect(),x=(source.left+source.width/2-box.left)/scale,y=(source.top+source.height/2-box.top)/scale;
   native.style.setProperty('--sun-native-x',`${x}px`);lighting?.setSource(x,y);
@@ -117,5 +129,6 @@
   stage.querySelector('.scene-control-status').textContent=button.getAttribute('aria-label')+' gedrückt.';
   button.dispatchEvent(new CustomEvent('desk:control',{bubbles:true,detail:{id:button.dataset.controlId}}));
  }));
+ window.addEventListener('scene:orbit-ready',fit);
  fit();update();
 })();

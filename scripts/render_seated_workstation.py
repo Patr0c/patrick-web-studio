@@ -38,7 +38,7 @@ bpy.ops.object.delete(use_global=False)
 scene = bpy.context.scene
 scene.render.engine = 'CYCLES'
 scene.cycles.device = 'CPU'
-scene.cycles.samples = 12 if DRAFT else 48
+scene.cycles.samples = 12 if DRAFT else 32
 scene.cycles.use_denoising = True
 scene.cycles.max_bounces = 6
 scene.cycles.glossy_bounces = 4
@@ -109,7 +109,9 @@ def material(name, color, metallic=0, rough=.35, transmission=0, emission=0):
 chrome = material('Neutral satin polished chromium', (.36, .39, .43), 1, .19)
 edge_chrome = material('Fine polished edge, external reflections only', (.6, .64, .68), 1, .105)
 graphite = material('Graphite anodized structure', (.032, .038, .046), .78, .30)
-glass = material('Smoked graphite glass, solid thickness', (.023, .035, .045), .16, .22, .48)
+glass = material('One frameless dark smoked display slab, absorptive backing', (.004, .006, .005), 0, .30, 0)
+glass.node_tree.nodes['Principled BSDF'].inputs['Specular IOR Level'].default_value=.01
+glass.node_tree.nodes['Principled BSDF'].inputs['Coat Weight'].default_value=0
 rubber = material('Fine anthracite pad textile', (.014, .018, .022), 0, .83)
 keys = material('Clean molded charcoal keycaps', (.027, .031, .038), .12, .31)
 key_top = material('Subtle satin key top', (.038, .042, .050), .1, .35)
@@ -243,12 +245,11 @@ for command, values in path:
             pixels.append(tuple(p))
         current = end
 outline = [on_plane(*p) for p in pixels]
-slab('Solid smoked-glass tabletop', outline, TABLE_Z, .017, glass, 2)
+TABLE_DEPTH=.041
+slab('Solid smoked-glass tabletop', outline, TABLE_Z, TABLE_DEPTH, glass, 2)
 center_y = sum(p.y for p in outline)/len(outline)
 outer = [Vector((p.x*1.019, center_y+(p.y-center_y)*1.07, TABLE_Z-.013)) for p in outline]
-slab('Graphite structural perimeter', outer, TABLE_Z-.015, .025, graphite)
-tube('Continuous upper chrome lip', outer, .007, edge_chrome, cyclic=True)
-tube('Satin lower edge rail', [(p.x,p.y,p.z-.021) for p in outer], .006, chrome, cyclic=True)
+# No perimeter trim: the front and sides belong to this single glass body.
 box('Central real desk support', (0,.48,.39), (.20,.31,.70), graphite, .055)
 box('Pedestal polished front insert', (0,.315,.40), (.13,.012,.56), chrome, .02)
 box('Floor foot', (0,.48,.035), (.64,.49,.05), graphite, .045)
@@ -308,10 +309,13 @@ for side in [-1,1]:
     cylinder('Rear fixed bridge to central mount',(0,.70,MONITOR_Z-.13),(x,y+.022,MONITOR_Z-.13),.009,graphite)
 
 # One textile pad, physically resting on the glass, with sewn edge.
-pad_center = (.09,.25,TABLE_Z+.006)
-box('Mousepad — rebuilt fine woven surface', pad_center, (1.25,.395,.007), rubber, .018, 4)
-padpoly=[(-.535,.065),(.715,.065),(.715,.435),(-.535,.435)]
-tube('Fine stitched mousepad border', [(x,y,TABLE_Z+.0102) for x,y in padpoly], .0007, graphite, 4, True)
+PAD_TOP=TABLE_Z+.004
+padpoly=[]
+for cx,cy,start in [(.685,.417,0),(-.505,.417,90),(-.505,.082,180),(.685,.082,270)]:
+    for j in range(13):
+        a=math.radians(start+j*90/12)
+        padpoly.append((cx+.030*math.cos(a),cy+.030*math.sin(a)))
+slab('Matte woven desk mat, rounded outline and grounded underside',padpoly,PAD_TOP,.003,rubber,4)
 
 keyboard = bpy.data.objects.new('Keyboard — true geometry and legible QWERTZ',None)
 scene.collection.objects.link(keyboard)
@@ -373,24 +377,34 @@ for r,labels in enumerate([['Num','/','*','-'],['7','8','9','+'],['4','5','6',''
                 key(label,.239+c*u,.060-r*.033)
 
 # Clean mouse shell with real wheel, fine button split and bounded highlights.
-bpy.ops.mesh.primitive_uv_sphere_add(segments=64,ring_count=32,location=(.50,.245,TABLE_Z+.030))
-mouse=bpy.context.object
-mouse.name='Mouse — smooth manufactured shell'
-mouse.scale=(.039,.067,.026)
-bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
-for face in mouse.data.polygons:
-    face.use_smooth=True
-finish(mouse,graphite,6)
-tube('Mouse button center split',[(.50,.306,TABLE_Z+.039),(.50,.283,TABLE_Z+.053),(.50,.261,TABLE_Z+.055)],.00065,seam,6)
-cylinder('Mouse wheel',(.491,.278,TABLE_Z+.055),(.509,.278,TABLE_Z+.055),.008,seam,6)
+mouse_mat=material('Satin charcoal ergonomic mouse polymer',(.023,.025,.028),.18,.26)
+verts=[];faces=[];N=64
+# The flat base touches PAD_TOP exactly. No floating picture/billboard.
+for rx,ry,z in [(.031,.053,0),(.038,.061,.004),(.040,.063,.014),(.036,.057,.031),(.024,.039,.044),(.001,.001,.048)]:
+    for i in range(N):
+        a=i*math.tau/N
+        # Narrower nose, softly asymmetric hand-shaped shell.
+        x=rx*math.cos(a)*(1-.09*max(0,math.sin(a)))
+        verts.append((.50+x,.245+ry*math.sin(a),PAD_TOP+z))
+faces.append(tuple(reversed(range(N))))
+for ring in range(5):
+    for i in range(N):faces.append((ring*N+i,ring*N+(i+1)%N,(ring+1)*N+(i+1)%N,(ring+1)*N+i))
+faces.append(tuple(range(5*N,6*N)))
+mesh=bpy.data.meshes.new('Grounded ergonomic shell mesh');mesh.from_pydata(verts,[],faces);mesh.update()
+mouse=bpy.data.objects.new('Grounded ergonomic mouse — real volume and contact',mesh);scene.collection.objects.link(mouse)
+for face in mesh.polygons:face.use_smooth=True
+sub=mouse.modifiers.new('Continuous molded shell','SUBSURF');sub.levels=2
+finish(mouse,mouse_mat,6)
+tube('Mouse button center split',[(.50,.299,PAD_TOP+.025),(.50,.286,PAD_TOP+.034),(.50,.267,PAD_TOP+.043)],.00055,seam,6)
+cylinder('Mouse wheel',(.494,.280,PAD_TOP+.037),(.506,.280,PAD_TOP+.037),.007,seam,6)
 for i in range(10):
     a=i*math.tau/10
-    cylinder('Wheel tread',(.493,.278+math.cos(a)*.0082,TABLE_Z+.055+math.sin(a)*.0082),(.507,.278+math.cos(a)*.0082,TABLE_Z+.055+math.sin(a)*.0082),.00045,graphite,6)
+    cylinder('Wheel tread',(.495,.280+math.cos(a)*.0072,PAD_TOP+.037+math.sin(a)*.0072),(.505,.280+math.cos(a)*.0072,PAD_TOP+.037+math.sin(a)*.0072),.00035,graphite,6)
 
 # Restore the approved detailed GIMP surfaces, projected on the same physical
 # desk planes. Proxy bodies remain for contact/cast shadows and reflections.
 for obj in list(bpy.data.objects):
-    if obj.pass_index in (4,5,6,7):
+    if obj.pass_index in (5,7):
         obj.visible_camera=False
         if obj.name.startswith(('Keyboard lower casing','Keyboard upper deck','Keyboard dark switch plate')):obj.visible_camera=True
 
@@ -409,7 +423,6 @@ def surface(name,points,texture,category,emission=.25):
     nt.links.new(tex.outputs['Color'],bs.inputs['Emission Color']);bs.inputs['Emission Strength'].default_value=emission
     return finish(obj,mat,category)
 materials=OUT/'materials'
-surface('Archived woven pad surface',[(-.535,.447,.761),(.715,.447,.761),(.715,.052,.761),(-.535,.052,.761)],materials/'mousepad.png',4)
 bpy.context.view_layer.update()
 pts=[keyboard.matrix_world@Vector(p) for p in [(-.351,.1125,.021),(.351,.1125,.021),(.351,-.1125,.021),(-.351,-.1125,.021)]]
 surface('Original sculpted keyboard surface',pts,materials/'keyboard.png',5,.4)
@@ -423,9 +436,7 @@ for socket in ['Base Color','Emission Color']:
     bs.inputs[socket].default_value=(.48,.15,.87,1)
 # Mouse is a camera-registered cutout at its physical position. Its hidden smooth
 # body still supplies the real table contact shadow and light occlusion.
-center=Vector((.50,.245,.79));u,v=project(center)
-pts=[on_plane(u+dx,v+dy,z=.79) for dx,dy in [(-52,-40),(52,-40),(52,35),(-52,35)]]
-surface('Original ergonomic mouse shell',pts,ROOT/'assets/scene/mouse.webp',6,.55)
+# Mouse and mat are now real camera-visible meshes, with coincident contact.
 # A geometrically coherent graphite/chrome tiled platform. Depth edges converge
 # to the measured VP, independent of monitor yaw or table shape.
 rng=random.Random(20261024)
@@ -487,6 +498,26 @@ calibration={
     'galaxy_world':list(galaxy.location),'galaxy_image':project(galaxy.location),
     'object_categories':{'1':'floor','2':'smoked glass','3':'hardware/mounts','4':'mousepad','5':'keyboard','6':'mouse','7':'legends','10':'live display aperture'},
 }
+# Unfolded glyph coordinates measured in the same world scale on both faces.
+# The bevel is a quarter cylinder, not a stretched copy of the horizontal face.
+x0,x1=min(p.x for p in outline),max(p.x for p in outline)
+y0,y1=min(p.y for p in outline),max(p.y for p in outline)
+pixels_per_m=1920/(x1-x0);radius=.003
+surfaces=[];offset=0
+def matrix_face(name,world,length):
+    global offset
+    surfaces.append({'name':name,'quad':[project(p) for p in world],'width':1920,'height':length*pixels_per_m,'offset':offset})
+    offset+=length*pixels_per_m
+matrix_face('top',[(x0,y1,TABLE_Z),(x1,y1,TABLE_Z),(x1,y0+radius,TABLE_Z),(x0,y0+radius,TABLE_Z)],y1-y0-radius)
+for i in range(4):
+    a,b=i*math.pi/8,(i+1)*math.pi/8
+    def edge(t):return (y0+radius-radius*math.sin(t),TABLE_Z-radius+radius*math.cos(t))
+    ya,za=edge(a);yb,zb=edge(b)
+    matrix_face('round-'+str(i),[(x0,ya,za),(x1,ya,za),(x1,yb,zb),(x0,yb,zb)],radius*(b-a))
+matrix_face('front',[(x0,y0,TABLE_Z-radius),(x1,y0,TABLE_Z-radius),(x1,y0,TABLE_Z-TABLE_DEPTH+radius),(x0,y0,TABLE_Z-TABLE_DEPTH+radius)],TABLE_DEPTH-2*radius)
+calibration['matrix_surfaces']=surfaces
+calibration['table_depth_m']=TABLE_DEPTH
+calibration['mouse_contact']={'base_z':PAD_TOP,'pad_top_z':PAD_TOP,'gap_m':0,'method':'Physical shell on matte mat, real Cycles contact shadows'}
 (OUT/'camera.json').write_text(json.dumps(calibration,indent=2))
 
 # One ray-traced render yields material masks and physically occluded solar /
