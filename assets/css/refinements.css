@@ -40,3 +40,5 @@ html.scene-light-paused .scene-moon {animation-play-state:paused;}
 .hero.comparison-ready .hero-new {overflow:clip!important;}
 .platform-wave-mask {overflow:clip;contain:paint;}
 .particle-sphere {filter:brightness(1.6);}
+/* A broad crest keeps the passing light legible on the dark graphite tiles. */
+.platform-wave {background:linear-gradient(90deg,transparent 30%,rgba(255,114,48,.07) 39%,rgba(255,180,89,.30) 45%,rgba(255,220,166,.58) 50%,rgba(255,149,65,.22) 55%,rgba(255,89,38,.04) 63%,transparent 70%);mask-image:linear-gradient(0deg,transparent,#000 12% 75%,transparent);}

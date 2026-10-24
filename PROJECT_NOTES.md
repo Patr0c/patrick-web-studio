@@ -936,3 +936,15 @@ sun/desk; changed to overflow:clip and bounded floor-field paint. Wave travel
 is clamped outside its active phase; narrower field makes onset visible atleft.
 Browser telemetry errors originate only from its extension, not site JavaScript.
 Final deployed regression results follow in the next validation note.
+
+Final code preview75130ce7: Chromium desktop1350×936 and390/320px iframes.
+320px after activation: clientWidth305 and scrollWidth305, hero-new scrollTop0;
+sun and moon tops agree within0.02px, keyboard activation reaches on. Desktop
+sun click reaches on, corona currentTime10.413, wave phase.535, no horizontal
+or internal hero scrolling. No broken image resources. The particle sphere is
+intentionally faint and granular, with the spiral retained as a fallback.
+The first floor-wave crest was too subtle in the desktop render; increased its
+soft traveling band on the same physical plane for the final code revision.
+Firefox and physical Safari/iPhone remain untested. No claim of new hover/FPS
+stress testing; retained hover controller code and confirmed recordings paused
+without hover in active state. All nine existing concept links remain checked.
