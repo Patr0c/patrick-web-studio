@@ -118,3 +118,17 @@ hypot(781,688). Moon starts(2061,312), sun below; shared82.76deg rotation
 puts sun(499,312) and moon below. Never restore click-to-start on the sun.
 Keep established Matrix → mount/bezel scan → monitor startup and solar wave.
 Use selected version3 directly; do not restart the superseded five-way selection.
+
+Latest iPhone stability override24.10.2026: IMG_4155 proves /iphone crashed
+in actual Safari. The dedicated iphone.html is now standalone: fonts.css,
+iphone.css, iphone-scene.js and categories.js only. Never re-import desktop
+scene/filter/mask/perspective CSS or its media/background controllers here.
+One opaque Canvas2D capped600px wide and640k pixels; prepared1056×576 scene
+bitmaps keep the common camera. Vector glyphs are projected OFFLINE for this
+iPhone-only compatibility path, into a528×64 H.264 strip. Solar disk/corona
+are combined into one320×320 film. Both media sources are created only after
+the moon gesture, with no initial video decoder. Sun/moon opposite circular
+orbit, startup/circuit/monitors/floor wave and manual left selection retained.
+Pause both media/RAF when offscreen or hidden; static reduced-motion state.
+Desktop index.html, vector atlas and existing desktop assets stay unchanged.
+Do not claim real-Safari crash fixed until Patrick confirms on his iPhone.

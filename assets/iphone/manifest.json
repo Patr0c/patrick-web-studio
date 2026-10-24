@@ -1,0 +1,92 @@
+{
+  "circuit.webp": {
+    "bytes": 30036,
+    "sha256": "c2d8eda17287125d917e1c0c139a794847e682d47d0009353f0c77cfb67d3a7b",
+    "size": [
+      1056,
+      576
+    ]
+  },
+  "floor-wave.png": {
+    "bytes": 41461,
+    "sha256": "cc580479474a14b0a6ff341704189cb0fcf48adbca25cf89773b668a07ee1f57",
+    "size": [
+      1056,
+      1408
+    ]
+  },
+  "geometry.json": {
+    "bytes": 1341,
+    "sha256": "e4034ee90fd22810326c45b1aad684b2e814f60c5ec5ab37bb5f77249faa2ebf"
+  },
+  "matrix-poster.webp": {
+    "bytes": 28262,
+    "sha256": "c34e0230ddb55851344b8c7eba5aa8e716fd1d896c7bac268c6c8633be7b4fb1",
+    "size": [
+      1056,
+      128
+    ]
+  },
+  "matrix.mp4": {
+    "bytes": 1841082,
+    "sha256": "b491eb8ac9dd32fffc1e65479d35072dad0d9cd001353bbbe73f4ab4212b4f2e",
+    "codec_name": "h264",
+    "width": 528,
+    "height": 64
+  },
+  "moon.webp": {
+    "bytes": 9450,
+    "sha256": "29b7a635075e8e78dbd9aad237d551bb056357233a1d46a11858724b72fdbe82",
+    "size": [
+      192,
+      192
+    ]
+  },
+  "particles.webp": {
+    "bytes": 72418,
+    "sha256": "a3cb12d40f70ee3a55389793ed633bf9d4bb4ca6fc477e5025a49c3351e01df7",
+    "size": [
+      320,
+      320
+    ]
+  },
+  "scene-hrservice.webp": {
+    "bytes": 84634,
+    "sha256": "ccce3d5b2039d74c890f52e2c1fd6b86bcdbe98553879a3f3ec8d89bf3a7f35a",
+    "size": [
+      1056,
+      576
+    ]
+  },
+  "scene-night.webp": {
+    "bytes": 32150,
+    "sha256": "5dc30628c1ca12a852a30d159dbbfdc535106438b36897e22eeeb58afc57e065",
+    "size": [
+      1056,
+      576
+    ]
+  },
+  "scene-wagner.webp": {
+    "bytes": 84628,
+    "sha256": "c5dbfc1ee402c3380b999c3db131ce89824d0900e392c396b90765ebe82ea09a",
+    "size": [
+      1056,
+      576
+    ]
+  },
+  "sun-poster.webp": {
+    "bytes": 7972,
+    "sha256": "740f33191bbb292248ce463f8868e4f34a4ba31577d7312256f6e12801696cb8",
+    "size": [
+      320,
+      320
+    ]
+  },
+  "sun.mp4": {
+    "bytes": 1661300,
+    "sha256": "f4dd545aa2522cdf9471de575be5a8f9a4613a3f9b45f115b3fd473de6cf212c",
+    "codec_name": "h264",
+    "width": 320,
+    "height": 320
+  }
+}

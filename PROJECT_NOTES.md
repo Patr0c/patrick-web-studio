@@ -992,3 +992,47 @@ from the same index/camera by build_iphone_edition.py. Uses the existing
 responsive half-size artwork and mobile solar sources, safe-area spacing,
 expanded moon touch target and fewer GPU promotion hints. No new autoplay
 project behavior. Physical Safari/iPhone test is still unavailable.
+
+
+## 24.10.2026 — repeated real Safari crash / independent iPhone pipeline
+IMG_4155.png shows the repeated-problem Safari screen for8c8fa314 /iphone.
+This confirms the last compatibility attempt was insufficient; it does not
+identify a single crash cause. Removed the entire desktop scene/CSS pipeline
+from the iPhone entry, rather than hiding inherited filters.
+
+Prepared camera-registered bitmaps combine floor, monitor apertures/posters,
+rigid cases, hardware, matte mat/mouse and violet legends. Project planes are
+clipped offline to front bezel silhouettes. The exact selected vector glyphs
+are unfolded/projection-sampled offline onto top/bevel/front and encoded as
+a528×64/20fps96s H.264 film (1.84MB). Original sun/corona clocks are baked into
+one320×320/20fps108.75s H.264 film (1.66MB). Desktop media/geometry unchanged.
+
+Initial iPhone DOM: one Canvas2D, zero video elements/decoders, no SVG filters
+and only standalone iphone.css/fonts.css. Canvas capped600px wide,640k pixels.
+The initial night bitmap1056×576 plus192px moon replace large scene textures.
+Moon tap creates the two small media sources; cached bitmap fallback handles
+a denied play. A failed Canvas allocation falls back to stills. The circle,
+startup ordering, physically masked Matrix strip, one-time hardware scan and
+world-projected warm floor wave remain; no runtime3D transforms or GPU masks.
+Wave sheet1.49MP is loaded after the gesture; all prepared image decode storage
+is about17.2MB including optional Wagner and wave sheet.
+
+Checks: independent iPhone resource audit excludes desktop dependencies and
+initial video markup; every prepared bitmap reopened/verified; every media
+resolution/codec/duration inspected with ffprobe. SHA/size manifest and budgets
+checked in normal CI. Main calibration/hash checks and JS syntax still pass.
+Chromium390px iframe: initial zero videos, one canvas316500px, no horizontal
+overflow; moon click reaches on, both small media advance, manual left preview
+changes to Wagner. Hotel concept modal opens; nine definitions retained.
+Exact real Safari crash cannot be reproduced in the available Chrome browser.
+No assertion that the iPhone-specific crash is resolved yet. Final paused/320px
+and live deployment checks follow. Main/production untouched.
+
+Final local checks:320px iframe clientWidth/scrollWidth both305; active scene
+reaches on. Both H.264 streams paused after scrolling to the Hotel category;
+data-animating=false. The first startup clock clamped long visible-frame delays
+and took too long in a throttled iframe; now uses real visible elapsed time,
+while resetting its epoch on hidden/offscreen resume. Hotel modal rendered.
+Initial iPhone page observed zero video elements, zero SVG filters, one2D
+canvas316500px. Early iPhone/iPod redirect in main head avoids loading desktop
+render layers for iPhone visitors; desktop browser behavior is unchanged.

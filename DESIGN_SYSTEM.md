@@ -485,3 +485,11 @@ clearance above the mat. The full archived keyboard legends remain violet.
 Moon activates the dark scene; both bodies are diametrically opposite on a
 single circle. Moon moves below the desk as the sun rises to the former solar
 light location. Initial darkness has no dormant sun or moon reflection.
+
+
+## iPhone stability exception after IMG_4155
+The phone entry has independent flat rendering using prepared images from the
+same calibration. Selected glyph paths are projected offline into a small
+animated strip for this compatibility route. No desktop scene CSS, SVG masks
+or filters are imported. A single bounded2D canvas composites the two small
+post-gesture media sources. Desktop keeps its vector-rendered Matrix.

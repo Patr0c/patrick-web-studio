@@ -154,3 +154,23 @@ assert seated['mouse_contact']['gap_m']==0
 svg=(ROOT/'assets/scene/seated/matrix-vector.svg').read_text()
 assert '<filter' not in svg and '<text' not in svg and '<path' in svg and '<use' in svg
 print('OK: continuous top/bevel/front coordinates, real glyph paths, grounded mouse')
+
+# The iPhone entry must not accidentally re-import the desktop GPU pipeline.
+phone=(ROOT/'iphone.html').read_text()
+assert phone.count('<canvas ')==1 and '<video' not in phone
+for retired in ['"assets/js/scene.js"','"assets/js/scene-lighting.js"','"assets/js/workstation-power.js"','"assets/js/space.js"','"assets/css/studio.css"','"assets/css/refinements.css"','<filter']:
+    assert retired not in phone, 'Heavy desktop dependency in iPhone entry: '+retired
+class PhoneParser(HTMLParser):
+    def handle_starttag(self,tag,attrs):
+        attrs=dict(attrs)
+        for key in ('src','href'):
+            check_ref(attrs.get(key,''),ROOT)
+PhoneParser().feed(phone)
+manifest=json.loads((ROOT/'assets/iphone/manifest.json').read_text())
+for name,entry in manifest.items():
+    asset=ROOT/'assets/iphone'/name
+    assert asset.stat().st_size==entry['bytes']>0 and hashlib.sha256(asset.read_bytes()).hexdigest()==entry['sha256'],name
+    if 'size' in entry:assert math.prod(entry['size'])<=1500000,name
+    if 'codec_name' in entry:assert entry['codec_name']=='h264' and entry['width']*entry['height']<=110000,name
+assert not errors, '\n'.join(errors)
+print('OK: standalone iPhone assets, bounded image/video sizes, no desktop GPU pipeline at startup')
