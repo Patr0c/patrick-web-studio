@@ -30,7 +30,7 @@ window.createSceneLighting = (stage,native,sun,geometry) => {
   // Sampled outer-corona energy becomes visible at4s. Wave starts at5s,
   // one second later; its broad warm crest traverses the actual floor plane.
   const q=(t-5)/10,envelope=smooth(q*6)*smooth((1-q)*5);
-  wave.style.opacity=powered?String(envelope*.9):'0';wave.style.transform=`translateX(${(-50+q*100).toFixed(3)}%)`;
+  wave.style.opacity=powered?String(envelope*.9):'0';wave.style.transform=`translateX(${(-50+Math.max(0,Math.min(1,q))*100).toFixed(3)}%)`;
   stage.dataset.flareReflection=burst.toFixed(3);stage.dataset.platformWavePhase=q.toFixed(3);
   if(root.dataset.power==='boot'&&t>=3.6){root.dataset.power=stage.dataset.power='on';root.dispatchEvent(new Event('workstation:ready'));}
  }

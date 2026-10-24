@@ -16,7 +16,7 @@
 .moon-reflection {position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(ellipse at 79% 83%,#bdc7ee22,transparent 27%);mask:url('../scene/seated/workstation.webp') center/4096px 1440px no-repeat;transition:opacity 2s;}
 .hero:not([data-power=night]) .moon-reflection {opacity:0;}
 .platform-wave-plane {position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;pointer-events:none;}
-.platform-wave {position:absolute;inset:-5% -100%;background:radial-gradient(ellipse at center,rgba(255,205,132,.38),rgba(255,129,58,.14) 16%,rgba(255,88,33,.04) 34%,transparent 55%);mix-blend-mode:screen;opacity:0;will-change:transform;}
+.platform-wave {position:absolute;inset:-5% -25%;background:radial-gradient(ellipse at center,rgba(255,205,132,.55),rgba(255,129,58,.14) 16%,rgba(255,88,33,.04) 34%,transparent 55%);mix-blend-mode:screen;opacity:0;will-change:transform;}
 .particle-sphere {position:absolute;left:calc(50% + var(--scene-unit,.5px)*490);top:calc(var(--scene-top,0px) + var(--scene-unit,.5px)*750);width:calc(var(--scene-unit,.5px)*840);height:calc(var(--scene-unit,.5px)*840);transform:translate(-50%,-50%);pointer-events:none;}
 .particle-sphere img {position:absolute;inset:0;width:100%;height:100%;animation:particleRenewal var(--period) ease-in-out infinite;animation-delay:var(--delay);}
 @keyframes particleRenewal {0%,100%{opacity:.8;transform:translate(0,0) rotate(0deg)}35%{opacity:.17;transform:translate(1.6%,-1.4%) rotate(1deg)}65%{opacity:.7;transform:translate(-.7%,.8%) rotate(-.6deg)}}
@@ -35,3 +35,8 @@ html.scene-light-paused .scene-moon {animation-play-state:paused;}
 .hero[data-power=night] .scene-screen *,.hero[data-power=boot] .scene-screen * {visibility:hidden!important;}
 .platform-wave-mask {position:absolute;inset:0;mask:url('../scene/seated/platform.webp') left bottom/4096px auto no-repeat;pointer-events:none;mix-blend-mode:screen;}
 @media(max-width:760px){.platform-wave-mask{mask-image:url('../scene/seated/platform-mobile.webp');}}
+
+/* Clip paint without creating a scroll container that focus can shift. */
+.hero.comparison-ready .hero-new {overflow:clip!important;}
+.platform-wave-mask {overflow:clip;contain:paint;}
+.particle-sphere {filter:brightness(1.6);}

@@ -925,3 +925,14 @@ reprojection, rigid-screen/hinge checks and JS syntax pass. Local Chromium launc
 is blocked by the execution environment's socket permissions; browser verification
 will use the actual Cloudflare development URL. No real Safari/iPhone or Firefox
 claim. Further browser findings are recorded below after deployment.
+
+Browser verification on Cloudflare3d6efeac (Chromium desktop1350×936): initial
+night state and three LEDs, Matrix/solar paused, no broken images or document
+overflow; sun click reaches on, Matrix plays, all project videos stay paused,
+moon reflection opacity0. Moon and sun are symmetric; updated accessories are
+visible and all table edges remain.390px iframe has no overflow.320px resize
+exposed a focus-induced scroll in inherited overflow:hidden hero-new, shifting
+sun/desk; changed to overflow:clip and bounded floor-field paint. Wave travel
+is clamped outside its active phase; narrower field makes onset visible atleft.
+Browser telemetry errors originate only from its extension, not site JavaScript.
+Final deployed regression results follow in the next validation note.
