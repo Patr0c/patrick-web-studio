@@ -442,3 +442,34 @@ Für Viewports≤760px werden vorhandene Originalpixel ohne Neuzeichnung offline
 Mobile Hintergrundgrafiken: Galaxie1024px, Plattform1280px; Monitorposter640px. Doppelte Video-Poster im Hero entfernt, bereits vorhandene echte responsive Posterbilder übernehmen die Standbilder. Kleine Bitmapmasken statt groß dekodierter Masken. Matrixfarbe ist in einer separaten704×360/30fps/25.4s-Mobilaufnahme eingerechnet: kein SVG-Farbfilter auf dem bewegten Video. Zeichen, Timing und Dichte unverändert; reduzierte Bildrate auf Mobilgeräten. Sonne/Korona weiterhin vorhandene Mobilaufnahmen, keine neue Drehgeschwindigkeit. Originaler Desktop-Matrixfilm unverändert.
 
 Mobil keine runtime-SVG-Kontakt-/Schlagschattenfilter und kein Tastatur-Farbfilter: bereits in der Grafik berücksichtigt. Reflexfeld384×96/max20fps statt768×192/max30fps; bewegliche Sonnenreflexe und kontinuierliche Matrix erhalten. Kein zusätzlicher Animationsloop. Originale Bitmap-/GIMP-Assets bleiben unverändert archiviert und per Hash geprüft. Reproduzierbar: scripts/build_monitor_perspective.py, danach scripts/build_mobile_scene.py; Matrix-Mobilfarbe aus bestehender Mobilaufnahme per ffmpeg colorchannelmixer mit R/G25/229 und B/G15/229.
+
+## Common seated camera —24 October2026
+
+The complete active desk scene is now modeled offline in Blender4.2/Cycles.
+Every object shares one pinhole camera: smoked-glass slab/edge, platform tiles,
+three separate monitor bodies and their structural mounts, textile pad, keyboard
+with modeled QWERTZ caps/legends, and mouse with split shell/wheel. No image-wide
+monitor warp or independent accessory perspective remains active.
+
+Native canvas2560×1440; full render4096×1440 with768px horizontal overscan on each
+side. Principal point1280/785; current platform vanishing point1280/738.20856;
+focal length1750px. Chosen camera height1.20m, table height.75m, pitch1.531608°,
+yaw0°. Metric scale/focal length are explicit reconstruction assumptions,
+not a claim of uniquely recovering the original composite's camera. The latest center monitor is at1.15m, eyes at1.20m.
+
+Canonical corners and world poses: `assets/scene/seated/camera.json`. Screens are
+rigid rectangles, outer yaw±45°, top tilt0° (shared vertical bezel hinges). HTML is individually projected to
+their exported corners. Physical material thickness, bevels and cast/contact
+shadows are baked. Chromium stays neutral; the upper-left spherical sun provides
+warm light, with a weaker violet/blue galactic contribution. Smooth contribution
+opacity changes use real light-group images and the existing scene lifecycle.
+No synthetic spotlight stamps or painted duplicate peripheral shadows.
+
+Matrix uses the visible smoked-glass object-ID mask, excluding frame, pad,
+keyboard, mouse and mounts automatically. Original recording, glyphs, hue and
+motion are retained. Key legends remain violet, static and without bloom.
+Responsive half-resolution WebP images reduce mobile memory; full-width floor
+and lighting overscan use exactly the same scale/bottom anchor as the desk.
+No runtime3D library or model is downloaded. Original GIMP sources remain archived.
+
+Final45° case depth uses the4096px foreground overscan at native x−768 (mobile2048px). The2560×1440 coordinate grid stays unchanged. Actual visible display ID10 cuts apertures in the foreground; live HTML sits behind the physical frame walls rather than covering their depth.

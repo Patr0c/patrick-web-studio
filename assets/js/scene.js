@@ -1,5 +1,5 @@
-/* The current GIMP scene: one native grid, measured projective screen faces,
-   one native tabletop video and separately masked keyboard/light layers. */
+/* One calibrated camera: rigid monitor planes, physical object beauty,
+   visible-glass Matrix video and baked PBR contribution layers. */
 (() => {
  'use strict';
  const stage=document.querySelector('.scene-stage'),hero=document.querySelector('.immersive-hero');
@@ -20,14 +20,9 @@
   element.style.width=w+'px';element.style.height=h+'px';
   element.style.transform=`matrix3d(${a/w},${d/w},0,${g/w},${b/h},${e/h},0,${hq/h},0,0,1,0,${p0[0]},${p0[1]},0,1)`;
  }
- // Phones use baked original pixels and direct final screen quads instead of
- // nesting a full 2560px perspective surface around three more 3D surfaces.
- const monitorAssembly=stage.querySelector('.scene-monitor-assembly');
+ // Each rigid display plane is projected directly from the common 3D camera.
  function fitMonitors(){
-  const screens=phone.matches?geometry.monitor_perspective.rendered_screens:geometry.screens;
-  geometry.screens.forEach((screen,i)=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screens[i].quad,screen.width,screen.height));
-  if(phone.matches)monitorAssembly.style.transform='none';
-  else project(monitorAssembly,geometry.monitor_perspective.canvas_quad,2560,1440);
+  geometry.screens.forEach(screen=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screen.quad,screen.width,screen.height));
  }
  const lighting=window.createSceneLighting?.(stage,native,sun,geometry);
  // The supplied clean recording is the matrix source: original symbols,

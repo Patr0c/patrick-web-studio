@@ -1,4 +1,4 @@
-/* Active scene: Patrick's edited 2560 × 1440 GIMP composition. */
+/* Active scene: one calibrated seated camera, native2560×1440. */
 .immersive-hero.hero {height:100svh;min-height:700px;background:transparent;--desk-width:100%;}
 .hero .workstation-stage.scene-stage {width:min(calc(100% - 48px),calc((100svh - 32px) * 2560 / 1440));aspect-ratio:2560/1440;bottom:12px;overflow:visible;}
 .scene-native {position:absolute;left:0;top:0;width:2560px;height:1440px;transform:scale(var(--scene-scale,.5));transform-origin:0 0;isolation:isolate;pointer-events:none;}
@@ -163,3 +163,34 @@ html.scene-light-paused .galaxy-rotator::before {animation-play-state:paused!imp
  .scene-sun .sun-video,.scene-sun .solar-corona-video {will-change:auto;transform:none;}
  .scene-sun.white-halo.sun-stage {will-change:auto;}
 }
+
+/* Calibrated seated scene: all geometry, shadows and reflections share one
+   offline pinhole camera. Overscan floor and desk use identical pixel scale. */
+.immersive-hero {--seated-bottom:12px;}
+.seated-native .seated-foreground {position:absolute;inset:0;display:block;width:2560px;height:1440px;max-width:none;z-index:3;pointer-events:none;}
+.seated-native .scene-monitor-assembly {display:contents;transform:none;}
+.scene-floor .scene-platform {left:50%;bottom:var(--seated-bottom);width:calc(var(--scene-unit,.5px)*4096);height:auto;transform:translateX(-50%);filter:none;}
+.seated-native .table-flow-mask {mask-image:url('../scene/seated/glass-mask.webp');-webkit-mask-image:url('../scene/seated/glass-mask.webp');}
+.seated-light {position:absolute;left:50%;bottom:var(--seated-bottom);width:calc(var(--scene-unit,.5px)*4096);height:auto;max-width:none;transform:translateX(-50%);z-index:14;pointer-events:none;mix-blend-mode:screen;opacity:0;}
+@media(max-width:760px){
+ .immersive-hero {--seated-bottom:8px;}
+ .seated-native .table-flow-mask {mask-image:url('../scene/seated/glass-mask-mobile.webp');-webkit-mask-image:url('../scene/seated/glass-mask-mobile.webp');}
+}
+.seated-native .seated-legends {position:absolute;inset:0;display:block;width:2560px;height:1440px;max-width:none;z-index:4;pointer-events:none;}
+
+/* User refinement: rigid frames join at common vertical hinge edges; the
+   desk's front edge finishes at the hero bottom with no floating gap. */
+.hero .workstation-stage.scene-stage {bottom:0;}
+.immersive-hero {--seated-bottom:0px;}
+.space-background .galaxy-rotator {animation:galaxyTurn 588.235294s linear infinite;will-change:transform;}
+@media(max-width:760px){.space-background .galaxy-rotator {animation-duration:705.882353s;}}
+html.scene-light-paused .galaxy-rotator {animation-play-state:paused!important;}
+@media(prefers-reduced-motion:reduce){.space-background .galaxy-rotator {animation:none!important;}}
+/* Real visible-glass apertures put live content behind the extruded bezels.
+   Overscan keeps the complete outer case sides, including their real depth. */
+.seated-native .seated-foreground {left:-768px;right:auto;width:4096px;}
+.seated-native .scene-screen {z-index:2;}
+/* Floor uses the very same transformed native scene, with full-width overscan. */
+.seated-native .scene-floor {inset:0 auto auto -768px;width:4096px;height:1440px;z-index:1;overflow:visible;}
+.seated-native .scene-floor .scene-platform {left:0;bottom:0;width:4096px;transform:none;}
+.scene-title>span:first-child {display:inline-block;color:#f7fff5;-webkit-text-fill-color:#f7fff5;}

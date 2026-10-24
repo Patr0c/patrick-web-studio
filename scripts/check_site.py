@@ -110,3 +110,34 @@ assert 'scene-flow-caption mono' not in html and 'carousel-pause"' not in html
 assert '<header class="nav">' not in html
 assert 'h1 class="scene-title"' in html
 print('OK: current GIMP assets, perspective quads, three recordings, and single active scene controller')
+
+# Current common-camera scene: verify independent real-plane projections,
+# untouched archived pixels, and deterministic packaged render hashes.
+seated=json.loads((ROOT/'assets/scene/seated/camera.json').read_text())
+embedded=json.loads(re.search(r'id="scene-geometry">(.*?)</script>',html,re.S)[1])
+assert seated==embedded, 'Published and source camera metadata differ'
+assert seated['canvas']==[2560,1440] and seated['overscan_canvas']==[4096,1440]
+import math
+cam=seated['camera'];C=cam['location'];R=cam['right'];U=cam['up'];D=cam['forward']
+def dot(a,b):return sum(x*y for x,y in zip(a,b))
+for screen in seated['screens']:
+    for world,expected in zip(screen['world_corners'],screen['quad']):
+        ray=[x-y for x,y in zip(world,C)];depth=dot(ray,D)
+        projected=[seated['principal_point'][0]+seated['focal_pixels']*dot(ray,R)/depth,seated['principal_point'][1]-seated['focal_pixels']*dot(ray,U)/depth]
+        assert max(abs(a-b) for a,b in zip(projected,expected))<.02
+    assert all(0<x<2560 and 0<y<1440 for x,y in screen['quad'])
+for name,checksum in seated['assets'].items():
+    assert hashlib.sha256((ROOT/'assets/scene/seated'/name).read_bytes()).hexdigest()==checksum,name
+assert 'class="seated-foreground"' in html and 'class="scene-hardware' not in html
+assert 'monitor_perspective' not in (ROOT/'assets/js/scene.js').read_text()
+assert 'createElement(\'canvas\')' not in (ROOT/'assets/js/scene-lighting.js').read_text()
+print('OK: common camera reprojection, calibrated asset hashes, direct live display quads')
+
+assert seated['bezel_join_error_m']<.00001, 'Bezel edges are not flush'
+for screen in seated['screens']:
+    q=screen['world_corners'];a=[q[1][i]-q[0][i] for i in range(3)];b=[q[3][i]-q[0][i] for i in range(3)]
+    assert abs(dot(a,b))<1e-6, 'Screen is not a rigid rectangle'
+print('OK: rigid rectangular screens and flush shared bezel hinges')
+
+assert abs(seated['monitor_setup']['eye_above_center_m']-.05)<1e-7
+assert [s['pose']['yaw_degrees'] for s in seated['screens']]==[45,0,-45]

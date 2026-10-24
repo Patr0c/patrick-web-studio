@@ -5,7 +5,7 @@
   const galaxyImage = galaxy?.querySelector('.round-galaxy');
   if (!space || !galaxy || !galaxyImage) return;
 
-  // Keep galaxy artwork, fine stars and soft veil registered in one static layer.
+  // Galaxy artwork and dust rotate together; individual sky glints stay fixed.
   const rotating = document.createElement('div');
   rotating.className = 'galaxy-rotator';
   galaxyImage.replaceWith(rotating);
@@ -27,7 +27,8 @@
   const twinkles=document.createElement('div');twinkles.className='sky-twinkles';space.append(twinkles);
   const syncMotion=()=>{
     const save=Boolean(navigator.connection?.saveData);
-    rotating.style.animation='none';
+    if(motion.matches||save)rotating.style.animation='none';
+    else rotating.style.removeProperty('animation');
     document.documentElement.classList.toggle('studio-save-data',save);
   };
   motion.addEventListener('change',syncMotion);navigator.connection?.addEventListener('change',syncMotion);syncMotion();
@@ -67,7 +68,7 @@
       star(fixedCtx,x,y,radius,bright,i%39===0);
     }
     twinkles.replaceChildren();
-    const wink=random(20261024),winkCount=Math.min(28,Math.max(12,Math.round(width*height/49000)));
+    const wink=random(20261024),winkCount=Math.min(36,Math.max(16,Math.round(width*height/42000)));
     for(let i=0;i<winkCount;i++){
       const dot=document.createElement('i');dot.className='sky-star';
       dot.style.cssText=`left:${(wink()*100).toFixed(3)}%;top:${(wink()*100).toFixed(3)}%;width:${(.8+wink()*.8).toFixed(2)}px;height:${(.8+wink()*.8).toFixed(2)}px;--star-period:${(10+wink()*11).toFixed(2)}s;--star-delay:-${(wink()*24).toFixed(2)}s`;
@@ -103,7 +104,7 @@
     if (!size) return;
     const ctx = prepare(dust,size,size);
     const centered = size/2, rand = random(19042026);
-    // Paint ONCE: the canvas stays registered to the stationary galaxy.
+    // Paint ONCE: the canvas stays registered to the rotating galaxy parent.
     // A high-contrast fine star film, concentrated near the spiral core.
     // Parent galaxy opacity is handled on the image, not on this canvas.
     const countDust = Math.round(Math.min(2850, Math.max(1200, size * 2.35)));

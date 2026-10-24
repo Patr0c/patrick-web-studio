@@ -825,3 +825,64 @@ Mobile Hintergrundgrafiken: Galaxie1024px, Plattform1280px; Monitorposter640px. 
 Mobil keine runtime-SVG-Kontakt-/Schlagschattenfilter und kein Tastatur-Farbfilter: bereits in der Grafik berücksichtigt. Reflexfeld384×96/max20fps statt768×192/max30fps; bewegliche Sonnenreflexe und kontinuierliche Matrix erhalten. Kein zusätzlicher Animationsloop. Originale Bitmap-/GIMP-Assets bleiben unverändert archiviert und per Hash geprüft. Reproduzierbar: scripts/build_monitor_perspective.py, danach scripts/build_mobile_scene.py; Matrix-Mobilfarbe aus bestehender Mobilaufnahme per ffmpeg colorchannelmixer mit R/G25/229 und B/G15/229.
 
 Prüfung: Chromium1363×936 und390×844-Telefoniframe visuell. Mobil currentSrc1280×720-Hardware,640px-Displaybilder und mobile-green-Matrix; Montagecontainer display:contents, Matrixfilter:none, null erzeugte SVG-Schattenflächen, Reflexcanvas384×96. Matrix spielt; Sonne/Korona visuell aktiv. Desktop lädt ursprüngliche Hardware, Montagecontainer block und ursprünglichen Matrixfilter, Reflexcanvas768×192. Keine defekten aktiven Bilder; drei noch nicht geladene Bilder sind reguläre loading=lazy-Konzeptbilder unterhalb des Viewports. Alle mobilen Bitmaps mit Pillow decode/verify geprüft. ffprobe704×360,30fps,25.4s. Ressourcenchecker prüft jetzt auch srcset. Hash-/Ressourcen-/JS-Syntax-/Diffprüfung erfolgreich. KEIN echtes iPhone/Safari oder Firefox verfügbar; damit ist der konkrete Safari-Absturz noch nicht als behoben nachgewiesen. Beleg docs/mobile-memory-preview.jpg.
+
+##24.10.2026 — complete common-camera workstation reconstruction
+
+Branch: `feat/calibrated-seated-workstation-20261024`, based on
+`e66692f56fb0f082693755cf45b26b082dedc948`. User authorized newly creating ALL
+objects and rebuilding their shading to a consistent seated POV, including desk,
+mouse, keyboard/pad, screens/mounts and platform. All are now real offline3D
+objects with one camera. Original GIMP artwork and old source hashes are retained.
+See docs/seated-camera.md and assets/scene/seated/camera.json for calibration,
+chosen assumptions, exact world corners, packaged assets and reproduction.
+
+The original floor VP was measured near1280/721; scale/focal length were selected
+explicitly rather than claiming a unique original camera. Native2560×1440;
+4096-wide floor overscan shares desk scale, center and bottom anchor. All live
+screen faces are independently projected from their actual3D planes. Removed the
+active global upper-hardware homography, synthetic Canvas light stamps and duplicate
+SVG shadow copies. Cycles PBR beauty includes actual peripheral contact/cast
+shadows, all material reflections and coherent tile perspective. Sun/flare/galaxy
+light contributions modulate smoothly via bounded static textures. Solar position
+matches499/312; galactic light samples its visible upper arc at1771/650 rather than
+the art's lower, platform-obscured center. No runtime3D engine or model download.
+
+Visible glass ID mask automatically excludes frame, pad, keyboard, mouse and mounts.
+Native reference Matrix video/green remain. Static violet legends use their actual
+3D glyph mask without bloom, raindrops or an SVG runtime color filter. Main beauty
+is2560px (mobile1280); light maps2048px (mobile1024) reduce decoded memory. Middle
+support moved behind its display after render inspection. One low-energy flare
+compositor PNG failed integrity checking; replaced with a separately denoised
+small ray-traced contribution pass from the identical saved scene. See renderer.
+
+Validation: Python resource/archive hash checks, active render hashes and embedded
+camera equality; independent pinhole reprojection of every monitor world corner
+within.02 native pixels; visible-glass interior excludes peripherals; JS syntax
+and git whitespace checks. Chromium desktop1363×936: visible outer table edges,
+registered live screens, no horizontal document overflow, all images loaded,
+initial recordings paused, Matrix continuously playing. Manual left-project
+selection and hover playback verified; leaving pauses immediately. Browser
+extension telemetry errors are unrelated to site code. Firefox and real Safari/
+iPhone testing are unavailable here; do not claim the earlier iPhone crash fixed.
+Original sun/corona videos, static galaxy, stars, project links, sections below,
+hidden comparison UI/physical buttons and lifecycle safeguards remain unchanged.
+Production/main is not updated. Cloudflare preview only.
+
+User refinement during implementation: adjacent monitor bezel FRONT edges now
+share exact vertical3D hinge lines (zero local pitch); each screen remains a
+rigid rectangular plane. Desk bottom anchor changed from12/8px clearance to0.
+Galaxy rotation re-enabled at85% of the last active500s/600s angular speed:
+588.235294s desktop,705.882353s mobile. Reused the existing fixed-sky twinkle system
+with16–36 independent small glints; no duplicate star Canvas or repaint loop.
+
+Final explicit user camera data supersedes the approximate purple-mark alignment:
+frontal center view, eyes1.20m, monitor center1.15m (exact5cm height difference),
+outer monitors±45°. Camera yaw0, pitchatan(.05/1.87); principal1280/785; new floor
+VP1280/738.20856. Rebuilt all objects/shading with these final parameters. Shared
+vertical hinge columns and fixed rear bridges join side monitors to the center.
+Extruded open bezel/gasket rings replace face-covering slabs; glass is recessed
+13mm and full case depth is53.5mm. Bevels, side walls and their occlusion are real
+mesh geometry. Render intermediates live outside the browser-synchronized tree;
+packaged WebP/metadata use atomic writes and their hashes are verified.
+
+Final export: full4096×1440 foreground overscan preserves outer45° case side walls; CSS x−768 maps to the unchanged2560×1440 scene grid. Mobile foreground2048×720. Visible display ID10 makes exact apertures; live HTML is behind the case geometry, including real bevel/recess occlusion. Foreground coverage subtracts floor/display alpha exactly, avoiding duplicate antialiased floor edges. Center mount foot is on the actual tabletop at y.57m.

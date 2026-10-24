@@ -73,3 +73,32 @@ Latest override: remove keyboard raindrop animation completely. Constant violet 
 Latest override: monitor frames, mounts and three live screen faces share scene-monitor-assembly projective transform; upper reference y521 is5% wider/60px higher, attachment line y1150 fixed. Original bitmaps untouched; complementary hardware clips at1150. Keep tabletop/accessories/full-width floor unchanged. Rebuild monitor-reflection-mask and monitor_perspective geometry via scripts/build_monitor_perspective.py AFTER base mask rebuilds.
 
 Latest mobile stability override:≤760px uses source-pixel1280×720 composite assets/scene/mobile/hardware.webp, final screen quads directly, no nested assembly transform or runtime SVG color/shadow filters. Preserve same perspective/design, continuous green matrix and solar videos. Desktop original layers unchanged. Rebuild mobile source assets via scripts/build_mobile_scene.py after base mask/perspective rebuild. Do not claim real-iPhone crash resolved without an actual Safari test.
+
+Latest user override —24.10.2026 common seated camera: user explicitly authorizes
+newly modeling ALL objects, including table, floor, pad, keyboard, mouse, three
+monitor bodies and mounts, with a single coherent camera and rebuilt shading.
+Active calibration is assets/scene/seated/camera.json; build offline with
+scripts/render_seated_workstation.py (Blender4.2), then
+scripts/package_seated_workstation.py. This supersedes source-pixel-only geometry
+and the shared upper-monitor image warp. Archived GIMP artwork stays unchanged.
+Live monitor quads and visible-glass Matrix mask are exported from the real3D
+camera. Floor overscan MUST share the desk pixel scale, never independently stretch
+to viewport width. PBR sunlight/galaxy passes replace synthetic gradient lighting
+and duplicate SVG shadows. No runtime3D engine, no active physical buttons.
+Preserve static galaxy, slow sun, violet static legends, hover-only recordings,
+manual left-project chooser, detective center, Villa right, and preview-only rule.
+
+Latest refinement24.10.2026: all monitor frames stay rigid. Adjacent bezel fronts
+meet at shared vertical3D hinge lines, all top tilt0° (no wedge-shaped seams).
+Desk and matching floor/light layers finish at hero bottom0, without bottom gap.
+Galaxy rotates again at85% of its LAST active speed500s desktop/600s mobile:
+588.235294s/705.882353s. Dust follows the galaxy; individually twinkling fixed-sky
+stars remain independent. Preserve tab/offscreen/reduced-motion/data-saver guards.
+
+Latest explicit camera override: eye height1.20m, middle-monitor center1.15m
+(exactly5cm difference), frontal center view, yaw0, pitchatan(.05/1.87).
+Outer monitors±45°, rigid shared vertical hinge columns, rear fixed bridges.
+Principal point1280/785; updated floor VP1280/738.20856 follows this camera.
+Original measured VP1280/721 is a historical guide, not the active constraint.
+Monitor bezels are extruded rings with real openings and chamfers; display glass
+is recessed13mm behind the bezel face. Full casing depth53.5mm, not flat cards.
