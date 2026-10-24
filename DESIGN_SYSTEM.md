@@ -493,3 +493,16 @@ same calibration. Selected glyph paths are projected offline into a small
 animated strip for this compatibility route. No desktop scene CSS, SVG masks
 or filters are imported. A single bounded2D canvas composites the two small
 post-gesture media sources. Desktop keeps its vector-rendered Matrix.
+
+## Latest refinement —24.10.2026
+Fine sand-etched smoked satin, no perimeter trim; static .45mm camera-projected
+grain complements real roughness/bump. Original physical shadows retained.
+Reflective hot spot under monitor1 compressed74%, including the mat receiver.
+Mouse follows Patrick's four photos: segmented angular gaming shell, separate
+switch plates, exposed ribbed wheel, side controls/grips, arched rear, violet G.
+Glyph streams31.2px/s, with independent symbol changes at roughly.9–3.2s.
+No brightness/opacity reset at mutation. Small cached SVG sprite sheet and bounded
+projected surfaces replace the constantly rerasterized moving background.
+iPhone Matrix60fps from supersampled offline frames, canvas up to60fps. The
+physical-camera composition stays; iPhone moon/sun centers18% from hero top.
+One-time real-glyph scan visibly coats mounts/casings before screens switch on.

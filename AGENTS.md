@@ -132,3 +132,23 @@ orbit, startup/circuit/monitors/floor wave and manual left selection retained.
 Pause both media/RAF when offscreen or hidden; static reduced-motion state.
 Desktop index.html, vector atlas and existing desktop assets stay unchanged.
 Do not claim real-Safari crash fixed until Patrick confirms on his iPhone.
+
+Latest user override —24.10.2026 satin desk / photographed mouse / live Matrix:
+Patrick requests fine rough table texture, reduced light under monitor1, a mouse
+based on IMG_4156–4159, independently changing glyphs and exactly30% faster flow.
+31.2 source pixels/s supersedes24. Desktop now caches the real SVG glyph sheet
+and paints six bounded camera-projected Canvas2D surfaces (about534k pixels
+combined); this supersedes the stable-character/CSS-background-only rule.
+Brightness is constant through character swaps; individual periodic clocks avoid
+synchronized flashing. Hidden/offscreen/reduced-motion guards remain. The iPhone
+strip is supersampled offline at60fps,792×96, with the same glyph clocks/speed;
+one bounded main canvas, no desktop renderer or initial video decoder. Sun/moon
+endpoints on iPhone are18% from the hero top, still diametrically opposed.
+The one-shot hardware glyph scan is driven by the boot media clock, with explicit
+masked image layers; no fragile CSS-only scan. New reference mouse is a physical
+segmented gaming shell, wheel, side controls/grips and violet G, touching pad.
+Build: render_seated_workstation.py → package_seated_workstation.py →
+refine_table_material.py --capture-source → build_iphone_assets.py →
+build_iphone_edition.py. build_vector_matrix.py prepares the SVG glyph sources.
+Reusing the finish pass alone omits --capture-source for deterministic results.
+Preview branch only; main/production approval rule still applies.

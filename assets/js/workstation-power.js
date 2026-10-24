@@ -20,6 +20,7 @@
  for(const property of ['left','top','width','height'])sun.style.removeProperty(property);
  sun.removeAttribute('role');sun.removeAttribute('aria-label');sun.removeAttribute('tabindex');sun.setAttribute('aria-hidden','true');
  const circuit=document.createElement('div');circuit.className='boot-circuit';stage.querySelector('.scene-native').append(circuit);
+ for(const name of ['boot-circuit-base','boot-circuit-sweep']){const image=new Image();image.src='assets/scene/seated/boot-matrix.webp';image.alt='';image.width=4096;image.height=1440;image.className=name;circuit.append(image);}
  const native=stage.querySelector('.scene-native'),geometry=JSON.parse(document.getElementById('scene-geometry').textContent);
  const reflection=document.createElement('div');reflection.className='moon-reflection';native.append(reflection);
  geometry.screens.forEach(screen=>{const led=document.createElement('i');led.className='monitor-led';led.style.left=(screen.quad[2][0]-14)+'px';led.style.top=(screen.quad[2][1]+9)+'px';native.append(led);});

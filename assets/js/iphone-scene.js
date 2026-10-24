@@ -11,7 +11,7 @@
  // If the browser cannot allocate even the bounded canvas, keep useful stills.
  if(!ctx){
   const still=new Image();still.src='assets/iphone/scene-night.webp';still.alt='Digital-Rework-Workstation';still.className='phone-static';canvas.replaceWith(still);
-  Object.assign(moonButton.style,{left:'76%',top:'70%',width:'48px',height:'48px'});
+  Object.assign(moonButton.style,{left:'76%',top:'18%',width:'48px',height:'48px'});
   moonButton.addEventListener('click',()=>{still.src='assets/iphone/scene-hrservice.webp';moonButton.hidden=true;hero.dataset.state='on';status.textContent='Arbeitsstation eingeschaltet.';const sun=new Image();sun.src='assets/iphone/sun-poster.webp';sun.alt='Sonne';sun.className='phone-static-sun';hero.append(sun);});
   return;
  }
@@ -27,7 +27,7 @@
  function resize(){
   w=hero.clientWidth;h=hero.clientHeight;dpr=Math.min(devicePixelRatio||1,1.25,600/w,Math.sqrt(640000/(w*h)));
   canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);s=w/g.nativeWidth;stageY=h-g.nativeHeight*s;
-  const mx=(2061+40)*s,my=stageY+312*s,body=322*s,size=Math.max(48,body);
+  const mx=(2061+40)*s,my=Math.max(88,h*.18),body=322*s,size=Math.max(48,body);
   Object.assign(moonButton.style,{left:(mx-size/2)+'px',top:(my-size/2)+'px',width:size+'px',height:size+'px',padding:Math.max(0,(size-body)/2)+'px'});
   for(const [element,index] of [[chooser,0],[villa,2]]){
    const [x0,y0,x1,y1]=g.screenBounds[index];Object.assign(element.style,{left:x0*s+'px',top:stageY+y0*s+'px',width:(x1-x0)*s+'px',height:Math.max(44,(y1-y0)*s)+'px'});
@@ -43,7 +43,7 @@
   for(const [x,y,r,p] of stars){ctx.fillStyle=`rgba(228,240,255,${(.07+light*.5)*(.6+.4*Math.sin(elapsed*.4+p))})`;ctx.beginPath();ctx.arc(x*w,y*h,r,0,Math.PI*2);ctx.fill();}
   if(powered&&images.particles){ctx.globalAlpha=(.22+.08*Math.sin(elapsed*.13))*light;const size=840*s;ctx.drawImage(images.particles,(1771+40)*s-size/2,stageY+750*s-size/2,size,size);ctx.globalAlpha=1;}
   // Same circle and diametrically opposite centers as the desktop edition.
-  const orbit=smooth(elapsed/2.8),angle=Math.atan2(-688,781)+orbit*(-2*Math.atan2(-688,781)),r=Math.hypot(781,688)*s,cx=(1280+40)*s,cy=stageY+1000*s,body=322*s;
+  const orbit=smooth(elapsed/2.8),angle=Math.atan2(-688,781)+orbit*(-2*Math.atan2(-688,781)),r=Math.hypot(781,688)*s,cx=(1280+40)*s,cy=Math.max(88,h*.18)+688*s,body=322*s;
   if(powered){
    const sx=cx-Math.cos(angle)*r,sy=cy-Math.sin(angle)*r,size=body*1.455;
    const solar=sunVideo?.readyState>=2?sunVideo:images.sun;
@@ -59,7 +59,7 @@
    const matrix=matrixVideo?.readyState>=2?matrixVideo:images.matrix;
    if(matrix){ctx.globalCompositeOperation='screen';ctx.globalAlpha=smooth(elapsed/1.2);ctx.drawImage(matrix,0,stageY+g.matrixCrop/0.4*s,w,g.matrixHeight/0.4*s);ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;}
    const progress=(elapsed-.7)/2.4;
-   if(state==='boot'&&progress>0&&progress<1&&images.circuit){const y=1150-progress*700,band=100;ctx.globalAlpha=Math.sin(progress*Math.PI)*.8;ctx.drawImage(images.circuit,0,y*.4,g.width,band*.4,0,stageY+y*s,w,band*s);ctx.globalAlpha=1;}
+   if(state==='boot'&&progress>0&&progress<1&&images.circuit){const y=1080-progress*800,band=250,env=Math.min(1,progress*8,(1-progress)*8);scene(images.circuit,.38*env);ctx.globalAlpha=env;ctx.drawImage(images.circuit,0,y*.4,g.width,band*.4,0,stageY+y*s,w,band*s);ctx.globalAlpha=1;}
    const t=(sunVideo?.readyState>=2?sunVideo.currentTime:elapsed)%33.5,q=(t-5)/10;
    if(q>0&&q<1&&images.wave){
     const index=q*7,lo=Math.floor(index),mix=index-lo,env=smooth(q*6)*smooth((1-q)*5);
@@ -72,7 +72,7 @@
  }
  function ready(){state='on';hero.dataset.state=state;chooser.hidden=false;villa.hidden=false;status.textContent='Arbeitsstation eingeschaltet.';canvas.setAttribute('aria-label','Rauchglas-Workstation mit scharfer Matrix, violetter Tastatur und drei Projektmonitoren.');}
  function frame(now){
-  raf=0;if(!running)return;raf=requestAnimationFrame(frame);if(now-lastPaint<50)return;
+  raf=0;if(!running)return;raf=requestAnimationFrame(frame);if(now-lastPaint<1000/60-1)return;
   // Keep real time when the browser throttles a visible frame; hidden/offscreen
   // pauses reset lastPaint in sync(), so they never advance the startup clock.
   elapsed+=Math.max(0,(now-lastPaint)/1000);lastPaint=now;if(state==='boot'&&elapsed>=3.6)ready();draw();

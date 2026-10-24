@@ -128,7 +128,10 @@ for screen in seated['screens']:
         assert max(abs(a-b) for a,b in zip(projected,expected))<.02
     assert all(0<x<2560 and 0<y<1440 for x,y in screen['quad'])
 for name,checksum in seated['assets'].items():
-    assert hashlib.sha256((ROOT/'assets/scene/seated'/name).read_bytes()).hexdigest()==checksum,name
+    body=(ROOT/'assets/scene/seated'/name).read_bytes()
+    assert len(body)>16 and body[:4]==b'RIFF' and body[8:12]==b'WEBP', 'Empty/invalid scene image: '+name
+    assert int.from_bytes(body[4:8],'little')+8==len(body), 'Truncated scene image: '+name
+    assert hashlib.sha256(body).hexdigest()==checksum,name
 assert 'class="seated-foreground"' in html and 'class="scene-hardware' not in html
 assert 'monitor_perspective' not in (ROOT/'assets/js/scene.js').read_text()
 assert 'createElement(\'canvas\')' not in (ROOT/'assets/js/scene-lighting.js').read_text()

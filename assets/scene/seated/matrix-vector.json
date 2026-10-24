@@ -1,11 +1,11 @@
 {
-  "method": "C / true SVG glyph outlines \u2014 selected version 3",
+  "method": "C / true SVG glyph outlines \u2014 selected version 3; independent glyph changes",
   "font": "Noto Sans CJK JP / SIL OFL 1.1",
   "columns": 60,
   "cell": 32,
   "glyph_size": 22,
   "period": 2304,
-  "speed_px_per_second": 24,
+  "speed_px_per_second": 31.2,
   "glyph_count": 3395,
   "no_missing_glyphs": true,
   "glow_radius": 0

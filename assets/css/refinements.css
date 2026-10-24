@@ -23,9 +23,10 @@
 html.scene-light-paused .particle-sphere img,html.scene-light-paused .monitor-led,html.studio-tab-hidden .particle-sphere img {animation-play-state:paused;}
 html.studio-save-data .particle-sphere img {animation:none;}
 @media(prefers-reduced-motion:reduce){.particle-sphere img,.monitor-led{animation:none;}.scene-floor,.seated-foreground,.scene-moon{transition:none;}}
-.boot-circuit {display:none;position:absolute;inset:0;z-index:11;pointer-events:none;clip-path:inset(0 0 290px);mask:url('../scene/seated/workstation.webp') -768px 0/4096px 1440px no-repeat;background:repeating-linear-gradient(0deg,transparent 0 12px,#19e50f99 13px,transparent 15px 34px);}
-.hero[data-power=boot] .boot-circuit {display:block;animation:circuitBoot 3.6s ease-out both;}
-@keyframes circuitBoot {0%{opacity:0;background-position:0 -800px}25%{opacity:.55}75%{opacity:.3}100%{opacity:0;background-position:0 800px}}
+.boot-circuit {display:none;position:absolute;inset:0;z-index:11;pointer-events:none;}
+.boot-circuit img {position:absolute;left:-768px;top:0;width:4096px;height:1440px;max-width:none;}
+.boot-circuit-base {opacity:.38;}
+.hero[data-power=boot] .boot-circuit {display:block;}
 .hero[data-power=night] .scene-moon {animation:moonGlimmer 13s ease-in-out infinite;}
 @keyframes moonGlimmer {0%,100%{opacity:.85}50%{opacity:1}}
 html.scene-light-paused .scene-moon {animation-play-state:paused;}
@@ -44,11 +45,9 @@ html.scene-light-paused .scene-moon {animation-play-state:paused;}
 .platform-wave {background:linear-gradient(90deg,transparent 30%,rgba(255,114,48,.07) 39%,rgba(255,180,89,.30) 45%,rgba(255,220,166,.58) 50%,rgba(255,149,65,.22) 55%,rgba(255,89,38,.04) 63%,transparent 70%);mask-image:linear-gradient(0deg,transparent,#000 12% 75%,transparent);}
 
 /* Version 3: sharp genuine SVG outlines. A single phase crosses top → bevel →
-   front. No SVG colour filter, bitmap video, bloom, or per-character mutation. */
-.matrix-vector-plane {position:absolute;left:0;top:0;max-width:none;transform-origin:0 0;background-image:url('../scene/seated/matrix-vector.svg');background-size:1920px 2304px;background-repeat:repeat-y;animation:matrixSurfaceFlow 96s linear infinite;background-position:0 calc(0px - var(--matrix-offset));}
-@keyframes matrixSurfaceFlow {from{background-position-y:calc(-2304px - var(--matrix-offset))}to{background-position-y:calc(0px - var(--matrix-offset))}}
-.table-flow-mask[data-running=false] .matrix-vector-plane {animation-play-state:paused;}
-html.studio-tab-hidden .matrix-vector-plane,.scene-paused .matrix-vector-plane {animation-play-state:paused;}
+   front, with independent symbol changes. No colour filter, bitmap video or bloom. */
+.matrix-vector-plane {position:absolute;left:0;top:0;max-width:none;transform-origin:0 0;overflow:hidden;}
+.matrix-glyph-canvas {display:block;width:100%;height:100%;}
 .seated-native .table-flow-mask {filter:none;mix-blend-mode:normal;}
 
 /* Sun and moon are rigidly attached to diametrically opposed orbit arms. */
@@ -76,4 +75,4 @@ html[data-scene-power=night] .space-background {opacity:.10;}
 html[data-scene-power=night] .particle-sphere {opacity:0;}
 .space-background {transition:opacity 2.8s;}
 .hero[data-power=night] .scene-screen {background:#010202;}
-@media(prefers-reduced-motion:reduce){.matrix-vector-plane{animation:none;}.celestial-arm,.moon-trigger,.hero .celestial-orbit .scene-sun.white-halo.sun-stage,.scene-brand,.particle-sphere,.space-background{transition:none;}}
+@media(prefers-reduced-motion:reduce){.boot-circuit{animation:none;}.celestial-arm,.moon-trigger,.hero .celestial-orbit .scene-sun.white-halo.sun-stage,.scene-brand,.particle-sphere,.space-background{transition:none;}}

@@ -109,10 +109,12 @@ def material(name, color, metallic=0, rough=.35, transmission=0, emission=0):
 chrome = material('Neutral satin polished chromium', (.36, .39, .43), 1, .19)
 edge_chrome = material('Fine polished edge, external reflections only', (.6, .64, .68), 1, .105)
 graphite = material('Graphite anodized structure', (.032, .038, .046), .78, .30)
-glass = material('One frameless dark smoked display slab, absorptive backing', (.004, .006, .005), 0, .30, 0)
+glass = material('Fine etched smoked satin slab, absorptive backing', (.009, .012, .013), 0, .57, 0)
 glass.node_tree.nodes['Principled BSDF'].inputs['Specular IOR Level'].default_value=.01
 glass.node_tree.nodes['Principled BSDF'].inputs['Coat Weight'].default_value=0
-rubber = material('Fine anthracite pad textile', (.014, .018, .022), 0, .83)
+rubber = material('Fine anthracite pad textile', (.014, .018, .022), 0, .91)
+rubber.node_tree.nodes['Principled BSDF'].inputs['Specular IOR Level'].default_value=.06
+rubber.node_tree.nodes['Principled BSDF'].inputs['Coat Weight'].default_value=0
 keys = material('Clean molded charcoal keycaps', (.027, .031, .038), .12, .31)
 key_top = material('Subtle satin key top', (.038, .042, .050), .1, .35)
 black = material('Screen antireflective dark glass', (.001, .003, .004), .1, .28)
@@ -121,7 +123,7 @@ violet = material('Violet legends — crisp, no bloom', (.48, .15, .87), .02, .3
 white = material('White hardware status pin', (.6, .65, .7), .1, .3, .3)
 
 # Tight material microstructure; real shader normals instead of scratched artwork.
-for mat, scale, strength in [(chrome, 1200, .025), (rubber, 1800, .13)]:
+for mat, scale, strength in [(chrome, 1200, .025), (rubber, 1800, .13), (glass, 2200, .12)]:
     nt = mat.node_tree
     tex = nt.nodes.new('ShaderNodeTexNoise')
     tex.inputs['Scale'].default_value = scale
@@ -376,30 +378,8 @@ for r,labels in enumerate([['Num','/','*','-'],['7','8','9','+'],['4','5','6',''
             else:
                 key(label,.239+c*u,.060-r*.033)
 
-# Clean mouse shell with real wheel, fine button split and bounded highlights.
-mouse_mat=material('Satin charcoal ergonomic mouse polymer',(.023,.025,.028),.18,.26)
-verts=[];faces=[];N=64
-# The flat base touches PAD_TOP exactly. No floating picture/billboard.
-for rx,ry,z in [(.031,.053,0),(.038,.061,.004),(.040,.063,.014),(.036,.057,.031),(.024,.039,.044),(.001,.001,.048)]:
-    for i in range(N):
-        a=i*math.tau/N
-        # Narrower nose, softly asymmetric hand-shaped shell.
-        x=rx*math.cos(a)*(1-.09*max(0,math.sin(a)))
-        verts.append((.50+x,.245+ry*math.sin(a),PAD_TOP+z))
-faces.append(tuple(reversed(range(N))))
-for ring in range(5):
-    for i in range(N):faces.append((ring*N+i,ring*N+(i+1)%N,(ring+1)*N+(i+1)%N,(ring+1)*N+i))
-faces.append(tuple(range(5*N,6*N)))
-mesh=bpy.data.meshes.new('Grounded ergonomic shell mesh');mesh.from_pydata(verts,[],faces);mesh.update()
-mouse=bpy.data.objects.new('Grounded ergonomic mouse — real volume and contact',mesh);scene.collection.objects.link(mouse)
-for face in mesh.polygons:face.use_smooth=True
-sub=mouse.modifiers.new('Continuous molded shell','SUBSURF');sub.levels=2
-finish(mouse,mouse_mat,6)
-tube('Mouse button center split',[(.50,.299,PAD_TOP+.025),(.50,.286,PAD_TOP+.034),(.50,.267,PAD_TOP+.043)],.00055,seam,6)
-cylinder('Mouse wheel',(.494,.280,PAD_TOP+.037),(.506,.280,PAD_TOP+.037),.007,seam,6)
-for i in range(10):
-    a=i*math.tau/10
-    cylinder('Wheel tread',(.495,.280+math.cos(a)*.0072,PAD_TOP+.037+math.sin(a)*.0072),(.505,.280+math.cos(a)*.0072,PAD_TOP+.037+math.sin(a)*.0072),.00035,graphite,6)
+# Rebuild Patrick's photographed mouse in the same physical camera.
+exec(compile((ROOT/'scripts/model_reference_mouse.py').read_text(),str(ROOT/'scripts/model_reference_mouse.py'),'exec'))
 
 # Restore the approved detailed GIMP surfaces, projected on the same physical
 # desk planes. Proxy bodies remain for contact/cast shadows and reflections.

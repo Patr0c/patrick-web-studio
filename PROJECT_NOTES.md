@@ -1036,3 +1036,31 @@ while resetting its epoch on hidden/offscreen resume. Hotel modal rendered.
 Initial iPhone page observed zero video elements, zero SVG filters, one2D
 canvas316500px. Early iPhone/iPod redirect in main head avoids loading desktop
 render layers for iPhone visitors; desktop browser behavior is unchanged.
+
+## 24.10.2026 — Satin desk, photographed mouse and smoother live Matrix
+Branch refine/satin-desk-smooth-matrix-20261024 from0237cd2. User explicitly adds
+per-symbol mutation and30% flow speed; all prior no-mutation constraints superseded.
+Common-camera Blender render rebuilt with fine rough tabletop shader, lower mat
+specular/coat and a new physical gaming mouse based on IMG_4156–4159. Shape includes
+segmented switch plates, exposed centre wheel/spine, side controls/grooves, rear
+palm and violet G; base contacts pad z.754. No photo pasted into the hero.
+A deterministic static inverse-camera satin/grain pass retains the ray-traced
+contact shadows. Its immutable beauty/light inputs are preserved in materials/.
+Under-left-monitor hot spot compressed74%; dynamic contribution80% there.
+Desktop matrix uses a small SVG glyph sheet, six bounded2D canvases (533760px
+combined) and one existing RAF. Genuine Noto paths, original gaps/intensity and
+top→rounded bevel→front registration retained. Glyph clocks are independent and
+periodic, speed31.2px/s exactly. iPhone Matrix2× supersampled offline at60fps,
+792×96 (76032 decoded pixels), a73.85s period whose seam differs by only.12 source
+pixel. Symbol clocks wrap periodically without global replacement at the seam.
+The separate iPhone compositor paints up to60fps, still capped600px/640k pixels;
+zero videos initially and only two small streams after gesture. Moon/sun endpoints
+move to18% hero height. Both core/corona masks are baked before the solar decoder.
+Hardware startup now uses real glyphs clipped to actual casing/mount silhouette,
+excluding monitor apertures. Explicit image layers and media-clock sweep replace
+the faint repeating-line CSS animation. iPhone uses the same baked glyph pass.
+Local Chrome desktop observed genuine green characters on frames/mounts during
+boot, then final monitors/matrix.390px iframe moon center151.9px in844px hero
+(18%), zero initial videos; on state both streams advance320×320/792×96.
+Physical iPhone/Safari not available; frame pacing and the earlier Safari crash
+still require Patrick's device confirmation. Preview-only publishing retained.

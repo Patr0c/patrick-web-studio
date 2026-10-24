@@ -1,5 +1,5 @@
 /* One calibrated camera: rigid monitor planes, physical object beauty,
-   visible-glass Matrix video and baked PBR contribution layers. */
+   visible-glass Matrix glyphs and baked PBR contribution layers. */
 (() => {
  'use strict';
  const stage=document.querySelector('.scene-stage'),hero=document.querySelector('.immersive-hero');
@@ -25,24 +25,16 @@
   geometry.screens.forEach(screen=>project(stage.querySelector(`[data-screen="${screen.id}"]`),screen.quad,screen.width,screen.height));
  }
  const lighting=window.createSceneLighting?.(stage,native,sun,geometry);
- // Version 3: real font outlines on one unfolded surface coordinate system.
- // CSS moves the stable glyph atlas; the horizontal face, four bevel strips
- // and vertical front all sample the SAME period and phase.
+ // Real SVG glyphs, shared surface phase and independent symbol mutation.
  const field=stage.querySelector('.table-flow-mask');
- for(const surface of geometry.matrix_surfaces){
-  const plane=document.createElement('div');plane.className='matrix-vector-plane';
-  plane.dataset.surface=surface.name;
-  plane.style.setProperty('--matrix-offset',surface.offset+'px');
-  project(plane,surface.quad,surface.width,surface.height);
-  field.append(plane);
- }
+ const matrix=window.createMatrixFlow(field,geometry,project);
  let raf=0;
  function frame(now){
   raf=0;if(!active)return;
-  lighting?.tick(now);raf=requestAnimationFrame(frame);
+  lighting?.tick(now);matrix.tick(now);raf=requestAnimationFrame(frame);
  }
  function setTable(value){
-  field.dataset.running=String(value);
+  field.dataset.running=String(value);matrix.setActive(value);
   if(!value){cancelAnimationFrame(raf);raf=0;return;}
   if(!raf)raf=requestAnimationFrame(frame);
  }

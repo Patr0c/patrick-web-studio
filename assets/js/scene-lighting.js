@@ -26,6 +26,11 @@ window.createSceneLighting = (stage,native,sun,geometry) => {
   const powered=root.dataset.power!=='night',t=corona?.currentTime||0,phase=(video.currentTime||0)/(video.duration||108.733333)*Math.PI*2;
   const shimmer=.5+.5*(Math.sin(phase*13)*.58+Math.sin(phase*23+.6)*.27+Math.sin(phase*37+1.1)*.15);
   const burst=Math.pow(flareAt(t),1.8);
+  // The same media clock drives the one-shot hardware scan. A CSS animation
+  // could remain at its initial frame when the scene's pause state changed.
+  const circuit=stage.querySelector('.boot-circuit'),scan=Math.max(0,Math.min(1,(t-.1)/3.3)),scanY=1080-scan*800;
+  if(circuit){const sweep=circuit.querySelector('.boot-circuit-sweep');if(sweep)sweep.style.clipPath=`inset(${scanY}px 0 ${Math.max(0,1440-scanY-270)}px)`;circuit.style.opacity=root.dataset.power==='boot'?String(Math.min(1,scan*10,(1-scan)*10)):'0';}
+  stage.dataset.bootScan=scan.toFixed(3);
   layers.sun.style.opacity=powered?String(.025+shimmer*.055):'0';layers.flare.style.opacity=powered?String(burst*.28):'0';
   // Sampled outer-corona energy becomes visible at4s. Wave starts at5s,
   // one second later; its broad warm crest traverses the actual floor plane.
